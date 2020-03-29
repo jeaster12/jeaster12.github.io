@@ -1,0 +1,75 @@
+.feature-block {
+  position: relative;
+  border: $feature-border;
+  padding: $feature-padding;
+  background-color: $feature-bg;
+  border-radius: $feature-radius;
+  margin: ($feature-padding / 2) 0;
+
+  &:before {
+    top: -1px;
+    content: '';
+    right: -1px;
+    width: $space-xl;
+    height: $space-xl;
+    position: absolute;
+    transition: all .3s ease-out;
+    border-top: 2px solid $primary-color;
+    border-right: 2px solid $primary-color;
+    border-top-right-radius: $default-radius;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &-title {
+    font-size: $feature-title-font-size;
+    font-weight: $feature-title-font-weight;
+  }
+
+  &-icon {
+    display: flex;
+    position: relative;
+    margin-bottom: $space-md;
+    font-size: $feature-icon-size;
+
+    > * {
+      margin-right: $feature-padding / 2;
+    }
+
+    svg {
+      height: $feature-icon-size;
+      transition: all .3s ease-out;
+      max-width: $feature-icon-size * 2;
+    }
+
+    a:hover {
+      svg {
+        transform: translateY(-4px) !important;
+      }
+    }
+  }
+
+  &-link {
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:hover {
+    &:before {
+      width: $space-xl * 2;
+      height: $space-xl * 2;
+    }
+  }
+}
+
+.icons-only {
+  justify-content: space-between;
+  margin: 0;
+}

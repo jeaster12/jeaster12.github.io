@@ -1,0 +1,55 @@
+.preloader {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  position: fixed;
+  background: #fff;
+  backface-visibility: hidden;
+
+  .loader-status {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: $space-xxl;
+    height: $space-xxl;
+    margin: auto;
+    position: absolute;
+  }
+
+  .spinner {
+    width: $space-xxl;
+    height: $space-xxl;
+    border-radius: 100%;
+    background-color: $primary-color;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+      -webkit-transform: scale(0)
+  }
+
+  100% {
+      -webkit-transform: scale(1.0);
+      opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.0);
+  }
+}
+
+.light-bg {
+  background-color: $light-bg;
+}

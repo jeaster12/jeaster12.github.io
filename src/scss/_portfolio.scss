@@ -1,0 +1,134 @@
+.portfolio {
+  &-head {
+    padding-top: $space-md * 8;
+    padding-bottom: $space-xxl;
+    color: $portfolio-head-color;
+    background-color: $portfolio-head-bg;
+
+    .section-head {
+      margin-bottom: $space-xl;
+
+      &-title-letter {
+        color: rgba(0,0,0,0.4);
+      }
+    }
+  }
+
+  &-page {
+    padding-top: $space-xl * 2;
+  }
+
+  &-item {
+    position: relative;
+
+    &>a {
+      display: block;
+      position: relative;
+      transition: all .3s ease-out;
+
+      &:hover .portfolio-item-overlay {
+        opacity: .95;
+      }
+    }
+
+    &>a:hover {
+      opacity: .95;
+    }
+
+    &-media {
+      overflow: hidden;
+      position: relative;
+      border: $default-border;
+      border-radius: $default-radius;
+
+      img {
+        display: block;
+      }
+
+      &:before {
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 1;
+        position: absolute;
+        background: $dark-color;
+        height: ($space-xl + $space-sm);
+      }
+    }
+
+    &-overlay {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      position: absolute;
+      transition: all .3s ease-out;
+      border-radius: $default-radius;
+    }
+
+    &-details {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      display: flex;
+      color: #fff;
+      flex-wrap: wrap;
+      position: absolute;
+      padding: $space-sm;
+      flex-direction: column;
+      justify-content: flex-end;
+      backface-visibility: hidden;
+    }
+  }
+
+  &-meta {
+    margin: $space-xl 0;
+    border: $default-border;
+    background-color: $light-bg;
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+
+      a,
+      svg {
+        min-width: $space-xl;
+        min-height: $space-xl;
+        margin-right: $space-sm;
+      }
+    }
+
+    dl {
+      margin-bottom: 0;
+    }
+
+    dd {
+      line-height: 1.5;
+      margin-bottom: $space-md;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
+      font-size: 14px;
+      padding: $space-xs $space-md;
+    }
+
+    .c-row,
+    .c-row & {
+      padding: $space-lg;
+    }
+  }
+
+  &-section {
+    padding-bottom: $space-xl * 2;
+  }
+}
+

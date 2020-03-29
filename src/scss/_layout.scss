@@ -1,0 +1,125 @@
+.page {
+  &-content {
+    position: relative;
+    background: #fff;
+  }
+
+  &-cover {
+    overflow: hidden;
+    // min-height: 100vh;
+    position: relative;
+
+    &-wrapper-fixed {
+      width: 100%;
+      height: inherit;
+      position: relative;
+
+      @media (min-height: 640px) {
+        position: fixed;
+        max-height: 100vh;
+        min-height: 100vh;
+      }
+
+      @media (min-width: 1200px) and (min-height: 640px) {
+        right: 0;
+        width: auto;
+        min-height: 100vh;
+        left: $side-nav-width;
+      }
+    }
+
+    &-bg {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+
+    &-wrap {
+      position: relative;
+    }
+
+    .cover-letter {
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      line-height: 1;
+      font-weight: 700;
+      user-select: none;
+      position: absolute;
+      color: rgba(0, 0, 0, .07);
+      transform: translate(-50%, -50%);
+      font-family: $default-header-font;
+    }
+
+    .container>*:not(.cover-letter) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &-footer {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding: $space-md 0;
+    background-color: $light-bg;
+
+    ul {
+      padding: 0;
+      width: 100%;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      margin: 0 0 $space-sm 0;
+
+      li {
+        margin: $space-sm;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-wrapper {
+    z-index: 10;
+    width: auto;
+    position: relative;
+    margin-left: $side-nav-width;
+    box-shadow: 0 0 $side-nav-width rgba(0, 0, 0, .027), 0 0 27px rgba(0, 0, 0, .1);
+  }
+}
+
+
+.overlay-inner {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  canvas {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  &-holder img {
+    display: none;
+  }
+
+  &:not(.overlay-inner-holder) {
+    opacity: .75;
+    background-color: #1e2022;
+  }
+}
+

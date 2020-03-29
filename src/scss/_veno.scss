@@ -1,0 +1,242 @@
+
+/* ------ venobox.css --------*/
+.vbox-overlay *,
+.vbox-overlay *:before,
+.vbox-overlay *:after {
+  box-sizing: border-box;
+}
+
+.vbox-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  position: fixed;
+  z-index: 999999;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  * {
+    backface-visibility: visible;
+  }
+}
+
+/* ----- navigation ----- */
+.vbox {
+  &-title {
+    left: 0;
+    float: left;
+    width: 100%;
+    z-index: 89;
+    height: 40px;
+    display: none;
+    font-size: 12px;
+    position: fixed;
+    overflow: hidden;
+    line-height: 28px;
+    padding: 6px 50px;
+    text-align: center;
+  }
+
+  &-close {
+    top: -1px;
+    right: 0;
+    z-index: 99;
+    width: 50px;
+    height: 40px;
+    padding: 6px;
+    display: block;
+    line-height: 1;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    text-align: center;
+    background-position: 10px center;
+  }
+
+  &-left {
+    left: 0;
+    z-index: 99;
+    height: 40px;
+    display: flex;
+    font-size: 12px;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    line-height: 28px;
+    align-items: center;
+  }
+
+  &-num {
+    display: inline-block;
+    margin: 6px 0 6px 15px;
+  }
+
+  /* ----- navigation ARROWS ----- */
+  &-next,
+  &-prev {
+    top: 50%;
+    width: 45px;
+    height: 45px;
+    z-index: 99;
+    display: block;
+    position: fixed;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: -15px;
+
+    span {
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: relative;
+      position: absolute;
+      text-indent: -100px;
+      border-top-color: #b6b6b6;
+      border-right-color: #b6b6b6;
+      border: 2px solid transparent;
+    }
+  }
+
+  &-prev {
+    left: 15px;
+
+    span {
+      left: 10px;
+      transform: rotate(-135deg);
+    }
+  }
+
+  &-next{
+    right: 15px;
+
+    span {
+      right: 10px;
+      transform: rotate(45deg);
+    }
+  }
+
+  /* ------- inline window ------ */
+  &-inline{
+    width: 420px;
+    height: 315px;
+    height: 70vh;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: left;
+    background: #fff;
+  }
+
+  &-open {
+    overflow: hidden;
+  }
+
+  &-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    -webkit-overflow-scrolling: touch;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &-content {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 4%;
+    text-align: center;
+    position: relative;
+
+    &.swipe-left {
+      margin-left: -200px !important;
+    }
+
+    &.swipe-right{
+      margin-left: 200px !important;
+    }
+  }
+
+  &-figlio {
+    box-shadow: 0 0 12px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    max-width: 100%;
+    text-align: initial;
+  }
+
+  &-animated {
+    transition: margin 300ms ease-out;
+  }
+}
+
+img.vbox-figlio {
+  user-select: none;
+}
+
+/* ---------- preloader ----------
+* SPINKIT
+* http://tobiasahlin.com/spinkit/
+-------------------------------- */
+.sk-double-bounce {
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  position: relative;
+
+  .sk-child {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .6;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #333;
+    animation: sk-doubleBounce 2s infinite ease-in-out
+  }
+
+  .sk-double-bounce2 {
+    animation-delay: -1s
+  }
+}
+
+@-webkit-keyframes sk-doubleBounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+@keyframes sk-doubleBounce {
+
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+

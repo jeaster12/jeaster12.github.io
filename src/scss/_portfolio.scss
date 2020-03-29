@@ -20,6 +20,7 @@
 
   &-item {
     position: relative;
+    margin: $space-md 0;
 
     &>a {
       display: block;
@@ -132,3 +133,29 @@
   }
 }
 
+.matrix-img {
+  max-width: 400px;
+
+  @media (max-width:992px) {
+    padding: 0 $space-md $space-xl $space-md;
+    max-width: 325px
+  }
+}
+
+
+.btns {
+  &:first-child {
+    margin-right: $space-md;
+  }
+
+  @media (max-width:992px) {
+    .btn {
+      display: block;
+
+      &:first-child {
+        margin-right: 0;
+        margin-bottom: $space-md;
+      }
+    }
+  }
+}

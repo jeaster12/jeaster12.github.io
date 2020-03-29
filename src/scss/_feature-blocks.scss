@@ -67,6 +67,10 @@
       height: $space-xl * 2;
     }
   }
+
+  @media (max-width:992px) {
+    padding: $feature-padding / 2;
+  }
 }
 
 .icons-only {

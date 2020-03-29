@@ -49,8 +49,6 @@
 }
 
 
-
-
 .slick-prev {
   left: 0;
 
@@ -83,10 +81,10 @@
 
   li {
     padding: 0;
-    margin: 0 5px;
+    margin: 0 2px;
     cursor: pointer;
-    width: $space-xxl;
-    height: $space-xxl;
+    width: $space-xl;
+    height: $space-xl;
     position: relative;
     display: inline-block;
 
@@ -143,5 +141,18 @@
 #portfolio-examples {
   .slick-list {
     border: none;
+  }
+}
+
+
+@media (max-width:992px) {
+ #designs {
+    margin-top: $space-xl;
+  }
+  #portfolio-docs,
+  #portfolio-core,
+  #portfolio-cupcake,
+  #portfolio-sprinkles {
+    margin-bottom: $space-xxl + $space-md;
   }
 }

@@ -11,9 +11,9 @@ section {
     background-color: $light-bg;
   }
 
-  @media (max-width:991.98px) {
-    padding-left: $space-sm;
-    padding-right: $space-sm;
+  @media (max-width:992px) {
+    padding-left: $space-sm + $space-xs;
+    padding-right: $space-sm + $space-xs;
   }
 }
 
@@ -185,7 +185,7 @@ section {
   }
 }
 
-@media (max-width:991.98px) {
+@media (max-width:992px) {
   .experience {
     &:first-of-type {
       margin: $space-xl 0 0;
@@ -197,7 +197,7 @@ section {
   }
 }
 
-@media (max-width:991.98px) {
+@media (max-width:992px) {
   ul.experience-tasks {
     flex-flow: wrap;
     li {

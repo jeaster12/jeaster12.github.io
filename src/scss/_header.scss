@@ -1,10 +1,14 @@
+@use "variables";
+@use "sass:color";
 
 body.site-header-open {
   overflow-y: hidden;
 
   .site-header {
     transform: translate3D(0, 0, 0);
-    box-shadow: 0 0 100px rgba(0, 0, 0, .25), 0 0 20px rgba(0, 0, 0, .25);
+    box-shadow:
+      0 0 100px rgba(0, 0, 0, 0.25),
+      0 0 20px rgba(0, 0, 0, 0.25);
 
     &-overlay {
       opacity: 1;
@@ -13,7 +17,6 @@ body.site-header-open {
     }
   }
 }
-
 
 .site-header {
   top: 0;
@@ -26,14 +29,14 @@ body.site-header-open {
   overflow-y: auto;
   overflow-x: hidden;
   flex-direction: column;
-  width: $side-nav-width;
-  background: $side-nav-bg;
-  padding-bottom: $space-xl;
-  padding-top: $space-xxl * 2;
+  width: variables.$side-nav-width;
+  background: variables.$side-nav-bg;
+  padding-bottom: variables.$space-xl;
+  padding-top: variables.$space-xxl * 2;
   backface-visibility: hidden;
   justify-content: space-between;
-  transition: transform .3s ease-out;
-  transform: translate3D(-$side-nav-width, 0, 0);
+  transition: transform 0.3s ease-out;
+  transform: translate3D(-(variables.$side-nav-width), 0, 0);
 
   &-line {
     top: 0;
@@ -42,7 +45,7 @@ body.site-header-open {
     height: 100%;
     overflow: hidden;
     position: absolute;
-    background: darken($dark-color, 5);
+    background: color.adjust(variables.$dark-color, $lightness: -5%);
 
     &::after {
       left: 0;
@@ -55,7 +58,7 @@ body.site-header-open {
       animation-fill-mode: forwards;
       animation: run2 6s 0s infinite;
       animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, $secondary-color 75%, $secondary-color 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, variables.$secondary-color 75%, variables.$secondary-color 100%);
     }
   }
 
@@ -63,10 +66,9 @@ body.site-header-open {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 $space-md;
+    padding: 0 variables.$space-md;
     justify-content: center;
-    margin-bottom: $space-xxl;
-
+    margin-bottom: variables.$space-xxl;
 
     &-logo {
       color: #fff;
@@ -75,7 +77,7 @@ body.site-header-open {
       position: relative;
       text-align: center;
       line-height: 2.25rem;
-      font-family: $default-header-font;
+      font-family: variables.$default-header-font;
 
       *:not(.site-header-brand-logo-letter) {
         position: relative;
@@ -86,7 +88,7 @@ body.site-header-open {
         left: 0;
         right: 0;
         top: 50%;
-        opacity: .1;
+        opacity: 0.1;
         color: white;
         font-size: 3em;
         line-height: 1;
@@ -94,13 +96,13 @@ body.site-header-open {
         user-select: none;
         position: absolute;
         text-align: inherit;
-        font-family: $default-font;
+        font-family: variables.$default-font;
         transform: translate(0%, -50%);
       }
 
       &:hover {
         color: #fff;
-        opacity: .75;
+        opacity: 0.75;
       }
     }
   }
@@ -116,8 +118,8 @@ body.site-header-open {
     position: fixed;
     visibility: hidden;
     touch-action: pan-y;
-    transition-delay: 0s, .3s;
-    transition-duration: .3s, 0s;
+    transition-delay: 0s, 0.3s;
+    transition-duration: 0.3s, 0s;
     transition-timing-function: ease-out;
     transition-property: opacity, visibility;
 
@@ -126,9 +128,9 @@ body.site-header-open {
       left: 0;
       right: 0;
       bottom: 0;
-      opacity: .8;
+      opacity: 0.8;
       position: absolute;
-      background-color: $side-nav-bg;
+      background-color: variables.$side-nav-bg;
 
       canvas {
         top: 0;
@@ -144,17 +146,17 @@ body.site-header-open {
 
   &-divider {
     width: 1px;
-    opacity: .13;
+    opacity: 0.13;
     background-color: #fff;
-    height: $space-xxl + $space-sm;
-    margin: ($space-xxl + $space-md) auto;
+    height: variables.$space-xxl + variables.$space-sm;
+    margin: (variables.$space-xxl + variables.$space-md) auto;
   }
 
   &-nav {
     margin: 0;
     width: 100%;
     text-align: center;
-    padding: 0 $space-xl;
+    padding: 0 variables.$space-xl;
 
     ul {
       list-style: none;
@@ -162,8 +164,8 @@ body.site-header-open {
     }
 
     li {
-      margin-top: $space-md;
-      margin-bottom: $space-md;
+      margin-top: variables.$space-md;
+      margin-bottom: variables.$space-md;
 
       &:first-child {
         margin-top: 0;
@@ -180,20 +182,20 @@ body.site-header-open {
         position: relative;
         line-height: 1.75rem;
         display: inline-block;
-        transition: color .2s ease-out;
-        font-family: $default-header-font;
+        transition: color 0.2s ease-out;
+        font-family: variables.$default-header-font;
 
         &:before {
           left: 0;
           bottom: 0;
           opacity: 0;
-          content: '';
+          content: "";
           width: 100%;
           transition: 0.5s;
           visibility: hidden;
           position: absolute;
           transform: scaleX(0);
-          border-bottom: 1px dotted $primary-color;
+          border-bottom: 1px dotted variables.$primary-color;
         }
 
         &:hover:before,
@@ -210,7 +212,7 @@ body.site-header-open {
     margin: 0;
     width: 100%;
     text-align: center;
-    padding: 0 $space-xl;
+    padding: 0 variables.$space-xl;
 
     ul {
       padding: 0;
@@ -233,7 +235,6 @@ body.site-header-open {
   }
 }
 
-
 @-webkit-keyframes run2 {
   0% {
     top: -50%;
@@ -252,14 +253,13 @@ body.site-header-open {
   }
 }
 
-
 .mobile-logo {
   display: flex;
   outline: none;
   z-index: 9400;
   color: #fff;
-  top: $space-md;
-  left: $space-md;
+  top: variables.$space-md;
+  left: variables.$space-md;
   flex-wrap: wrap;
   position: fixed;
   cursor: pointer;
@@ -269,14 +269,16 @@ body.site-header-open {
   text-align: center;
   font-size: 1.25rem;
   align-items: center;
-  min-height: $space-xxl;
-  padding: $space-xs $space-md;
-  background-color: $dark-color;
-  border-radius: $default-radius;
-  font-family: $default-header-font;
-  max-width: calc(100% - 45px - $space-xxl);
-  border: 1px solid rgba(255, 255, 255, .2);
-  box-shadow: 0 0 15px rgba(0, 0, 0, .07), 0 0 5px rgba(0, 0, 0, .07);
+  min-height: variables.$space-xxl;
+  padding: variables.$space-xs variables.$space-md;
+  background-color: variables.$dark-color;
+  border-radius: variables.$default-radius;
+  font-family: variables.$default-header-font;
+  max-width: calc(100% - 45px - variables.$space-xxl);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.07),
+    0 0 5px rgba(0, 0, 0, 0.07);
 
   span,
   img {
@@ -286,18 +288,18 @@ body.site-header-open {
 
   &:hover {
     color: #fff;
-    background-color: darken($dark-color, 5);
+    background-color: color.adjust(variables.$dark-color, $lightness: -5%);
   }
 
   @media (min-width: 576px) {
-    top: $space-md + $space-sm;
-    left: $space-md + $space-sm;
+    top: variables.$space-md + variables.$space-sm;
+    left: variables.$space-md + variables.$space-sm;
     max-width: calc(100% - 60px - 54px);
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    top: $space-xl;
-    left: $space-xl;
+    top: variables.$space-xl;
+    left: variables.$space-xl;
     max-width: calc(100% - 90px - 54px);
   }
 
@@ -305,7 +307,6 @@ body.site-header-open {
     display: none;
   }
 }
-
 
 .nav-toggle {
   padding: 0;
@@ -315,15 +316,17 @@ body.site-header-open {
   cursor: pointer;
   position: fixed;
   border-radius: 0;
-  top: $space-md;
-  right: $space-md;
-  width: $space-xxl;
-  height: $space-xxl;
+  top: variables.$space-md;
+  right: variables.$space-md;
+  width: variables.$space-xxl;
+  height: variables.$space-xxl;
   user-select: none;
-  background-color: $dark-color;
-  border-radius: $default-radius;
-  border: 1px solid rgba(255, 255, 255, .2);
-  box-shadow: 0 0 15px rgba(0, 0, 0, .07), 0 0 5px rgba(0, 0, 0, .07);
+  background-color: variables.$dark-color;
+  border-radius: variables.$default-radius;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.07),
+    0 0 5px rgba(0, 0, 0, 0.07);
 
   &:focus {
     outline: none;
@@ -331,52 +334,62 @@ body.site-header-open {
 
   &:hover {
     color: #fff;
-    background-color: darken($dark-color, 5);
+    background-color: color.adjust(variables.$dark-color, $lightness: -5%);
   }
 
   span {
     height: 2px;
     display: block;
     margin: 0 auto;
-    width: $space-xl;
+    width: variables.$space-xl;
     background: #fff;
     position: relative;
     background-clip: padding-box;
-    transition: background .2s .2s ease-in-out;
+    transition: background 0.2s 0.2s ease-in-out;
 
     &:after,
     &:before {
       height: 2px;
-      content: '';
+      content: "";
       display: block;
-      width: $space-md;
+      width: variables.$space-md;
       position: absolute;
       background: #fff;
       transform-origin: 50% 50%;
       background-clip: padding-box;
-      transition: top .2s .4s ease-in-out, left .2s .2s ease-in-out, right .2s .2s ease-in-out, width .2s .2s ease-in-out, transform .2s ease-in-out;
+      transition:
+        top 0.2s 0.4s ease-in-out,
+        left 0.2s 0.2s ease-in-out,
+        right 0.2s 0.2s ease-in-out,
+        width 0.2s 0.2s ease-in-out,
+        transform 0.2s ease-in-out;
     }
 
     &:before {
-      left: $space-md;
-      top: ($space-sm + 2);
+      left: variables.$space-md;
+      top: (variables.$space-sm + 2);
     }
 
     &:after {
-      right: $space-md;
-      top: -($space-sm + 2);
+      right: variables.$space-md;
+      top: -(variables.$space-sm + 2);
     }
   }
 
   &.open span {
     background: transparent !important;
-    transition: background .2s 0s ease-in-out;
+    transition: background 0.2s 0s ease-in-out;
 
     &:before,
     &:after {
       top: 0;
-      width: $space-xl;
-      transition: top .2s ease-in-out, left .2s .2s ease-in-out, right .2s .2s ease-in-out, width .2s .2s ease-in-out, transform .2s .4s ease-in-out;
+      width: variables.$space-xl;
+      transition:
+        top 0.2s ease-in-out,
+        left 0.2s 0.2s ease-in-out,
+        right 0.2s 0.2s ease-in-out,
+        width 0.2s 0.2s ease-in-out,
+        transform 0.2s 0.4s ease-in-out;
     }
 
     &:before {
@@ -391,17 +404,16 @@ body.site-header-open {
   }
 
   @media (min-width: 576px) {
-    top: $space-md + $space-sm;
-    right: $space-md + $space-sm;
+    top: variables.$space-md + variables.$space-sm;
+    right: variables.$space-md + variables.$space-sm;
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    top: $space-xl;
-    right: $space-xl;
+    top: variables.$space-xl;
+    right: variables.$space-xl;
   }
 
   @media (min-width: 1200px) {
     display: none;
   }
 }
-

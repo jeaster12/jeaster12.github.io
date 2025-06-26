@@ -1,0 +1,45 @@
+@use "sass:meta";
+//- Mixin: Modifiers
+///
+/// Generate modifier classes based parent.
+/// Can get any value from the map, generate the classes with the style attribute.
+/// @example
+///    //Useage:
+///    .parent {
+///      @include modifiers(shadows, 'box-shadow');
+///     }
+///
+/// @examples
+///   //Output:
+/// .parent-xl {
+///   box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.1); }
+///
+/// .parent-lg {
+///   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); }
+///
+/// .parent-md {
+///   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1); }
+///
+/// .parent-sm {
+///   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); }
+///
+/// .parent-xs {
+///   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); }
+///
+///
+
+@mixin modifiers($map, $attribute) {
+  @each $key, $value in $map {
+    &-#{$key} {
+      @if meta.type-of($value) == 'map' {
+        @include modifiers($value, $attribute);
+      } @else if meta.type-of($attribute) == 'list' {
+        @each $a in $attribute {
+          #{$a}: $value !important;
+        }
+      } @else {
+        #{$attribute}: $value !important;
+      }
+    }
+  }
+}

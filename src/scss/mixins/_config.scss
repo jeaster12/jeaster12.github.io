@@ -1,0 +1,39 @@
+@use "sass:color";
+@use "sass:map";
+@use "util";
+
+// Global sizes are sizes based on our 8px grid established in util
+// Used by avatars, badges, buttons, checkboxes, forms,
+// switches, tabs, nav, media, pagination
+// !CHANGE CAREFULLY!
+$global-size-xs: util.$global-px-grid * 2 !default; // 16px
+$global-size-sm: util.$global-px-grid * 3 !default; // 24px
+$global-size-md: util.$global-px-grid * 4 !default; // 32px
+$global-size-lg: util.$global-px-grid * 5 !default; // 40px
+$global-size-xl: util.$global-px-grid * 6 !default; // 48px
+// !CHANGE CAREFULLY!
+
+// --------------------------------------------
+// Grid ---------------------------------------
+// --------------------------------------------
+$gutter: 12px !default;
+$grid-columns: 12 !default;
+$container-fixed-width: 1200px !default;
+$grid-gutter-width: 24px !default;
+
+// Define the maximum width of `.c-container-fixed` at breakpoints.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+) !default;

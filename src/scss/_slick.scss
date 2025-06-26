@@ -1,7 +1,9 @@
+@use "variables";
+
 
 .slick-list {
-  border: $default-border;
-  border-radius: $default-radius;
+  border: variables.$default-border;
+  border-radius: variables.$default-radius;
 }
 
 /* Arrows */
@@ -16,8 +18,8 @@
   line-height: 0;
   display: block;
   cursor: pointer;
-  width: $space-xxl;
-  height: $space-xxl;
+  width: variables.$space-xxl;
+  height: variables.$space-xxl;
   position: absolute;
   color: transparent;
   background: transparent;
@@ -40,9 +42,9 @@
   &:before {
     opacity: .75;
     line-height: 1;
-    font-size: $space-lg;
-    color: $default-font-color;
-    font-family: $default-font;
+    font-size: variables.$space-lg;
+    color: variables.$default-font-color;
+    font-family: variables.$default-font;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
@@ -83,8 +85,8 @@
     padding: 0;
     margin: 0 2px;
     cursor: pointer;
-    width: $space-xl;
-    height: $space-xl;
+    width: variables.$space-xl;
+    height: variables.$space-xl;
     position: relative;
     display: inline-block;
 
@@ -96,8 +98,8 @@
       line-height: 0;
       display: block;
       cursor: pointer;
-      width: $space-xxl;
-      height: $space-xxl;
+      width: variables.$space-xxl;
+      height: variables.$space-xxl;
       color: transparent;
       background: transparent;
 
@@ -108,7 +110,7 @@
         &:before,
         &:before {
           opacity: 1;
-          color: $secondary-color;
+          color: variables.$secondary-color;
         }
       }
 
@@ -118,13 +120,13 @@
         content: '•';
         opacity: .25;
         color: black;
-        width: $space-xxl;
+        width: variables.$space-xxl;
         position: absolute;
-        height: $space-xxl;
+        height: variables.$space-xxl;
         text-align: center;
-        font-size: $space-xxl;
-        line-height: $space-xxl;
-        font-family: $default-font;
+        font-size: variables.$space-xxl;
+        line-height: variables.$space-xxl;
+        font-family: variables.$default-font;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
       }
@@ -133,7 +135,7 @@
 
     &.slick-active button:before {
       opacity: .75;
-      color: $secondary-color;
+      color: variables.$secondary-color;
     }
   }
 }
@@ -147,12 +149,12 @@
 
 @media (max-width:992px) {
  #designs {
-    margin-top: $space-xl;
+    margin-top: variables.$space-xl;
   }
   #portfolio-docs,
   #portfolio-core,
   #portfolio-cupcake,
   #portfolio-sprinkles {
-    margin-bottom: $space-xxl + $space-md;
+    margin-bottom: variables.$space-xxl + variables.$space-md;
   }
 }

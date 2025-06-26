@@ -1,0 +1,24 @@
+@use "mixins/grid-mixins";
+
+// Fluid container
+.c-container {
+  @include grid-mixins.grid-container();
+
+  // fixed container
+  &-fixed {
+    @include grid-mixins.grid-container();
+    @include grid-mixins.grid-container-max-widths();
+  }
+}
+
+.c-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: calc(100vh - 100px); //this is footer height plus header height
+}
+
+.c-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

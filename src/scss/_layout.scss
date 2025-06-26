@@ -1,3 +1,5 @@
+@use "variables";
+
 .page {
   &-content {
     position: relative;
@@ -24,7 +26,7 @@
         right: 0;
         width: auto;
         min-height: 100vh;
-        left: $side-nav-width;
+        left: variables.$side-nav-width;
       }
     }
 
@@ -50,7 +52,7 @@
       position: absolute;
       color: rgba(0, 0, 0, .07);
       transform: translate(-50%, -50%);
-      font-family: $default-header-font;
+      font-family: variables.$default-header-font;
     }
 
     .container>*:not(.cover-letter) {
@@ -64,8 +66,8 @@
     width: 100%;
     position: relative;
     text-align: center;
-    padding: $space-md 0;
-    background-color: $light-bg;
+    padding: variables.$space-md 0;
+    background-color: variables.$light-bg;
 
     ul {
       padding: 0;
@@ -73,10 +75,10 @@
       display: flex;
       list-style: none;
       justify-content: center;
-      margin: 0 0 $space-sm 0;
+      margin: 0 0 variables.$space-sm 0;
 
       li {
-        margin: $space-sm;
+        margin: variables.$space-sm;
       }
     }
   }
@@ -87,8 +89,8 @@
     z-index: 10;
     width: auto;
     position: relative;
-    margin-left: $side-nav-width;
-    box-shadow: 0 0 $side-nav-width rgba(0, 0, 0, .027), 0 0 27px rgba(0, 0, 0, .1);
+    margin-left: variables.$side-nav-width;
+    box-shadow: 0 0 variables.$side-nav-width rgba(0, 0, 0, .027), 0 0 27px rgba(0, 0, 0, .1);
   }
 }
 

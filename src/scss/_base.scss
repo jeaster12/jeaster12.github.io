@@ -1,16 +1,240 @@
+@use "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
-  font-size: $default-font-size;
+  font-size: variables.$default-font-size;
+  /* Make type rendering look crisper */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Disable auto-enlargement of small text in Safari */
+  text-size-adjust: 100%;
+
+  /* Enable kerning and optional ligatures */
+  text-rendering: optimizeLegibility;
 }
 
 body {
   min-height: 100vh;
-  font-family: $default-font;
+  font-family: variables.$default-font;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  line-height: $default-font-line-height;
+  line-height: variables.$default-font-line-height;
+  padding: 0;
+  margin: 0;
 }
 
+select {
+  width: 100%;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  overflow: visible;
+  background: transparent;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+dfn {
+  font-style: italic;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  appearance: button;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: not-allowed;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  box-sizing: content-box;
+  appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+legend {
+  padding: 0;
+  border: 0;
+}
+
+optgroup {
+  font-weight: 700;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+textarea {
+  height: auto;
+  min-height: 50px;
+  overflow: auto;
+}
 
 audio,
 canvas,
@@ -27,6 +251,10 @@ video {
 img {
   width: auto;
   max-width: 100%;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
 }
 
 iframe {
@@ -52,7 +280,7 @@ h6,
   margin-bottom: 0;
   line-height: 1.5;
   position: relative;
-  font-family: $default-header-font;
+  font-family: variables.$default-header-font;
 }
 
 h1 a,
@@ -101,6 +329,7 @@ h6,
 }
 
 p {
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -108,7 +337,7 @@ p.lead {
   font-weight: 400;
   line-height: 1.875;
   font-size: 1.125rem;
-  margin-bottom: $space-xs + $space-sm;
+  margin-bottom: variables.$space-xs + variables.$space-sm;
 }
 
 .blockquote {
@@ -120,18 +349,18 @@ p.lead {
 
 a {
   cursor: pointer;
-  color: $primary-color;
+  color: variables.$primary-color;
   text-decoration: none;
 
   &:not(.btn) {
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   &:hover,
   &:focus {
     outline: 0;
     text-decoration: none;
-    color: $primary-color;
+    color: variables.$primary-color;
   }
 }
 
@@ -159,13 +388,13 @@ p,
 pre,
 table,
 ul {
-  margin-bottom: $space-md;
+  margin-bottom: variables.$space-md;
 }
 
 input,
 select,
 textarea {
-  font-size: $space-md;
+  font-size: variables.$space-md;
   font-style: normal;
   font-weight: 400;
 }
@@ -181,7 +410,7 @@ dt {
 }
 
 dd {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   margin-left: 0;
 }
 
@@ -194,12 +423,13 @@ dd dl:last-child {
   margin-bottom: 0;
 }
 
-
 hr {
+  height: 0;
+  box-sizing: content-box;
   margin-top: 1.5rem;
   margin-bottom: 3.5rem;
   border-top-width: 1px;
-  border-color: rgba(0, 0, 0, .04);
+  border-color: rgba(0, 0, 0, 0.04);
 }
 
 ul {
@@ -208,17 +438,17 @@ ul {
     list-style: none;
 
     li {
-      margin: $space-xs 0 0 $space-lg;
+      margin: variables.$space-xs 0 0 variables.$space-lg;
 
       &:before {
         width: 6px;
-        content: '';
+        content: "";
         height: 13px;
         display: block;
         margin-top: 5px;
         margin-left: -20px;
         position: absolute;
-        border: solid $secondary-color;
+        border: solid variables.$secondary-color;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
       }
@@ -234,43 +464,43 @@ ul {
 @media (max-width: 700px) {
   h1,
   .h1 {
-      font-size: 2rem;
-      line-height: 1.25;
+    font-size: 2rem;
+    line-height: 1.25;
   }
 
   h2,
   .h2 {
-      font-size: 1.75rem;
-      line-height: 1.25;
+    font-size: 1.75rem;
+    line-height: 1.25;
   }
 
   h3,
   .h3 {
-      font-size: 1.3125rem;
-      line-height: 1.25;
+    font-size: 1.3125rem;
+    line-height: 1.25;
   }
 
   h4,
   .h4 {
-      font-size: 1.125rem;
-      line-height: 1.25;
+    font-size: 1.125rem;
+    line-height: 1.25;
   }
 }
 
 @media (max-width: 480px) {
   h1,
   .h1 {
-      font-size: 1.6875rem;
-      line-height: 1.25;
+    font-size: 1.6875rem;
+    line-height: 1.25;
   }
 
   h2,
   .h2 {
-      font-size: 1.5rem;
-      line-height: 1.25;
+    font-size: 1.5rem;
+    line-height: 1.25;
   }
 
   .lead {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 }

@@ -11,12 +11,11 @@
   font-size: 0.9375rem;
   display: inline-block;
   vertical-align: middle;
-  color: variables.$default-font-color;
-  transition: all 0.2s ease-out;
-  padding: variables.$space-sm variables.$space-lg;
   border: 1px solid transparent;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
+  color: variables.$default-font-color;
+  padding: variables.$space-sm variables.$space-lg;
 
   &:hover {
     color: variables.$default-font-color;
@@ -24,7 +23,7 @@
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 0%);
   }
 
   &:first-child {
@@ -36,62 +35,62 @@
     height: 32px;
     border: none;
     padding: 3px;
-    color: #1e2022;
     line-height: 32px;
     position: relative;
     font-size: 0.875rem;
     border-radius: 0.2rem;
-    border-color: #1e2022;
+    color: variables.$dark-color;
     background-color: transparent;
+    border-color: variables.$dark-color;
 
     &:hover {
-      color: #fff;
-      border-color: #1e2022;
-      background-color: #1e2022;
+      color: variables.$white;
+      border-color: variables.$dark-color;
+      background-color: variables.$dark-color;
     }
 
     &-light {
-      color: #fff;
-      border-color: #fff;
+      color: variables.$white;
+      border-color: variables.$white;
 
       &:hover {
-        border-color: #fff;
-        background-color: #fff;
+        border-color: variables.$white;
+        background-color: variables.$white;
         color: variables.$default-font-color;
       }
     }
   }
 
   &-primary {
-    color: #fff;
+    color: variables.$white;
     background-color: variables.$primary-color;
     border-color: color.adjust(variables.$primary-color, $lightness: 5%);
 
     &:hover {
-      color: #fff;
+      color: variables.$white;
       border-color: color.adjust(variables.$primary-color, $lightness: -15%);
       background-color: color.adjust(variables.$primary-color, $lightness: 5%);
     }
 
     &:focus {
-      color: #fff;
+      color: variables.$white;
     }
   }
 
   &-light {
-    color: #1e2022;
-    background-color: #efefef;
-    border-color: color.adjust(#efefef, $lightness: -5%);
+    color: variables.$dark-color;
+    background-color: variables.$light-alt;
+    border-color: color.adjust(variables.$light-alt, $lightness: -5%);
 
     &:hover {
-      color: #1e2022;
-      border-color: color.adjust(#efefef, $lightness: -15%);
-      background-color: color.adjust(#efefef, $lightness: -5%);
+      color: variables.$dark-color;
+      border-color: color.adjust(variables.$light-alt, $lightness: -15%);
+      background-color: color.adjust(variables.$light-alt, $lightness: -5%);
     }
 
     &:focus,
     &.focus {
-      box-shadow: 0 0 0 0 rgba(215, 217, 220, 0.5);
+      box-shadow: 0 0 0 0 rgb(215 217 220 / 50%);
     }
   }
 }

@@ -1,5 +1,5 @@
+/* stylelint-disable */
 @use "variables";
-
 
 .slick-list {
   border: variables.$default-border;
@@ -33,14 +33,14 @@
     color: transparent;
     background: transparent;
 
-    &:before {
+    &::before {
       opacity: 1;
     }
   }
 
-  &:before,
-  &:before {
-    opacity: .75;
+  &::before,
+  &::before {
+    opacity: 0.75;
     line-height: 1;
     font-size: variables.$space-lg;
     color: variables.$default-font-color;
@@ -50,20 +50,19 @@
   }
 }
 
-
 .slick-prev {
   left: 0;
 
-  &:before {
-    content: '←';
+  &::before {
+    content: "←";
   }
 }
 
 .slick-next {
-  right: 0px;
+  right: 0;
 
-  &:before {
-    content: '→';
+  &::before {
+    content: "→";
   }
 }
 
@@ -107,18 +106,18 @@
       &:focus {
         outline: none;
 
-        &:before,
-        &:before {
+        &::before,
+        &::before {
           opacity: 1;
           color: variables.$secondary-color;
         }
       }
 
-      &:before {
+      &::before {
         top: 0;
         left: 0;
-        content: '•';
-        opacity: .25;
+        content: "•";
+        opacity: 0.25;
         color: black;
         width: variables.$space-xxl;
         position: absolute;
@@ -130,11 +129,10 @@
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
       }
-
     }
 
-    &.slick-active button:before {
-      opacity: .75;
+    &.slick-active button::before {
+      opacity: 0.75;
       color: variables.$secondary-color;
     }
   }
@@ -146,11 +144,11 @@
   }
 }
 
-
-@media (max-width:992px) {
- #designs {
+@media (width <=992px) {
+  #designs {
     margin-top: variables.$space-xl;
   }
+
   #portfolio-docs,
   #portfolio-core,
   #portfolio-cupcake,
@@ -158,3 +156,4 @@
     margin-bottom: variables.$space-xxl + variables.$space-md;
   }
 }
+/* stylelint-enable */

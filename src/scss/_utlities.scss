@@ -3,45 +3,38 @@
 @use "mixins/bp-mixins";
 @use "mixins/config";
 @use "mixins/modifier-mixins";
-@use "mixins/util";
 
 .preloader {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 100000;
   position: fixed;
-  background: #fff;
   backface-visibility: hidden;
+  background: variables.$white;
 
   .loader-status {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: variables.$space-xxl;
-    height: variables.$space-xxl;
+    inset: 0;
     margin: auto;
     position: absolute;
+    width: variables.$space-xxl;
+    height: variables.$space-xxl;
   }
 
   .spinner {
+    border-radius: 100%;
     width: variables.$space-xxl;
     height: variables.$space-xxl;
-    border-radius: 100%;
     background-color: variables.$primary-color;
     animation: sk-scaleout 1s infinite ease-in-out;
   }
 }
 
-@-webkit-keyframes sk-scaleout {
+@keyframes sk-scaleout {
   0% {
-    -webkit-transform: scale(0);
+    transform: scale(0);
   }
 
   100% {
-    -webkit-transform: scale(1);
+    transform: scale(1);
     opacity: 0;
   }
 }
@@ -61,59 +54,53 @@
   background-color: variables.$light-bg;
 }
 
-// Space helpers
-// @each $breakpoint in map.keys(config.$breakpoints) {
-//   @include bp-mixins.media-breakpoint-up($breakpoint) {
-//     $bp: bp-mixins.breakpoint-infix($breakpoint, config.$breakpoints);
-
-//     .c#{$bp}-p-horizontal {
-//       @include modifier-mixins.modifiers(util.$space, ("padding-left", "padding-right"));
-//     }
-
-//     .c#{$bp}-p-vertical {
-//       @include modifier-mixins.modifiers(util.$space, ("padding-top", "padding-bottom"));
-//     }
-
-//     .c#{$bp}-m-horizontal {
-//       @include modifier-mixins.modifiers(util.$space, ("margin-left", "margin-right"));
-//     }
-
-//     .c#{$bp}-m-vertical {
-//       @include modifier-mixins.modifiers(util.$space, ("margin-top", "margin-bottom"));
-//     }
-//   }
-// }
-
 $directions: ("top", "right", "bottom", "left");
 
 .p {
   @each $direction in $directions {
     &-#{$direction} {
-      @include modifier-mixins.modifiers(util.$space, ("padding"));
+      @include modifier-mixins.modifiers(config.$space, ("padding-#{$direction}"));
     }
   }
 
   &-horizontal {
-    @include modifier-mixins.modifiers(util.$space, ("padding-left", "padding-right"));
+    @include modifier-mixins.modifiers(config.$space, ("padding-left", "padding-right"));
   }
 
   &-vertical {
-    @include modifier-mixins.modifiers(util.$space, ("padding-top", "padding-bottom"));
+    @include modifier-mixins.modifiers(config.$space, ("padding-top", "padding-bottom"));
   }
 }
 
 .m {
   @each $direction in $directions {
     &-#{$direction} {
-      @include modifier-mixins.modifiers(util.$space, ("margin"));
+      @include modifier-mixins.modifiers(config.$space, ("margin-#{$direction}"));
     }
   }
 
   &-horizontal {
-    @include modifier-mixins.modifiers(util.$space, ("margin-left", "margin-right"));
+    @include modifier-mixins.modifiers(config.$space, ("margin-left", "margin-right"));
   }
 
   &-vertical {
-    @include modifier-mixins.modifiers(util.$space, ("margin-top", "margin-bottom"));
+    @include modifier-mixins.modifiers(config.$space, ("margin-top", "margin-bottom"));
+  }
+}
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  &:focus {
+    clip: auto;
+    height: auto;
+    overflow: auto;
+    position: absolute;
+    width: auto;
   }
 }

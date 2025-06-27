@@ -8,13 +8,13 @@
   border-radius: variables.$feature-radius;
   margin: calc(variables.$feature-padding / 2) 0;
 
-  &:before {
+  &::before {
     top: -1px;
     content: "";
     right: -1px;
+    position: absolute;
     width: variables.$space-xl;
     height: variables.$space-xl;
-    position: absolute;
     transition: all 0.3s ease-out;
     border-top: 2px solid variables.$primary-color;
     border-right: 2px solid variables.$primary-color;
@@ -64,7 +64,7 @@
   }
 
   &:hover {
-    &:before {
+    &::before {
       width: variables.$space-xl * 2;
       height: variables.$space-xl * 2;
     }
@@ -76,7 +76,7 @@
     flex-direction: column;
   }
 
-  @media (max-width: 992px) {
+  @media (width <= 992px) {
     padding: calc(variables.$feature-padding / 2);
   }
 }

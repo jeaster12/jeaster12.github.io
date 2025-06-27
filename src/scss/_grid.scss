@@ -1,0 +1,74 @@
+@use "sass:map";
+@use "sass:math";
+@use "mixins/bp-mixins";
+@use "mixins/config";
+@use "mixins/grid-mixins";
+@use "mixins/util";
+
+// Fluid container
+.container {
+  @include grid-mixins.grid-container;
+
+  // fixed container
+  &-fixed {
+    @include grid-mixins.grid-container;
+    @include grid-mixins.grid-container-max-widths;
+  }
+}
+
+// Row
+.row {
+  @include grid-mixins.grid-row;
+}
+
+@each $breakpoint in map.keys(config.$breakpoints) {
+  @include bp-mixins.media-breakpoint-up($breakpoint) {
+    $bp: bp-mixins.breakpoint-infix($breakpoint, config.$breakpoints);
+  }
+}
+
+// Base column is extend to avoid duplication at breakpoints
+%column {
+  position: relative;
+  width: 100%;
+  min-height: 1px; // Prevent collapsing
+  padding-right: calc(config.$grid-gutter-width / 2);
+  padding-left: calc(config.$grid-gutter-width / 2);
+}
+
+@each $breakpoint in map.keys(config.$breakpoints) {
+  $bp: bp-mixins.breakpoint-infix($breakpoint, config.$breakpoints);
+
+  // Allow columns to stretch full width below their breakpoints
+  @for $i from 1 through config.$grid-columns {
+    .col#{$bp}-#{$i} {
+      @extend %column;
+    }
+  }
+
+  .col#{$bp},
+  .col#{$bp}-auto {
+    @extend %column;
+  }
+
+  @include bp-mixins.media-breakpoint-up($breakpoint, config.$breakpoints) {
+    // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+    .col#{$bp} {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    .col#{$bp}-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none; // Reset earlier grid tiers
+    }
+
+    @for $i from 1 through config.$grid-columns {
+      .col#{$bp}-#{$i} {
+        @include grid-mixins.grid-col($i, config.$grid-columns);
+      }
+    }
+  }
+}

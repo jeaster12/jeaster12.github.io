@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "scripts": {
     "clean": "rimraf dist/{css/*,js/*,images/*}",
-    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/main.css",
     "scss": "sass src/scss:dist/css --style=compressed",
-    "lint-scss": "stylelint src/scss/*.scss --syntax scss || true",
+    "lint-scss": "stylelint src/scss/*.scss",
+    "lint-scss-fix": "stylelint src/scss/*.scss --fix",
     "uglify": "mkdirp dist/js -p && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
     "imagemin": "imagemin src/images/* -o dist/images",
     "serve": "browser-sync start --server --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\"",
@@ -21,17 +22,19 @@
     "postinstall": "run-s build watch"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "browser-sync": "^2.27.9",
-    "imagemin-cli": "^7.0.0",
-    "mkdirp": "^1.0.4",
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "imagemin-cli": "^8.0.0",
+    "mkdirp": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0",
-    "rimraf": "^3.0.2",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "rimraf": "^6.0.1",
     "sass": "^1.89.2",
-    "stylelint": "^13.13.1",
-    "uglify-js": "^3.15.3"
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "uglify-js": "^3.19.3"
   }
 }

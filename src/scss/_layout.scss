@@ -3,12 +3,11 @@
 .page {
   &-content {
     position: relative;
-    background: #fff;
+    background: variables.$white;
   }
 
   &-cover {
     overflow: hidden;
-    // min-height: 100vh;
     position: relative;
 
     &-wrapper-fixed {
@@ -16,13 +15,13 @@
       height: inherit;
       position: relative;
 
-      @media (min-height: 640px) {
+      @media (height >= 640px) {
         position: fixed;
         max-height: 100vh;
         min-height: 100vh;
       }
 
-      @media (min-width: 1200px) and (min-height: 640px) {
+      @media (width >= 1200px) and (height >= 640px) {
         right: 0;
         width: auto;
         min-height: 100vh;
@@ -31,10 +30,7 @@
     }
 
     &-bg {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       position: absolute;
     }
 
@@ -50,12 +46,12 @@
       font-weight: 700;
       user-select: none;
       position: absolute;
-      color: rgba(0, 0, 0, .07);
+      color: rgb(0 0 0 / 7%);
       transform: translate(-50%, -50%);
       font-family: variables.$default-header-font;
     }
 
-    .container>*:not(.cover-letter) {
+    .container > *:not(.cover-letter) {
       position: relative;
       z-index: 2;
     }
@@ -84,32 +80,27 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .page-wrapper {
     z-index: 10;
     width: auto;
     position: relative;
     margin-left: variables.$side-nav-width;
-    box-shadow: 0 0 variables.$side-nav-width rgba(0, 0, 0, .027), 0 0 27px rgba(0, 0, 0, .1);
+    box-shadow:
+      0 0 variables.$side-nav-width rgb(0 0 0 / 2.7%),
+      0 0 27px rgb(0 0 0 / 10%);
   }
 }
 
-
 .overlay-inner {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   position: absolute;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   canvas {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -120,8 +111,7 @@
   }
 
   &:not(.overlay-inner-holder) {
-    opacity: .75;
-    background-color: #1e2022;
+    opacity: 0.75;
+    background-color: variables.$dark-color;
   }
 }
-

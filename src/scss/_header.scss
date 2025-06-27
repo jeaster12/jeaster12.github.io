@@ -5,10 +5,10 @@ body.site-header-open {
   overflow-y: hidden;
 
   .site-header {
-    transform: translate3D(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     box-shadow:
-      0 0 100px rgba(0, 0, 0, 0.25),
-      0 0 20px rgba(0, 0, 0, 0.25);
+      0 0 100px rgb(0 0 0 / 25%),
+      0 0 20px rgb(0 0 0 / 25%);
 
     &-overlay {
       opacity: 1;
@@ -26,16 +26,15 @@ body.site-header-open {
   display: flex;
   position: fixed;
   min-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   flex-direction: column;
-  width: variables.$side-nav-width;
-  background: variables.$side-nav-bg;
-  padding-bottom: variables.$space-xl;
-  padding-top: variables.$space-xxl * 2;
   backface-visibility: hidden;
   justify-content: space-between;
+  width: variables.$side-nav-width;
+  background: variables.$side-nav-bg;
   transition: transform 0.3s ease-out;
+  padding-bottom: variables.$space-xl;
+  padding-top: variables.$space-xxl * 2;
   transform: translate3D(-(variables.$side-nav-width), 0, 0);
 
   &-line {
@@ -58,7 +57,7 @@ body.site-header-open {
       animation-fill-mode: forwards;
       animation: run2 6s 0s infinite;
       animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, variables.$secondary-color 75%, variables.$secondary-color 100%);
+      background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, variables.$secondary-color 75%, variables.$secondary-color 100%);
     }
   }
 
@@ -66,17 +65,18 @@ body.site-header-open {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 variables.$space-md;
     justify-content: center;
+    padding: 0 variables.$space-md;
     margin-bottom: variables.$space-xxl;
 
     &-logo {
-      color: #fff;
       font-weight: 600;
       font-size: 1.5rem;
       position: relative;
       text-align: center;
       line-height: 2.25rem;
+      text-decoration: none;
+      color: variables.$white;
       font-family: variables.$default-header-font;
 
       *:not(.site-header-brand-logo-letter) {
@@ -89,54 +89,44 @@ body.site-header-open {
         right: 0;
         top: 50%;
         opacity: 0.1;
-        color: white;
         font-size: 3em;
         line-height: 1;
         font-weight: 700;
         user-select: none;
         position: absolute;
         text-align: inherit;
-        font-family: variables.$default-font;
+        color: variables.$white;
         transform: translate(0%, -50%);
+        font-family: variables.$default-font;
       }
 
       &:hover {
-        color: #fff;
+        color: variables.$white;
         opacity: 0.75;
       }
     }
   }
 
   &-overlay {
-    left: 0;
-    right: 0;
+    inset: -120px 0;
     opacity: 0;
-    top: -120px;
     z-index: 9450;
-    bottom: -120px;
     cursor: pointer;
     position: fixed;
     visibility: hidden;
     touch-action: pan-y;
-    transition-delay: 0s, 0.3s;
-    transition-duration: 0.3s, 0s;
-    transition-timing-function: ease-out;
-    transition-property: opacity, visibility;
+    transition:
+      opacity 0.3s ease-out 0s,
+      visibility 0s ease-out 0.3s;
 
     &-inner {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       opacity: 0.8;
       position: absolute;
       background-color: variables.$side-nav-bg;
 
       canvas {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -147,7 +137,7 @@ body.site-header-open {
   &-divider {
     width: 1px;
     opacity: 0.13;
-    background-color: #fff;
+    background-color: variables.$white;
     height: variables.$space-xxl + variables.$space-sm;
     margin: (variables.$space-xxl + variables.$space-md) auto;
   }
@@ -176,16 +166,17 @@ body.site-header-open {
       }
 
       a {
-        color: #fff;
         font-size: 1rem;
         font-weight: 600;
         position: relative;
         line-height: 1.75rem;
         display: inline-block;
+        text-decoration: none;
+        color: variables.$white;
         transition: color 0.2s ease-out;
         font-family: variables.$default-header-font;
 
-        &:before {
+        &::before {
           left: 0;
           bottom: 0;
           opacity: 0;
@@ -198,8 +189,8 @@ body.site-header-open {
           border-bottom: 1px dotted variables.$primary-color;
         }
 
-        &:hover:before,
-        &.active:before {
+        &:hover::before,
+        &.active::before {
           opacity: 1;
           visibility: visible;
           transform: scaleX(1);
@@ -223,11 +214,11 @@ body.site-header-open {
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (width >= 1200px) {
     z-index: 5;
     transition: none;
-    transform: translate3D(0, 0, 0);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
 
     &-overlay {
       display: none;
@@ -235,10 +226,11 @@ body.site-header-open {
   }
 }
 
-@-webkit-keyframes run2 {
+@keyframes run2 {
   0% {
     top: -50%;
   }
+
   100% {
     top: 110%;
   }
@@ -248,6 +240,7 @@ body.site-header-open {
   0% {
     top: -50%;
   }
+
   100% {
     top: 110%;
   }
@@ -257,9 +250,6 @@ body.site-header-open {
   display: flex;
   outline: none;
   z-index: 9400;
-  color: #fff;
-  top: variables.$space-md;
-  left: variables.$space-md;
   flex-wrap: wrap;
   position: fixed;
   cursor: pointer;
@@ -269,16 +259,19 @@ body.site-header-open {
   text-align: center;
   font-size: 1.25rem;
   align-items: center;
+  color: variables.$white;
+  top: variables.$space-md;
+  left: variables.$space-md;
   min-height: variables.$space-xxl;
-  padding: variables.$space-xs variables.$space-md;
   background-color: variables.$dark-color;
   border-radius: variables.$default-radius;
   font-family: variables.$default-header-font;
+  border: 1px solid rgb(255 255 255 / 20%);
+  padding: variables.$space-xs variables.$space-md;
   max-width: calc(100% - 45px - variables.$space-xxl);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow:
-    0 0 15px rgba(0, 0, 0, 0.07),
-    0 0 5px rgba(0, 0, 0, 0.07);
+    0 0 15px rgb(0 0 0 / 7%),
+    0 0 5px rgb(0 0 0 / 7%);
 
   span,
   img {
@@ -287,53 +280,52 @@ body.site-header-open {
   }
 
   &:hover {
-    color: #fff;
+    color: variables.$white;
     background-color: color.adjust(variables.$dark-color, $lightness: -5%);
   }
 
-  @media (min-width: 576px) {
+  @media (width >= 576px) {
+    max-width: calc(100% - 60px - 54px);
     top: variables.$space-md + variables.$space-sm;
     left: variables.$space-md + variables.$space-sm;
-    max-width: calc(100% - 60px - 54px);
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media (width >= 768px) and (width <= 1199px) {
     top: variables.$space-xl;
     left: variables.$space-xl;
     max-width: calc(100% - 90px - 54px);
   }
 
-  @media (min-width: 1200px) {
+  @media (width >= 1200px) {
     display: none;
   }
 }
 
 .nav-toggle {
   padding: 0;
-  color: #fff;
   outline: none;
   z-index: 10000;
   cursor: pointer;
   position: fixed;
-  border-radius: 0;
+  user-select: none;
+  color: variables.$white;
   top: variables.$space-md;
   right: variables.$space-md;
   width: variables.$space-xxl;
   height: variables.$space-xxl;
-  user-select: none;
   background-color: variables.$dark-color;
   border-radius: variables.$default-radius;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   box-shadow:
-    0 0 15px rgba(0, 0, 0, 0.07),
-    0 0 5px rgba(0, 0, 0, 0.07);
+    0 0 15px rgb(0 0 0 / 7%),
+    0 0 5px rgb(0 0 0 / 7%);
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    color: #fff;
+    color: variables.$white;
     background-color: color.adjust(variables.$dark-color, $lightness: -5%);
   }
 
@@ -341,21 +333,21 @@ body.site-header-open {
     height: 2px;
     display: block;
     margin: 0 auto;
-    width: variables.$space-xl;
-    background: #fff;
     position: relative;
+    width: variables.$space-xl;
     background-clip: padding-box;
+    background: variables.$white;
     transition: background 0.2s 0.2s ease-in-out;
 
-    &:after,
-    &:before {
+    &::after,
+    &::before {
       height: 2px;
       content: "";
       display: block;
-      width: variables.$space-md;
       position: absolute;
-      background: #fff;
       transform-origin: 50% 50%;
+      width: variables.$space-md;
+      background: variables.$white;
       background-clip: padding-box;
       transition:
         top 0.2s 0.4s ease-in-out,
@@ -365,12 +357,12 @@ body.site-header-open {
         transform 0.2s ease-in-out;
     }
 
-    &:before {
+    &::before {
       left: variables.$space-md;
       top: (variables.$space-sm + 2);
     }
 
-    &:after {
+    &::after {
       right: variables.$space-md;
       top: -(variables.$space-sm + 2);
     }
@@ -380,8 +372,8 @@ body.site-header-open {
     background: transparent !important;
     transition: background 0.2s 0s ease-in-out;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       top: 0;
       width: variables.$space-xl;
       transition:
@@ -392,28 +384,28 @@ body.site-header-open {
         transform 0.2s 0.4s ease-in-out;
     }
 
-    &:before {
+    &::before {
       left: 0;
       transform: rotate3d(0, 0, 1, 45deg);
     }
 
-    &:after {
+    &::after {
       right: 0;
       transform: rotate3d(0, 0, 1, -45deg);
     }
   }
 
-  @media (min-width: 576px) {
+  @media (width >= 576px) {
     top: variables.$space-md + variables.$space-sm;
     right: variables.$space-md + variables.$space-sm;
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media (width >= 768px) and (width <= 1199px) {
     top: variables.$space-xl;
     right: variables.$space-xl;
   }
 
-  @media (min-width: 1200px) {
+  @media (width >= 1200px) {
     display: none;
   }
 }

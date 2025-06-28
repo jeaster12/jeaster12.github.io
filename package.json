@@ -4,7 +4,7 @@
   "scripts": {
     "clean": "rimraf dist/{css/*,js/*,images/*}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/main.css",
-    "scss": "sass src/scss:dist/css --style=compressed",
+    "scss": "sass src/scss:dist/css --style=expanded",
     "lint-scss": "stylelint src/scss/*.scss",
     "lint-scss-fix": "stylelint src/scss/*.scss --fix",
     "uglify": "mkdirp dist/js -p && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",

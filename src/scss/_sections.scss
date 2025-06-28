@@ -30,7 +30,7 @@ section {
     font-size: 2.25rem;
     margin: 0 auto variables.$space-xxl;
 
-    &>*:not(.section-head-title-letter) {
+    & > *:not(.section-head-title-letter) {
       z-index: 2;
       position: relative;
     }
@@ -90,13 +90,14 @@ section {
   }
 }
 
-
 .works-logo {
   margin-bottom: variables.$space-md;
-  width: 200px;
+  width: 225px;
+  height: auto;
 
   svg {
-    width: 200px;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -109,11 +110,10 @@ section {
   border-bottom: none;
 
   .cover-letter {
-    opacity: .10;
+    opacity: 0.1;
     color: white;
   }
 }
-
 
 .experience {
   display: flex;
@@ -130,7 +130,7 @@ section {
     &::before {
       top: 7px;
       width: 6px;
-      content: '';
+      content: "";
       height: 6px;
       position: absolute;
       background-color: #2cb59a;
@@ -161,7 +161,7 @@ section {
         margin: 0 0 0 (variables.$space-lg - variables.$space-xs);
 
         &::before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: variables.$space-sm - 2;

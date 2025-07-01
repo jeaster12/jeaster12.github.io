@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "sass:map";
+
+// Changing $global-px-grid will adapt all space values and $global-sizes.
+$global-px-grid: 8px !default;
+
+// --------------------------------------------
+// Spacing and map for generating helpers
+$space-0: 0 !default;
+$space-xxs: calc($global-px-grid / 4) !default;
+$space-xs: calc($global-px-grid / 2) !default;
+$space-sm: $global-px-grid !default;
+$space-md: $global-px-grid * 2 !default;
+$space-lg: $global-px-grid * 3 !default;
+$space-xl: $global-px-grid * 4 !default;
+
+// This is a looped map & classes will be generated based on key/value pairs i.e. "p-xxs"
+$space: (
+  0: $space-0,
+  "xxs": $space-xxs,
+  "xs": $space-xs,
+  "sm": $space-sm,
+  "md": $space-md,
+  "lg": $space-lg,
+  "xl": $space-xl
+) !default;
+
+// --------------------------------------------
+// Grid ---------------------------------------
+// --------------------------------------------
+$gutter: 12px !default;
+$grid-columns: 12 !default;
+$grid-gutter-width: 24px !default;
+$container-fixed-width: 1200px !default;
+
+// Define the maximum width of `.container-fixed` at breakpoints.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+) !default;

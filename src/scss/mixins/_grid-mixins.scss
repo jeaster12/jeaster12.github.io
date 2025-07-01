@@ -1,0 +1,38 @@
+@use "sass:math";
+@use "bp-mixins";
+@use "config";
+
+// Make any element a grid row. @include grid-row();
+@mixin grid-row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(config.$grid-gutter-width / -2);
+  margin-right: calc(config.$grid-gutter-width / -2);
+}
+
+// Make any parent a grid container. @include grid-container();
+@mixin grid-container() {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: calc(config.$grid-gutter-width / 2);
+  padding-right: calc(config.$grid-gutter-width / 2);
+}
+
+// Formats breakpoints to ascending order for generating with grid-container-max-widths
+@include bp-mixins.assert-ascending(config.$container-max-widths, "$container-max-widths");
+
+// For container-fixed - set container max-width at all breakpoints. @include grid-container-max-widths();
+@mixin grid-container-max-widths($max-widths: config.$container-max-widths, $grid-breakpoints: config.$breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include bp-mixins.media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+// Generate named grid columns - sets flex and max-width for each column. @include grid-col(4, $grid-columns);
+@mixin grid-col($size, $columns: config.$grid-columns) {
+  flex: 0 0 math.percentage(calc($size / $columns));
+  max-width: math.percentage(calc($size / $columns));
+}

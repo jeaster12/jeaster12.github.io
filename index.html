@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <!-- Required meta tags -->
@@ -51,7 +51,7 @@
         </a>
       </div>
 
-      <nav class="site-header-nav">
+      <nav class="site-header-nav" aria-label="Header Nav" role="navigation">
         <ul id="navigation">
           <li>
             <a href="#page-cover" class="scrollto">Home</a>
@@ -74,20 +74,23 @@
         </ul>
       </nav>
 
-      <nav class="site-header-social">
+      <nav class="site-header-social" aria-label="Social" role="navigation">
         <ul>
           <li>
             <a class="btn btn-social btn-social-light" href="https://www.linkedin.com/in/josh-easter-30282625/" target="_blank">
+              <span class="visually-hidden">linkedin</span>
               <iconify-icon data-icon="jam:linkedin" data-width="24" data-height="24"></iconify-icon>
             </a>
           </li>
           <li>
             <a class="btn btn-social btn-social-light" href="https://github.com/jeaster12" target="_blank">
+              <span class="visually-hidden">github</span>
               <iconify-icon data-icon="jam:github" data-width="24" data-height="24"></iconify-icon>
             </a>
           </li>
           <li>
             <a class="btn btn-social btn-social-light" href="mailto:jeaster12@gmail.com">
+              <span class="visually-hidden">email</span>
               <iconify-icon data-icon="jam:envelope-open" data-width="24" data-height="24"></iconify-icon>
             </a>
           </li>
@@ -106,7 +109,7 @@
     <!-- End Header Overlay -->
 
     <!-- Page Wrapper -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" role="main">
 
       <!-- page-cover -->
       <div id="page-cover" class="page-cover">
@@ -120,7 +123,7 @@
           <div class="page-cover-wrap">
             <section id="home" class="home-section">
 
-              <div class="c-container-fixed">
+              <div class="container-fixed">
                 <h1>Josh Easter</h1>
                 <p id="js-rotating" class="lead">UI/UX Designer, Front End Developer, Design System Manager</p>
 
@@ -143,28 +146,27 @@
 
         <!-- about -->
         <section id="about">
-          <div class="c-container-fixed">
-            <div class="c-row section-head">
+          <div class="container-fixed">
+            <div class="row section-head">
               <div class="section-head-title">
                 <h2>About Me</h2>
                 <span class="section-head-title-letter">A</span>
               </div>
             </div>
 
-            <div class="c-row about-section">
-              <div class="c-col-md-6 c-col-lg-4 about-section-media">
+            <div class="row about-section">
+              <div class="col-md-6 col-lg-4 about-section-media">
                 <img src="dist/images/new.jpg" alt="">
               </div>
-              <div class="c-col-lg-8">
+              <div class="col-lg-8">
                 <h3>Josh Easter</h3>
                 <p id="js-rotating2" class="lead">UI/UX Designer, Front End Developer, Design System Manager</p>
                 <p class="about-section-content">
-                  I am a hybrid design engineer with talent for creating elegant user interfaces, instinctive user experiences, and expertly crafted code. I focus on building scalable design systems and leading multi functional teams.
-I collaborate with designers, business leads, product owners, and engineers equally all while solving complex problems with an engineering mindset yet keeping the users needs and beautiful design at top of mind.
+Experienced UX Director leading enterprise-level design and development initiatives across complex platforms and tools. Passionate about human-centered design, scalable UX/UI architecture, and cross-functional leadership. Proven success in improving usability, performance, and design consistency across digital products.
                 </p>
-                <div class="c-row c-m-bottom-sm">
-                  <div class="c-col-md-12 c-m-bottom-sm">
-                    <h4 class="c-m-bottom-sm">A Few Things About Me</h4>
+                <div class="row m-bottom-sm">
+                  <div class="col-md-12 m-bottom-sm">
+                    <h4 class="m-bottom-sm">A Few Things About Me</h4>
                       <ul class="list-check">
                         <li>Father & Husband. Always learning. Can't grow a beard.</li>
                         <li>Musician & Occasional Audio Engineer.</li>
@@ -177,7 +179,7 @@ I collaborate with designers, business leads, product owners, and engineers equa
                 </div>
 
                 <div class="btns">
-                  <a href="dist/images/josh-easter.pdf" class="btn btn-primary" download>Download Resume</a>
+                  <a href="dist/images/Josh-Easter2025.pdf" class="btn btn-primary" download>Download Resume</a>
                   <a href="#contact" class="btn btn-light scrollto">Get in touch</a>
                 </div>
               </div>
@@ -188,107 +190,97 @@ I collaborate with designers, business leads, product owners, and engineers equa
 
         <!-- skills -->
         <section id="skills">
-          <div class="c-container-fixed">
-            <div class="c-row section-head">
+          <div class="container-fixed">
+            <div class="row section-head">
               <div class="section-head-title">
                 <h2>Skills</h2>
                 <span class="section-head-title-letter">S</span>
               </div>
-              <p>12+ years of Web and Front-end application development experience with strong working knowledge of
-                core UX design process, principles, and techniques.
-                Advanced expertise in designing, prototyping, and developing from wireframes and interactions to
-                production.
+              <p>I am a hybrid design engineer with talent for creating elegant user interfaces, instinctive user experiences, and expertly crafted code. I focus on building scalable design systems and leading multi functional teams.
+              I collaborate with designers, business leads, product owners, and engineers equally all while solving complex problems with an engineering mindset yet keeping the users needs and beautiful design at top of mind.
               </p>
             </div>
 
-            <div class="c-row">
-              <div class="c-col-md-6 c-col-xl-4">
+            <div class="row">
+              <div class="col-md-12 col-xl-12">
                 <div class="feature-block">
                   <div class="feature-block-icon">
+                    <a href="https://www.atlassian.com/software/jira" target="_blank">
+                      <span class="visually-hidden">jira</span>
+                      <iconify-icon data-icon="logos:jira"></iconify-icon>
+                    </a>
+                    <a href="https://www.figma.com" target="_blank">
+                      <span class="visually-hidden">figma</span>
+                      <iconify-icon data-icon="logos:figma"></iconify-icon>
+                    </a>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                      <span class="visually-hidden">HTML5</span>
                       <iconify-icon data-icon="logos:html-5"></iconify-icon>
                     </a>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                      <span class="visually-hidden">CSS3</span>
                       <iconify-icon data-icon="logos:css-3"></iconify-icon>
                     </a>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                      <span class="visually-hidden">JS</span>
                       <iconify-icon data-icon="logos:javascript"></iconify-icon>
                     </a>
-                  </div>
-                  <h3 class="feature-block-title">General Front End</h3>
-                  <p>The basics. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-                      class="feature-block-link">HTML</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                      target="_blank" class="feature-block-link">CSS,</a> and <a
-                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-                      class="feature-block-link">Javascript</a>. We can accomplish so much with web fundamentals.
-                    From designing in the browser, to building advanced prototypes and applications.</p>
-                </div>
-              </div>
-
-              <div class="c-col-md-6 c-col-xl-4">
-                <div class="feature-block">
-                  <div class="feature-block-icon">
-                    <a href="https://sass-lang.com" target="_blank" class="c-m-right-sm">
+                    <a href="https://www.typescriptlang.org" target="_blank">
+                      <span class="visually-hidden">Typescript</span>
+                      <iconify-icon data-icon="logos:typescript-icon"></iconify-icon>
+                    </a>
+                    <a href="https://tailwindcss.com" target="_blank">
+                      <span class="visually-hidden">tailwindcss</span>
+                      <iconify-icon data-icon="logos:tailwindcss-icon"></iconify-icon>
+                    </a>
+                    <a href="https://sass-lang.com" target="_blank" class="m-right-sm">
+                      <span class="visually-hidden">SASS</span>
                       <iconify-icon data-icon="logos:sass"></iconify-icon>
                     </a>
                     <a href="https://angular.io" target="_blank">
+                      <span class="visually-hidden">Angular</span>
                       <iconify-icon data-icon="logos:angular-icon"></iconify-icon>
                     </a>
-                    <a href="https://www.typescriptlang.org" target="_blank">
-                      <iconify-icon data-icon="logos:typescript-icon"></iconify-icon>
+                    <a href="https://angular.io" target="_blank">
+                      <span class="visually-hidden">React</span>
+                      <iconify-icon data-icon="logos:react"></iconify-icon>
+                    </a>
+                    <a href="https://angular.io" target="_blank">
+                      <span class="visually-hidden">Astro</span>
+                      <iconify-icon data-icon="logos:astro"></iconify-icon>
+                    </a>
+                    <a href="https://angular.io" target="_blank">
+                      <span class="visually-hidden">webcomponents</span>
+                      <iconify-icon data-icon="logos:webcomponents"></iconify-icon>
                     </a>
                   </div>
-                  <h3 class="h4 mb-2">Frameworks & Tools</h3>
-                  <p><a href="https://sass-lang.com" target="_blank" class="feature-block-link">Sass</a> is my
-                    absolute favorite tool and what i'm most proficient with.
-                    In my current position - <a href="https://angular.io" target="_blank"
-                      class="feature-block-link">Angular</a> is the choice for all of our apps along with all the
-                    nice <a href="https://www.typescriptlang.org" target="_blank"
-                      class="feature-block-link">Typescript</a> tooling thats offered.
-                  </p>
+                  <h3 class="feature-block-title">Design & Development Tools</h3>
+                    <p>Designing and building for the web has changed so much in recent years but I love learning and gaining new skills. The tools will always change and evolve over time, but our skills have to evolve and adapt as well.
+                      Here are some of the powerful tools and technologies I currently use with my teams daily.</p>
                 </div>
               </div>
 
-              <div class="c-col-md-12 c-col-xl-4">
-                <div class="feature-block">
-                  <div class="feature-block-icon">
-                    <a href="https://www.sketch.com" target="_blank">
-                      <iconify-icon data-icon="logos:sketch"></iconify-icon>
-                    </a>
-                    <a href="https://www.invisionapp.com" target="_blank">
-                      <iconify-icon data-icon="logos:invision"></iconify-icon>
-                    </a>
-                    <a href="https://handlebarsjs.com" target="_blank">
-                      <iconify-icon data-icon="logos:handlebars" data-width="48"></iconify-icon>
-                    </a>
-                  </div>
-                  <h3 class="h4 mb-2">Design Tools</h3>
-                  <p>Beyond the whiteboard I currently reach for <a href="https://www.sketch.com" target="_blank"
-                      class="feature-block-link">Sketch</a> - before sharing on <a href="https://www.sketch.com"
-                      target="_blank" class="feature-block-link">Invision</a>.
-                    I like to get to the browser quickly - for rapid prototyping I prefer <a
-                      href="https://www.sketch.com" target="_blank" class="feature-block-link">handlebars.js</a> and
-                    the simple templating it offers.
-                  </p>
-                </div>
-              </div>
-
-              <div class="c-col-md-12 c-col-xl-6">
+              <div class="col-md-12 col-xl-6">
                 <div class="feature-block">
                   <div class="feature-block-icon">
                     <a href="https://www.codefactor.io" target="_blank">
+                      <span class="visually-hidden">codefactor</span>
                       <iconify-icon data-icon="logos:codefactor"></iconify-icon>
                     </a>
                     <a href="https://storybook.js.org" target="_blank">
+                      <span class="visually-hidden">storybook</span>
                       <iconify-icon data-icon="logos:storybook-icon"></iconify-icon>
                     </a>
                     <a href="https://jestjs.io" target="_blank">
+                      <span class="visually-hidden">jest</span>
                       <iconify-icon data-icon="logos:jest"></iconify-icon>
                     </a>
-                    <a href="https://stylelint.io" target="_blank">
-                      <iconify-icon data-icon="logos:stylelint"></iconify-icon>
+                    <a href="https://playwright.com" target="_blank">
+                      <span class="visually-hidden">playwright</span>
+                      <iconify-icon data-icon="logos:playwright"></iconify-icon>
                     </a>
                     <a href="https://percy.io" target="_blank">
+                      <span class="visually-hidden">percy</span>
                       <iconify-icon data-icon="logos:percy"></iconify-icon>
                     </a>
                   </div>
@@ -299,30 +291,35 @@ I collaborate with designers, business leads, product owners, and engineers equa
                     component isolation,
                     <a href="https://jestjs.io" target="_blank" class="feature-block-link">Jest</a> for unit
                     testing,
-                    <a href="https://stylelint.io" target="_blank" class="feature-block-link">Stylelint</a> for scss
-                    linting, and
+                    <a href="https://playwright.com" target="_blank" class="feature-block-link">Playwright</a> for E2E
+                    testing, and
                     <a href="https://percy.io" target="_blank" class="feature-block-link">Percy</a> provides visual
                     regression testing.
                   </p>
                 </div>
               </div>
 
-              <div class="c-col-md-12 c-col-xl-6">
+              <div class="col-md-12 col-xl-6">
                 <div class="feature-block">
                   <div class="feature-block-icon">
                     <a href="https://git-scm.com" target="_blank">
+                      <span class="visually-hidden">git</span>
                       <iconify-icon data-icon="logos:git-icon"></iconify-icon>
                     </a>
                     <a href="https://github.com" target="_blank">
+                      <span class="visually-hidden">github</span>
                       <iconify-icon data-icon="logos:github-octocat"></iconify-icon>
                     </a>
                     <a href="https://gitlab.com" target="_blank">
+                      <span class="visually-hidden">gitlab</span>
                       <iconify-icon data-icon="logos:gitlab"></iconify-icon>
                     </a>
                     <a href="https://travis-ci.org" target="_blank">
+                      <span class="visually-hidden">travis-ci</span>
                       <iconify-icon data-icon="logos:travis-ci"></iconify-icon>
                     </a>
                     <a href="https://www.netlify.com" target="_blank">
+                      <span class="visually-hidden">netlify</span>
                       <iconify-icon data-icon="logos:netlify"></iconify-icon>
                     </a>
                   </div>
@@ -341,99 +338,78 @@ I collaborate with designers, business leads, product owners, and engineers equa
               </div>
 
 
-              <h5 class="c-col-md-12 c-m-top-lg">Additional Tools/Technologies I use or have experience with.</h5>
-              <div class="c-col-md-6 c-col-xl-6">
-                <div class="feature-block">
-                  <div class="feature-block-icon icons-only">
-                    <a href="https://code.visualstudio.com" target="_blank">
-                      <iconify-icon data-icon="logos:visual-studio-code"></iconify-icon>
-                    </a>
-                    <a href="https://nodejs.org/en/" target="_blank">
-                      <iconify-icon data-icon="logos:nodejs"></iconify-icon>
-                    </a>
-                    <a href="https://www.npmjs.com" target="_blank">
-                      <iconify-icon data-icon="logos:npm"></iconify-icon>
-                    </a>
-                    <a href="https://gulpjs.com" target="_blank">
-                      <iconify-icon data-icon="logos:gulp"></iconify-icon>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="c-col-md-6 c-col-xl-6">
-                <div class="feature-block">
-                  <div class="feature-block-icon icons-only">
-                    <a href="https://jekyllrb.com" target="_blank">
-                      <iconify-icon data-icon="logos:jekyll"></iconify-icon>
-                    </a>
-                    <a href="https://getbootstrap.com" target="_blank">
-                      <iconify-icon data-icon="logos:bootstrap"></iconify-icon>
-                    </a>
-                    <a href="https://wordpress.org" target="_blank">
-                      <iconify-icon data-icon="logos:wordpress-icon"></iconify-icon>
-                    </a>
-                    <a href="https://www.atlassian.com/software/jira" target="_blank">
-                      <iconify-icon data-icon="logos:jira"></iconify-icon>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <h5 class="c-col-md-12 c-m-top-lg">And some tools or technologies I'd love to learn....</h5>
-              <div class="c-col-md-6 c-col-xl-6">
+              <h4 class="col-md-12 m-top-lg">Additional Tools/Technologies I use or have experience with.</h4>
+              <div class="col-md-12 col-xl-6">
                 <div class="feature-block">
                   <div class="feature-block-icon icons-only">
                     <a href="https://www.docker.com" target="_blank">
+                      <span class="visually-hidden">docker</span>
                       <iconify-icon data-icon="logos:docker-icon"></iconify-icon>
                     </a>
+                    <a href="https://code.visualstudio.com" target="_blank">
+                      <span class="visually-hidden">visual studio</span>
+                      <iconify-icon data-icon="logos:visual-studio-code"></iconify-icon>
+                    </a>
+                    <a href="https://nodejs.org/en/" target="_blank">
+                      <span class="visually-hidden">nodejs</span>
+                      <iconify-icon data-icon="logos:nodejs"></iconify-icon>
+                    </a>
+                    <a href="https://www.npmjs.com" target="_blank">
+                      <span class="visually-hidden">npm</span>
+                      <iconify-icon data-icon="logos:npm"></iconify-icon>
+                    </a>
+                    <a href="https://gulpjs.com" target="_blank">
+                      <span class="visually-hidden">gulp</span>
+                      <iconify-icon data-icon="logos:gulp"></iconify-icon>
+                    </a>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-xl-6">
+                <div class="feature-block">
+                  <div class="feature-block-icon icons-only">
+
+                    <a href="https://jekyllrb.com" target="_blank">
+                      <span class="visually-hidden">jekyll</span>
+                      <iconify-icon data-icon="logos:jekyll"></iconify-icon>
+                    </a>
+                    <a href="https://getbootstrap.com" target="_blank">
+                      <span class="visually-hidden">bootstrap</span>
+                      <iconify-icon data-icon="logos:bootstrap"></iconify-icon>
+                    </a>
+                    <a href="https://wordpress.org" target="_blank">
+                      <span class="visually-hidden">wordpress</span>
+                      <iconify-icon data-icon="logos:wordpress-icon"></iconify-icon>
+                    </a>
+
                     <a href="https://developer.apple.com/swift/" target="_blank">
-                      <iconify-icon data-icon="logos:swift"></iconify-icon>
+                      <span class="visually-hidden">flutter</span>
+                      <iconify-icon data-icon="logos:flutter"></iconify-icon>
                     </a>
                     <a href="https://d3js.org" target="_blank">
+                      <span class="visually-hidden">d3</span>
                       <iconify-icon data-icon="logos:d3"></iconify-icon>
                     </a>
-                    <a href="https://reactjs.org" target="_blank">
-                      <iconify-icon data-icon="logos:react"></iconify-icon>
-                    </a>
                     <a href="https://vuejs.org" target="_blank">
+                      <span class="visually-hidden">vue</span>
                       <iconify-icon data-icon="logos:vue"></iconify-icon>
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div class="c-col-md-6 c-col-xl-6">
-                <div class="feature-block">
-                  <div class="feature-block-icon icons-only">
-                    <a href="https://www.figma.com" target="_blank">
-                      <iconify-icon data-icon="logos:figma"></iconify-icon>
-                    </a>
-                    <a href="https://tailwindcss.com" target="_blank">
-                      <iconify-icon data-icon="logos:tailwindcss-icon"></iconify-icon>
-                    </a>
-                    <a href="https://www.chromaticqa.com" target="_blank">
-                      <iconify-icon data-icon="logos:chromatic-icon"></iconify-icon>
-                    </a>
-                    <a href="https://www.gatsbyjs.org" target="_blank">
-                      <iconify-icon data-icon="logos:gatsby"></iconify-icon>
-                    </a>
-                    <a href="https://flow.org" target="_blank">
-                      <iconify-icon data-icon="logos:flow"></iconify-icon>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
             </div>
+
           </div>
         </section>
         <!-- end skills -->
 
         <!-- experience -->
         <section id="experience">
-          <div class="c-container-fixed">
-            <div class="c-row section-head">
+          <div class="container-fixed">
+            <div class="row section-head">
               <div class="section-head-title">
                 <h2>Experience</h2>
                 <span class="section-head-title-letter">E</span>
@@ -446,44 +422,76 @@ I collaborate with designers, business leads, product owners, and engineers equa
 
             <hr />
 
-            <!-- IHS  -->
-            <div class="c-row">
-              <div class="c-col-lg-8">
+            <!-- ADP -->
+            <div class="row">
+              <div class="col-lg-4">
                 <div class="works-logo">
-                  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 691.138 192.9">
-                    <defs>
-                      <radialGradient gradientUnits="userSpaceOnUse" r="127.801" cy="68.45" cx="115.569" id="a"
-                        gradientTransform="translate(.1)">
-                        <stop offset="0" stop-color="#328f8a" />
-                        <stop offset="1" stop-color="#08ac4b" />
-                      </radialGradient>
-                    </defs>
-                    <path
-                      d="M106.5 47.6l-91.9 99.9c-1.4-2.2-2.7-4.5-3.8-6.8l96.3-96c.6-.5 2.3-2 1.8-1.3-.3.3-1.9 3.2-2.4 4.2zM104 59.7l-59.6 118c2 1.3 4.1 2.6 6.2 3.7l53.6-118.3c-.1-1.1-.2-2.2-.2-3.4zm1.2-8.6c-.1-.1-.3.4-.7.9L25.1 161.3c1.8 2 3.6 3.8 5.6 5.6l73.7-111.7c.1-1.2.5-2.9.8-4.1zm51.6 27.1l34.3-.2c-.4-1.8-.8-4.5-1.2-6.3l-31.8 4.8c-.4.6-.8 1.1-1.3 1.7zm-28.4 10.6l33.6 78.4c1.7-1.6 3.4-3.3 5-5l-36.8-73.1c-.5-.1-1.2-.2-1.8-.3zm32.3-17c.1 0 .3-.1.4-.2l23-15.7c-.9-1.8-2.3-4.4-3.3-6.2L162 68.3c-.3 1.3-.8 2.4-1.3 3.5zm-8.3 10.9c-.4.3-.9.7-1.3 1l41.7 18.6c.1-1.8.4-4.4.4-6.2l-40.8-13.4zm-47.2-14.6l-38 120.3c2.4.8 4.8 1.4 7.2 2l31.7-119.6-.9-2.7zm31.1 21.1l40.9 60c1.1-1.8 2.8-4.4 3.8-6.2l-43.2-54c-.4.1-.9.1-1.5.2zm7.8-1.8l44 39.3c.6-1.8 1.5-4.6 2-6.5l-44.6-33.4c-.5.2-1 .4-1.4.6zm-23.2-1l20.1 95.7c2.1-1.1 4.6-2.5 6.5-3.7l-25-91.2c-.5-.3-1.1-.6-1.6-.8zm-6.8-4.5l3.2 108.8c2.5-.6 5-1.2 7.5-1.9l-9-105.5c-.7-.5-1.2-1-1.7-1.4zm-22 110.9c1.4.1 2.9.1 4.4.1 1 0 2 0 3.1-.1l10.5-115.2c-.5-.6-.9-1.3-1.4-2L92.1 192.8zM131.3 30h.4c.6 0 1.3-.1 1.9-.1 16.4 0 29.7 13.3 29.7 29.7 0 1.7-.2 3.4-.4 5.1.3 0 .6-.2.7-.4l7.4-28.6c-1.5-1.8-3.4-4.3-5.1-6l-2.3 20.5c-.4-1.3-1-2.6-2.2-5.1-.4-.8-.9-1.7-1.5-2.5l-7.3-24.5c-2.5-1.8-5.1-3.5-7.8-5.1l9.5 23.1c-1.7-1.6-3.4-3-4.3-3.8L130 6c-3.2-1.2-6.5-2.2-9.9-3.1l24.4 27.4-.6-.1L104.5.4c-2.6-.2-5.3-.4-8-.4-.7 0-1.5 0-2.2.1l38.9 26L79.1 1.6C76 2.2 73 2.9 70 3.7l58.6 23L54.5 9.6c-2.8 1.4-5.5 2.8-8.2 4.5l75.1 13.7L33 23.9c-2 1.8-5 4.6-6.8 6.6l91.7-.5L16.3 43c-1.7 2.5-3.2 5.1-4.7 7.7l103.3-18L4.6 67.1c-.8 2.5-1.5 5-2.1 7.6l110.1-39.2L.2 91.4c-.1 1.7-.1 3.4-.1 5.1 0 .7-.1 2.3-.1 3l111.1-61-109 77.9c.5 2.5 1.2 4.9 1.9 7.4l106.8-83c.5-.6 1.1-1.2 1.6-1.8 1.2-1.1 2.9-2.6 4.8-4 3.9-2.8 9.8-4.6 14.1-5z"
-                      fill="url(#a)" />
-                    <path
-                      d="M352.3 57.6c-12.4 0-21.1 7.8-21.1 17.5 0 11.3 7.5 15.2 22.1 19.8 14.4 4.6 17.8 8.2 17.8 15.3 0 7.6-6.6 12.3-16.8 12.3-9.6 0-16.5-4.8-19.5-14.3l-5.8 2.1c3.2 11.1 12.2 18 24.9 17.9 13.6 0 23.6-7.3 23.6-18.6 0-11-6.9-15.7-21.1-20.2-14.3-4.6-18.8-7.2-18.8-14.8 0-6.2 5.5-11.1 14.6-11.1 8.5 0 14.5 3.5 17.9 12.3l5.5-2.6c-3.2-9.1-10.5-15.6-23.3-15.6zm-111.1 1.5v68h6.5v-68h-6.5zm24.4 0v68h6.5V94.2h36.8v32.9h6.5v-68h-6.5v29.1h-36.8V59.1h-6.5zm145.4 0v68h6.1V69.9h.2c1.4 4.8 2.5 7.7 4.2 12.1l17.6 45h6l17.6-45c1.6-4.4 3.3-8.9 4.2-11.9h.2v57h6.6v-68h-8.6l-22.6 59.5h-.2l-22.8-59.5H411zm166.2 0v68h6.3v-15.3l10.5-11.2 15.1 26.5h6.8l-17.7-31.3L614 78.7h-7.4l-23.1 25.5V59.1h-6.3zm49 1.5v6.8h6.7v-6.8h-6.7zm25.4.7v17.4h-8.5v5.4h8.5v31.7c0 8.3 3.5 11.9 12.8 12 2.2 0 4.7-.3 6.2-.6v-5.4c-1.4.4-3.3.6-5.1.6-5.9 0-7.6-2.8-7.6-7.9V84.1h12.6v-5.4h-12.6V61.3h-6.3zM510.7 77.7c-9.6 0-16.3 3.7-22.1 9l3.4 4c5.1-4.4 10.5-7.6 18.1-7.6 6.3 0 9.8 3.2 9.8 9.9v2.5c-24.6 3.8-32.8 10.7-32.8 20.3 0 7.5 5.1 12.1 13.8 12 7.2 0 13.5-2.6 19.1-7.7 0 2.8.5 4.9 1.1 6.9h6.5c-1-2.4-1.4-6-1.4-11.9v-22c0-9.6-4.7-15.4-15.5-15.4zm55.9 0c-9.6 0-15.4 4.5-19.2 10.5h-.2v-9.6H541V127h6.3V95.5c3.7-7.6 10-12 17.9-12 .2 0 1.9.1 1.9.1l.6-5.9h-1.1zm59.8.9V127h6.3V78.6h-6.3zM519.9 99.9V115c-4.9 4.8-10.9 7.6-17.8 7.6-5.4 0-8.8-2.6-8.8-7.7 0-6.4 5.8-11.5 26.6-15z" />
-                    <path
-                      d="M680.2 79.1c0-.9.2-1.7.5-2.3.3-.7.7-1.2 1.3-1.7.6-.5 1.1-.8 1.8-1 .7-.2 1.4-.3 2.1-.3.8 0 1.5.2 2.1.4.7.3 1.2.6 1.7 1.1.5.5.8 1.1 1.1 1.8.3.7.4 1.5.3 2.4 0 .9-.2 1.7-.5 2.3-.3.7-.7 1.2-1.3 1.7-.5.4-1.1.8-1.8 1-.7.2-1.4.3-2.1.3-.8 0-1.5-.2-2.1-.4-.7-.3-1.2-.6-1.7-1.1-.5-.5-.8-1.1-1.1-1.8-.2-.7-.3-1.5-.3-2.4zm1.3.1c0 .7.1 1.4.3 1.9.2.5.5 1 .9 1.4.4.4.8.7 1.3.9.5.2 1 .3 1.6.3.6 0 1.2 0 1.7-.2s1-.4 1.4-.7c.4-.3.7-.8.9-1.3.2-.5.4-1.2.4-1.9s-.1-1.4-.3-1.9c-.2-.5-.5-1-.9-1.4-.4-.4-.8-.7-1.3-.9-.5-.2-1-.3-1.6-.3-.6 0-1.2 0-1.7.2s-1 .4-1.4.7c-.4.3-.7.8-.9 1.3-.2.5-.3 1.2-.4 1.9zm2.2-2.6c.2-.1.5-.1.9-.1h1.1c.6 0 1.1.2 1.5.4.4.3.6.7.6 1.3 0 .4-.2.8-.5 1-.3.2-.6.3-1.1.4l.6.3 1.4 2.3h-1.3l-1.4-2.2-1-.4-.1 2.5h-1.1l.4-5.5zm1.8.8h-.4c-.1 0-.3 0-.3.1l-.1 1.5h.7c.4 0 .7 0 .9-.2.2-.1.3-.3.4-.6 0-.6-.4-.8-1.2-.8z"
-                      fill="#414042" />
-                  </svg> -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="89.854" xml:space="preserve">
+                <defs>
+                  <clipPath id="a">
+                    <path d="M709.145 274.785h110.047V343.5H709.145v-68.715z" />
+                  </clipPath>
+                  <clipPath id="b">
+                    <path d="M712.529 291.156h79.316v36h-79.316v-36z" />
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#a)" transform="matrix(2.77372 0 0 -2.77372 -1976.358 907.44)">
+                  <g clip-path="url(#b)">
+                    <path d="M781.838 294.293v.842h.618c.411 0 .523-.127.523-.373 0-.252-.112-.456-.596-.47h-.545zm.434-.514c.177-.016.348 0 .477-.135.148-.156.148-.418.185-.7.023-.194.075-.403.112-.589h.656c-.112.297-.15.64-.194.953-.053.358-.104.559-.559.649v.015c.44.09.671.387.671.768 0 .744-.627.908-1.23.908h-1.066v-3.293h.514v1.424h.434zm.163-2.623a2.792 2.792 0 0 1 2.795 2.809 2.79 2.79 0 0 1-2.795 2.795 2.799 2.799 0 0 1-2.81-2.795 2.8 2.8 0 0 1 2.81-2.809zm0 .49a2.316 2.316 0 0 0-2.317 2.319 2.312 2.312 0 0 0 2.317 2.302 2.306 2.306 0 0 0 2.304-2.302 2.31 2.31 0 0 0-2.304-2.319" style="fill:#ee2722;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                    <path d="M777.697 319.44h-4.5v-4.496h4.5a1.93 1.93 0 0 0 1.928-1.933c0-1.069-.86-1.928-1.928-1.928h-4.5v-4.5h4.5a6.429 6.429 0 0 1 0 12.857zm-25.65-23.792c5.388 0 10.031 3.156 12.2 7.722h5.738v-7.722h3.211v7.722h4.501c5.33 0 9.647 4.317 9.647 9.642 0 5.325-4.317 9.644-9.647 9.644h-7.712v-11.573h-4.578c-.933 6.54-6.56 11.573-13.36 11.573H736.22l-15.745-27.008h3.756l4.5 7.722h16.18v-7.722h7.137zm39.798 17.364c0-7.811-6.335-14.142-14.148-14.142v-7.714h-12.211v6.018c-3.304-3.694-8.096-6.018-13.439-6.018H740.41v7.714h-9.095l-4.5-7.714h-14.285l20.997 36h18.521c5.343 0 10.135-2.33 13.438-6.024v6.024h12.212c7.813 0 14.148-6.336 14.148-14.145zm-51.436 6.428v-8.357h-7.179l-2.622-4.5h14.302v12.857h-4.5zm21.927-10.284c0-5.682-4.608-10.286-10.289-10.286h-3.923v4.5h3.923a5.785 5.785 0 0 1 5.79 5.786 5.791 5.791 0 0 1-5.79 5.788h-3.923v4.496h3.923c5.68 0 10.29-4.605 10.29-10.284" style="fill:#ee2722;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                    <path d="M777.697 319.44h-4.5v-4.496h4.5a1.93 1.93 0 0 0 1.928-1.933c0-1.069-.86-1.928-1.928-1.928h-4.5v-4.5h4.5a6.429 6.429 0 0 1 0 12.857zm-25.65-23.792c5.388 0 10.031 3.156 12.2 7.722h5.738v-7.722h3.211v7.722h4.501c5.33 0 9.647 4.317 9.647 9.642 0 5.325-4.317 9.644-9.647 9.644h-7.712v-11.573h-4.578c-.933 6.54-6.56 11.573-13.36 11.573H736.22l-15.745-27.008h3.756l4.5 7.722h16.18v-7.722h7.137zm39.798 17.364c0-7.811-6.335-14.142-14.148-14.142v-7.714h-12.211v6.018c-3.304-3.694-8.096-6.018-13.439-6.018H740.41v7.714h-9.095l-4.5-7.714h-14.285l20.997 36h18.521c5.343 0 10.135-2.33 13.438-6.024v6.024h12.212c7.813 0 14.148-6.336 14.148-14.145zm-51.436 6.428v-8.357h-7.179l-2.622-4.5h14.302v12.857h-4.5zm21.927-10.284c0-5.682-4.608-10.286-10.289-10.286h-3.923v4.5h3.923a5.785 5.785 0 0 1 5.79 5.786 5.791 5.791 0 0 1-5.79 5.788h-3.923v4.496h3.923c5.68 0 10.29-4.605 10.29-10.284" style="fill:#ee2722;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                    <path d="M777.697 319.44h-4.5v-4.496h4.5a1.93 1.93 0 0 0 1.928-1.933c0-1.069-.86-1.928-1.928-1.928h-4.5v-4.5h4.5a6.429 6.429 0 0 1 0 12.857zm-25.65-23.792c5.388 0 10.031 3.156 12.2 7.722h5.738v-7.722h3.211v7.722h4.501c5.33 0 9.647 4.317 9.647 9.642 0 5.325-4.317 9.644-9.647 9.644h-7.712v-11.573h-4.578c-.933 6.54-6.56 11.573-13.36 11.573H736.22l-15.745-27.008h3.756l4.5 7.722h16.18v-7.722h7.137zm39.798 17.364c0-7.811-6.335-14.142-14.148-14.142v-7.714h-12.211v6.018c-3.304-3.694-8.096-6.018-13.439-6.018H740.41v7.714h-9.095l-4.5-7.714h-14.285l20.997 36h18.521c5.343 0 10.135-2.33 13.438-6.024v6.024h12.212c7.813 0 14.148-6.336 14.148-14.145zm-51.436 6.428v-8.357h-7.179l-2.622-4.5h14.302v12.857h-4.5zm21.927-10.284c0-5.682-4.608-10.286-10.289-10.286h-3.923v4.5h3.923a5.785 5.785 0 0 1 5.79 5.786 5.791 5.791 0 0 1-5.79 5.788h-3.923v4.496h3.923c5.68 0 10.29-4.605 10.29-10.284" style="fill:#ee2722;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                  </g>
+                </g>
+              </svg>
+                </div>
+                <p class="h5">ADP, Automatic Data Processing, Inc.</p>
+                <p class="m-bottom-sm">Senior Director of Engineering <br>
+                  April 2023 - Present </p>
+              </div>
+              <div class="col-lg-8">
+                <p>Led the UX Design System Engineering teams, managing a multidisciplinary team of designers, developers, and QA to deliver cohesive, high-impact user experiences across the firm’s digital ecosystem.</p>
+                <div class="about-section-list">
+                  <p class="about-section-list-title">Work Highlights</p>
+                  <ul class="list-check">
+                    <li>Architected UI/UX strategies that leveraged A.I. tooling to emphasize reliability, maintainability,
+                    scalability, and accessibility, resulting in improved application performance and user satisfaction.</li>
+                    <li>Revised delivery strategies to increase output over 60% while also fostering a new QA strategy to
+                    align with business goals and technical constraints, reducing defects by 17%.</li>
+                    <li>Drove continuous improvement initiatives, A.I. onboarding, identifying opportunities to
+                    streamline processes, enhance product performance, and reduce design and technical debt.</li>
+                    <li>Created process to maintain application usability, accessibility, and code quality standards, while
+                    ensuring seamless integration with existing technical architectures and enterprise systems.</li>
+                    <li>Managed the full software development lifecycle (SDLC) with an emphasis on agile
+                    methodologies and cross-functional coordination.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- End ADP -->
+
+            <hr />
+
+            <!-- IHS  -->
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="works-logo">
                   <img src="dist/images/merged.png" alt="background">
                 </div>
-                <p>As Product Owner & Lead developer for the Cupcake design system - I lead a team that is involved
+                <p>As Product Owner & Lead developer for the design system - I lead a team that is involved
                   in
                   all stages of User Experience and User Interface development. <br><br>
-                  We design, build, and deliver the system that drives over 50 products. From whiteboards to sketch
-                  to prototype to production!
+                  We design, build, and deliver the system that drives 80+ products.
                   <br><br>
-
                   Engaging product owners, designers, and developers to understand their use cases and help them
                   build beautiful solutions as efficiently as possible.
                   <br><br>
-
+                  Led the UX Design System Engineering teams, managing a multidisciplinary team of designers,
+                  developers, and QA to deliver cohesive, high-impact user experiences across the firm’s digital ecosystem.
                 </p>
               </div>
-              <div class="c-col-lg-4">
-                <div class="c-col-md-12">
+              <div class="col-lg-4">
+                <div class="col-md-12">
 
                   <div class="experience">
                     <div class="experience-time"></div>
@@ -529,23 +537,18 @@ I collaborate with designers, business leads, product owners, and engineers equa
               </div>
 
 
-              <div class="c-col-lg-12">
+              <div class="col-lg-12">
                 <div class="about-section-list">
                   <p class="about-section-list-title">Work Highlights</p>
                   <ul class="list-check">
-                    <li>Centralized the UI Framework for all Ipreo applications to enable faster UI development and
-                      a consistent User Experience.</li>
-
-                    <li>Maintain UX guidelines, HTML/CSS framework, and development documentation.</li>
-
-                    <li>Building and maintaining new components that follow or define UX guidelines and usage API's.
-                    </li>
-                    <li>Ensuring components work together to craft exceptional experiences.</li>
-
-                    <li>Work closely with multiple product teams to understand and solve for their user.</li>
-
-                    <li>Work closely across development teams to understand and provide solutions for faster and
-                      more consistent UI artifacts.</li>
+                      <li>Lead centralized UX Engineering initiatives for 80+ enterprise applications; architected and
+                      maintained scalable design system</li>
+                      <li>Grew and mentored multidisciplinary teams across UX and front-end engineering, fostering
+                      inclusive culture and delivery excellence</li>
+                      <li>Decreased time to market by 38%, raised usability scores by 9+ points, and established a Center
+                      of Excellence for design and dev collaboration</li>
+                      <li>Championed accessibility and performance standards through component APIs, design tokens,
+                      and process NFR’s</li>
                   </ul>
                 </div>
               </div>
@@ -555,8 +558,8 @@ I collaborate with designers, business leads, product owners, and engineers equa
             <hr />
 
             <!-- IPREO  -->
-            <div class="c-row">
-              <div class="c-col-lg-8">
+            <div class="row">
+              <div class="col-lg-8">
                 <div class="works-logo">
                   <img src="dist/images/IPREO.gif" alt="background">
                 </div>
@@ -579,8 +582,8 @@ I collaborate with designers, business leads, product owners, and engineers equa
                 </p>
               </div>
 
-              <div class="c-col-lg-4">
-                <div class="c-col-md-12">
+              <div class="col-lg-4">
+                <div class="col-md-12">
 
                   <div class="experience">
                     <div class="experience-time"></div>
@@ -626,7 +629,7 @@ I collaborate with designers, business leads, product owners, and engineers equa
                 </div>
               </div>
 
-              <div class="c-col-lg-12">
+              <div class="col-lg-12">
                 <div class="about-section-list">
                   <p class="about-section-list-title">Work Highlights</p>
                   <ul class="list-check">
@@ -658,16 +661,16 @@ I collaborate with designers, business leads, product owners, and engineers equa
             <hr />
 
             <!-- SharedVue -->
-            <div class="c-row">
-              <div class="c-col-lg-4">
+            <div class="row">
+              <div class="col-lg-4">
                 <p class="h5">SharedVue (acquired by Zift Solutions)</p>
                 <p class="">Front End Web Design & Development <br>
                 July 2014 - December 2014 </p>
               </div>
-              <div class="c-col-lg-8">
+              <div class="col-lg-8">
                 <p>Designing and developing client showcases for leading tech companies including IBM, Intel, Citrix, Red Hat, riverbed, VMware and SAP.</p>
               </div>
-              <div class="c-col-lg-12">
+              <div class="col-lg-12">
                 <div class="about-section-list">
                   <p class="about-section-list-title">Work Highlights</p>
                   <ul class="list-check">
@@ -683,16 +686,16 @@ I collaborate with designers, business leads, product owners, and engineers equa
             <hr />
 
             <!-- MisGood -->
-            <div class="c-row">
-              <div class="c-col-lg-4">
+            <div class="row">
+              <div class="col-lg-4">
                 <p class="h5">M is Good</p>
                 <p>Front End Web Design and Development <br>
                 September 2013 - July 2014 </p>
               </div>
-              <div class="c-col-lg-8">
+              <div class="col-lg-8">
                 <p>A boutique marketing agency that offers web design & development as well as digital design & marketing.</p>
               </div>
-              <div class="c-col-lg-12">
+              <div class="col-lg-12">
                 <div class="about-section-list">
                   <p class="about-section-list-title">Work Highlights</p>
                   <ul class="list-check">
@@ -711,8 +714,8 @@ I collaborate with designers, business leads, product owners, and engineers equa
 
         <!-- portfolio -->
         <section id="portfolio">
-          <div class="c-container-fixed">
-            <div class="c-row section-head">
+          <div class="container-fixed">
+            <div class="row section-head">
               <div class="section-head-title">
                 <h2>Portfolio</h2>
                 <span class="section-head-title-letter">P</span>
@@ -720,10 +723,10 @@ I collaborate with designers, business leads, product owners, and engineers equa
               <p>Here are samples of a few great projects I have been lucky enough to work on.</p>
             </div>
           </div>
-          <div class="c-container-fixed">
-            <div class="portfolio-container c-row">
+          <div class="container-fixed">
+            <div class="portfolio-container row">
 
-              <div class="c-col-sm-6 c-col-lg-3">
+              <div class="col-sm-6 col-lg-3">
                 <div class="portfolio-item">
                   <a href="portfolio-cupcake.html">
                     <div class="portfolio-item-media">
@@ -731,13 +734,13 @@ I collaborate with designers, business leads, product owners, and engineers equa
                     </div>
                     <div class="portfolio-item-overlay"></div>
                     <div class="portfolio-item-details">
-                      <h4 class="h5">Cupcake Design System</h4>
+                      <h3 class="h5">Cupcake Design System</h3>
                     </div>
                   </a>
                 </div>
               </div>
 
-              <div class="c-col-sm-6 c-col-lg-3">
+              <div class="col-sm-6 col-lg-3">
                 <div class="portfolio-item">
                   <a href="portfolio-core.html">
                     <div class="portfolio-item-media">
@@ -751,7 +754,7 @@ I collaborate with designers, business leads, product owners, and engineers equa
                 </div>
               </div>
 
-              <div class="c-col-sm-6 c-col-lg-3">
+              <div class="col-sm-6 col-lg-3">
                 <div class="portfolio-item">
                   <a href="portfolio-docs.html">
                     <div class="portfolio-item-media">
@@ -765,7 +768,7 @@ I collaborate with designers, business leads, product owners, and engineers equa
                 </div>
               </div>
 
-              <div class="c-col-sm-6 c-col-lg-3">
+              <div class="col-sm-6 col-lg-3">
                 <div class="portfolio-item">
                   <a href="portfolio-sprinkles.html">
                     <div class="portfolio-item-media">
@@ -785,8 +788,8 @@ I collaborate with designers, business leads, product owners, and engineers equa
 
         <!-- contact -->
         <section id="contact">
-          <div class="c-container-fixed">
-            <div class="c-row section-head">
+          <div class="container-fixed">
+            <div class="row section-head">
               <div class="section-head-title">
                 <h2>Contact</h2>
                 <span class="section-head-title-letter">C</span>
@@ -794,21 +797,21 @@ I collaborate with designers, business leads, product owners, and engineers equa
               <p>Thanks for checking out my portfolio! You can reach me at any of the links below.</p>
             </div>
 
-            <div class="c-row">
+            <div class="row">
 
-              <div class="c-col-md-4">
+              <div class="col-md-4">
                 <div class="feature-block feature-block-contact">
                   <iconify-icon data-icon="jam:linkedin" data-width="64" data-height="64"></iconify-icon>
                   <a href="https://www.linkedin.com/in/josh-easter-30282625/" target="_blank">View My linkedin</a>
                 </div>
               </div>
-              <div class="c-col-md-4">
+              <div class="col-md-4">
                 <div class="feature-block feature-block-contact">
                   <iconify-icon data-icon="jam:github" data-width="64" data-height="64"></iconify-icon>
                     <a href="https://github.com/jeaster12" target="_blank">View My Github</a></p>
                 </div>
               </div>
-              <div class="c-col-md-4">
+              <div class="col-md-4">
                 <div class="feature-block feature-block-contact">
                   <iconify-icon data-icon="jam:envelope-f" data-width="64" data-height="64"></iconify-icon>
                     <a href="mailto:jeaster12@gmail.com" target="_blank">Send Me an Email</a></p>
@@ -820,26 +823,29 @@ I collaborate with designers, business leads, product owners, and engineers equa
         <!-- end contact -->
 
         <!-- footer -->
-        <footer class="page-footer">
+        <div class="page-footer">
           <ul>
             <li>
               <a class="btn btn-social" href="https://www.linkedin.com/in/josh-easter-30282625/" target="_blank">
+                <span class="visually-hidden">linkedin</span>
                 <iconify-icon data-icon="jam:linkedin" data-width="24" data-height="24"></iconify-icon>
               </a>
             </li>
             <li>
               <a class="btn btn-social" href="https://github.com/jeaster12" target="_blank">
+                <span class="visually-hidden">github</span>
                 <iconify-icon data-icon="jam:github" data-width="24" data-height="24"></iconify-icon>
               </a>
             </li>
             <li>
               <a class="btn btn-social" href="mailto:jeaster12@gmail.com">
+                <span class="visually-hidden">Mail</span>
                 <iconify-icon data-icon="jam:envelope-open" data-width="24" data-height="24"></iconify-icon>
               </a>
             </li>
           </ul>
           <p>© 2020 Josh Easter - All Rights Reserved</p>
-        </footer>
+        </div>
         <!-- end footer -->
 
       </div>

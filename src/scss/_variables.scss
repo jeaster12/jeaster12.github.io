@@ -1,44 +1,40 @@
+@use "sass:color";
 
 $default-font-size: 16px;
 $default-font-color: #252729;
 $default-font-font-weight: normal;
 $default-font-line-height: 1.75rem;
-$default-font: 'Roboto', Helvetica, sans-serif;
-$default-header-font: 'Ubuntu', Helvetica, sans-serif;
+$default-font: "Roboto", helvetica, sans-serif;
+$default-header-font: "Ubuntu", helvetica, sans-serif;
 
 // Changing $global-px-grid will adapt all space values and $global-sizes.
 $pixel-grid: 8px;
-
 $space-0: 0;
-$space-xxs: $pixel-grid / 4;
-$space-xs: $pixel-grid / 2;
+$space-xxs: calc($pixel-grid / 4);
+$space-xs: calc($pixel-grid / 2);
 $space-sm: $pixel-grid;
 $space-md: $pixel-grid * 2;
 $space-lg: $pixel-grid * 3;
 $space-xl: $pixel-grid * 4;
 $space-xxl: $pixel-grid * 6;
-
 $dark-color: #1e2022;
+$light-alt: #efefef;
 $light-bg: #f8fafd;
-$default-radius: .25rem;
-$default-border: 1px solid darken($light-bg, 8);
-
-$primary-color: #0082de;
+$white: #fff;
+$default-radius: 0.25rem;
+$default-border: 1px solid color.adjust($light-bg, $lightness: -8%);
+$primary-color: #0055b0;
 $secondary-color: #2cb59a;
-
-
 $feature-padding: $space-xl;
 $feature-radius: $default-radius;
 $feature-border: $default-border;
-$feature-bg: #fff;
+$feature-bg: $white;
 $feature-icon-size: $space-xl + $space-sm;
 $feature-title-font-weight: 700;
 $feature-title-font-size: 1.25rem;
 
 // $portfolio-head-bg: #464a4e;
 $portfolio-head-bg: #08437d;
-$portfolio-head-color: white;
-
+$portfolio-head-color: $white;
 $side-nav-bg: $dark-color;
 $side-nav-width: 300px;
-

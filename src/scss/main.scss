@@ -1,18 +1,141 @@
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/support/support';
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/reset';
-@import 'variables';
-@import 'animate';
-@import 'base';
-@import 'buttons';
-@import 'layout';
-@import 'header';
-@import 'sections';
-@import 'feature-blocks';
-@import 'portfolio';
-@import 'slick';
-@import 'veno';
-@import 'utlities';
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/helpers';
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/grid-containers';
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/grid-rows';
-@import '../../node_modules/@cupcake-ds/cupcake/src/scss/grid-columns';
+@use "variables";
+@use "animate";
+@use "base";
+@use "buttons";
+@use "layout";
+@use "header";
+@use "sections";
+@use "feature-blocks";
+@use "portfolio";
+@use "slick";
+@use "veno";
+@use "utlities";
+@use "grid";
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+@media (width >= 768px) {
+  .animate-scroll {
+    animation-duration: 30s;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.h-7 {
+  height: 5rem;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+.gap-2 {
+  gap: 3rem;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-\[var\(--white-icon\)\] {
+  color: var(--white-icon);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.duration-300 {
+  transition-duration: 0.3s;
+}
+
+.group:hover .group-hover\:scale-110 {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@media (width >= 768px) {
+  .md\:gap-20 {
+    gap: 5rem;
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+@media (width >= 768px) {
+  .animate-scroll {
+    animation-duration: 30s;
+  }
+}
+
+/*! CSS Used keyframes */
+@keyframes scroll {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.py-8 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

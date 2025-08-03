@@ -173,8 +173,8 @@ import '../../styles/global.css';
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Feature 1 -->
           <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/layout.jpg" alt="CSS Layout Examples" class="w-full h-full object-cover" />
+            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
+              <img src="/layout.jpg" alt="CSS Layout Examples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <h3 class="text-lg font-semibold text-white mb-2">Layout System</h3>
             <p class="text-slate-400 text-sm">Flexible layout utilities and grid system for responsive design patterns.</p>
@@ -182,8 +182,8 @@ import '../../styles/global.css';
 
           <!-- Feature 2 -->
           <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/quality.jpg" alt="CSS Quality Tools" class="w-full h-full object-cover" />
+            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
+              <img src="/quality.jpg" alt="CSS Quality Tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <h3 class="text-lg font-semibold text-white mb-2">Quality Assurance</h3>
             <p class="text-slate-400 text-sm">Built-in linting, testing, and quality assurance tools for maintainable CSS.</p>
@@ -191,8 +191,8 @@ import '../../styles/global.css';
 
           <!-- Feature 3 -->
           <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/scale.png" alt="Scalable CSS Architecture" class="w-full h-full object-cover" />
+            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
+              <img src="/scale.png" alt="Scalable CSS Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <h3 class="text-lg font-semibold text-white mb-2">Scalable Architecture</h3>
             <p class="text-slate-400 text-sm">Modular CSS architecture designed to scale from small projects to enterprise applications.</p>
@@ -247,5 +247,59 @@ import '../../styles/global.css';
         </div>
       </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
+      <div class="relative max-w-7xl max-h-full">
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
+          &times;
+        </button>
+        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+              lightboxImage.src = img.src;
+              lightboxImage.alt = img.alt;
+              lightboxCaption.textContent = img.alt;
+              lightbox.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

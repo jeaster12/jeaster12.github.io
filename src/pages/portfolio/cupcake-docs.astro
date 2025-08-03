@@ -365,5 +365,59 @@ import '../../styles/global.css';
         </div>
       </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
+      <div class="relative max-w-7xl max-h-full">
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
+          &times;
+        </button>
+        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+              lightboxImage.src = img.src;
+              lightboxImage.alt = img.alt;
+              lightboxCaption.textContent = img.alt;
+              lightbox.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

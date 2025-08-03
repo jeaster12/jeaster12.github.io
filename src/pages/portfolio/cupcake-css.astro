@@ -1,0 +1,260 @@
+---
+import '../../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cupcake CSS Framework - Josh Easter Portfolio</title>
+    <meta name="description" content="A lightweight, utility-first CSS framework built for rapid prototyping and scalable design systems." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
+            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
+            Cupcake CSS
+          </h1>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            A lightweight, utility-first CSS framework designed for rapid prototyping and building consistent user interfaces with minimal overhead.
+          </p>
+        </div>
+        
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
+          <div class="aspect-video bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center border border-slate-700">
+            <div class="text-center">
+              <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.25 2.1l-.35-.15c-.2-.08-.42-.08-.63 0l-.35.15C11.89 2.58 11 3.84 11 5.25v13.5c0 1.41.89 2.67 1.92 3.15l.35.15c.2.08.42.08.63 0l.35-.15C15.11 21.42 16 20.16 16 18.75V5.25c0-1.41-.89-2.67-1.92-3.15z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-white mb-2">CSS Framework</h3>
+              <p class="text-slate-400">Utility-first approach for rapid development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-20 bg-slate-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Project Info -->
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-white">Framework Overview</h2>
+            <p class="text-slate-300 mb-6 leading-relaxed">
+              Cupcake CSS was developed as a lightweight alternative to heavy CSS frameworks. Built with a utility-first approach, it provides the essential building blocks for creating beautiful, responsive interfaces without the bloat.
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Core Features</h3>
+                <ul class="space-y-3 text-slate-300">
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    Utility-first CSS methodology
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    Responsive design system
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    Custom CSS properties for theming
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    Modular architecture with optional components
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                    Built-in dark mode support
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Performance</h3>
+                <ul class="space-y-3 text-slate-300">
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    Only 12KB gzipped core bundle
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    Tree-shakeable utilities
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    Zero runtime dependencies
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Example -->
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-white">Usage Example</h2>
+            
+            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-6">
+              <h3 class="text-lg font-semibold text-white mb-4">Installation</h3>
+              <div class="bg-black rounded-lg p-4 font-mono text-sm">
+                <div class="text-gray-400 mb-2"># Install via npm</div>
+                <div class="text-green-400">npm install cupcake-css</div>
+                <div class="text-gray-400 mt-4 mb-2"># Import in your CSS</div>
+                <div class="text-blue-400">@import 'cupcake-css/dist/cupcake.css';</div>
+              </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-6">
+              <h3 class="text-lg font-semibold text-white mb-4">Component Example</h3>
+              <div class="bg-black rounded-lg p-4 font-mono text-sm">
+                <div class="text-blue-400">&lt;div class=</div>
+                <div class="text-green-400 ml-4">"card p-6 rounded-lg shadow-md</div>
+                <div class="text-green-400 ml-4"> bg-white dark:bg-gray-800"</div>
+                <div class="text-blue-400">&gt;</div>
+                <div class="text-white ml-4">&lt;h3 class="text-xl font-bold mb-4"&gt;</div>
+                <div class="text-white ml-8">Card Title</div>
+                <div class="text-white ml-4">&lt;/h3&gt;</div>
+                <div class="text-white ml-4">&lt;p class="text-gray-600"&gt;</div>
+                <div class="text-white ml-8">Card content goes here...</div>
+                <div class="text-white ml-4">&lt;/p&gt;</div>
+                <div class="text-blue-400">&lt;/div&gt;</div>
+              </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+              <h3 class="text-lg font-semibold text-white mb-4">Browser Support</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">98%</span>
+                  </div>
+                  <p class="text-sm text-slate-300">Modern Browsers</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">IE11+</span>
+                  </div>
+                  <p class="text-sm text-slate-300">Legacy Support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-white">Framework Features</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 3v6h8l-8-6zM6 9V3L2 9h4zM18 11v6h4l-4-6zM6 11v10l6-10H6z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Utility Classes</h3>
+            <p class="text-slate-400 text-sm">Comprehensive set of utility classes for spacing, typography, colors, and layout.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Component Library</h3>
+            <p class="text-slate-400 text-sm">Pre-built components for common UI patterns like cards, buttons, and forms.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Responsive Grid</h3>
+            <p class="text-slate-400 text-sm">Flexible grid system with responsive breakpoints and utility classes.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-yellow-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Theming System</h3>
+            <p class="text-slate-400 text-sm">CSS custom properties for easy theming and color palette customization.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-indigo-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Dark Mode</h3>
+            <p class="text-slate-400 text-sm">Built-in dark mode support with automatic theme switching capabilities.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-red-500 transition-colors">
+            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Performance</h3>
+            <p class="text-slate-400 text-sm">Optimized for performance with minimal CSS footprint and fast rendering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="py-16 bg-slate-800">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full text-white font-medium transition-all duration-300">
+            ← Back to Portfolio
+          </a>
+          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

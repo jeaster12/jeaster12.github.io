@@ -1,0 +1,244 @@
+---
+import '../../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cupcake Design System - Josh Easter Portfolio</title>
+    <meta name="description" content="A comprehensive design system built for enterprise applications, providing scalable UI components and design patterns." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
+            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Cupcake Design System
+          </h1>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            A comprehensive, enterprise-grade design system built to scale across 80+ applications, providing consistent user experiences and accelerating development velocity.
+          </p>
+        </div>
+        
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
+          <div class="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-slate-700">
+            <div class="text-center">
+              <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
+                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-white mb-2">Design System Components</h3>
+              <p class="text-slate-400">Comprehensive UI library with 150+ components</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-20 bg-slate-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Project Info -->
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-white">Project Overview</h2>
+            <p class="text-slate-300 mb-6 leading-relaxed">
+              The Cupcake Design System was built from the ground up to serve as the foundation for IHS Markit's entire digital ecosystem. This comprehensive system includes UI components, design tokens, patterns, and guidelines that ensure consistency across all user touchpoints.
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Key Features</h3>
+                <ul class="space-y-3 text-slate-300">
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                    150+ production-ready UI components
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                    Comprehensive design token system
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                    WCAG 2.1 AA accessibility compliance
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                    Multi-framework support (React, Angular, Web Components)
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                    Automated testing and visual regression
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Impact</h3>
+                <ul class="space-y-3 text-slate-300">
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    38% reduction in time to market for new features
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    9+ point increase in usability scores
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                    Consistent experience across 80+ applications
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Stack -->
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-white">Technical Stack</h2>
+            
+            <div class="space-y-6">
+              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+                <h3 class="text-lg font-semibold text-white mb-4">Frontend Technologies</h3>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">React</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">Angular</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">TypeScript</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+                <h3 class="text-lg font-semibold text-white mb-4">Development Tools</h3>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">Storybook</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">Jest</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-purple-500 to-violet-500 rounded-lg"></div>
+                    <p class="text-sm text-slate-300">Figma</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+                <h3 class="text-lg font-semibold text-white mb-4">Methodology</h3>
+                <ul class="space-y-2 text-slate-300">
+                  <li>• Atomic Design Principles</li>
+                  <li>• Design Token Architecture</li>
+                  <li>• Component-Driven Development</li>
+                  <li>• Accessibility-First Approach</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-white">Component Gallery</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Component Card 1 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
+            <div class="aspect-video bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg mb-4 flex items-center justify-center border border-slate-600">
+              <div class="text-center">
+                <div class="w-16 h-10 bg-blue-500 rounded mb-2 mx-auto"></div>
+                <p class="text-xs text-slate-400">Button Components</p>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Button System</h3>
+            <p class="text-slate-400 text-sm">Primary, secondary, and utility buttons with consistent styling and behavior.</p>
+          </div>
+
+          <!-- Component Card 2 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
+            <div class="aspect-video bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg mb-4 flex items-center justify-center border border-slate-600">
+              <div class="text-center">
+                <div class="space-y-1">
+                  <div class="w-20 h-2 bg-purple-500 rounded mx-auto"></div>
+                  <div class="w-16 h-2 bg-purple-400 rounded mx-auto"></div>
+                  <div class="w-12 h-2 bg-purple-300 rounded mx-auto"></div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2">Form Components</p>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Form Elements</h3>
+            <p class="text-slate-400 text-sm">Comprehensive form controls with validation and accessibility features.</p>
+          </div>
+
+          <!-- Component Card 3 -->
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
+            <div class="aspect-video bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-lg mb-4 flex items-center justify-center border border-slate-600">
+              <div class="text-center">
+                <div class="grid grid-cols-2 gap-1">
+                  <div class="w-8 h-8 bg-green-500 rounded"></div>
+                  <div class="w-8 h-8 bg-green-400 rounded"></div>
+                  <div class="w-8 h-8 bg-green-400 rounded"></div>
+                  <div class="w-8 h-8 bg-green-300 rounded"></div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2">Navigation</p>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Navigation</h3>
+            <p class="text-slate-400 text-sm">Flexible navigation components for complex application hierarchies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="py-16 bg-slate-800">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full text-white font-medium transition-all duration-300">
+            ← Back to Portfolio
+          </a>
+          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

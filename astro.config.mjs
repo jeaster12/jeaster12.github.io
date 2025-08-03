@@ -1,15 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [tailwind()],
   devToolbar: {
     enabled: false
   },
   vite: {
-    plugins: [tailwindcss()],
     server: {
       hmr: {
         overlay: false

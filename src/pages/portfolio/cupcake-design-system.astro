@@ -168,38 +168,254 @@ import '../../styles/global.css';
       </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Project Process Section -->
     <section class="py-20 bg-slate-900">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Component Gallery</h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Component Card 1 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/avatars.jpg" alt="Avatar Components" class="w-full h-full object-cover" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Avatar System</h3>
-            <p class="text-slate-400 text-sm">Flexible avatar components with multiple variants, sizes, and override options.</p>
+        <h2 class="text-3xl font-bold mb-12 text-center text-white">Project Process</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h3 class="text-2xl font-semibold text-white mb-6">Building the Team</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed">
+              To begin with I had to build an internal team using a small percentage of each designer's time. This meant I needed to be extremely well organized when running meetings.
+            </p>
+            <p class="text-slate-300 leading-relaxed">
+              I made sure the entire UX team was working together and we had consistent meetings across teams and with product owners in order to maintain a visible and deliverable roadmap.
+            </p>
           </div>
 
-          <!-- Component Card 2 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/badges.jpg" alt="Badge Components" class="w-full h-full object-cover" />
+          <div>
+            <h3 class="text-2xl font-semibold text-white mb-6">Interface Inventory Process</h3>
+            <p class="text-slate-300 mb-6 leading-relaxed">
+              I began the process of understanding all existing UI components and dependencies within our applications. I considered this the "interface inventory" process.
+            </p>
+            <p class="text-slate-300 leading-relaxed">
+              I then presented these results to the entire UX team and engaged their individual domain knowledge to formulate a plan of action.
+            </p>
+          </div>
+        </div>
+
+        <!-- Design Deliverables -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-white">Design Deliverables</h2>
+          <div class="grid lg:grid-cols-2 gap-12">
+            <div>
+              <p class="text-slate-300 mb-6 leading-relaxed">
+                The first deliverable for the team was a shared design library. We needed all designers to be working with the same design elements.
+              </p>
+              <p class="text-slate-300 mb-6 leading-relaxed">
+                We also needed feedback and guidance on how to best support each persona a product team supported. The tool of choice was Sketch.
+              </p>
+              <p class="text-slate-300 leading-relaxed">
+                While the library itself is internal and cannot be shared - these screens highlight some of the features.
+              </p>
             </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Badge System</h3>
-            <p class="text-slate-400 text-sm">Comprehensive badge components for status indicators and labels.</p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-lg overflow-hidden">
+                <img src="/openmenu.jpg" alt="Sketch Design Library - Open Menu" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="/cardsketch.jpg" alt="Sketch Design Library - Card Sketch" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="/avatar-overrides.jpg" alt="Sketch Design Library - Avatar Overrides" class="w-full h-full object-cover" />
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="/actionsketch.jpg" alt="Sketch Design Library - Action Sketch" class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Deliverables -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-white">Code Deliverables</h2>
+          <div class="grid lg:grid-cols-2 gap-12">
+            <div class="order-2 lg:order-1">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/lint.jpg" alt="Stylelint for SCSS linting" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/true.jpg" alt="True for SCSS unit testing" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/alerts.jpg" alt="Alert Components" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/avatars.jpg" alt="Avatar Components" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/badges.jpg" alt="Badge Components" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                  <img src="/layout.jpg" alt="Layout Components" class="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+              <p class="text-slate-300 mb-6 leading-relaxed">
+                While design decisions were being made and adopted, I started my team's sprints - building out the core code.
+              </p>
+              <p class="text-slate-300 mb-6 leading-relaxed">
+                We first built the HTML/SCSS core with comprehensive testing and quality assurance tools including Stylelint for linting and True for SCSS unit testing.
+              </p>
+              <p class="text-slate-300 mb-8 leading-relaxed">
+                We have since started working on an Angular library as well - affectionately named "Sprinkles" - because duh.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a href="/portfolio/cupcake-css" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
+                  View HTML Case Study
+                </a>
+                <a href="/portfolio/cupcake-sprinkles" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
+                  View Angular Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Examples Gallery -->
+    <section class="py-20 bg-slate-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-white">Real Application Examples</h2>
+        <p class="text-slate-300 mb-12 text-lg leading-relaxed">
+          Since starting this project, there have been dozens of new applications, pages, and features launched.
+          I'm quite proud of the work my teams have produced. You can view a few examples below.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-blue-500 transition-colors">
+              <img src="/example-a.jpg" alt="Application Example A" class="w-full aspect-video object-cover" />
+            </div>
           </div>
 
-          <!-- Component Card 3 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden">
-              <img src="/alerts.jpg" alt="Alert Components" class="w-full h-full object-cover" />
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-purple-500 transition-colors">
+              <img src="/example-b.jpg" alt="Application Example B" class="w-full aspect-video object-cover" />
             </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Alert System</h3>
-            <p class="text-slate-400 text-sm">User feedback components with multiple severity levels and styling options.</p>
           </div>
+
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-green-500 transition-colors">
+              <img src="/example-c.jpg" alt="Application Example C" class="w-full aspect-video object-cover" />
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-orange-500 transition-colors">
+              <img src="/example-d.jpg" alt="Application Example D" class="w-full aspect-video object-cover" />
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-red-500 transition-colors">
+              <img src="/example-e.jpg" alt="Application Example E" class="w-full aspect-video object-cover" />
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-700 group-hover:border-pink-500 transition-colors">
+              <img src="/example-g.jpg" alt="Application Example G" class="w-full aspect-video object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Impact -->
+    <section class="py-20 bg-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="rounded-xl overflow-hidden">
+              <img src="/matrix.jpg" alt="Design System Impact Matrix" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-bold mb-8 text-white">Business Impact</h2>
+
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold text-white mb-4">Strategic Benefits</h3>
+              <ul class="space-y-3 text-slate-300">
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  Single source of truth for building User Interface
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  Time and money savings across all development teams
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  Great increase in consistency across 80+ applications
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  Decreased maintenance and spread of technical debt
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  UX teams can focus on users, not spec sheets
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-3 mt-1">✓</span>
+                  Development teams focus on features, not pixels
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-4">Day-to-Day Impact</h3>
+              <ul class="space-y-3 text-slate-300">
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-3 mt-1">✓</span>
+                  Less, more productive meetings
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-3 mt-1">✓</span>
+                  More alignment and better collaboration
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-3 mt-1">✓</span>
+                  Culture change - working smarter not harder
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-3 mt-1">✓</span>
+                  Confidence that design will be implemented correctly
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-3 mt-1">✓</span>
+                  Teams less overwhelmed with UI bugs or inconsistencies
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="py-20 bg-slate-800">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-white">In Summary</h2>
+        <div class="space-y-6 text-slate-300 text-lg leading-relaxed">
+          <p>
+            The Cupcake Design System has been a great success. Cupcake has provided consistency across applications that the company had never seen before.
+          </p>
+          <p>
+            Product Owners and Users are extremely happy with the amount of speed we have gained in delivering features. Developers are thrilled to no longer concern themselves with a ton of small CSS bugs and designers are happy to see their designs delivered as intended.
+          </p>
+          <p>
+            Cupcake completely changed our company culture and brought design thinking to the center of everything we build. No one approaches anything UX/UI related without thinking about Cupcake first.
+          </p>
         </div>
       </div>
     </section>

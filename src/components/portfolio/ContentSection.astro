@@ -1,0 +1,22 @@
+---
+export interface Props {
+  title?: string;
+  backgroundColor?: string;
+  className?: string;
+}
+
+const { 
+  title, 
+  backgroundColor = 'bg-slate-900',
+  className = ''
+} = Astro.props;
+---
+
+<section class={`py-20 ${backgroundColor} ${className}`}>
+  <div class="max-w-6xl mx-auto px-6">
+    {title && (
+      <h2 class="text-3xl font-bold mb-12 text-center text-white">{title}</h2>
+    )}
+    <slot />
+  </div>
+</section>

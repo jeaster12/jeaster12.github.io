@@ -1,0 +1,47 @@
+---
+export interface ProcessStep {
+  title: string;
+  content: string;
+  images?: Array<{
+    src: string;
+    alt: string;
+  }>;
+}
+
+export interface Props {
+  title: string;
+  backgroundColor?: string;
+  steps: ProcessStep[];
+}
+
+const { title, backgroundColor = 'bg-slate-900', steps } = Astro.props;
+---
+
+<section class={`py-20 ${backgroundColor}`}>
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center text-white">{title}</h2>
+
+    {steps.map((step, index) => (
+      <div class={`grid lg:grid-cols-2 gap-12 ${index < steps.length - 1 ? 'mb-16' : ''}`}>
+        <div class={index % 2 === 1 ? 'order-2 lg:order-1' : ''}>
+          <h3 class="text-2xl font-semibold text-white mb-6">{step.title}</h3>
+          <div class="text-slate-300 leading-relaxed" set:html={step.content} />
+        </div>
+
+        {step.images && (
+          <div class={`${index % 2 === 1 ? 'order-1 lg:order-2' : ''} ${step.images.length > 1 ? 'grid grid-cols-2 gap-4' : ''}`}>
+            {step.images.map(image => (
+              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
+    "@iconify-json/devicon": "^1.2.35",
     "@iconify/json": "^2.2.365",
     "astro": "^5.12.8",
     "astro-icon": "^1.1.5",

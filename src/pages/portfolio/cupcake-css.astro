@@ -1,305 +1,224 @@
 ---
-import '../../styles/global.css';
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import ProjectDetails from '../../components/portfolio/ProjectDetails.astro';
+import TechStack from '../../components/portfolio/TechStack.astro';
+import ContentSection from '../../components/portfolio/ContentSection.astro';
+import ImageGallery from '../../components/portfolio/ImageGallery.astro';
+import BenefitsSection from '../../components/portfolio/BenefitsSection.astro';
+
+const features = [
+  { icon: "purple", text: "Lightweight core with minimal footprint" },
+  { icon: "purple", text: "Utility-first class naming convention" },
+  { icon: "purple", text: "Responsive grid system" },
+  { icon: "purple", text: "Comprehensive component library" },
+  { icon: "purple", text: "SCSS-based with customizable variables" },
+  { icon: "purple", text: "Cross-browser compatibility" }
+];
+
+const metrics = [
+  { icon: "pink", text: "60% faster development time" },
+  { icon: "pink", text: "50KB minified framework size" },
+  { icon: "pink", text: "100+ utility classes available" }
+];
+
+const techCategories = [
+  {
+    title: "Core Technologies",
+    technologies: [
+      { name: "SCSS", gradient: "from-pink-500 to-rose-500" },
+      { name: "PostCSS", gradient: "from-red-500 to-orange-500" },
+      { name: "Autoprefixer", gradient: "from-orange-500 to-yellow-500" }
+    ]
+  },
+  {
+    title: "Build Tools",
+    technologies: [
+      { name: "Webpack", gradient: "from-blue-500 to-cyan-500" },
+      { name: "Gulp", gradient: "from-red-600 to-pink-600" },
+      { name: "npm Scripts", gradient: "from-green-500 to-emerald-500" }
+    ]
+  }
+];
+
+const frameworkImages = [
+  { src: "/core.jpg", alt: "Cupcake CSS Core Framework" },
+  { src: "/utilities.jpg", alt: "CSS Utility Classes" },
+  { src: "/components.jpg", alt: "Component Library" },
+  { src: "/grid-system.jpg", alt: "Responsive Grid System" }
+];
+
+const codeExamples = [
+  { src: "/scss-mixins.jpg", alt: "SCSS Mixins and Functions" },
+  { src: "/utility-classes.jpg", alt: "Utility Class Examples" },
+  { src: "/responsive-helpers.jpg", alt: "Responsive Helper Classes" },
+  { src: "/component-styles.jpg", alt: "Component Styling Examples" }
+];
+
+const benefitGroups = [
+  {
+    title: "For Developers",
+    benefits: [
+      { icon: "purple", text: "Rapid prototyping capabilities" },
+      { icon: "purple", text: "Consistent naming conventions" },
+      { icon: "purple", text: "Easy customization with SCSS variables" },
+      { icon: "purple", text: "Minimal learning curve" }
+    ]
+  },
+  {
+    title: "For Projects",
+    benefits: [
+      { icon: "pink", text: "Smaller bundle sizes" },
+      { icon: "pink", text: "Faster page load times" },
+      { icon: "pink", text: "Maintainable codebase" },
+      { icon: "pink", text: "Cross-platform compatibility" }
+    ]
+  }
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cupcake CSS Framework - Josh Easter Portfolio</title>
-    <meta name="description" content="A lightweight, utility-first CSS framework built for rapid prototyping and scalable design systems." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-slate-900 text-white font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
-            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
-            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
-            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<PortfolioLayout
+  title="Cupcake CSS Framework - Josh Easter Portfolio"
+  description="A lightweight, utility-first CSS framework built for rapid prototyping and scalable design systems."
+  projectTitle="Cupcake CSS"
+  projectSubtitle="A lightweight, utility-first CSS framework designed for rapid prototyping and building consistent user interfaces with minimal overhead."
+  heroImage="/core.jpg"
+  gradientColors="from-purple-400 via-pink-400 to-red-400"
+>
+  <div slot="hero-content">
+    <h3 class="text-2xl font-semibold text-white mb-2">CSS Framework</h3>
+    <p class="text-slate-300">Utility-first approach for rapid development</p>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
-            Cupcake CSS
-          </h1>
-          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            A lightweight, utility-first CSS framework designed for rapid prototyping and building consistent user interfaces with minimal overhead.
-          </p>
-        </div>
-        
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
-          <div class="aspect-video relative">
-            <img src="/core.jpg" alt="Cupcake CSS Framework Interface" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
-            <div class="absolute bottom-8 left-8 right-8 text-center">
-              <h3 class="text-2xl font-semibold text-white mb-2">CSS Framework</h3>
-              <p class="text-slate-300">Utility-first approach for rapid development</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <ProjectDetails
+    title="Framework Overview"
+    description="Cupcake CSS was designed as the foundational layer of our design system, providing a lightweight yet powerful set of utilities and components that could be easily customized and extended for any project."
+    features={features}
+    metrics={metrics}
+  >
+    <TechStack
+      title="Technical Architecture"
+      categories={techCategories}
+      additionalInfo={[
+        "Modular SCSS architecture",
+        "BEM methodology for component naming",
+        "Mobile-first responsive design",
+        "Automated browser testing"
+      ]}
+    />
+  </ProjectDetails>
 
-    <!-- Project Details -->
-    <section class="py-20 bg-slate-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12">
-          <!-- Project Info -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Framework Overview</h2>
-            <p class="text-slate-300 mb-6 leading-relaxed">
-              Cupcake CSS was developed as a lightweight alternative to heavy CSS frameworks. Built with a utility-first approach, it provides the essential building blocks for creating beautiful, responsive interfaces without the bloat.
-            </p>
-            
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Core Features</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
-                    Utility-first CSS methodology
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
-                    Responsive design system
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
-                    Custom CSS properties for theming
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
-                    Modular architecture with optional components
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-purple-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
-                    Built-in dark mode support
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Performance</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Only 12KB gzipped core bundle
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Tree-shakeable utilities
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Zero runtime dependencies
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Code Example -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Usage Example</h2>
-            
-            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-6">
-              <h3 class="text-lg font-semibold text-white mb-4">Installation</h3>
-              <div class="bg-black rounded-lg p-4 font-mono text-sm">
-                <div class="text-gray-400 mb-2"># Install via npm</div>
-                <div class="text-green-400">npm install cupcake-css</div>
-                <div class="text-gray-400 mt-4 mb-2"># Import in your CSS</div>
-                <div class="text-blue-400">@import 'cupcake-css/dist/cupcake.css';</div>
-              </div>
-            </div>
-
-            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-6">
-              <h3 class="text-lg font-semibold text-white mb-4">Component Example</h3>
-              <div class="bg-black rounded-lg p-4 font-mono text-sm">
-                <div class="text-blue-400">&lt;div class=</div>
-                <div class="text-green-400 ml-4">"card p-6 rounded-lg shadow-md</div>
-                <div class="text-green-400 ml-4"> bg-white dark:bg-gray-800"</div>
-                <div class="text-blue-400">&gt;</div>
-                <div class="text-white ml-4">&lt;h3 class="text-xl font-bold mb-4"&gt;</div>
-                <div class="text-white ml-8">Card Title</div>
-                <div class="text-white ml-4">&lt;/h3&gt;</div>
-                <div class="text-white ml-4">&lt;p class="text-gray-600"&gt;</div>
-                <div class="text-white ml-8">Card content goes here...</div>
-                <div class="text-white ml-4">&lt;/p&gt;</div>
-                <div class="text-blue-400">&lt;/div&gt;</div>
-              </div>
-            </div>
-
-            <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-              <h3 class="text-lg font-semibold text-white mb-4">Browser Support</h3>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="text-center">
-                  <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                    <span class="text-xs font-bold text-white">98%</span>
-                  </div>
-                  <p class="text-sm text-slate-300">Modern Browsers</p>
-                </div>
-                <div class="text-center">
-                  <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                    <span class="text-xs font-bold text-white">IE11+</span>
-                  </div>
-                  <p class="text-sm text-slate-300">Legacy Support</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="py-20 bg-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Framework Features</h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Feature 1 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/layout.jpg" alt="CSS Layout Examples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Layout System</h3>
-            <p class="text-slate-400 text-sm">Flexible layout utilities and grid system for responsive design patterns.</p>
-          </div>
-
-          <!-- Feature 2 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/quality.jpg" alt="CSS Quality Tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Quality Assurance</h3>
-            <p class="text-slate-400 text-sm">Built-in linting, testing, and quality assurance tools for maintainable CSS.</p>
-          </div>
-
-          <!-- Feature 3 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/scale.png" alt="Scalable CSS Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Scalable Architecture</h3>
-            <p class="text-slate-400 text-sm">Modular CSS architecture designed to scale from small projects to enterprise applications.</p>
-          </div>
-
-          <!-- Feature 4 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-yellow-500 transition-colors">
-            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg mb-4 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Theming System</h3>
-            <p class="text-slate-400 text-sm">CSS custom properties for easy theming and color palette customization.</p>
-          </div>
-
-          <!-- Feature 5 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-indigo-500 transition-colors">
-            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg mb-4 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Dark Mode</h3>
-            <p class="text-slate-400 text-sm">Built-in dark mode support with automatic theme switching capabilities.</p>
-          </div>
-
-          <!-- Feature 6 -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-red-500 transition-colors">
-            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Performance</h3>
-            <p class="text-slate-400 text-sm">Optimized for performance with minimal CSS footprint and fast rendering.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Back to Portfolio -->
-    <section class="py-16 bg-slate-800">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full text-white font-medium transition-all duration-300">
-            ← Back to Portfolio
+  <ContentSection title="Framework Components">
+    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Core Utilities</h3>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          The framework provides a comprehensive set of utility classes for spacing, typography, colors, and layout. Each utility follows a consistent naming convention that makes it easy to understand and remember.
+        </p>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          Built with SCSS, the framework includes mixins and functions that allow for easy customization and extension while maintaining consistency across all components.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://cupcake.netlify.com" target="_blank" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
+            View Live Demo
           </a>
-          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
-            Get in Touch
+          <a href="/portfolio/cupcake-design-system" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
+            Design System
           </a>
         </div>
       </div>
-    </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
-      <div class="relative max-w-7xl max-h-full">
-        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
-        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
-          &times;
-        </button>
-        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
+      <ImageGallery images={frameworkImages} columns="2" />
+    </div>
+
+    <h3 class="text-2xl font-semibold text-white mb-8">Code Architecture</h3>
+    <div class="grid lg:grid-cols-2 gap-12">
+      <ImageGallery images={codeExamples} columns="2" />
+      
+      <div>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          The framework is organized into logical modules that can be imported individually or as a complete package. This modular approach allows developers to include only the components they need.
+        </p>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          Each component includes extensive documentation and usage examples, making it easy for new team members to get started quickly.
+        </p>
+        <p class="text-slate-300 leading-relaxed">
+          The build process includes automated testing, linting, and optimization to ensure consistent quality and performance across all releases.
+        </p>
+      </div>
+    </div>
+  </ContentSection>
+
+  <ContentSection title="Implementation Examples" backgroundColor="bg-slate-800">
+    <div class="space-y-12">
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Utility Classes</h3>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <pre class="text-green-400 font-mono text-sm overflow-x-auto">
+<code>/* Spacing utilities */
+.m-1  { margin: 0.25rem; }
+.p-2  { padding: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+
+/* Typography utilities */
+.text-sm   { font-size: 0.875rem; }
+.text-bold { font-weight: 700; }
+.text-center { text-align: center; }
+
+/* Layout utilities */
+.flex      { display: flex; }
+.grid      { display: grid; }
+.hidden    { display: none; }</code>
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Component Example</h3>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <pre class="text-blue-400 font-mono text-sm overflow-x-auto">
+<code>&lt;button class="btn btn--primary btn--lg"&gt;
+  Primary Button
+&lt;/button&gt;
+
+&lt;div class="card p-4 m-2"&gt;
+  &lt;h3 class="card__title text-lg text-bold"&gt;Card Title&lt;/h3&gt;
+  &lt;p class="card__content text-sm text-muted"&gt;Card content...&lt;/p&gt;
+&lt;/div&gt;</code>
+          </pre>
         </div>
       </div>
     </div>
+  </ContentSection>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const triggers = document.querySelectorAll('.lightbox-trigger');
+  <BenefitsSection 
+    title="Framework Benefits"
+    benefitGroups={benefitGroups}
+  />
 
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-              lightboxImage.src = img.src;
-              lightboxImage.alt = img.alt;
-              lightboxCaption.textContent = img.alt;
-              lightbox.style.display = 'flex';
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        });
+  <ContentSection backgroundColor="bg-slate-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 text-white">Getting Started</h2>
+      <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+        Cupcake CSS can be installed via npm or included directly in your project. The framework is designed to work with existing CSS and can be gradually adopted without requiring a complete rewrite.
+      </p>
+      
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-8">
+        <pre class="text-green-400 font-mono text-sm">
+<code>npm install @cupcake/css
 
-        function closeLightbox() {
-          lightbox.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
+// Or include via CDN
+&lt;link rel="stylesheet" href="https://cdn.cupcake.css/v1.0.0/cupcake.min.css"&gt;</code>
+        </pre>
+      </div>
 
-        lightboxClose.addEventListener('click', closeLightbox);
-
-        lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-            closeLightbox();
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://cupcake.netlify.com" target="_blank" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full text-white font-medium transition-all duration-300">
+          View Documentation
+        </a>
+        <a href="https://github.com/cupcake-css" target="_blank" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </ContentSection>
+</PortfolioLayout>

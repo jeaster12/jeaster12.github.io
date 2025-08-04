@@ -5,15 +5,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    icon({
-      include: {
-        devicon: ["*"],
-        lucide: ["*"]
-      }
-    })
-  ],
+  integrations: [tailwind(), icon()],
   devToolbar: {
     enabled: false
   },

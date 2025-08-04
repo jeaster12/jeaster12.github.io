@@ -1,0 +1,65 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  features?: Array<{
+    icon: string;
+    text: string;
+  }>;
+  metrics?: Array<{
+    icon: string;
+    text: string;
+  }>;
+}
+
+const { title, description, features = [], metrics = [] } = Astro.props;
+---
+
+<section class="py-20 bg-slate-800">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Project Info -->
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-white">{title}</h2>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          {description}
+        </p>
+        
+        {features.length > 0 && (
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-3">Key Features</h3>
+              <ul class="space-y-3 text-slate-300">
+                {features.map(feature => (
+                  <li class="flex items-start">
+                    <span class={`text-${feature.icon}-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-${feature.icon}-400 flex-shrink-0`}></span>
+                    {feature.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {metrics.length > 0 && (
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-3">Impact Metrics</h3>
+                <ul class="space-y-3 text-slate-300">
+                  {metrics.map(metric => (
+                    <li class="flex items-start">
+                      <span class={`text-${metric.icon}-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-${metric.icon}-400 flex-shrink-0`}></span>
+                      {metric.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      <!-- Additional Content Slot -->
+      <div>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

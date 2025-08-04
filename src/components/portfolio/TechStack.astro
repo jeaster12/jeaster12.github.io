@@ -1,0 +1,48 @@
+---
+export interface TechCategory {
+  title: string;
+  technologies: Array<{
+    name: string;
+    gradient: string;
+  }>;
+}
+
+export interface Props {
+  title: string;
+  categories: TechCategory[];
+  additionalInfo?: Array<string>;
+}
+
+const { title, categories, additionalInfo = [] } = Astro.props;
+---
+
+<div>
+  <h2 class="text-3xl font-bold mb-6 text-white">{title}</h2>
+  
+  <div class="space-y-6">
+    {categories.map(category => (
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+        <h3 class="text-lg font-semibold text-white mb-4">{category.title}</h3>
+        <div class="grid grid-cols-3 gap-4">
+          {category.technologies.map(tech => (
+            <div class="text-center">
+              <div class={`w-12 h-12 mx-auto mb-2 bg-gradient-to-r ${tech.gradient} rounded-lg`}></div>
+              <p class="text-sm text-slate-300">{tech.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    {additionalInfo.length > 0 && (
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+        <h3 class="text-lg font-semibold text-white mb-4">Additional Info</h3>
+        <ul class="space-y-2 text-slate-300">
+          {additionalInfo.map(info => (
+            <li>• {info}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</div>

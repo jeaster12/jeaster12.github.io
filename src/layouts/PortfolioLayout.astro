@@ -1,0 +1,160 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  heroImage?: string;
+  projectTitle: string;
+  projectSubtitle: string;
+  gradientColors?: string;
+}
+
+const { 
+  title, 
+  description, 
+  heroImage = "/cupcake-docs.jpg",
+  projectTitle,
+  projectSubtitle,
+  gradientColors = "from-blue-400 via-purple-400 to-pink-400"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={heroImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={heroImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
+            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Portfolio Hero -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h1 class={`text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r ${gradientColors} bg-clip-text text-transparent`}>
+            {projectTitle}
+          </h1>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            {projectSubtitle}
+          </p>
+        </div>
+        
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
+          <div class="aspect-video relative">
+            <img src={heroImage} alt={projectTitle} class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8 text-center">
+              <slot name="hero-content" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Content -->
+    <slot />
+
+    <!-- Back to Portfolio -->
+    <section class="py-16 bg-slate-900">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full text-white font-medium transition-all duration-300">
+            ← Back to Portfolio
+          </a>
+          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
+      <div class="relative max-w-7xl max-h-full">
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
+          &times;
+        </button>
+        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+              lightboxImage.src = img.src;
+              lightboxImage.alt = img.alt;
+              lightboxCaption.textContent = img.alt;
+              lightbox.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

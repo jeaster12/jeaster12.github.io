@@ -1,455 +1,291 @@
 ---
-import '../../styles/global.css';
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import ProjectDetails from '../../components/portfolio/ProjectDetails.astro';
+import TechStack from '../../components/portfolio/TechStack.astro';
+import ContentSection from '../../components/portfolio/ContentSection.astro';
+import ImageGallery from '../../components/portfolio/ImageGallery.astro';
+import FeatureCard from '../../components/portfolio/FeatureCard.astro';
+import BenefitsSection from '../../components/portfolio/BenefitsSection.astro';
+
+const features = [
+  { icon: "orange", text: "75+ Angular components with TypeScript" },
+  { icon: "orange", text: "Full integration with Cupcake Design System" },
+  { icon: "orange", text: "Reactive forms and validation support" },
+  { icon: "orange", text: "Accessibility-first component design" },
+  { icon: "orange", text: "Tree-shakeable modular architecture" },
+  { icon: "orange", text: "Comprehensive unit test coverage" }
+];
+
+const metrics = [
+  { icon: "red", text: "45+ teams using Sprinkles in production" },
+  { icon: "red", text: "99.5% uptime across all implementations" },
+  { icon: "red", text: "40% reduction in Angular development time" }
+];
+
+const techCategories = [
+  {
+    title: "Angular Stack",
+    technologies: [
+      { name: "Angular", gradient: "from-red-500 to-pink-500" },
+      { name: "TypeScript", gradient: "from-blue-500 to-cyan-500" },
+      { name: "RxJS", gradient: "from-purple-500 to-violet-500" }
+    ]
+  },
+  {
+    title: "Development Tools",
+    technologies: [
+      { name: "Angular CLI", gradient: "from-red-600 to-orange-600" },
+      { name: "Jasmine", gradient: "from-green-500 to-emerald-500" },
+      { name: "Protractor", gradient: "from-orange-500 to-yellow-500" }
+    ]
+  }
+];
+
+const componentExamples = [
+  {
+    title: "Form Components",
+    description: "Advanced form controls with validation, error handling, and accessibility features.",
+    image: "/angular-forms.jpg",
+    imageAlt: "Angular Form Components",
+    borderColor: "blue"
+  },
+  {
+    title: "Data Tables",
+    description: "Feature-rich data tables with sorting, filtering, pagination, and export capabilities.",
+    image: "/angular-tables.jpg",
+    imageAlt: "Angular Data Table Components",
+    borderColor: "green"
+  },
+  {
+    title: "Navigation",
+    description: "Comprehensive navigation components including menus, breadcrumbs, and sidebars.",
+    image: "/angular-nav.jpg",
+    imageAlt: "Angular Navigation Components",
+    borderColor: "purple"
+  },
+  {
+    title: "Charts & Graphs",
+    description: "Interactive data visualization components built with D3.js integration.",
+    image: "/angular-charts.jpg",
+    imageAlt: "Angular Chart Components",
+    borderColor: "orange"
+  },
+  {
+    title: "Modal & Overlays",
+    description: "Flexible modal dialogs, tooltips, and overlay components with focus management.",
+    image: "/angular-modals.jpg",
+    imageAlt: "Angular Modal Components",
+    borderColor: "pink"
+  },
+  {
+    title: "Layout System",
+    description: "Responsive layout components with CSS Grid and Flexbox utilities.",
+    image: "/angular-layout.jpg",
+    imageAlt: "Angular Layout Components",
+    borderColor: "indigo"
+  }
+];
+
+const codeImages = [
+  { src: "/angular-component.jpg", alt: "Angular Component Structure" },
+  { src: "/typescript-interfaces.jpg", alt: "TypeScript Interface Definitions" },
+  { src: "/angular-service.jpg", alt: "Angular Service Implementation" },
+  { src: "/angular-testing.jpg", alt: "Angular Component Testing" }
+];
+
+const benefitGroups = [
+  {
+    title: "For Angular Developers",
+    benefits: [
+      { icon: "orange", text: "Native Angular implementation with full TypeScript support" },
+      { icon: "orange", text: "Reactive programming patterns with RxJS integration" },
+      { icon: "orange", text: "Angular CLI schematic support for rapid scaffolding" },
+      { icon: "orange", text: "Comprehensive documentation and code examples" }
+    ]
+  },
+  {
+    title: "For Enterprise Teams",
+    benefits: [
+      { icon: "red", text: "Production-tested components across 45+ applications" },
+      { icon: "red", text: "Consistent design language across all Angular projects" },
+      { icon: "red", text: "Automated testing and quality assurance pipelines" },
+      { icon: "red", text: "Enterprise security and accessibility compliance" }
+    ]
+  }
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cupcake Sprinkles (Angular) - Josh Easter Portfolio</title>
-    <meta name="description" content="A comprehensive Angular component library built on top of the Cupcake Design System, providing enterprise-grade UI components." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-slate-900 text-white font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
-            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
-            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
-            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<PortfolioLayout
+  title="Cupcake Sprinkles (Angular) - Josh Easter Portfolio"
+  description="A comprehensive Angular component library built on top of the Cupcake Design System, providing enterprise-grade UI components."
+  projectTitle="Cupcake Sprinkles"
+  projectSubtitle="A comprehensive Angular component library that brings the Cupcake Design System to Angular applications with TypeScript support and enterprise-grade features."
+  heroImage="/sprinkles.jpg"
+  gradientColors="from-orange-400 via-red-400 to-pink-400"
+>
+  <div slot="hero-content">
+    <h3 class="text-2xl font-semibold text-white mb-2">Angular Components</h3>
+    <p class="text-slate-300">Enterprise-ready Angular component library</p>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
-            Cupcake Sprinkles
-          </h1>
-          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            A comprehensive Angular component library that brings the Cupcake Design System to Angular applications with TypeScript support and enterprise-grade features.
-          </p>
-        </div>
-        
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
-          <div class="aspect-video relative">
-            <img src="/sprinkles.jpg" alt="Cupcake Sprinkles Angular Components Interface" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
-            <div class="absolute bottom-8 left-8 right-8 text-center">
-              <h3 class="text-2xl font-semibold text-white mb-2">Angular Components</h3>
-              <p class="text-slate-300">Enterprise-ready Angular component library</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <ProjectDetails
+    title="Library Overview"
+    description="Cupcake Sprinkles was developed as the Angular implementation of our design system, providing developers with a comprehensive set of components that maintain design consistency while leveraging Angular's powerful features like dependency injection, reactive forms, and change detection."
+    features={features}
+    metrics={metrics}
+  >
+    <TechStack
+      title="Technical Architecture"
+      categories={techCategories}
+      additionalInfo={[
+        "Angular Universal SSR support",
+        "OnPush change detection strategy",
+        "Angular Material CDK integration",
+        "Automated accessibility testing with axe-core"
+      ]}
+    />
+  </ProjectDetails>
 
-    <!-- Project Details -->
-    <section class="py-20 bg-slate-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12">
-          <!-- Project Info -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Library Overview</h2>
-            <p class="text-slate-300 mb-6 leading-relaxed">
-              Cupcake Sprinkles provides Angular developers with a complete set of production-ready components that follow Angular best practices and integrate seamlessly with the broader Cupcake Design System ecosystem.
-            </p>
-            
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Component Features</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    75+ Angular components and directives
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    Full TypeScript support with strict typing
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    Reactive forms integration
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    Angular CDK integration for accessibility
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    Tree-shakeable modular architecture
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-orange-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span>
-                    OnPush change detection strategy
-                  </li>
-                </ul>
-              </div>
+  <ContentSection title="Component Library">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {componentExamples.map(component => (
+        <FeatureCard
+          title={component.title}
+          description={component.description}
+          image={component.image}
+          imageAlt={component.imageAlt}
+          borderColor={component.borderColor}
+        />
+      ))}
+    </div>
 
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Enterprise Features</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-red-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                    Angular Universal SSR support
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-red-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                    Internationalization (i18n) ready
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-red-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                    Performance optimized with OnPush
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-red-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
-                    Comprehensive test coverage
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Development Approach</h3>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          Each component in Sprinkles follows Angular best practices and design patterns. We use OnPush change detection for optimal performance and implement proper lifecycle management.
+        </p>
+        <p class="text-slate-300 mb-6 leading-relaxed">
+          The library includes comprehensive TypeScript interfaces for all component inputs and outputs, ensuring type safety and excellent developer experience with IDE support.
+        </p>
+        <p class="text-slate-300 mb-8 leading-relaxed">
+          All components are built with accessibility in mind, following WCAG guidelines and including proper ARIA attributes, keyboard navigation, and focus management.
+        </p>
 
-          <!-- Installation & Usage -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Installation & Usage</h2>
-            
-            <div class="space-y-6">
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Start</h3>
-                <div class="bg-black rounded-lg p-4 font-mono text-sm">
-                  <div class="text-gray-400 mb-2"># Install the package</div>
-                  <div class="text-green-400">npm install @cupcake/sprinkles</div>
-                  <div class="text-gray-400 mt-4 mb-2"># Import in your module</div>
-                  <div class="text-blue-400">import &#123; CupcakeModule &#125; from</div>
-                  <div class="text-green-400 ml-4">'@cupcake/sprinkles';</div>
-                </div>
-              </div>
-
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Component Example</h3>
-                <div class="bg-black rounded-lg p-4 font-mono text-sm">
-                  <div class="text-blue-400">&lt;cup-button</div>
-                  <div class="text-yellow-400 ml-4">variant="primary"</div>
-                  <div class="text-yellow-400 ml-4">size="large"</div>
-                  <div class="text-yellow-400 ml-4">[disabled]="isLoading"</div>
-                  <div class="text-yellow-400 ml-4">(click)="handleClick()"</div>
-                  <div class="text-blue-400">&gt;</div>
-                  <div class="text-white ml-4">&#123;&#123; buttonText &#125;&#125;</div>
-                  <div class="text-blue-400">&lt;/cup-button&gt;</div>
-                </div>
-              </div>
-
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Angular Versions</h3>
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-red-600 to-pink-600 rounded-lg flex items-center justify-center">
-                      <span class="text-xs font-bold text-white">17+</span>
-                    </div>
-                    <p class="text-sm text-slate-300">Angular 17+</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                      <span class="text-xs font-bold text-white">LTS</span>
-                    </div>
-                    <p class="text-sm text-slate-300">LTS Support</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Component Showcase -->
-    <section class="py-20 bg-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Angular Component Gallery</h2>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <!-- Form Components -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-orange-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/storybookForm.jpg" alt="Angular Form Components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Form Components</h3>
-            <p class="text-slate-400 text-sm">Input, Select, Checkbox, Radio, DatePicker with Angular Reactive Forms integration.</p>
-          </div>
-
-          <!-- Date Components -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-red-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/storybookDate.jpg" alt="Angular Date Components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Date Components</h3>
-            <p class="text-slate-400 text-sm">Date picker, time picker, and calendar components with internationalization support.</p>
-          </div>
-
-          <!-- Advanced Forms -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-yellow-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/sprinklesForm.jpg" alt="Angular Form Layout" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Form Layouts</h3>
-            <p class="text-slate-400 text-sm">Advanced form layouts with validation, error handling, and responsive design patterns.</p>
-          </div>
-
-          <!-- Avatar Components -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/avatar.jpg" alt="Avatar Angular Components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Avatar System</h3>
-            <p class="text-slate-400 text-sm">Flexible avatar components with image fallbacks and custom initial generation.</p>
-          </div>
-
-          <!-- Badge Components -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/badge.jpg" alt="Badge Angular Components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Badge System</h3>
-            <p class="text-slate-400 text-sm">Status badges, notification indicators, and labeling components with theming support.</p>
-          </div>
-
-          <!-- Layout Components -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/layout.jpg" alt="Layout Angular Components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Layout System</h3>
-            <p class="text-slate-400 text-sm">Grid, Flex, Container, and responsive layout components for Angular applications.</p>
-          </div>
-        </div>
-
-        <!-- Angular Development Process -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-white">Angular Development Process</h2>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-4">Building Sprinkles</h3>
-              <p class="text-slate-300 mb-6 leading-relaxed">
-                While design decisions were being made and adopted, I started my team's sprints building out the core code.
-                We first built the HTML/SCSS core, and then began working on an Angular library.
-              </p>
-              <p class="text-slate-300 mb-6 leading-relaxed">
-                We affectionately named it "Sprinkles" - because duh. The Angular library provides enterprise-ready components
-                with full TypeScript support and Angular best practices.
-              </p>
-              <p class="text-slate-300 mb-8 leading-relaxed">
-                All components are built with OnPush change detection, full accessibility support, and comprehensive testing coverage.
-              </p>
-
-              <div class="flex flex-col sm:flex-row gap-4">
-                <a href="http://cupcake-sprinkles.surge.sh" target="_blank" class="px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
-                  View Live Sprinkles
-                </a>
-                <a href="/portfolio/cupcake-design-system" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
-                  View Design System
-                </a>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/test.png" alt="Angular Testing Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/quality.jpg" alt="Code Quality Tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/cc-screen1.jpg" alt="Component Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/a.jpg" alt="Angular Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Live Component Examples -->
-        <div>
-          <h3 class="text-2xl font-semibold text-white mb-8 text-center">Live Component Examples</h3>
-          <p class="text-slate-300 text-center mb-12 leading-relaxed">
-            All Sprinkles components are built with Angular best practices and include comprehensive Storybook documentation.
-          </p>
-
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="rounded-xl overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/example-a.png" alt="Live Angular Component Example A" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <div class="rounded-xl overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/example-f.jpg" alt="Live Angular Component Example F" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Features -->
-    <section class="py-20 bg-slate-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Technical Features</h2>
-        
-        <div class="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 class="text-2xl font-semibold text-white mb-6">Angular Integration</h3>
-            <div class="space-y-4">
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">Reactive Forms</h4>
-                <p class="text-slate-300 text-sm">Full integration with Angular Reactive Forms including custom validators and form controls.</p>
-              </div>
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">Change Detection</h4>
-                <p class="text-slate-300 text-sm">Optimized with OnPush strategy for maximum performance in large applications.</p>
-              </div>
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">Dependency Injection</h4>
-                <p class="text-slate-300 text-sm">Leverages Angular's DI system for services and configuration providers.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <h3 class="text-2xl font-semibold text-white mb-6">Developer Experience</h3>
-            <div class="space-y-4">
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">TypeScript First</h4>
-                <p class="text-slate-300 text-sm">Built with TypeScript from the ground up with comprehensive type definitions.</p>
-              </div>
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">Angular Schematics</h4>
-                <p class="text-slate-300 text-sm">CLI schematics for generating components and setting up the library.</p>
-              </div>
-              <div class="bg-slate-900 rounded-lg p-4 border border-slate-700">
-                <h4 class="text-lg font-semibold text-white mb-2">Testing Utilities</h4>
-                <p class="text-slate-300 text-sm">Comprehensive testing utilities and mocks for unit and integration tests.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats & Metrics -->
-    <section class="py-20 bg-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Library Metrics</h2>
-        
-        <div class="grid md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-              <span class="text-2xl font-bold text-white">75+</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Components</h3>
-            <p class="text-slate-400 text-sm">Production-ready Angular components</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <span class="text-2xl font-bold text-white">98%</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Test Coverage</h3>
-            <p class="text-slate-400 text-sm">Comprehensive unit and integration tests</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-              <span class="text-2xl font-bold text-white">15+</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Apps Using</h3>
-            <p class="text-slate-400 text-sm">Enterprise applications in production</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-              <span class="text-2xl font-bold text-white">AAA</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Accessibility</h3>
-            <p class="text-slate-400 text-sm">WCAG 2.1 AA compliant components</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Back to Portfolio -->
-    <section class="py-16 bg-slate-800">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 rounded-full text-white font-medium transition-all duration-300">
-            ← Back to Portfolio
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="http://cupcake-sprinkles.surge.sh" target="_blank" class="px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
+            View Live Demo
           </a>
-          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
-            Get in Touch
+          <a href="/portfolio/cupcake-design-system" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
+            Design System
           </a>
         </div>
       </div>
-    </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
-      <div class="relative max-w-7xl max-h-full">
-        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
-        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
-          &times;
-        </button>
-        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
+      <ImageGallery images={codeImages} columns="2" />
+    </div>
+  </ContentSection>
+
+  <ContentSection title="Implementation Examples" backgroundColor="bg-slate-800">
+    <div class="space-y-12">
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Component Usage</h3>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <pre class="text-green-400 font-mono text-sm overflow-x-auto">
+<code>import { CupcakeModule } from '@cupcake/sprinkles';
+
+@NgModule({
+  imports: [CupcakeModule.forRoot()],
+  // ...
+})
+export class AppModule { }
+
+// Component usage
+&lt;cupcake-button 
+  [variant]="'primary'" 
+  [size]="'large'"
+  (click)="handleClick()"&gt;
+  Click Me
+&lt;/cupcake-button&gt;</code>
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Form Integration</h3>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <pre class="text-blue-400 font-mono text-sm overflow-x-auto">
+<code>&lt;form [formGroup]="userForm" (ngSubmit)="onSubmit()"&gt;
+  &lt;cupcake-input
+    formControlName="email"
+    label="Email Address"
+    placeholder="Enter your email"
+    [required]="true"
+    [errorMessages]="emailErrors"&gt;
+  &lt;/cupcake-input&gt;
+  
+  &lt;cupcake-select
+    formControlName="department"
+    label="Department"
+    [options]="departments"
+    [multiple]="false"&gt;
+  &lt;/cupcake-select&gt;
+&lt;/form&gt;</code>
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">Data Table Implementation</h3>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <pre class="text-purple-400 font-mono text-sm overflow-x-auto">
+<code>&lt;cupcake-table
+  [dataSource]="users"
+  [columns]="tableColumns"
+  [sortable]="true"
+  [filterable]="true"
+  [pagination]="true"
+  [pageSize]="25"
+  (sort)="handleSort($event)"
+  (filter)="handleFilter($event)"&gt;
+&lt;/cupcake-table&gt;</code>
+          </pre>
         </div>
       </div>
     </div>
+  </ContentSection>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const triggers = document.querySelectorAll('.lightbox-trigger');
+  <BenefitsSection 
+    title="Library Benefits"
+    benefitGroups={benefitGroups}
+  />
 
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-              lightboxImage.src = img.src;
-              lightboxImage.alt = img.alt;
-              lightboxCaption.textContent = img.alt;
-              lightbox.style.display = 'flex';
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        });
+  <ContentSection backgroundColor="bg-slate-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 text-white">Getting Started</h2>
+      <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+        Cupcake Sprinkles can be easily integrated into existing Angular applications or used to bootstrap new projects with a comprehensive component library.
+      </p>
+      
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 mb-8">
+        <pre class="text-green-400 font-mono text-sm">
+<code>npm install @cupcake/sprinkles
 
-        function closeLightbox() {
-          lightbox.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
+ng add @cupcake/sprinkles
 
-        lightboxClose.addEventListener('click', closeLightbox);
+// Import the module
+import { CupcakeModule } from '@cupcake/sprinkles';</code>
+        </pre>
+      </div>
 
-        lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-            closeLightbox();
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="http://cupcake-sprinkles.surge.sh" target="_blank" class="px-8 py-3 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 rounded-full text-white font-medium transition-all duration-300">
+          View Documentation
+        </a>
+        <a href="https://github.com/cupcake-sprinkles" target="_blank" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </ContentSection>
+</PortfolioLayout>

@@ -66,28 +66,20 @@ class PortfolioNavigation {
    * Setup scroll effects for navigation
    */
   private setupScrollEffects(): void {
-    let ticking = false;
+    window.addEventListener('scroll', this.throttledScrollHandler, { passive: true });
+  }
 
-    const updateNavigation = (): void => {
-      if (!this.navigationElement) return;
+  /**
+   * Update navigation appearance based on scroll position
+   */
+  private updateNavigation(): void {
+    if (!this.navigationElement) return;
 
-      if (window.scrollY > this.scrollThreshold) {
-        this.navigationElement.classList.add('bg-slate-900/98');
-      } else {
-        this.navigationElement.classList.remove('bg-slate-900/98');
-      }
-      
-      ticking = false;
-    };
-
-    const handleScroll = (): void => {
-      if (!ticking) {
-        requestAnimationFrame(updateNavigation);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (window.scrollY > this.scrollThreshold) {
+      this.navigationElement.classList.add('bg-slate-900/98');
+    } else {
+      this.navigationElement.classList.remove('bg-slate-900/98');
+    }
   }
 
   /**

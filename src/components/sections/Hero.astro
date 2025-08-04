@@ -1,0 +1,91 @@
+---
+import Button from '../ui/Button.astro';
+import IconButton from '../ui/IconButton.astro';
+---
+
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-20">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Josh Easter
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-light text-slate-300 mb-8">
+          Senior Director of Engineering
+        </h2>
+        <p class="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl">
+          I am a hybrid design engineer with talent for creating elegant user interfaces, 
+          instinctive user experiences, and expertly crafted code. I focus on building 
+          scalable design systems and leading multifunctional teams.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <Button href="#portfolio" variant="primary" size="lg">
+            View My Work
+          </Button>
+          <Button href="#contact" variant="outline" size="lg">
+            Get In Touch
+          </Button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex gap-4 justify-center lg:justify-start mt-8">
+          <IconButton 
+            icon="lucide:linkedin" 
+            href="https://www.linkedin.com/in/josheaster" 
+            target="_blank"
+            variant="ghost"
+            size="sm"
+          >
+            LinkedIn
+          </IconButton>
+          <IconButton 
+            icon="lucide:mail" 
+            href="mailto:josh@josheaster.com"
+            variant="ghost"
+            size="sm"
+          >
+            Email
+          </IconButton>
+          <IconButton 
+            icon="lucide:file-text" 
+            href="/resume.pdf"
+            target="_blank"
+            variant="ghost"
+            size="sm"
+          >
+            Resume
+          </IconButton>
+        </div>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative">
+          <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-slate-700 shadow-2xl">
+            <img 
+              src="/josh-profile.jpg" 
+              alt="Josh Easter - Senior Director of Engineering" 
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <!-- Decorative elements -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 animate-pulse"></div>
+          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="flex justify-center mt-20">
+      <a href="#about" class="animate-bounce">
+        <div class="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
+          <div class="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

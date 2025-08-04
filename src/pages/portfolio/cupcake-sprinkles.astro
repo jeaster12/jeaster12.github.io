@@ -410,46 +410,6 @@ import '../../styles/global.css';
       </div>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const triggers = document.querySelectorAll('.lightbox-trigger');
-
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-              lightboxImage.src = img.src;
-              lightboxImage.alt = img.alt;
-              lightboxCaption.textContent = img.alt;
-              lightbox.style.display = 'flex';
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        });
-
-        function closeLightbox() {
-          lightbox.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-
-        lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-            closeLightbox();
-          }
-        });
-      });
-    </script>
+    <script src="../../scripts/lightbox.ts" type="module"></script>
   </body>
 </html>

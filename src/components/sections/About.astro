@@ -1,0 +1,100 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section id="about" class="py-20 bg-slate-800">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-6 text-white">About Me</h2>
+      <p class="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+        Experienced engineering leader with a passion for building exceptional user experiences 
+        and scalable design systems that drive business impact.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div>
+        <h3 class="text-2xl font-semibold text-white mb-6">My Story</h3>
+        <div class="space-y-4 text-slate-300 leading-relaxed">
+          <p>
+            I'm a hybrid design engineer with a unique blend of design sensibility and technical expertise. 
+            My journey spans from crafting pixel-perfect interfaces to architecting enterprise-scale design systems 
+            that serve millions of users.
+          </p>
+          <p>
+            Currently serving as Senior Director of Engineering, I lead multifunctional teams in building 
+            intuitive user experiences and robust technical solutions. My approach combines strategic thinking 
+            with hands-on execution, ensuring that design and development work in perfect harmony.
+          </p>
+          <p>
+            I'm passionate about creating design systems that not only look beautiful but also scale effectively 
+            across organizations, reduce development time, and maintain consistency at every touchpoint.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <Button href="#contact" variant="primary">
+            Let's Work Together
+          </Button>
+        </div>
+      </div>
+
+      <!-- Stats/Highlights -->
+      <div class="grid grid-cols-2 gap-6">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 text-center">
+          <div class="text-3xl font-bold text-blue-400 mb-2">8+</div>
+          <div class="text-slate-300 text-sm">Years Experience</div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 text-center">
+          <div class="text-3xl font-bold text-purple-400 mb-2">80+</div>
+          <div class="text-slate-300 text-sm">Applications Built</div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 text-center">
+          <div class="text-3xl font-bold text-pink-400 mb-2">150+</div>
+          <div class="text-slate-300 text-sm">Components Created</div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 text-center">
+          <div class="text-3xl font-bold text-green-400 mb-2">38%</div>
+          <div class="text-slate-300 text-sm">Faster Delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Strengths -->
+    <div class="mt-16">
+      <h3 class="text-2xl font-semibold text-white mb-8 text-center">Key Strengths</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-white mb-2">Design Systems</h4>
+          <p class="text-slate-400 text-sm">Building scalable, maintainable design systems that unite design and development teams.</p>
+        </div>
+
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-white mb-2">Team Leadership</h4>
+          <p class="text-slate-400 text-sm">Leading cross-functional teams to deliver exceptional products and user experiences.</p>
+        </div>
+
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
+          <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-white mb-2">Innovation</h4>
+          <p class="text-slate-400 text-sm">Driving innovation through modern technologies and best practices that deliver results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

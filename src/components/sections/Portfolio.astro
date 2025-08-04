@@ -1,0 +1,196 @@
+---
+import Button from '../ui/Button.astro';
+import IconButton from '../ui/IconButton.astro';
+---
+
+<section id="portfolio" class="py-20 bg-slate-900">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-6 text-white">Featured Work</h2>
+      <p class="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+        A selection of projects that showcase my expertise in design systems, 
+        user experience, and technical leadership across enterprise applications.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Project 1: Cupcake Design System -->
+      <div class="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-slate-600 transition-all duration-300">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/cupcake-docs-2.jpg" 
+            alt="Cupcake Design System" 
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Cupcake Design System</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            A comprehensive, enterprise-grade design system built to scale across 80+ applications, 
+            providing consistent user experiences and accelerating development velocity by 38%.
+          </p>
+          
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Angular</span>
+            <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Storybook</span>
+            <span class="px-3 py-1 bg-orange-600/20 text-orange-400 rounded-full text-sm">TypeScript</span>
+          </div>
+          
+          <div class="flex gap-3">
+            <Button href="/portfolio/cupcake-design-system" variant="primary" size="sm">
+              View Case Study
+            </Button>
+            <IconButton 
+              icon="lucide:external-link" 
+              href="https://cupcake-design-system.github.io" 
+              target="_blank"
+              variant="outline"
+              size="sm"
+            >
+              Live Demo
+            </IconButton>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Cupcake CSS Framework -->
+      <div class="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-slate-600 transition-all duration-300">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/core.jpg" 
+            alt="Cupcake CSS Framework" 
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Cupcake CSS Framework</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            A lightweight, utility-first CSS framework designed for rapid prototyping and building 
+            consistent user interfaces with minimal overhead and maximum flexibility.
+          </p>
+          
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">CSS3</span>
+            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">SCSS</span>
+            <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Utility-First</span>
+            <span class="px-3 py-1 bg-orange-600/20 text-orange-400 rounded-full text-sm">Responsive</span>
+          </div>
+          
+          <div class="flex gap-3">
+            <Button href="/portfolio/cupcake-css" variant="primary" size="sm">
+              View Case Study
+            </Button>
+            <IconButton 
+              icon="lucide:external-link" 
+              href="https://cupcake.netlify.com/index.html" 
+              target="_blank"
+              variant="outline"
+              size="sm"
+            >
+              Live Demo
+            </IconButton>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Documentation Platform -->
+      <div class="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-slate-600 transition-all duration-300">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/cupcake-docs.jpg" 
+            alt="Cupcake Documentation Platform" 
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Documentation Platform</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            An interactive documentation platform that brings design systems to life with live examples, 
+            component playgrounds, and comprehensive API documentation for developers.
+          </p>
+          
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">Storybook</span>
+            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">MDX</span>
+            <span class="px-3 py-1 bg-orange-600/20 text-orange-400 rounded-full text-sm">Interactive</span>
+          </div>
+          
+          <div class="flex gap-3">
+            <Button href="/portfolio/cupcake-docs" variant="primary" size="sm">
+              View Case Study
+            </Button>
+            <IconButton 
+              icon="lucide:external-link" 
+              href="https://cupcake-design-system.github.io" 
+              target="_blank"
+              variant="outline"
+              size="sm"
+            >
+              Live Demo
+            </IconButton>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Angular Component Library -->
+      <div class="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-slate-600 transition-all duration-300">
+        <div class="relative overflow-hidden">
+          <img 
+            src="/sprinkles.jpg" 
+            alt="Cupcake Sprinkles Angular Library" 
+            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Angular Component Library</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            Cupcake Sprinkles - A comprehensive Angular component library with 50+ production-ready 
+            components, built with TypeScript and following Angular best practices.
+          </p>
+          
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">Angular</span>
+            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">TypeScript</span>
+            <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">RxJS</span>
+            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Material</span>
+          </div>
+          
+          <div class="flex gap-3">
+            <Button href="/portfolio/cupcake-sprinkles" variant="primary" size="sm">
+              View Case Study
+            </Button>
+            <IconButton 
+              icon="lucide:external-link" 
+              href="http://cupcake-sprinkles.surge.sh" 
+              target="_blank"
+              variant="outline"
+              size="sm"
+            >
+              Live Demo
+            </IconButton>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Work CTA -->
+    <div class="text-center mt-12">
+      <p class="text-slate-300 mb-6">
+        Want to see more detailed case studies and technical deep-dives?
+      </p>
+      <Button href="/portfolio/cupcake-design-system" variant="outline" size="lg">
+        View Detailed Case Studies
+      </Button>
+    </div>
+  </div>
+</section>

@@ -1,423 +1,216 @@
 ---
-import '../../styles/global.css';
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import ProjectDetails from '../../components/portfolio/ProjectDetails.astro';
+import TechStack from '../../components/portfolio/TechStack.astro';
+import FeatureCard from '../../components/portfolio/FeatureCard.astro';
+import ContentSection from '../../components/portfolio/ContentSection.astro';
+import BenefitsSection from '../../components/portfolio/BenefitsSection.astro';
+import ImageGallery from '../../components/portfolio/ImageGallery.astro';
+
+const features = [
+  { icon: "green", text: "Interactive component playground" },
+  { icon: "green", text: "Auto-generated API documentation" },
+  { icon: "green", text: "Live code examples with syntax highlighting" },
+  { icon: "green", text: "Design token visualization" },
+  { icon: "green", text: "Multi-framework code samples" },
+  { icon: "green", text: "Responsive testing environment" }
+];
+
+const metrics = [
+  { icon: "blue", text: "500+ component examples documented" },
+  { icon: "blue", text: "95% developer adoption rate" },
+  { icon: "blue", text: "50% reduction in support tickets" }
+];
+
+const techCategories = [
+  {
+    title: "Frontend Stack",
+    technologies: [
+      { name: "React", gradient: "from-blue-500 to-cyan-500" },
+      { name: "Next.js", gradient: "from-gray-600 to-gray-800" },
+      { name: "TypeScript", gradient: "from-yellow-500 to-orange-500" }
+    ]
+  },
+  {
+    title: "Documentation Tools",
+    technologies: [
+      { name: "MDX", gradient: "from-blue-600 to-purple-600" },
+      { name: "Storybook", gradient: "from-orange-500 to-red-500" },
+      { name: "Docusaurus", gradient: "from-green-500 to-emerald-500" }
+    ]
+  }
+];
+
+const documentationFeatures = [
+  {
+    title: "Component Playground",
+    description: "Live editor where developers can modify component props and see changes instantly.",
+    image: "/storybookA.jpg",
+    imageAlt: "Storybook Component Playground",
+    borderColor: "green"
+  },
+  {
+    title: "Angular Integration",
+    description: "Comprehensive Angular component examples with TypeScript implementations.",
+    image: "/docs-angular.jpg",
+    imageAlt: "Angular Documentation Examples",
+    borderColor: "blue"
+  },
+  {
+    title: "Form Components",
+    description: "Detailed form component documentation with validation and accessibility patterns.",
+    image: "/docs-form.jpg",
+    imageAlt: "Form Component Documentation",
+    borderColor: "purple"
+  },
+  {
+    title: "Badge System",
+    description: "Complete badge component documentation with variant examples and usage guidelines.",
+    image: "/docs-badge.jpg",
+    imageAlt: "Badge Component Documentation",
+    borderColor: "yellow"
+  },
+  {
+    title: "Notification System",
+    description: "Toast notifications, alerts, and feedback components with timing and positioning options.",
+    image: "/docs-notify.jpg",
+    imageAlt: "Notification Component Documentation",
+    borderColor: "indigo"
+  },
+  {
+    title: "Mobile Responsive",
+    description: "Mobile-optimized component examples and responsive design patterns.",
+    image: "/mobile-example.jpg",
+    imageAlt: "Mobile Documentation Examples",
+    borderColor: "red"
+  }
+];
+
+const processImages = [
+  { src: "/dash-example.jpg", alt: "Documentation Dashboard" },
+  { src: "/users-example.jpg", alt: "User Documentation Examples" },
+  { src: "/audit-example.jpg", alt: "Documentation Audit Process" },
+  { src: "/mobile2-example.jpg", alt: "Mobile Documentation Interface" }
+];
+
+const benefitGroups = [
+  {
+    title: "For Developers",
+    benefits: [
+      { icon: "green", text: "Faster component discovery and implementation" },
+      { icon: "green", text: "Live examples reduce integration time" },
+      { icon: "green", text: "Always up-to-date documentation" },
+      { icon: "green", text: "Multi-framework code examples" }
+    ]
+  },
+  {
+    title: "For Design Teams",
+    benefits: [
+      { icon: "blue", text: "Visual component library overview" },
+      { icon: "blue", text: "Design token documentation" },
+      { icon: "blue", text: "Usage guidelines and best practices" },
+      { icon: "blue", text: "Accessibility documentation" }
+    ]
+  }
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cupcake Documentation Platform - Josh Easter Portfolio</title>
-    <meta name="description" content="A comprehensive documentation platform built for design systems, featuring interactive examples and component playgrounds." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-slate-900 text-white font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-          <a href="/" class="font-bold text-xl text-white hover:text-blue-400 transition-colors">Josh Easter</a>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="/#about" class="text-slate-300 hover:text-white transition-colors">About</a>
-            <a href="/#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
-            <a href="/#portfolio" class="text-slate-300 hover:text-white transition-colors">Portfolio</a>
-            <a href="/#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<PortfolioLayout
+  title="Cupcake Documentation Platform - Josh Easter Portfolio"
+  description="A comprehensive documentation platform built for design systems, featuring interactive examples and component playgrounds."
+  projectTitle="Cupcake Docs"
+  projectSubtitle="An interactive documentation platform that brings design systems to life with live examples, component playgrounds, and comprehensive API documentation."
+  heroImage="/cupcake-docs.jpg"
+  gradientColors="from-green-400 via-blue-400 to-purple-400"
+>
+  <div slot="hero-content">
+    <h3 class="text-2xl font-semibold text-white mb-2">Documentation Platform</h3>
+    <p class="text-slate-300">Interactive docs with live component examples</p>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Cupcake Docs
-          </h1>
-          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            An interactive documentation platform that brings design systems to life with live examples, component playgrounds, and comprehensive API documentation.
+  <ProjectDetails
+    title="Platform Overview"
+    description="Cupcake Docs was created to solve the challenge of maintaining up-to-date, interactive documentation for our design system. It automatically generates documentation from code comments and provides live component examples."
+    features={features}
+    metrics={metrics}
+  >
+    <TechStack
+      title="Technical Architecture"
+      categories={techCategories}
+      additionalInfo={[
+        "Automated prop extraction from TypeScript",
+        "Git-based version control integration",
+        "CI/CD pipeline for docs deployment",
+        "Automated accessibility testing"
+      ]}
+    />
+  </ProjectDetails>
+
+  <ContentSection title="Documentation Features">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {documentationFeatures.map(feature => (
+        <FeatureCard
+          title={feature.title}
+          description={feature.description}
+          image={feature.image}
+          imageAlt={feature.imageAlt}
+          borderColor={feature.borderColor}
+        />
+      ))}
+    </div>
+
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-white">Documentation Process</h2>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-4">Automated Documentation</h3>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            As we all know "If it isn't documented it didn't happen!". So we needed to document and centralize all of these efforts.
           </p>
-        </div>
-        
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
-          <div class="aspect-video relative">
-            <img src="/cupcake-docs.jpg" alt="Cupcake Documentation Platform Interface" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
-            <div class="absolute bottom-8 left-8 right-8 text-center">
-              <h3 class="text-2xl font-semibold text-white mb-2">Documentation Platform</h3>
-              <p class="text-slate-300">Interactive docs with live component examples</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            We also needed a way to grow the library with larger patterns and page layouts.
+          </p>
+          <p class="text-slate-300 mb-8 leading-relaxed">
+            I built a Jekyll documentation site that also embeds the Angular library via Storybook.
+          </p>
 
-    <!-- Project Details -->
-    <section class="py-20 bg-slate-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12">
-          <!-- Project Info -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Platform Overview</h2>
-            <p class="text-slate-300 mb-6 leading-relaxed">
-              Cupcake Docs was created to solve the challenge of maintaining up-to-date, interactive documentation for our design system. It automatically generates documentation from code comments and provides live component examples.
-            </p>
-            
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Key Features</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Interactive component playground
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Auto-generated API documentation
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Live code examples with syntax highlighting
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Design token visualization
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Multi-framework code samples
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-green-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
-                    Responsive testing environment
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-3">Documentation Metrics</h3>
-                <ul class="space-y-3 text-slate-300">
-                  <li class="flex items-start">
-                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
-                    500+ component examples documented
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
-                    95% developer adoption rate
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-blue-400 mr-2 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
-                    50% reduction in support tickets
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Technical Architecture -->
-          <div>
-            <h2 class="text-3xl font-bold mb-6 text-white">Technical Architecture</h2>
-            
-            <div class="space-y-6">
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Frontend Stack</h3>
-                <div class="grid grid-cols-3 gap-4">
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">React</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-gray-600 to-gray-800 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">Next.js</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">TypeScript</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Documentation Tools</h3>
-                <div class="grid grid-cols-3 gap-4">
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">MDX</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">Storybook</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg"></div>
-                    <p class="text-sm text-slate-300">Docusaurus</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-slate-900 rounded-xl p-6 border border-slate-700">
-                <h3 class="text-lg font-semibold text-white mb-4">Automation</h3>
-                <ul class="space-y-2 text-slate-300">
-                  <li>• Automated prop extraction from TypeScript</li>
-                  <li>• Git-based version control integration</li>
-                  <li>• CI/CD pipeline for docs deployment</li>
-                  <li>• Automated accessibility testing</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Documentation Features Gallery -->
-    <section class="py-20 bg-slate-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Documentation Features</h2>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <!-- Feature 1: Component Playground -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/storybookA.jpg" alt="Storybook Component Playground" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Component Playground</h3>
-            <p class="text-slate-400 text-sm">Live editor where developers can modify component props and see changes instantly.</p>
-          </div>
-
-          <!-- Feature 2: Angular Examples -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/docs-angular.jpg" alt="Angular Documentation Examples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Angular Integration</h3>
-            <p class="text-slate-400 text-sm">Comprehensive Angular component examples with TypeScript implementations.</p>
-          </div>
-
-          <!-- Feature 3: Form Documentation -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-purple-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/docs-form.jpg" alt="Form Component Documentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Form Components</h3>
-            <p class="text-slate-400 text-sm">Detailed form component documentation with validation and accessibility patterns.</p>
-          </div>
-
-          <!-- Feature 4: Badge Documentation -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-yellow-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/docs-badge.jpg" alt="Badge Component Documentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Badge System</h3>
-            <p class="text-slate-400 text-sm">Complete badge component documentation with variant examples and usage guidelines.</p>
-          </div>
-
-          <!-- Feature 5: Notification System -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-indigo-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/docs-notify.jpg" alt="Notification Component Documentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Notification System</h3>
-            <p class="text-slate-400 text-sm">Toast notifications, alerts, and feedback components with timing and positioning options.</p>
-          </div>
-
-          <!-- Feature 6: Mobile Examples -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-red-500 transition-colors">
-            <div class="aspect-video rounded-lg mb-4 overflow-hidden lightbox-trigger cursor-pointer group">
-              <img src="/mobile-example.jpg" alt="Mobile Documentation Examples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Mobile Responsive</h3>
-            <p class="text-slate-400 text-sm">Mobile-optimized component examples and responsive design patterns.</p>
-          </div>
-        </div>
-
-        <!-- Documentation Process -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-white">Documentation Process</h2>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-4">Automated Documentation</h3>
-              <p class="text-slate-300 mb-6 leading-relaxed">
-                As we all know "If it isn't documented it didn't happen!". So we needed to document and centralize all of these efforts.
-              </p>
-              <p class="text-slate-300 mb-6 leading-relaxed">
-                We also needed a way to grow the library with larger patterns and page layouts.
-              </p>
-              <p class="text-slate-300 mb-8 leading-relaxed">
-                I built a Jekyll documentation site that also embeds the Angular library via Storybook.
-              </p>
-
-              <div class="flex flex-col sm:flex-row gap-4">
-                <a href="https://cupcake-design-system.github.io" target="_blank" class="px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
-                  View Live Docs
-                </a>
-                <a href="/portfolio/cupcake-design-system" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
-                  View Case Study
-                </a>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/dash-example.jpg" alt="Documentation Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/users-example.jpg" alt="User Documentation Examples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/audit-example.jpg" alt="Documentation Audit Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div class="rounded-lg overflow-hidden lightbox-trigger cursor-pointer group">
-                <img src="/mobile2-example.jpg" alt="Mobile Documentation Interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Platform Links -->
-        <div class="text-center">
-          <h3 class="text-2xl font-semibold text-white mb-6">Explore the Documentation</h3>
-          <div class="grid md:grid-cols-3 gap-6">
-            <a href="https://cupcake-design-system.github.io" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-green-500 transition-colors group">
-              <h4 class="text-white font-semibold mb-2 group-hover:text-green-400">Main Documentation</h4>
-              <p class="text-slate-400 text-sm">Complete design system documentation with guidelines and examples</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://cupcake-design-system.github.io" target="_blank" class="px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 rounded-lg text-white font-medium transition-all duration-300 text-center">
+              View Live Docs
             </a>
-
-            <a href="https://cupcake.netlify.com/index.html" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-blue-500 transition-colors group">
-              <h4 class="text-white font-semibold mb-2 group-hover:text-blue-400">HTML Documentation</h4>
-              <p class="text-slate-400 text-sm">Pure HTML/CSS implementation examples and code snippets</p>
-            </a>
-
-            <a href="http://cupcake-sprinkles.surge.sh" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-orange-500 transition-colors group">
-              <h4 class="text-white font-semibold mb-2 group-hover:text-orange-400">Angular Library</h4>
-              <p class="text-slate-400 text-sm">Cupcake Sprinkles Angular component library documentation</p>
+            <a href="/portfolio/cupcake-design-system" class="px-6 py-3 border border-slate-600 hover:border-slate-400 rounded-lg text-slate-300 hover:text-white font-medium transition-all duration-300 text-center">
+              View Case Study
             </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Benefits Section -->
-    <section class="py-20 bg-slate-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center text-white">Platform Benefits</h2>
-        
-        <div class="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 class="text-2xl font-semibold text-white mb-6">For Developers</h3>
-            <ul class="space-y-4 text-slate-300">
-              <li class="flex items-start">
-                <span class="text-green-400 mr-3 mt-1">✓</span>
-                Faster component discovery and implementation
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-400 mr-3 mt-1">✓</span>
-                Live examples reduce integration time
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-400 mr-3 mt-1">✓</span>
-                Always up-to-date documentation
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-400 mr-3 mt-1">✓</span>
-                Multi-framework code examples
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="text-2xl font-semibold text-white mb-6">For Design Teams</h3>
-            <ul class="space-y-4 text-slate-300">
-              <li class="flex items-start">
-                <span class="text-blue-400 mr-3 mt-1">✓</span>
-                Visual component library overview
-              </li>
-              <li class="flex items-start">
-                <span class="text-blue-400 mr-3 mt-1">✓</span>
-                Design token documentation
-              </li>
-              <li class="flex items-start">
-                <span class="text-blue-400 mr-3 mt-1">✓</span>
-                Usage guidelines and best practices
-              </li>
-              <li class="flex items-start">
-                <span class="text-blue-400 mr-3 mt-1">✓</span>
-                Accessibility documentation
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Back to Portfolio -->
-    <section class="py-16 bg-slate-900">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/#portfolio" class="px-8 py-3 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 rounded-full text-white font-medium transition-all duration-300">
-            ← Back to Portfolio
-          </a>
-          <a href="/#contact" class="px-8 py-3 border border-slate-600 hover:border-slate-400 rounded-full text-slate-300 hover:text-white font-medium transition-all duration-300">
-            Get in Touch
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-90 hidden items-center justify-center p-4">
-      <div class="relative max-w-7xl max-h-full">
-        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
-        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300 transition-colors z-10">
-          &times;
-        </button>
-        <div id="lightbox-caption" class="absolute bottom-4 left-4 right-4 text-white text-center bg-black bg-opacity-60 rounded-lg p-3">
-        </div>
+        <ImageGallery images={processImages} columns="2" />
       </div>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const triggers = document.querySelectorAll('.lightbox-trigger');
+    <div class="text-center">
+      <h3 class="text-2xl font-semibold text-white mb-6">Explore the Documentation</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="https://cupcake-design-system.github.io" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-green-500 transition-colors group">
+          <h4 class="text-white font-semibold mb-2 group-hover:text-green-400">Main Documentation</h4>
+          <p class="text-slate-400 text-sm">Complete design system documentation with guidelines and examples</p>
+        </a>
 
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-              lightboxImage.src = img.src;
-              lightboxImage.alt = img.alt;
-              lightboxCaption.textContent = img.alt;
-              lightbox.style.display = 'flex';
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        });
+        <a href="https://cupcake.netlify.com/index.html" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-blue-500 transition-colors group">
+          <h4 class="text-white font-semibold mb-2 group-hover:text-blue-400">HTML Documentation</h4>
+          <p class="text-slate-400 text-sm">Pure HTML/CSS implementation examples and code snippets</p>
+        </a>
 
-        function closeLightbox() {
-          lightbox.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
+        <a href="http://cupcake-sprinkles.surge.sh" target="_blank" class="block p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-orange-500 transition-colors group">
+          <h4 class="text-white font-semibold mb-2 group-hover:text-orange-400">Angular Library</h4>
+          <p class="text-slate-400 text-sm">Cupcake Sprinkles Angular component library documentation</p>
+        </a>
+      </div>
+    </div>
+  </ContentSection>
 
-        lightboxClose.addEventListener('click', closeLightbox);
-
-        lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-            closeLightbox();
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
+  <BenefitsSection 
+    title="Platform Benefits"
+    benefitGroups={benefitGroups}
+  />
+</PortfolioLayout>

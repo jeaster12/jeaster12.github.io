@@ -1,5 +1,14 @@
 // Main TypeScript file for portfolio functionality
 
+import {
+  throttle,
+  querySelector,
+  querySelectorAll,
+  scrollToElement,
+  ready,
+  prefersReducedMotion
+} from './utils.js';
+
 interface NavigationOptions {
   behavior: 'smooth' | 'auto';
   block: 'start' | 'center' | 'end' | 'nearest';
@@ -8,9 +17,11 @@ interface NavigationOptions {
 class PortfolioNavigation {
   private readonly navigationElement: HTMLElement | null;
   private readonly scrollThreshold: number = 100;
+  private readonly throttledScrollHandler: () => void;
 
   constructor() {
-    this.navigationElement = document.querySelector('nav');
+    this.navigationElement = querySelector('nav');
+    this.throttledScrollHandler = throttle(this.updateNavigation.bind(this), 16); // ~60fps
     this.init();
   }
 

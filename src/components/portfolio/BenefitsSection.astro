@@ -1,0 +1,39 @@
+---
+export interface Benefit {
+  title: string;
+  benefits: Array<{
+    text: string;
+    icon: string;
+  }>;
+}
+
+export interface Props {
+  title: string;
+  backgroundColor?: string;
+  benefitGroups: Benefit[];
+}
+
+const { title, backgroundColor = 'bg-slate-800', benefitGroups } = Astro.props;
+---
+
+<section class={`py-20 ${backgroundColor}`}>
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center text-white">{title}</h2>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      {benefitGroups.map(group => (
+        <div>
+          <h3 class="text-2xl font-semibold text-white mb-6">{group.title}</h3>
+          <ul class="space-y-4 text-slate-300">
+            {group.benefits.map(benefit => (
+              <li class="flex items-start">
+                <span class={`text-${benefit.icon}-400 mr-3 mt-1`}>✓</span>
+                {benefit.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -35,9 +35,9 @@ class PortfolioNavigation {
    * Setup smooth scrolling for navigation links
    */
   private setupSmoothScrolling(): void {
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    
-    anchors.forEach((anchor: Element) => {
+    const anchors = querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+
+    anchors.forEach((anchor) => {
       anchor.addEventListener('click', this.handleAnchorClick.bind(this));
     });
   }
@@ -47,22 +47,19 @@ class PortfolioNavigation {
    */
   private handleAnchorClick(event: Event): void {
     event.preventDefault();
-    
+
     const target = event.target as HTMLAnchorElement;
     const href = target.getAttribute('href');
-    
+
     if (!href) return;
-    
-    const targetElement = document.querySelector(href);
-    
-    if (targetElement) {
-      const options: NavigationOptions = {
-        behavior: 'smooth',
-        block: 'start'
-      };
-      
-      targetElement.scrollIntoView(options);
-    }
+
+    // Use utility function for smooth scrolling
+    const options: ScrollIntoViewOptions = {
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+      block: 'start'
+    };
+
+    scrollToElement(href, options);
   }
 
   /**

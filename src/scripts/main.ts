@@ -148,16 +148,14 @@ class PortfolioNavigation {
   }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  new PortfolioNavigation();
-});
+// Initialize when DOM is ready using utility function
+ready(() => {
+  const navigation = new PortfolioNavigation();
 
-// Type augmentation for better TypeScript support
-declare global {
-  interface Window {
-    PortfolioNavigation: typeof PortfolioNavigation;
+  // Make available globally for debugging (development only)
+  if (process.env.NODE_ENV === 'development') {
+    window.portfolioNavigation = navigation;
   }
-}
+});
 
 export { PortfolioNavigation };

@@ -64,7 +64,7 @@ const {
 }: Props = Astro.props;
 ---
 
-<div class="blue-gradient p-6 mb-6 rounded-lg">
+<div class="blue-gradient md:p-6 p-4 mb-6 rounded-lg">
   <h3 class="text-lg font-bold text-gray-900 mb-4 dark:text-white">{heading}</h3>
 
   <div class="grid md:grid-cols-2 gap-4">
@@ -74,7 +74,7 @@ const {
           <Icon name={section.icon} class="w-5 h-5" />
           {section.title}
         </h4>
-        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-400 mb-0 ml-1">
+        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-400 mb-0 ml-0 md:ml-1 md:pl-0 pl-5">
           {section.items.map((item) => (
             <li><strong>{item.label}</strong> {item.description}</li>
           ))}

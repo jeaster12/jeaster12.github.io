@@ -66,7 +66,7 @@ const hasMultipleSections = sections.length > 0;
         {typeof item.content === 'string' ? (
           <p class="text-sm" set:html={item.content} />
         ) : (
-          <ul class="space-y-2 text-sm mb-0 ml-1">
+          <ul class="space-y-2 text-sm mb-0 md:ml-1 ml-0">
             {item.content.map((listItem) => (
               <li set:html={listItem} />
             ))}

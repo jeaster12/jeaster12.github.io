@@ -130,7 +130,7 @@ const description = 'The MCP Server coordinates validation tools and provides in
             <Icon name={tool.icon} class={`w-5 h-5 ${tool.customIconColor ? `text-${tool.color}-600 dark:text-${tool.color}-400` : ''}`} />
             <div class="font-bold text-sm text-gray-900 dark:text-white">{tool.name}</div>
           </div>
-          <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 mb-0 pl-6 not-prose list-disc">
+          <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 mb-0 md:pl-6 pl-5 not-prose list-disc">
             {tool.capabilities.map((capability) => (
               <li>{capability}</li>
             ))}

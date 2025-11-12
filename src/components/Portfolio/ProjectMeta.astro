@@ -51,9 +51,16 @@ const {
         Tools or Technologies
       </h3>
       <div class="flex flex-wrap gap-2">
-        {tools.map((tool) => (
-          <Icon name={`logos:${(tool).toLowerCase()}`} class="min-w-10 min-h-10" />
-        ))}
+        {tools.map((tool) => {
+          const iconName = tool.toLowerCase();
+          const needsInvert = iconName === 'github-icon' || iconName === 'stylelint';
+          return (
+            <Icon
+              name={`logos:${iconName}`}
+              class={`min-w-10 min-h-10${needsInvert ? ' dark:invert' : ''}`}
+            />
+          );
+        })}
       </div>
     </div>
   )}

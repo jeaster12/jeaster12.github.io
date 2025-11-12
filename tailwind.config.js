@@ -67,8 +67,8 @@ export default {
         boxDark: '#1c1e20',
         borderMain: colors.gray[200],
         borderMainDark: 'rgba(255, 255, 255, 0.06)',
-        primary: colors.purple[600],
-        primaryHover: colors.purple[800],
+        primary: colors.blue[600],
+        primaryHover: colors.blue[800],
       },
       transitionTimingFunction: {
         custom: 'cubic-bezier(0.165, 0.84, 0.44, 1)'

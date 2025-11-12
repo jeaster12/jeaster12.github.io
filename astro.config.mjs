@@ -7,6 +7,7 @@ import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
+  base: process.env.BASE_PATH || '/',
   integrations: [
     tailwind({
       configFile: './tailwind.config.js',

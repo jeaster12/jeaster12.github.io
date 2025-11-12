@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  client?: string;
+  tools?: string[];
+  skills?: string[];
+  className?: string;
+  links?: { label: string; url: string; }[];
+}
+
+const {
+  client,
+  tools = [],
+  links = [],
+  skills = [],
+  className = ''
+} = Astro.props;
+---
+
+<aside class={`card-gray p-4 md:p-6 ${className}`}>
+  {client && (
+    <div>
+      <h3 class="font-mono font-semibold uppercase text-sm tracking-wider text-black dark:text-white m-0">
+        Client
+      </h3>
+      <p class="text-gray-600 dark:text-white/70 m-0">
+        {client}
+      </p>
+    </div>
+  )}
+
+  {skills.length > 0 && (
+    <div class="mt-4">
+      <h3 class="font-mono font-semibold uppercase text-sm tracking-wider text-black dark:text-white mb-2">
+        Skills
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-white/5 text-gray-800 dark:text-white/70 rounded-full">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {tools.length > 0 && (
+    <div class="mt-6">
+      <h3 class="font-mono font-semibold uppercase text-sm tracking-wider text-black dark:text-white mb-2">
+        Tools or Technologies
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {tools.map((tool) => (
+          <Icon name={`logos:${(tool).toLowerCase()}`} class="min-w-10 min-h-10" />
+        ))}
+      </div>
+    </div>
+  )}
+
+  {links.length > 0 && (
+    <div class="mt-6">
+      <h3 class="font-mono font-semibold uppercase text-sm tracking-wider text-black dark:text-white mb-2">
+        Project Links
+      </h3>
+        {links.map((link, index) => (
+          <>
+          <a href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex gap-2 font-nunito max-w-sm text-sm leading-tight no-underline">
+            <span class="link link-underline link-underline-black font-normal text-gray-600 dark:text-white/70 flex gap-1 hover:text-black dark:hover:text-white">
+              {link.label}
+                <Icon name="line-md:external-link" size="16" />
+              </span>
+            </a>
+          {index < links.length - 1 && <br/>}
+          </>
+        ))}
+    </div>
+  )}
+</aside>

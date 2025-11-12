@@ -1,0 +1,19 @@
+---
+import TwoColumnSection from '../TwoColumnSection.astro';
+---
+
+<TwoColumnSection
+  mode="carousel"
+  autoplay={true}
+  imagePosition="right"
+  images={[
+    { url: '/assets/images/portfolio/openmenu.webp', name: 'Component Menu Design' },
+    { url: '/assets/images/portfolio/actionsketch.webp', name: 'Action Menu Sketch' },
+    { url: '/assets/images/portfolio/cardsketch.webp', name: 'Card Component Sketch' },
+    { url: '/assets/images/portfolio/avatar-overrides.webp', name: 'Avatar Component Overrides' },
+  ]}>
+
+  <h3 class="mb-0">Design Foundation Examples</h3>
+  <p class="mb-2">The shared Sketch library became the single source of truth for all designers. Every component included comprehensive overrides, states, and persona-specific variants to ensure consistency before a single line of code was written.</p>
+  <p class="mb-2">These examples showcase the level of detail in the design library - from interactive menus to complex card layouts, ensuring designers could work efficiently while maintaining system standards.</p>
+</TwoColumnSection>

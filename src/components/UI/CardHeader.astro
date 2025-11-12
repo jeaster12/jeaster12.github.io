@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon: string;
+  title: string;
+  iconSize?: number;
+  iconColor?: string;
+  textColor?: string;
+  className?: string;
+  headingLevel?: 'h3' | 'h4' | 'h5';
+}
+
+const {
+  icon,
+  title,
+  iconSize = 24,
+  className = '',
+  textColor = '',
+  headingLevel = 'h4',
+  iconColor: iconColorProp,
+} = Astro.props;
+
+// Default iconColor to textColor if textColor is provided, otherwise use default blue
+const iconColor = iconColorProp || textColor || 'text-blue-600 dark:text-blue-400';
+
+const HeadingTag = headingLevel;
+const baseClasses = 'font-semibold flex items-center gap-2';
+const combinedClasses = `${baseClasses} ${textColor} ${className}`.trim();
+---
+
+<HeadingTag class={combinedClasses}>
+  <Icon name={icon} class={iconColor} style={`width: ${iconSize}px; height: ${iconSize}px;`} />
+  {title}
+</HeadingTag>

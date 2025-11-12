@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  class?: string;
+  subtitle: string;
+  description: string;
+}
+
+const { title, subtitle, description, class: className = '' } = Astro.props;
+---
+
+<div class={`md:w-4/5 lg:w-full ${className}`}>
+  <p class="font-mono font-medium uppercase text-xs sm:text-sm tracking-wider relative pt-2 sm:pt-4 mb-4 sm:mb-5 dark:text-white before:content-['//'] before:text-primary after:content-[attr(data-backdrop-text)] after:absolute after:top-0 after:left-0 after:font-nunito after:font-bold after:uppercase after:text-2xl sm:after:text-3xl lg:after:text-4xl after:opacity-15" data-backdrop-text={subtitle}>
+    {subtitle}
+  </p>
+  <h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white font-nunito mb-3 lg:mb-4">
+    {title}
+  </h2>
+  <p class="text-sm sm:text-base text-gray-700 lg:text-lg dark:text-white/70 mb-3 sm:mb-4" set:html={description}>
+  </p>
+</div>

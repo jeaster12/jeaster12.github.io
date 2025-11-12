@@ -1,0 +1,22 @@
+---
+import TwoColumnSection from '../TwoColumnSection.astro';
+---
+
+<TwoColumnSection
+  mode="carousel"
+  autoplay={true}
+  imagePosition="left"
+  images={[
+    { url: '/assets/images/portfolio/quality.webp', name: 'CodeFactor Quality Score' },
+    { url: '/assets/images/portfolio/lint.webp', name: 'Stylelint Code Quality' },
+    { url: '/assets/images/portfolio/avatars.webp', name: 'Avatar Components' },
+    { url: '/assets/images/portfolio/alerts.webp', name: 'Alert Components' },
+    { url: '/assets/images/portfolio/badges.webp', name: 'Badge Components' },
+    { url: '/assets/images/portfolio/true.webp', name: 'True SCSS Testing' },
+    { url: '/assets/images/portfolio/layout.webp', name: 'Layout System' },
+  ]}>
+
+  <h3 class="mb-0">Code Quality & Testing</h3>
+  <p class="mb-2">From day one, Cupcake Core was built with comprehensive testing and quality gates. This included SCSS unit tests with True, strict Stylelint rules, visual regression testing with Percy, and continuous integration via Travis CI.</p>
+  <p class="mb-2">The static HTML/SCSS library used Gulp and Handlebars to generate extensive component examples, making it easy to catch visual regressions and test cross-browser compatibility. This foundation of quality gave teams confidence to adopt Cupcake across critical production applications.</p>
+</TwoColumnSection>

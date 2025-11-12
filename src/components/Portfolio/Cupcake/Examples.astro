@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+import TwoColumnSection from "../TwoColumnSection.astro";
+---
+
+<TwoColumnSection
+  mode="carousel"
+  autoplay={true}
+  imagePosition="right"
+  images={[
+    { url: '/assets/images/portfolio/docs-form.webp', name: 'Form Documentation' },
+    { url: '/assets/images/portfolio/docs-badge.webp', name: 'Badge Documentation' },
+    { url: '/assets/images/portfolio/docs-angular.webp', name: 'Angular Integration' },
+    { url: '/assets/images/portfolio/docs-notify.webp', name: 'Notification Components' },
+  ]}>
+
+  <h3 class="mb-0">Documentation Platform</h3>
+  <p class="mb-2">The Jekyll-based documentation site unified all design system resources into a single, searchable platform. Each component page included design guidelines, HTML examples, SCSS tokens, and when applicable, embedded Storybook instances showing live Angular components.</p>
+  <p class="mb-2">This approach meant designers could prototype with HTML/SCSS, and developers could seamlessly transition to framework-specific implementations - all while referencing the same source of truth.</p>
+  <a href="https://cupcake-design-system.github.io" class="inline-flex items-center gap-1" target="_blank" rel="noopener noreferrer">View Documentation <Icon name="line-md:arrow-right" size={16}/></a>
+</TwoColumnSection>
+
+<hr class="my-16"/>
+
+<TwoColumnSection
+  mode="carousel"
+  autoplay={true}
+  imagePosition="left"
+  images={[
+    { url: '/assets/images/portfolio/storybookDate.webp', name: 'Date Picker Component' },
+    { url: '/assets/images/portfolio/storybookA.webp', name: 'Storybook Component Library' },
+    { url: '/assets/images/portfolio/sprinklesForm.webp', name: 'Form Components in Sprinkles' },
+  ]}>
+
+  <h3 class="mb-0">Cupcake Sprinkles: The Angular Library</h3>
+  <p class="mb-2">Born from an internal hackathon, Sprinkles became the Angular implementation of Cupcake. Built in Storybook, it provided production-ready components that teams could drop into their applications immediately.</p>
+  <p class="mb-2">The hackathon victory secured executive buy-in and proper resourcing, allowing us to build a robust component library with comprehensive examples, interactive documentation, and TypeScript support. This created a community of UI developers contributing their best work for the entire organization to benefit from.</p>
+  <a href="https://cupcake-sprinkles.surge.sh" class="inline-flex items-center gap-1" target="_blank" rel="noopener noreferrer">View Sprinkles <Icon name="line-md:arrow-right" size="16"/></a>
+</TwoColumnSection>

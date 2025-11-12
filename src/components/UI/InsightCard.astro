@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon: string;
+  title: string;
+  iconColor?: string;
+  description: string;
+  variant?: 'default' | 'compact';
+}
+
+const {
+  icon,
+  title,
+  description,
+  variant = 'default',
+  iconColor = 'text-blue-500',
+} = Astro.props;
+---
+
+<div class="card-white md:p-6 p-4 shadow-sm">
+  {variant === 'default' ? (
+    <div class="flex items-start gap-3">
+      <Icon name={icon} size={28} class={`${iconColor} flex-shrink-0 mt-1`} />
+      <div>
+        <h3 class="font-semibold text-lg mb-2">{title}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+      </div>
+    </div>
+  ) : (
+    <div>
+      <h4 class={`font-semibold flex items-center gap-2 ${iconColor}`}>
+        <Icon name={icon} size={20} class={iconColor} />
+        {title}
+      </h4>
+      <div class="space-y-3 text-sm mt-3">
+        <slot />
+      </div>
+    </div>
+  )}
+</div>

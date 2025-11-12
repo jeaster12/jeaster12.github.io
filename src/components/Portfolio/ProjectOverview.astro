@@ -1,0 +1,48 @@
+---
+import ProjectMeta from './ProjectMeta.astro';
+
+interface Props {
+  client?: string;
+  tools?: string[];
+  skills?: string[];
+  links?: { label: string; url: string; }[];
+  frontmatter?: {
+    client?: string;
+    tools?: string[];
+    skills?: string[];
+    links?: { label: string; url: string; }[];
+  };
+}
+
+const {
+  client: propsClient,
+  tools: propsTools = [],
+  links: propsLinks = [],
+  skills: propsSkills = [],
+  frontmatter
+} = Astro.props;
+
+// Use frontmatter values if available, otherwise use props
+const tools = frontmatter?.tools || propsTools;
+const links = frontmatter?.links || propsLinks;
+const skills = frontmatter?.skills || propsSkills;
+const client = frontmatter?.client || propsClient;
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 my-8">
+  <div class="lg:col-span-3">
+    <h2 class="text-2xl font-bold dark:text-white mb-2">Project Overview:</h2>
+    <div class="text-gray-600 dark:text-white/70 space-y-4">
+      <slot />
+    </div>
+  </div>
+
+  <div class="lg:col-span-2">
+    <ProjectMeta
+      tools={tools}
+      links={links}
+      skills={skills}
+      client={client}
+    />
+  </div>
+</div>

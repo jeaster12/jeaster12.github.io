@@ -1,0 +1,85 @@
+---
+import ContentGrid from '@components/UI/ContentGrid.astro';
+---
+
+<ContentGrid
+  id="the-solution"
+  title="The Solution"
+  description="I identified the need and built a comprehensive design system ecosystem from the ground up. Starting with an <strong><a href='https://bradfrost.com/blog/post/interface-inventory/' target='_blank' rel='noopener noreferrer'>interface inventory</a></strong>, I engaged the aligned UX, product, & engineering verticals, secured executive support, and delivered a <strong>multi-layered system</strong> that became the foundation for all product development."
+  sections={[
+    {
+      icon: 'line-md:lightbulb-twotone',
+      iconColor: 'text-purple-500',
+      title: 'Three-Tier Design System Architecture',
+      description: 'Built a scalable, technology-agnostic design system with three distinct layers: design foundations, core HTML/SCSS library, and framework-specific implementations.',
+      subgrid: {
+        columns: 3,
+        items: [
+          {
+            icon: 'logos:sketch',
+            title: 'Design Foundations',
+            description: 'Shared Sketch library with design tokens, patterns, and comprehensive persona guidance'
+          },
+          {
+            icon: 'logos:html-5',
+            title: 'Cupcake Core (HTML/SCSS)',
+            description: 'Technology-agnostic foundation with design tokens, utilities, and base components'
+          },
+          {
+            icon: 'logos:angular-icon',
+            title: 'Cupcake Sprinkles (Angular)',
+            description: 'Production-ready Angular component library built via internal hackathon'
+          }
+        ]
+      }
+    },
+    {
+      icon: 'line-md:document-list',
+      iconColor: 'text-green-500',
+      title: 'Comprehensive Documentation Platform',
+      description: 'Built a Jekyll-based documentation site that unified all design system resources with embedded Storybook for live component examples.',
+      subgrid: {
+        columns: 2,
+        items: [
+          {
+            icon: 'logos:markdown',
+            title: 'Centralized Knowledge',
+            description: 'Single source of truth for design guidelines, code examples, and usage patterns'
+          },
+          {
+            icon: 'logos:storybook-icon',
+            title: 'Live Components',
+            description: 'Embedded Storybook showing interactive examples with real component code'
+          }
+        ]
+      }
+    },
+    {
+      icon: 'line-md:confirm-circle',
+      iconColor: 'text-blue-500',
+      title: 'Quality & Governance',
+      description: 'Implemented comprehensive testing, linting, and visual regression tools to ensure code quality and consistency.',
+      subgrid: {
+        columns: 4,
+        items: [
+          {
+            title: 'SCSS Unit Tests',
+            description: 'True testing framework'
+          },
+          {
+            title: 'Code Linting',
+            description: 'Stylelint enforcement'
+          },
+          {
+            title: 'Visual Regression',
+            description: 'Percy integration'
+          },
+          {
+            title: 'CI/CD Pipeline',
+            description: 'Travis CI automation'
+          }
+        ]
+      }
+    }
+  ]}
+/>

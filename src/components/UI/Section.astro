@@ -1,0 +1,38 @@
+---
+import SectionHeader from '@components/UI/SectionHeader.astro';
+
+interface Props {
+  id: string;
+  title?: string;
+  class?: string;
+  subtitle?: string;
+  description?: string;
+  showHeader?: boolean;
+}
+
+const { 
+  id, 
+  title = '', 
+  subtitle = '', 
+  description = '', 
+  showHeader = true, 
+  class: className = '' 
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class={`section bg-white dark:bg-boxDark rounded-lg p-4 sm:p-6 md:px-8 md:py-10 lg:p-12 shadow-sectionBoxShadow hover:shadow-sectionBoxShadowHover transition ease-out duration-[160ms] ${className}`}>
+
+  {showHeader && title && subtitle && description && (
+    <SectionHeader
+      title={title}
+      subtitle={subtitle}
+      description={description}
+    />
+  )}
+
+  <div class={showHeader ? 'mt-4 sm:mt-6' : ''}>
+    <slot />
+  </div>
+</section>

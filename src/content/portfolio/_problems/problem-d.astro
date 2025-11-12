@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+
+const title= "The Frontend Quality Problem";
+const description = 'With 1200+ engineers shipping frontend code but only 150 specialists, we faced a critical platform challenge: maintaining quality without bottlenecking experts or blocking velocity.';
+---
+
+<SectionTitle
+  title={title}
+  description={description}/>
+
+<div class="grid md:grid-cols-2 gap-6 mb-6 text-gray-700 dark:text-gray-300">
+  <div class="card md:p-6 p-4">
+    <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+      <Icon name="line-md:alert-circle" class="text-red-500" />
+      Quality Crisis
+    </h3>
+    <ul class="space-y-2 text-sm mb-0 not-prose list-disc pl-6">
+      <li><strong>67% of UI bugs</strong> traced to design system component misuse</li>
+      <li><strong>33% accessibility compliance</strong> (below WCAG 2.1 AA requirement)</li>
+      <li><strong>40% of code reviews</strong> catching basic frontend mistakes</li>
+      <li><strong>3-5 review cycles per PR</strong> for non-frontend engineers</li>
+      <li><strong>Frontend experts with 200+ PRs/week</strong> catching preventable issues</li>
+    </ul>
+  </div>
+
+  <div class="card md:p-6 p-4">
+    <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+      <Icon name="line-md:construction" class="text-orange-500" />
+      Business Impact
+    </h3>
+    <ul class="space-y-2 text-sm mb-0 not-prose list-disc pl-6">
+      <li><strong>$4.2M/year in lost productivity</strong> (30-40% time searching docs)</li>
+      <li><strong>60% of frontend team capacity</strong> on reactive code review</li>
+      <li><strong>3 weeks to onboard</strong> new engineers to frontend</li>
+      <li><strong>Legal/compliance risk</strong> from accessibility violations</li>
+      <li><strong>No quality gates in IDE/CI:</strong> Issues caught too late</li>
+    </ul>
+  </div>
+</div>

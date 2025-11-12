@@ -1,0 +1,43 @@
+---
+title: 'Number 1'
+client: 'Enterprise Design System'
+description: 'The technical architecture, AI implementation, and infrastructure decisions behind a production MCP server. How we achieved sub-200ms latency, 97% accuracy, and seamless developer workflow integration.'
+skills: ['AI Engineering', 'System Architecture', 'Full-stack Development', 'DevOps']
+date: 2025-06-15
+featuredImage:
+  url: '/assets/images/portfolio/pankaj-patel-unsplash.webp'
+  name: 'Tech Overview MCP'
+featured: true
+draft: false
+---
+
+import { teamMetrics } from '@/data/full';
+import { Icon } from 'astro-icon/components';
+import CodeBlock from "@/components/UI/CodeBlock.astro";
+import ContentGrid from "@/components/UI/ContentGrid.astro";
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+import ProjectOverview from "@/components/Portfolio/ProjectOverview.astro";
+import RelatedCaseStudies from '@/components/EXTRA/_RelatedCaseStudies.astro';
+
+import Tech1 from "@/components/EXTRA/_tech/tech1.astro";
+import Tech2 from "@/components/EXTRA/_tech/tech2.astro";
+
+
+import BusinessCaseCard from "@/components/UI/Cards/BusinessCaseCard.astro";
+import ExecutiveSummaryCard from "@/components/UI/Cards/ExecutiveSummaryCard.astro";
+
+<ProjectOverview frontmatter={frontmatter}>
+Building a production MCP server means solving real engineering challenges: AI pipeline optimization, sub-200ms latency requirements, vector search at scale, and seamless IDE integration. This deep dive explores the architecture, implementation, and developer workflow improvements.
+
+**Please note:** Technical details are generalized to protect intellectual property while demonstrating engineering approach and architectural decisions.
+</ProjectOverview>
+
+
+<hr class="my-16"/>
+<BusinessCaseCard/>
+<hr class="my-16"/>
+<ExecutiveSummaryCard/>
+<hr class="my-16"/>
+<Tech1/>
+<hr class="my-16"/>
+<Tech2/>

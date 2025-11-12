@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="purple-gradient rounded-lg p-8 mb-8">
+  <div class="text-center mb-4">
+    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Grounded Tool Execution Model</h3>
+    <p class="text-gray-600 dark:text-gray-400">The MCP Server doesn't hallucinate. Every response is backed by actual tool execution.</p>
+  </div>
+
+  <!-- Architecture Diagram (Text-based) -->
+  <div class="bg-white dark:bg-black/80 p-6 rounded-lg border border-purple-200 dark:border-purple-700 font-mono text-xs">
+    <div class="text-center text-purple-600 dark:text-purple-400 font-bold">
+      ┌─────────────────────────┐<br/>
+                Developer in VS Code <br/>
+      └─────────────────────────┘<br/>
+          (natural language)
+    <br/>
+    │<br/>
+      ▼
+    </div>
+    <div class="text-center text-orange-900 dark:text-orange-400 font-bold">
+      ┌─────────────────────────────────────────────────┐<br/>
+                    MCP Server (Orchestrator)            <br/>
+        • Parses intent from developer query            <br/>
+        • Determines which tools to execute             <br/>
+        • Provides context (design tokens, patterns)    <br/>
+      └─────────────────────────────────────────────────┘<br/>
+      (tool invocations)<br/>
+      │ <br/>
+      ▼
+    </div>
+    <div class="text-center text-blue-900 dark:text-blue-400 font-bold">
+      ┌──────────┬──────────┬──────────┬──────────┬──────────┐<br/>
+      <br/>
+        ESLint   Prettier   TS     axe-core    Stylelint          <br/>
+        <br/>
+      └──────────┴──────────┴──────────┴──────────┴──────────┘<br/>
+      (actual results)<br/>
+      │ <br/>
+      ▼
+    </div>
+    <div class="text-center text-cyan-900 dark:text-cyan-400 font-bold">
+      ┌───────────────────────────────────────────────┐<br/>
+                MCP Server (Result Processing)            <br/>
+        • Validates results against design system        <br/>
+        • Adds contextual explanations                   <br/>
+        • Suggests fixes with code examples              <br/>
+      └───────────────────────────────────────────────┘<br/>
+      (enriched feedback)<br/>
+      │ <br/>
+      ▼
+    </div>
+    <div class="text-center text-green-600 dark:text-green-400 font-bold">
+      ┌─────────────────────────────────────────────────┐<br/>
+            Developer Receives Actionable Feedback     <br/>
+        • Clear explanation of the issue               <br/>
+        • Specific recommendation with example         <br/>
+        • One-click fix (when available)               <br/>
+      └─────────────────────────────────────────────────┘
+    </div>
+  </div>
+
+  <div class="bg-purple-900 text-white p-6 rounded-lg mt-8">
+    <div class="flex items-start gap-3">
+      <Icon name="line-md:lightbulb-twotone" class="w-6 h-6 flex-shrink-0" />
+      <div>
+        <div class="font-bold mb-2">Why "Grounded" Matters</div>
+        <p class="text-sm text-purple-100">
+          Traditional AI assistants can hallucinate tool results or make up validation rules. The MCP Server only reports what real tools actually found, ensuring 100% accuracy. The AI adds value by interpreting results in context and providing intelligent guidance, not by inventing information.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+

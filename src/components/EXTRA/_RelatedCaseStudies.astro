@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  studies: Array<{
+    url: string;
+    title: string;
+    icon?: string;
+    description: string;
+    color?: 'blue' | 'purple' | 'green';
+  }>;
+  heading?: string;
+  description?: string;
+}
+
+const { studies, heading = "Want to dive deeper?", description = "Explore the detailed impacts and technical implementation" } = Astro.props;
+
+// Map color to Tailwind classes
+const colorClasses = {
+  blue: {
+    icon: 'text-blue-600',
+    border: 'hover:border-blue-500',
+    text: 'group-hover:text-blue-600',
+    arrow: 'text-blue-600'
+  },
+  purple: {
+    icon: 'text-purple-600',
+    border: 'hover:border-purple-500',
+    text: 'group-hover:text-purple-600',
+    arrow: 'text-purple-600'
+  },
+  green: {
+    icon: 'text-green-600',
+    border: 'hover:border-green-500',
+    text: 'group-hover:text-green-600',
+    arrow: 'text-green-600'
+  }
+};
+---
+
+<div class="silver-gradient rounded-lg p-4 md:p-8 my-8 mb-0">
+  <p class="text-lg text-center mb-4 md:mb-6"><strong>{heading}</strong> {description}</p>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    {studies.map((study) => {
+      const color = study.color || 'blue';
+      const classes = colorClasses[color];
+      return (
+        <a
+          href={study.url}
+          class={`not-prose group flex items-start gap-3 p-4 rounded-lg bg-white dark:bg-black/40 border border-transparent ${classes.border} transition-all hover:shadow-md`}
+        >
+          <div class="flex-shrink-0 mt-1">
+            <Icon
+              name={study.icon || 'line-md:arrow-small-right'}
+              class={`w-6 h-6 ${classes.icon} group-hover:scale-110 transition-transform`}
+            />
+          </div>
+          <div>
+            <div class={`font-semibold text-base mb-1 text-black dark:text-white ${classes.text} transition-colors`}>
+              {study.title}
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              {study.description}
+              <span class={`inline-flex items-center gap-1 font-medium ${classes.arrow} group-hover:gap-2 transition-all`}>
+                {' '}Read More <Icon name="line-md:arrow-right" size="14" />
+              </span>
+            </div>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+</div>

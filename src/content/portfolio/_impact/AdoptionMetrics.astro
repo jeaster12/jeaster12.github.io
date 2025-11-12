@@ -1,0 +1,85 @@
+---
+import DeveloperQuotesCard from "@/components/UI/Cards/DeveloperQuotesCard.astro";
+
+const adoptionCurve = [
+  { period: 'Month 1 (Launch)', percentage: 23, color: 'purple' },
+  { period: 'Month 2', percentage: 54, color: 'purple' },
+  { period: 'Month 3', percentage: 78, color: 'purple' },
+  { period: 'Month 4-6 (Current)', percentage: 91, color: 'green' }
+];
+
+const usageStats = [
+  {
+    value: '91%',
+    label: 'Developer Adoption',
+    sublabel: 'within 3 months',
+    color: 'purple'
+  },
+  {
+    value: '87%',
+    label: 'Issues Caught in IDE',
+    sublabel: 'before commit',
+    color: 'blue'
+  },
+  {
+    value: '4.8/5',
+    label: 'Overall Satisfaction',
+    sublabel: 'n=68 developers',
+    color: 'green'
+  },
+  {
+    value: '62%',
+    label: 'Faster Onboarding',
+    sublabel: 'new developers',
+    color: 'orange'
+  }
+];  
+---
+
+<!-- Adoption Metrics -->
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Adoption & Engagement</h2>
+
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+  <div class="card-white p-6 rounded-lg border border-global shadow-sm">
+    <h3 class="font-semibold text-xl mb-4 flex items-center">Developer Adoption Curve</h3>
+
+    <div class="space-y-4">
+      {adoptionCurve.map((item) => (
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-600 dark:text-gray-400">{item.period}</span>
+            <span class={`font-bold text-${item.color}-600`}>{item.percentage}%</span>
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+            <div class={`bg-${item.color}-600 h-3 rounded-full`} style={`width: ${item.percentage}%`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-7 p-3 card-silver rounded text-xs">
+      <strong>Largest Adoption Drivers:</strong> Organic word-of-mouth, lunch & learns, leadership encouragement and engagement
+    </div>
+  </div>
+
+  <div class="card-white p-6 rounded-lg shadow-sm">
+    <h3 class="font-semibold text-xl mb-4 flex items-center">Usage Statistics</h3>
+
+    <div class="space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        {usageStats.map((stat) => (
+          <div class={`${stat.color}-gradient rounded-lg p-6 text-center`}>
+            <div class={`text-4xl font-bold text-${stat.color}-600 mb-2`}>{stat.value}</div>
+            <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">{stat.label}</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400">{stat.sublabel}</div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<DeveloperQuotesCard/>
+
+

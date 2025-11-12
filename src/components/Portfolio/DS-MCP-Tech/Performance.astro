@@ -1,0 +1,149 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+
+<SectionTitle
+  title="Performance Optimization Journey"
+  description="Achieving <strong>production-grade performance</strong> required <strong>systematic optimization</strong>:"/>
+
+<div class="grid gap-6 md:grid-cols-3 mb-4">
+  <div class="rounded-lg border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 p-4 md:p-6">
+    <h4 class="font-semibold text-sm mb-2 text-red-600 dark:text-red-300">Initial (POC)</h4>
+    <div class="text-3xl font-bold mb-2 text-red-600">1.2s</div>
+    <ul class="text-xs space-y-1 list-disc not-prose list-inside pl-2">
+      <li>No caching</li>
+      <li>Naive embeddings</li>
+      <li>Unoptimized queries</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-amber-200 dark:border-amber-900/50 bg-amber-50 dark:bg-amber-950/30 p-4 md:p-6">
+    <h4 class="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">After Optimization</h4>
+    <div class="text-3xl font-bold mb-2 text-amber-700">450ms</div>
+    <ul class="text-xs space-y-1 list-disc not-prose list-inside pl-2">
+      <li>Redis caching added</li>
+      <li>Index tuning</li>
+      <li>Request batching</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-green-200 dark:border-green-900/50 bg-green-50 dark:bg-green-950/30 p-4 md:p-6">
+    <h4 class="font-semibold text-sm mb-2 text-green-700 dark:text-green-300">Production (P95)</h4>
+    <div class="text-3xl font-bold mb-2 text-green-700">&lt;200ms</div>
+    <ul class="text-xs space-y-1 list-disc not-prose list-inside pl-2">
+      <li>Aggressive prefetching</li>
+      <li>CDN for static</li>
+      <li>Edge deployment</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid gap-6 md:grid-cols-2 my-6">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="font-semibold mb-3">Initial Costs (Month 1)</h4>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span>OpenAI API (embeddings + chat)</span>
+        <span class="font-semibold">$12,000</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Pinecone (vector DB)</span>
+        <span class="font-semibold">$2,400</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Infrastructure (compute, storage)</span>
+        <span class="font-semibold">$600</span>
+      </div>
+      <div class="flex justify-between pt-2 border-t border-global font-semibold">
+        <span>Total</span>
+        <span class="text-red-600">$15,000/month</span>
+      </div>
+    </div>
+  </div>
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="font-semibold mb-3">Optimized Costs (Month 6)</h4>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span>OpenAI API (90% cache hit rate)</span>
+        <span class="font-semibold">$1,800</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Pinecone (optimized tier)</span>
+        <span class="font-semibold">$1,600</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Infrastructure (right-sized)</span>
+        <span class="font-semibold">$600</span>
+      </div>
+      <div class="flex justify-between pt-2 border-t border-global font-semibold">
+        <span>Total</span>
+        <span class="text-green-600">$4,000/month (73% ↓)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-blue p-4 md:p-6 my-6">
+  <h4 class="font-semibold">Key optimizations</h4>
+  <div class="grid gap-4 md:grid-cols-4 text-sm">
+    <div class="space-y-1">
+      <div class="font-semibold mb-1">Aggressive caching</div>
+      <div class="text-xs">90% cache eliminates redundant API calls</div>
+    </div>
+    <div class="space-y-1">
+      <div class="font-semibold mb-1">Batch processing</div>
+      <div class="text-xs">Reduced per-request overhead</div>
+    </div>
+    <div>
+      <div class="font-semibold mb-1">Fine-tuned models</div>
+      <div class="text-xs">Smaller specialized models for specific tasks</div>
+    </div>
+    <div>
+      <div class="font-semibold mb-1">Rate limiting</div>
+      <div class="text-xs">Prevented abuse and excessive usage</div>
+    </div>
+  </div>
+</div>
+
+<div class="orange-gradient p-6 rounded-lg">
+  <div class="grid md:grid-cols-3 gap-6">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <Icon name="carbon:timer" class="text-orange-600 w-6 h-6" />
+        <h3 class="font-bold text-gray-900 mb-0 dark:text-white">Speed</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-600 pl-7 m-0 dark:text-gray-400">
+        <li><strong>8.2s average</strong> feedback time</li>
+        <li><strong>Incremental validation</strong> (only changed files)</li>
+        <li><strong>Parallel tool execution</strong> where possible</li>
+        <li><strong>Result caching</strong> for unchanged code</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <Icon name="carbon:chart-area" class="text-orange-600 w-6 h-6" />
+        <h3 class="font-bold text-gray-900 mb-0 dark:text-white">Capacity</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-600 pl-7 m-0 dark:text-gray-400">
+        <li><strong>15,400 validations/day</strong> across team</li>
+        <li><strong>Horizontal scaling</strong> with load balancer</li>
+        <li><strong>Per-developer instances</strong> for isolation</li>
+        <li><strong>Auto-scaling</strong> based on demand</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <Icon name="carbon:network-overlay" class="text-orange-600 w-6 h-6" />
+        <h3 class="font-bold text-gray-900 mb-0 dark:text-white">Reliability</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-600 pl-7 m-0 dark:text-gray-400">
+        <li><strong>99.2% uptime</strong> SLA</li>
+        <li><strong>Graceful degradation</strong> if server unavailable</li>
+        <li><strong>Fallback to local tools</strong> in offline mode</li>
+        <li><strong>Health monitoring</strong> with auto-restart</li>
+      </ul>
+    </div>
+  </div>
+</div>

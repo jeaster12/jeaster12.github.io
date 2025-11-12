@@ -1,0 +1,152 @@
+---
+title: 'Number 5'
+client: 'Enterprise Design System'
+description: 'The technical architecture, AI implementation, and infrastructure decisions behind a production MCP server. How we achieved sub-200ms latency, 97% accuracy, and seamless developer workflow integration.'
+skills: ['AI Engineering', 'System Architecture', 'Full-stack Development', 'DevOps']
+date: 2024-06-15
+featuredImage:
+  url: '/assets/images/portfolio/pankaj-patel-unsplash.webp'
+  name: 'Tech Overview MCP'
+featured: true
+draft: false
+---
+
+import { Icon } from 'astro-icon/components';
+import { roiMetrics, teamMetrics, heroMetrics } from '@/data/full';
+import RelatedCaseStudies from '@/components/EXTRA/_RelatedCaseStudies.astro';
+
+export const deepDiveCards = [
+  {
+    href: '/impact-metrics',
+    icon: 'line-md:speedometer',
+    iconBg: 'bg-blue-100 dark:bg-blue-800',
+    iconColor: 'text-blue-600 dark:text-blue-400',
+    hoverBorder: 'hover:border-blue-300 dark:hover:border-blue-800',
+    hoverText: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+    title: 'Impact & Metrics',
+    description: 'Measurable business outcomes, ROI calculations, and before/after comparisons',
+    badges: [
+      { label: `ROI: ${roiMetrics.roi}` },
+      { label: `${roiMetrics.annualValue} Value` },
+      { label: `${heroMetrics.adoption} Adoption` }
+    ]
+  },
+  {
+    href: '/adoption',
+    icon: 'line-md:account-add',
+    iconBg: 'bg-green-100 dark:bg-green-800',
+    iconColor: 'text-green-600 dark:text-green-400',
+    hoverBorder: 'hover:border-green-300 dark:hover:border-green-800',
+    hoverText: 'group-hover:text-green-600 dark:group-hover:text-green-400',
+    title: 'Adoption Strategy',
+    description: `How we achieved ${teamMetrics.weeklyActivePercent} adoption across ${teamMetrics.totalEngineers} engineers through incremental rollout`,
+    badges: [
+      { label: `${teamMetrics.totalEngineers} Engineers` },
+      { label: `${teamMetrics.weeklyActivePercent} Adoption` },
+      { label: '12 Months' }
+    ]
+  },
+  {
+    href: '/challenges',
+    icon: 'line-md:alert-circle',
+    iconBg: 'bg-orange-100 dark:bg-orange-800',
+    iconColor: 'text-orange-600 dark:text-orange-400',
+    hoverBorder: 'hover:border-orange-300 dark:hover:border-orange-800',
+    hoverText: 'group-hover:text-orange-600 dark:group-hover:text-orange-400',
+    title: 'Technical Challenges',
+    description: 'Key obstacles we overcame: performance, adoption resistance, and technical complexity',
+    badges: [
+      { label: 'Performance' },
+      { label: 'Change Management' },
+      { label: 'Integration' }
+    ]
+  },
+  {
+    href: '/leadership',
+    icon: 'line-md:star-filled',
+    iconBg: 'bg-yellow-100 dark:bg-yellow-800',
+    iconColor: 'text-yellow-600 dark:text-yellow-400',
+    hoverBorder: 'hover:border-yellow-300 dark:hover:border-yellow-800',
+    hoverText: 'group-hover:text-yellow-600 dark:group-hover:text-yellow-400',
+    title: 'Leadership & Execution',
+    description: 'How I led the initiative: stakeholder management, team building, and strategic vision',
+    badges: [
+      { label: 'Cross-Functional' },
+      { label: 'Strategic Vision' },
+      { label: 'Team Building' }
+    ]
+  },
+  {
+    href: '/mcp-server',
+    icon: 'logos:openai-icon',
+    iconBg: 'bg-purple-100 dark:bg-purple-800',
+    iconColor: 'text-purple-600 dark:text-purple-400',
+    hoverBorder: 'hover:border-purple-300 dark:hover:border-purple-800',
+    hoverText: 'group-hover:text-purple-600 dark:group-hover:text-purple-400',
+    title: 'MCP Server Deep Dive',
+    description: 'How the Model Context Protocol prevents hallucinations through grounded tool execution',
+    badges: [
+      { label: 'AI + Static Analysis' },
+      { label: 'Design System Trained' },
+      { label: 'No Hallucinations' }
+    ]
+  },
+  {
+    href: '/technical-examples',
+    icon: 'line-md:document-code',
+    iconBg: 'bg-red-100 dark:bg-red-800',
+    iconColor: 'text-red-600 dark:text-red-400',
+    hoverBorder: 'hover:border-red-300 dark:hover:border-red-800',
+    hoverText: 'group-hover:text-red-600 dark:group-hover:text-red-400',
+    title: 'Technical Examples & Code',
+    description: 'Real validation scenarios, code snippets, and before/after comparisons from production',
+    badges: [
+      { label: '5 Real Examples' },
+      { label: 'Code Samples' },
+      { label: 'Before/After' }
+    ]
+  }
+];
+
+
+
+
+  <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+    <Icon name="line-md:document-list" class="text-purple-600" />
+Deep Dives & Supporting Content
+  </h2>
+  <p class="text-gray-800 mb-4 dark:text-gray-400">Detailed explorations of specific aspects - perfect for Q&A reference</p>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    {deepDiveCards.map((card) => (
+      <a href={card.href} class="block group not-prose">
+        <div class={`card p-6 hover:shadow-lg transition-all border-2 ${card.hoverBorder}`}>
+          <div class="flex items-start gap-4">
+            <div class={`p-2 ${card.iconBg} rounded-lg flex-shrink-0 mt-1`}>
+              <Icon name={card.icon} class={`w-6 h-6 ${card.iconColor}`} />
+            </div>
+            <div class="flex-1">
+              <h3 class={`text-lg font-bold text-gray-900 dark:text-gray-100 ${card.hoverText} transition-colors`}>
+                {card.title}
+              </h3>
+              <p class="text-sm text-gray-800 dark:text-gray-400 mb-2">
+                {card.description}
+                <span class={`inline-flex items-center gap-1 font-medium ml-2 ${card.hoverText} group-hover:gap-2 transition-all`}>
+                  Read More <Icon name="line-md:arrow-right" size="14" />
+                </span>
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {card.badges.map((badge) => (
+                  <span class="text-xs px-2 py-1 bg-gray-100 text-gray-800 rounded dark:text-gray-400 dark:bg-gray-800">
+                    {badge.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+  
+

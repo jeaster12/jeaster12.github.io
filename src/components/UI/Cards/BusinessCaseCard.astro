@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="bg-blue-50 rounded-lg p-6 md:p-8 mb-6 border border-blue-200 dark:bg-blue-500/10 dark:border-blue-600">
+  <h3 class="text-xl font-bold mb-2 text-gray-900 flex items-center gap-2 dark:text-white">
+    <Icon name="line-md:lightbulb-twotone" class="text-blue-600" />
+    How I Built the Business Case
+  </h3>
+
+  <div class="grid md:grid-cols-2 gap-6 text-sm mb-0">
+    <div>
+      <h4 class="font-semibold text-gray-900 mb-1 dark:text-white">Quantified the Problem</h4>
+      <p class="text-gray-700 dark:text-gray-400">I calculated: 1200 engineers × 30% search time × avg salary = <strong>$4.2M/year</strong> in lost productivity. Presented to VP Eng and CTO with data showing this was a platform scalability problem, not a training problem.</p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-gray-900 mb-1 dark:text-white">De-risked with 2-Week PoC</h4>
+      <p class="text-gray-700 dark:text-gray-400">I ran a PoC with 2 engineers. MVP cost was neglible (Using existing API credits). Results: <strong>85% found it "extremely useful"</strong>, 52% reduction in review cycles, zero accessibility violations in PoC PRs.</p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-gray-900 mb-1 dark:text-white">Framed as Strategic Platform Investment</h4>
+      <p class="text-gray-700 dark:text-gray-400">I positioned this as <strong>"Frontend quality guardrails that shift left"</strong>—like automated security scanning in CI/CD. Showed extensibility roadmap beyond design systems.</p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-gray-900 mb-1 dark:text-white">The Constraint</h4>
+      <p class="text-gray-700 dark:text-gray-400">I secured approval for 2 quarters with 7 engineers. The deal: <strong>Prove ROI within 6 months or funding gets cut.</strong> This constraint drove every technical decision.</p>
+    </div>
+  </div>
+</div>

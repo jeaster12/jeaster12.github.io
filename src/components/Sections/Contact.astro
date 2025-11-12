@@ -1,0 +1,18 @@
+---
+import { mainContent } from '@data/content';
+import BadgeTag from '../UI/BadgeTag.astro';
+import Section from '@components/UI/Section.astro';
+---
+
+<Section 
+  id="contact"
+  title={mainContent.Contact.title}
+  subtitle={mainContent.Contact.subtitle}
+  description={mainContent.Contact.description}>
+
+  <ul class="space-y-4">
+    {mainContent.Contact.contactItems.map((item) => (
+      <BadgeTag icon={item.icon} label={item.label} url={item.url} newWindow={item.newWindow}  />
+    ))}
+  </ul>
+</Section>

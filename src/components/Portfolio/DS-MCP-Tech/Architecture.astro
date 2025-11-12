@@ -1,0 +1,207 @@
+---
+import TechStack from './TechStack.astro';
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+
+<SectionTitle
+  title="Phase 3: Production Architecture"
+  description="The system is built on a <strong>modern, scalable architecture</strong> centered around the <strong>Model Context Protocol (MCP)</strong>. At its core, a Node.js/TypeScript server exposes intelligent design system tools through the MCP, enabling <strong>seamless integration</strong> with IDEs, CLI tools, & CI/CD pipelines."/>
+
+{/* Data Sources Layer */}
+<div class="mb-4">
+  <h3 class="text-xl font-nunito font-semibold text-center flex items-center justify-center gap-2 mb-2">
+    <Icon name="line-md:upload-loop" size={24} class="text-blue-500 dark:text-blue-400" />
+    Data Collection & Ingestion
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    The foundation of accurate AI responses starts with comprehensive data collection. We aggregate design system knowledge from six primary sources - documentation, Storybook examples, Figma specifications, GitHub code patterns, support tickets, & developer conversations - to build a complete picture of how the design system is documented, implemented, & used in practice.
+  </p>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:markdown" size={32} class="dark:invert"/>
+      <div class="text-xs font-semibold mt-2">Docs</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Components & API's</div>
+    </div>
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:storybook-icon" size={32}/>
+      <div class="text-xs font-semibold mt-2">Storybook</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Examples & Variants</div>
+    </div>
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:figma" size={32}/>
+      <div class="text-xs font-semibold mt-2">Figma</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Design Specs</div>
+    </div>
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:github-icon" size={32} class="dark:invert"/>
+      <div class="text-xs font-semibold mt-2">GitHub</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Code Patterns</div>
+    </div>
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:jira" size={32}/>
+      <div class="text-xs font-semibold mt-2">Support</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Tickets & Q&A</div>
+    </div>
+    <div class="flex flex-col items-center p-3 card-gray">
+      <Icon name="logos:slack-icon" size={32}/>
+      <div class="text-xs font-semibold mt-2">Chat</div>
+      <div class="text-xs text-gray-600 dark:text-gray-400">Conversations</div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-8">
+    <div class="text-4xl text-gray-400">↓</div>
+  </div>
+</div>
+
+{/* Processing Layer */}
+<div class="mb-4">
+  <h3 class="text-xl font-nunito font-semibold text-center flex items-center justify-center gap-2 mb-2">
+    <Icon name="line-md:cog-loop" size={24} class="text-purple-500 dark:text-purple-400" />
+    AI Processing Pipeline
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    Raw documentation is transformed into AI-ready knowledge through a dual-track processing pipeline. OpenAI's text-embedding model converts all content into vectors stored in Pinecone for lightning-fast semantic search, LangChain orchestrates the RAG (Retrieval-Augmented Generation) pipeline to intelligently retrieve and synthesize the most relevant context for each query.
+  </p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="card purple-gradient rounded-lg p-4 md:p-6">
+      <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+        <Icon name="line-md:hash-small" size={20} class="text-purple-500 dark:text-purple-400" />
+        <span>Embedding & Vectorization</span>
+      </h4>
+      <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+        <li><strong>Model:</strong> OpenAI text-embedding-3-large</li>
+        <li><strong>Dimensions:</strong> 1536-dimensional vectors</li>
+        <li><strong>Storage:</strong> Pinecone vector database</li>
+        <li><strong>Purpose:</strong> Semantic search & similarity matching</li>
+      </ul>
+    </div>
+
+    <div class="card green-gradient rounded-lg p-4 md:p-6">
+      <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+        <Icon name="line-md:document-list" size={20} class="text-green-500 dark:text-green-400" />
+        <span>RAG Pipeline</span>
+      </h4>
+      <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+        <li><strong>Orchestration:</strong> LangChain framework</li>
+        <li><strong>Retrieval:</strong> Hybrid search (vector + keyword)</li>
+        <li><strong>Context:</strong> Top-k relevant chunks</li>
+        <li><strong>Grounding:</strong> Real docs, code, patterns, office hours, slack, jira</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex justify-center mt-8">
+    <div class="text-4xl text-gray-400">↓</div>
+  </div>
+</div>
+
+{/* Core Layer */}
+<div class="mb-4">
+  <h3 class="text-xl font-nunito font-semibold text-center flex items-center justify-center gap-2 mb-2">
+    <Icon name="line-md:circle-to-confirm-circle-transition" size={24} class="text-green-500 dark:text-green-400" />
+    Core MCP Server
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    The heart of the system is a high-performance Node.js server built on Fastify that implements the Model Context Protocol specifications. It exposes four primary tools <code>search_components</code>, <code>validate</code>, <code>generate_code</code>, & <code>check_accessibility</code> using GPT-4 & fine-tuned models for code generation & compliance validation.
+  </p>
+  <div class="max-w-4xl mx-auto">
+    <div class="theme-gradient rounded-lg p-4 md:p-8 shadow-sm">
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h4 class="font-semibold text-base mb-2 text-purple-600 dark:text-purple-400 flex items-center gap-2">
+            <Icon name="line-md:computer" size={20} />
+            Infrastructure
+          </h4>
+          <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+            <li><strong>Runtime:</strong> Node.js 20+ with TypeScript 5.x</li>
+            <li><strong>Framework:</strong> Fastify (high-performance HTTP)</li>
+            <li><strong>Protocol:</strong> Model Context Protocol (MCP)</li>
+            <li><strong>Database:</strong> PostgreSQL (structured metadata)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-base mb-2 text-purple-600 dark:text-purple-400 flex items-center gap-2">
+            <Icon name="line-md:lightbulb-twotone" size={20} />
+            AI Models
+          </h4>
+          <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+            <li><strong>Primary LLM:</strong> GPT-4 Turbo</li>
+            <li><strong>Fine-tuned:</strong> Code generation model</li>
+            <li><strong>Validation:</strong> Compliance checking model</li>
+            <li><strong>Performance:</strong> Sub-second responses</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-6"/>
+      
+      <h4 class="text-base font-semibold my-6 text-center flex items-center justify-center gap-2">
+        <Icon name="line-md:cog" size={24} class="text-blue-500 dark:text-blue-400" />
+        Exposed MCP Tools
+      </h4>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-center text-gray-600 dark:text-gray-400">
+        <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>search_ds</code></div>
+        <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>validate</code></div>
+        <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>generate</code></div>
+        <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>check_a11y</code></div>
+        <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>analytics</code></div>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-8">
+    <div class="text-4xl text-gray-400">↓</div>
+  </div>
+</div>
+
+{/* Integration Layer */}
+<div class="mb-4">
+  <h3 class="text-xl font-nunito font-semibold text-center flex items-center justify-center gap-2 mb-2">
+    <Icon name="line-md:external-link" size={24} class="text-indigo-500 dark:text-indigo-400" />
+    Developer Integrations
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    The MCP server's true power comes from meeting developers where they work. Through a VS Code extension, GitHub Actions, & an analytics dashboard, the system delivers contextually accurate, actionable guidance directly in existing workflows. From inline suggestions during coding to automated PR validation to team-wide adoption insights.
+  </p>
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="card-white p-6 shadow-sm">
+      <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+        <Icon name="logos:visual-studio-code" size={24}/>
+        <span>VS Code Extension</span>
+      </h4>
+      <ul class="text-sm space-y-2 pl-2 list-disc list-inside not-prose">
+        <li>Intelligent IntelliSense</li>
+        <li>Real-time validation</li>
+        <li>Quick fix suggestions</li>
+        <li>Component search panel</li>
+      </ul>
+    </div>
+
+    <div class="card-white p-6 shadow-sm">
+      <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+        <Icon name="logos:github-copilot" size={24} class="dark:invert"/>
+        <span>GitHub Actions</span>
+      </h4>
+      <ul class="text-sm space-y-2 pl-2 list-disc list-inside not-prose">
+        <li>Automated PR reviews</li>
+        <li>Design system validation</li>
+        <li>Compliance reporting</li>
+        <li>Auto-fix suggestions</li>
+      </ul>
+    </div>
+
+    <div class="card-white p-6 shadow-sm">
+      <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+        <Icon name="line-md:gauge-loop" size={24} class="text-blue-500 dark:text-blue-400" />
+        <span>Analytics Dashboard</span>
+      </h4>
+      <ul class="text-sm space-y-2 pl-2 list-disc list-inside not-prose">
+        <li>Usage analytics</li>
+        <li>Adoption metrics</li>
+        <li>Performance monitoring</li>
+        <li>Developer satisfaction</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<TechStack/>

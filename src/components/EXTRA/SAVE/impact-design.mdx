@@ -1,0 +1,127 @@
+---
+title: 'Design Impact & ROI'
+client: 'Enterprise Design System'
+description: 'How the MCP server transformed designer productivity, shifting from repetitive support work to strategic design that drives product innovation.'
+skills: ['Design Operations', 'Design Systems', 'Team Productivity']
+date: 2024-06-15
+featuredImage:
+  url: '/assets/images/portfolio/pankaj-patel-unsplash.webp'
+  name: 'Design Team'
+featured: true
+draft: false
+---
+
+import { DSMCPDesignMetrics } from '@/data/full';
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+
+<SectionTitle
+  align="left"
+  title="Designer Impact & ROI"
+  description="The MCP server <strong>fundamentally transformed</strong> how designers spend their time - shifting from <strong>repetitive support work</strong> to <strong>strategic design</strong> that drives product innovation."/>
+
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+  <div class="pink-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-pink-600 mb-2">60% → 15%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Time on Support</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">freed for strategic work</div>
+  </div>
+  <div class="blue-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-blue-600 mb-2">3x</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Strategic Work Time</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">increase in capacity</div>
+  </div>
+  <div class="green-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-green-600 mb-2">91%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Component Adoption</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">up from 73%</div>
+  </div>
+  <div class="purple-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-purple-600 mb-2">89%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Design Consistency</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">improvement</div>
+  </div>
+</div>
+
+
+<div class="grid gap-8 lg:grid-cols-2 my-8">
+  <div>
+    <h3 class="text-xl font-semibold mb-4">Time Allocation Transformation</h3>
+    <div class="space-y-6">
+      <div>
+        <div class="flex justify-between items-center mb-2 font-bold">
+          <span>Support & Questions</span>
+          <span>{DSMCPDesignMetrics.timeAllocation.supportQuestions.before}% → {DSMCPDesignMetrics.timeAllocation.supportQuestions.after}%</span>
+        </div>
+        <div class="h-3 bg-gray-200 dark:bg-black/40 rounded-full">
+          <div class="h-3 bg-red-500 rounded-full" style={`width: ${DSMCPDesignMetrics.timeAllocation.supportQuestions.before}%`}></div>
+        </div>
+        <div class="h-3 bg-gray-200 dark:bg-black/40 rounded-full mt-2">
+          <div class="h-3 bg-green-500 rounded-full" style={`width: ${DSMCPDesignMetrics.timeAllocation.supportQuestions.after}%`}></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-2 font-bold">
+          <span>Strategic Design Work</span>
+          <span>{DSMCPDesignMetrics.timeAllocation.strategicDesignWork.before}% → {DSMCPDesignMetrics.timeAllocation.strategicDesignWork.after}%</span>
+        </div>
+        <div class="h-3 bg-gray-200 dark:bg-black/40 rounded-full">
+          <div class="h-3 bg-red-500 rounded-full" style={`width: ${DSMCPDesignMetrics.timeAllocation.strategicDesignWork.before}%`}></div>
+        </div>
+        <div class="h-3 bg-gray-200 dark:bg-black/40 rounded-full mt-2">
+          <div class="h-3 bg-green-500 rounded-full" style={`width: ${DSMCPDesignMetrics.timeAllocation.strategicDesignWork.after}%`}></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-xl font-semibold mb-4">Quality Improvements</h3>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="card p-4">
+        <div class="text-2xl font-bold text-purple-600">{DSMCPDesignMetrics.qualityImprovements.componentAdoption.value}%</div>
+        <div class="text-sm">Component adoption</div>
+        <div class="text-xs text-green-600">+{DSMCPDesignMetrics.qualityImprovements.componentAdoption.change}% from {DSMCPDesignMetrics.qualityImprovements.componentAdoption.from}%</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-2xl font-bold text-purple-600">{DSMCPDesignMetrics.qualityImprovements.documentationAccuracy.value}%</div>
+        <div class="text-sm">Documentation accuracy</div>
+        <div class="text-xs text-green-600">+{DSMCPDesignMetrics.qualityImprovements.documentationAccuracy.change}% from {DSMCPDesignMetrics.qualityImprovements.documentationAccuracy.from}%</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-2xl font-bold text-purple-600">{DSMCPDesignMetrics.qualityImprovements.developerSatisfaction.value}/10</div>
+        <div class="text-sm">Developer satisfaction</div>
+        <div class="text-xs text-green-600">+{DSMCPDesignMetrics.qualityImprovements.developerSatisfaction.change}% from {DSMCPDesignMetrics.qualityImprovements.developerSatisfaction.from}</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-2xl font-bold text-purple-600">{DSMCPDesignMetrics.qualityImprovements.designConsistency.value}%</div>
+        <div class="text-sm">Design consistency</div>
+        <div class="text-xs text-green-600">+{DSMCPDesignMetrics.qualityImprovements.designConsistency.change}% from {DSMCPDesignMetrics.qualityImprovements.designConsistency.from}%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="purple-gradient rounded-lg p-6">
+  <h3 class="text-lg font-semibold mb-4">Designer Success Story</h3>
+  <blockquote class="italic mb-4">
+    "I was spending most of my day answering the same questions about component usage. I felt like a human documentation search engine instead of a designer... Now I get to do actual design work! The AI handles all the routine questions, and I can focus on research, user testing, and designing new patterns."
+  </blockquote>
+  <cite class="text-sm font-medium block mb-4">— Sarah, Senior Product Designer</cite>
+
+  <div class="grid grid-cols-3 gap-4 text-sm">
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">{DSMCPDesignMetrics.designerSuccessStory.dailyTimeFreed} hours</div>
+      <div>Daily time freed up</div>
+    </div>
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">{DSMCPDesignMetrics.designerSuccessStory.increaseInResearch}%</div>
+      <div>Increase in research</div>
+    </div>
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">Zero</div>
+      <div>Documentation complaints</div>
+    </div>
+  </div>
+</div>

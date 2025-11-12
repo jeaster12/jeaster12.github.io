@@ -1,0 +1,220 @@
+---
+import { Icon } from 'astro-icon/components'
+import Terminal from '@/components/UI/Terminal.astro'
+import MetricCard from '@/components/UI/MetricCard.astro'
+import SectionTitle from '@/components/UI/SectionTitle.astro'
+---
+
+<SectionTitle 
+  align="left" 
+  title="Accessibility & Inclusive Design" 
+  description="Building accessibility into every component from day one was <strong>non-negotiable</strong>. With hundreds of accessibility criteria to consider, we established an <strong>Accessibility Guild</strong> focused on the highest-impact wins and automating what we could. Making accessibility <strong>sustainable at scale</strong>." />
+
+<div class="grid gap-6 md:grid-cols-3 my-4 mb-8">
+  <div class="card p-4 green-gradient shadow-sm">
+    <h4 class="font-semibold text-base mb-3 text-green-700 dark:text-green-300 flex items-center gap-2">
+      <Icon name="line-md:confirm-circle" class="w-5 h-5 text-green-500 dark:text-green-400" />
+      WCAG 2.1 AA Compliance
+    </h4>
+    <ul class="text-xs space-y-2 list-disc not-prose list-inside pl-2">
+      <li><strong class="dark:text-white">Color contrast:</strong> 4.5:1 minimum</li>
+      <li><strong class="dark:text-white">Focus indicators:</strong> Visible 2px outline</li>
+      <li><strong class="dark:text-white">Text scaling:</strong> 200% without overflow</li>
+      <li><strong class="dark:text-white">Touch targets:</strong> 44px minimum</li>
+    </ul>
+  </div>
+
+  <div class="card p-4 blue-gradient shadow-sm">
+    <h4 class="font-semibold text-base mb-3 text-blue-700 dark:text-blue-300 flex items-center gap-2">
+      <Icon name="line-md:menu-unfold-right" class="w-5 h-5 text-blue-500 dark:text-blue-400" />
+      Keyboard Navigation
+    </h4>
+    <ul class="text-xs space-y-2 list-disc not-prose list-inside pl-2">
+      <li><strong class="dark:text-white">Tab order:</strong> Logical flow</li>
+      <li><strong class="dark:text-white">Focus trapping:</strong> Modal/dialog containment</li>
+      <li><strong class="dark:text-white">Skip links:</strong> Bypass navigation</li>
+      <li><strong class="dark:text-white">Shortcuts:</strong> Arrow keys, Enter, Escape</li>
+    </ul>
+  </div>
+
+  <div class="card p-4 purple-gradient shadow-sm">
+    <h4 class="font-semibold text-base mb-3 text-purple-700 dark:text-purple-300 flex items-center gap-2">
+      <Icon name="line-md:text-box-multiple" class="w-5 h-5 text-purple-500 dark:text-purple-400" />
+      Screen Reader Support
+    </h4>
+    <ul class="text-xs space-y-2 list-disc not-prose list-inside pl-2">
+      <li><strong class="dark:text-white">ARIA labels:</strong> Descriptive and concise</li>
+      <li><strong class="dark:text-white">Live regions:</strong> Dynamic content updates</li>
+      <li><strong class="dark:text-white">Landmarks:</strong> Navigation structure</li>
+      <li><strong class="dark:text-white">States:</strong> Expanded, selected, disabled</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="text-xl mb-2">Accessibility Guild Structure</h3>
+
+<div class="grid gap-6 md:grid-cols-2 my-4">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="text-base mb-2 flex items-center gap-2">
+      <Icon name="line-md:account" class="w-6 h-6 text-gray-600 dark:text-gray-400" />
+      Guild Structure
+    </h4>
+    <div class="space-y-3 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Guild Lead:</strong> Senior Accessibility Specialist
+        <p class="italic text-xs mt-1">Sets standards, reviews components</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Product Champions:</strong> 1 per team (12 total)
+        <p class="italic text-xs mt-1">Advocates and educates within teams</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Testing Volunteers:</strong> 8 internal and external
+        <p class="italic text-xs mt-1">Real-world usage validation</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="text-base mb-2 flex items-center gap-2">
+      <Icon name="line-md:document-list" class="w-6 h-6 text-gray-600 dark:text-gray-400" />
+      Education Program
+    </h4>
+    <div class="space-y-3 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Monthly Workshops:</strong> Hands-on accessibility training
+        <p class="italic text-xs mt-1">Screen reader demos, disability simulation</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Design Reviews:</strong> A11y checkpoints in process
+        <p class="italic text-xs mt-1">Catch issues before implementation</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Certification:</strong> Accessibility competency program
+        <p class="italic text-xs mt-1">Team members earn accessibility badges</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm orange-gradient rounded-lg md:p-6 p-4 my-8">
+  <h4 class="text-base mb-2 flex items-center gap-2">
+    <Icon name="line-md:gauge-loop" class="w-6 h-6 text-orange-500 dark:text-orange-400" />
+    Accessibility Impact Results
+  </h4>
+  <div class="grid gap-6 md:grid-cols-3 text-sm">
+    <MetricCard
+      value="94%"
+      label="WCAG 2.1 AA compliance (up from 67%)"
+      valueColor="text-orange-600"
+    />
+    <MetricCard
+      value="Zero"
+      label="Accessibility-related customer complaints"
+      valueColor="text-orange-600"
+    />
+    <MetricCard
+      value="100%"
+      label="Team members completed training"
+      valueColor="text-orange-600"
+    />
+  </div>
+</div>
+
+<h3 class="text-xl mb-2">Automated Accessibility Testing</h3>
+<div class="grid gap-6 md:grid-cols-2 mb-6">
+  <div>
+    <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+      <Icon name="line-md:watch-twotone" class="w-6 h-6 text-blue-500 dark:text-blue-400" />
+      AI-Powered Checks
+    </h4>
+    <div class="space-y-2 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Color Contrast:</strong> Automatic ratio
+        calculation and warnings
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Focus Management:</strong> Tab order
+        validation and focus trapping
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>ARIA Attributes:</strong> Required
+        labels and proper usage
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Semantic HTML:</strong> Proper heading
+        hierarchy and landmarks
+      </div>
+    </div>
+  </div>
+  <div>
+    <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+      <Icon name="line-md:turn-sharp-left" class="w-6 h-6 text-blue-500 dark:text-blue-400" />
+      Testing Pipeline
+    </h4>
+    <div class="space-y-2 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>axe-core:</strong> Automated
+        accessibility testing in CI/CD
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Lighthouse:</strong> Performance and
+        accessibility scoring
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Wave:</strong> Visual accessibility
+        evaluation
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded">
+        <strong>Manual Testing:</strong> Screen reader
+        and keyboard validation
+      </div>
+    </div>
+  </div>
+</div>
+
+<Terminal 
+  showCommandBar={true} 
+  title="Automated Accessibility Analysis" 
+  command="Analyze Button component for WCAG issues">
+
+  <div class="grid gap-0 md:grid-cols-2 flex-1 overflow-auto">
+    <div class="md:border-r border-global md:pr-4 pr-0 space-y-4">
+      <div class="mb-2 text-sm font-semibold">Input</div>
+      <div class="space-y-4 text-sm">
+        <div class="grid gap-2">
+          <label class="text-xs">Component</label>
+          <input readonly="" class="w-full rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="Button" />
+        </div>
+        <div class="grid gap-2">
+          <label class="text-xs">Checks</label>
+          <input readonly="" class="w-full rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="Contrast, ARIA, Keyboard, Semantics" />
+        </div>
+      </div>
+    </div>
+    <div class="md:pl-4 md:pb-0 space-y-4">
+      <div class="mb-2 text-sm font-semibold">Results</div>
+      <div class="card p-3 text-sm">
+        <div class="grid grid-cols-3 gap-3 text-center text-xs">
+          <div>
+            <div class="font-semibold text-emerald-600 text-sm">94%</div>
+            <div>Score</div>
+          </div>
+          <div>
+            <div class="font-semibold text-amber-600 text-sm">2</div>
+            <div>Violations</div>
+          </div>
+          <div>
+            <div class="font-semibold text-sky-600 text-sm">3</div>
+            <div>Suggestions</div>
+          </div>
+        </div>
+        <ul class="mt-3 list-disc pl-5 text-xs">
+          <li>Ensure 4.5:1 contrast for secondary text</li>
+          <li>Add aria-busy when loading is true</li>
+          <li>Confirm focus ring visible on keyboard focus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Terminal>

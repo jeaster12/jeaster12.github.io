@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<h3>Challenge: Making Non-Frontend Engineers Successful</h3>
+
+<div class="blue-gradient p-6 mb-8 border rounded-lg">
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <h4 class="font-semibold mb-2 text-lg">The Problem</h4>
+      <p class="text-sm text-gray-700 mb-2 dark:text-gray-400">Backend engineer needs to add a modal dialog. Design system has a Modal component with 15 props, 8 variants, 20+ accessibility requirements. Reading docs takes 30 minutes, easy to miss critical details.</p>
+
+      <h4 class="font-semibold mb-2">My Solution: Contextual Guidance + Code Generation</h4>
+      <ul class="mb-0 text-sm text-gray-700 dark:text-gray-400">
+        <li>Auto-suggest with required props for accessibility</li>
+        <li>Inline documentation on hover</li>
+        <li>Accessibility hints: "This modal needs keyboard focus management"</li>
+        <li class="mb-0">Code snippets: "Generate accessible modal" → full boilerplate</li>
+      </ul>
+    </div>
+
+    <div class="bg-white/80 rounded-lg p-4 dark:bg-black/20">
+      <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">Impact on Non-Frontend Engineers</h4>
+      <div class="space-y-3 text-sm dark:text-gray-400">
+        <div class="flex items-center gap-2">
+          <Icon name="line-md:confirm-circle" class="text-green-500 flex-shrink-0" />
+          <span>Time to implement accessible modal: <strong>45 min → 8 min</strong></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="line-md:confirm-circle" class="text-green-500 flex-shrink-0" />
+          <span>Accessibility violations in backend-engineer PRs: <strong>60% → 4%</strong></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="line-md:confirm-circle" class="text-green-500 flex-shrink-0" />
+          <span>PR feedback changed from "add ARIA labels" to <strong>"Great job A11y!"</strong></span>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-global">
+        <p class="text-sm italic text-gray-800 dark:text-gray-200">"Before: I dreaded frontend work. I'd get 5 rounds of review feedback. Now: The IDE teaches me as I code. I can ship UI confidently."</p>
+        <p class="text-xs italic text-purple-700 dark:text-purple-200">- Full-Stack Engineer (Platform Team)</p>
+      </div>
+    </div>
+  </div>
+</div>

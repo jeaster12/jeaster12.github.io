@@ -1,0 +1,155 @@
+---
+import { Icon } from 'astro-icon/components';
+const validationTools = [
+  {
+    icon: 'logos:eslint',
+    name: 'ESLint',
+    gradient: 'blue-gradient',
+    color: 'blue',
+    capabilities: [
+      'Design token validation',
+      'Component usage rules',
+      'Code quality checks'
+    ]
+  },
+  {
+    icon: 'logos:typescript-icon',
+    name: 'TypeScript',
+    gradient: 'cyan-gradient',
+    color: 'cyan',
+    capabilities: [
+      'Type checking',
+      'Prop validation',
+      'API contracts'
+    ]
+  },
+  {
+    icon: 'logos:prettier',
+    name: 'Prettier',
+    gradient: 'pink-gradient',
+    color: 'pink',
+    capabilities: [
+      'Code formatting',
+      'Style consistency',
+      'Auto-fixes'
+    ]
+  },
+  {
+    icon: 'carbon:accessibility',
+    name: 'axe-core',
+    gradient: 'green-gradient',
+    color: 'green',
+    customIconColor: true,
+    capabilities: [
+      'WCAG 2.1 AA checks',
+      'Color contrast',
+      'ARIA validation'
+    ]
+  },
+  {
+    icon: 'carbon:pen',
+    name: 'Stylelint',
+    gradient: 'purple-gradient',
+    color: 'purple',
+    customIconColor: true,
+    capabilities: [
+      'CSS validation',
+      'Design token usage',
+      'Style standards'
+    ]
+  },
+  {
+    icon: 'carbon:paint-brush',
+    name: 'Custom Validators',
+    gradient: 'amber-gradient',
+    color: 'amber',
+    customIconColor: true,
+    capabilities: [
+      'Design token AST checks',
+      'Figma token sync',
+      'Component patterns'
+    ]
+  }
+];
+const title = 'Layer 2: AI-Powered Orchestration';
+const description = 'The MCP Server coordinates validation tools and provides intelligent interpretation';
+---
+
+<div class="text-center mb-4">
+  <h3 class="text-2xl font-semibold inline-flex items-center gap-2 font-nunito mb-2">
+    <Icon name="line-md:circle-to-confirm-circle-transition" size={24} class="text-green-500" />
+    {title}
+  </h3>
+  <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+</div>
+
+<div class="card-gray md:p-6 p-4 mb-6 shadow-sm">
+  <div class="grid md:grid-cols-2 gap-6 mb-6">
+    <div class="text-center">
+      <div class="font-semibold text-sm mb-1">Vector Search</div>
+      <Icon name="logos:pinecone" class="mx-auto mb-2 h-8 w-auto dark:invert" />
+      <div class="text-xs text-gray-600 dark:text-gray-400">Semantic understanding of queries</div>
+    </div>
+    <div class="text-center">
+      <div class="font-semibold text-sm mb-1">AI Generation</div>
+      <Icon name="logos:openai" class="mx-auto mb-2 h-8 w-auto dark:invert" />
+      <div class="text-xs text-gray-600 dark:text-gray-400">Contextual code & guidance</div>
+    </div>
+  </div>
+  
+  <hr class="my-6"/>
+  
+  <h4 class="text-lg font-semibold my-6 text-center flex items-center justify-center gap-2">
+    <Icon name="line-md:cog" size={24} class="text-blue-500" />
+    Exposed MCP Tools
+  </h4>
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-center text-gray-600 dark:text-gray-400">
+    <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>search_ds</code></div>
+    <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>validate</code></div>
+    <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>generate</code></div>
+    <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>check_a11y</code></div>
+    <div class="p-2 font-mono bg-gray-200 dark:bg-black/20 dark:text-white font-medium"><code>analytics</code></div>
+  </div>
+</div>
+
+<div class="card-gray md:p-6 p-4 mb-6 shadow-sm">
+  <div class="flex items-center gap-2 mb-2">
+    <Icon name="carbon:tools" class="w-6 h-6 text-orange-600" />
+    <h4 class="font-bold text-base mb-0">Grounded by Real Analysis Tools</h4>
+  </div>
+  <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+    The server validates against design system standards, <strong>not just syntax</strong>. It understands component patterns, design tokens, accessibility requirements, and codebase conventions. Every validation is <strong>grounded by executing actual analysis tools</strong> and reporting real results:
+  </p>
+
+  <div class="mb-4">
+    <h4 class="font-semibold text-sm mb-3">Validation Tools</h4>
+    <div class="grid md:grid-cols-3 gap-3">
+      {validationTools.map((tool) => (
+        <div class={`${tool.gradient} p-4 rounded-lg`}>
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name={tool.icon} class={`w-5 h-5 ${tool.customIconColor ? `text-${tool.color}-600 dark:text-${tool.color}-400` : ''}`} />
+            <div class="font-bold text-sm text-gray-900 dark:text-white">{tool.name}</div>
+          </div>
+          <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 mb-0 pl-6 not-prose list-disc">
+            {tool.capabilities.map((capability) => (
+              <li>{capability}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+  <div class="bg-purple-900 text-white p-4 rounded-lg">
+    <div class="flex items-start gap-3">
+      <Icon name="line-md:lightbulb-twotone" class="w-5 h-5 flex-shrink-0 mt-0.5" />
+      <div>
+        <div class="font-bold text-sm mb-1">How Grounding Works</div>
+        <p class="text-xs text-purple-100">
+          <strong class="text-white">AI orchestrates, tools execute.</strong> When a developer asks a question, the AI determines which tools to run, executes them via their APIs, and interprets the actual results. The AI adds contextual explanations and suggests fixes, but only reports issues that real tools found. Zero hallucinations, 100% accuracy.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

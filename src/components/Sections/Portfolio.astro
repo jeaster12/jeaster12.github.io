@@ -1,0 +1,77 @@
+---
+import { mainContent } from '@data/content';
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import Section from '@components/UI/Section.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type PortfolioEntry = CollectionEntry<'portfolio'>;
+
+// Load portfolio items
+let allPortfolioItems: CollectionEntry<'portfolio'>[] = [];
+try {
+  allPortfolioItems = await getCollection('portfolio', ({ data }) => !data.draft);
+} catch (error) {
+  console.error('Error loading portfolio items');
+  allPortfolioItems = [];
+}
+
+// Process portfolio items and sort by date (newest first)
+const portfolioItems = allPortfolioItems
+  .filter((item): item is PortfolioEntry => {
+    try {
+      if (item.data.draft) return false;
+      if (!item.data.featured) return false;
+      if (!item.data.title || !item.data.featuredImage) return false;
+      return true;
+    } catch (error) {
+      console.error('Error processing portfolio item');
+      return false;
+    }
+  })
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+  .map(item => ({
+    ...item,
+    slug: item.id.replace(/\.\w+$/, '')
+  }));
+---
+
+<Section
+  id="portfolio"
+  title={mainContent.Portfolio.title}
+  subtitle={mainContent.Portfolio.subtitle}
+  description={mainContent.Portfolio.description}>
+
+	{
+		portfolioItems.map(item => (
+			<div class="grid grid-cols-12 md:items-center w-full my-3 sm:my-4 md:my-8 group last:mb-0">
+				<div class="hidden md:block col-span-12 md:col-span-auto md:col-start-1 md:col-end-7 md:row-start-1 md:row-end-1">
+					<a href={`/portfolio/${item.slug}`} title={item.data.title}>
+						<picture class="relative block w-full h-0 pb bg-gray-300 overflow-hidden shadow-lg rounded-lg" style="padding-top: 75%;">
+							<img class="absolute inset-0 w-full h-full object-cover" src={item.data.featuredImage?.url} alt={`Screenshot of ${item.data.title} project`} width="1200" height="900" loading="lazy" />
+						</picture>
+					</a>
+				</div>
+				<div class="col-span-12 md:col-span-auto md:col-start-5 md:col-end-13 md:row-start-1 md:row-end-1 mt-0 relative px-0">
+          <a href={`/portfolio/${item.slug}`} title={item.data.title}>
+            <div class="p-3 sm:p-4 md:p-6 bg-white dark:bg-black shadow-lg rounded-lg border md:border-0 hover:-translate-y-1 hover:shadow-2xl transition duration-300 group transform">
+              <p class="mb-2 text-base sm:text-lg leading-tight sm:leading-none font-bold dark:text-white group-hover:text-purple-700 transition-colors duration-200">
+                {item.data.title}
+              </p>
+              <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mb-2 md:mb-0" set:html={item.data.description}></p>
+              <div class="hidden md:flex my-4 flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-blue-50 text-blue-600 dark:bg-blue-600 dark:text-blue-50">{item.data.skills[0]}</span>
+                <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-600 dark:text-indigo-50">{item.data.skills[1]}</span>
+                <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-orange-50 text-orange-600 dark:bg-orange-600 dark:text-orange-50">{item.data.skills[2]}</span>
+                <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-cyan-50 text-cyan-600 dark:bg-cyan-600 dark:text-cyan-50">{item.data.skills[3]}</span>
+              </div>
+              <span class="link link-underline link-underline-black pb-0.5 border-b-2 border-global dark:text-white/90 inline-flex gap-1 items-center text-xs sm:text-sm font-bold">
+                Case study <Icon name="line-md:arrow-right" size="14" />
+              </span>
+            </div>
+          </a>
+				</div>
+			</div>
+		))
+	}
+</Section>

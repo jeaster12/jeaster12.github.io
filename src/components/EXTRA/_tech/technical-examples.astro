@@ -1,0 +1,987 @@
+---
+import { Icon } from 'astro-icon/components';
+import CodeBlock from '@/components/UI/CodeBlock.astro';
+import {
+  performanceToolExample,
+  a11yToolExample,
+  designSystemToolExample,
+  exampleResponse,
+  cardBeforeExample,
+  cardAfterExample,
+  deleteButtonBeforeExample,
+  deleteButtonAfterExample,
+  typeScriptTypesExample,
+  userProfileBeforeExample,
+  userProfileAfterExample,
+  datePickerBeforeExample,
+  datePickerAfterExample,
+  richTextBeforeExample,
+  richTextAfterExample
+} from './code-examples';
+
+export const cardImportExample = `import { Card as DSCard } from '@/components/ui/Card';`;
+
+---
+
+
+
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Real-World Technical Examples
+      </h1>
+      <p class="text-lg text-gray-600">
+        Actual validation scenarios from our codebase showing how the multi-touch quality gates catch issues at each stage.
+      </p>
+    </div>
+
+    <!-- Example 1: Design Token Violation -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          1
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">Design Token Violation</h2>
+      </div>
+
+      <div class="mb-6">
+        <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+          <div class="font-bold text-gray-900">Scenario</div>
+          <p class="text-sm text-gray-700">
+            Developer creates a new Card component but uses hard-coded color values instead of design tokens. The MCP Server catches this in real-time and suggests the correct tokens.
+          </p>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="Card.tsx (Before - Hard-coded Values)"
+        code={cardBeforeExample}
+        showLineNumbers={true}
+      />
+
+      <div class="my-6 bg-red-50 p-6 rounded-lg border border-red-300">
+        <div class="flex items-start gap-3">
+          <Icon name="line-md:alert" class="text-red-600 w-8 h-8 flex-shrink-0" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3">Stage 1: IDE - MCP Server Detects Issues (8.2s)</div>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">ESLint: design-system/no-hardcoded-colors</div>
+                <div class="text-xs">Lines 11, 16, 17, 20, 23: Hard-coded color values detected</div>
+              </div>
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">ESLint: design-system/no-magic-numbers</div>
+                <div class="text-xs">Lines 13, 18: Hard-coded spacing/sizing values</div>
+              </div>
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">ESLint: react/forbid-dom-props</div>
+                <div class="text-xs">Lines 10, 16, 23: Inline styles should use CSS-in-JS or utility classes</div>
+              </div>
+              <div class="bg-white p-3 rounded border border-orange-200">
+                <div class="font-semibold text-orange-700 mb-1">MCP Server: Design System Suggestion</div>
+                <div class="text-xs">Consider using the existing <code>Card</code> component from <code>@/components/ui/Card</code> instead of creating a custom styled div</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-6 purple-gradient rounded-lg p-6">
+        <div class="flex items-start gap-3">
+          <Icon name="logos:openai-icon" class="fill-purple-600 w-6 h-6 flex-shrink-0" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3 text-lg">MCP Server Contextual Recommendations</div>
+            <div class="bg-white p-4 rounded text-sm text-gray-700 grid grid-cols-2 gap-4">
+              <div>
+                <div class="font-semibold text-purple-900 mb-1">Option 1: Use Existing Component (Recommended)</div>
+                <p class="text-xs mb-4">The design system already has a <code>Card</code> component that handles all styling, spacing, and theming automatically.</p>
+                <code class="mt-2">{cardImportExample}</code>
+              </div>
+              <div>
+                <div class="font-semibold text-purple-900 mb-1">Option 2: Use Design Tokens</div>
+                <p class="text-xs mb-2">If you need custom styling, use design tokens:</p>
+                <ul class="text-xs space-y-1 list-disc not-prose pl-1 list-inside">
+                  <li><code>#ffffff</code> → <code>color.background.primary</code></li>
+                  <li><code>#e5e7eb</code> → <code>color.border.default</code></li>
+                  <li><code>8px</code> → <code>space.2</code> or <code>radius.md</code></li>
+                  <li><code>24px</code> → <code>space.6</code></li>
+                  <li><code>20px</code> → <code>text.xl</code></li>
+                  <li><code>#111827</code> → <code>color.text.primary</code></li>
+                  <li><code>#6b7280</code> → <code>color.text.secondary</code></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="Card.tsx (After - Using Design System Component)"
+        code={cardAfterExample}
+        showLineNumbers={true}
+      />
+
+      <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-300">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+          <div class="font-bold text-gray-900">Result: All Checks Pass</div>
+        </div>
+        <ul class="text-sm text-gray-700 space-y-1 list-disc not-prose pl-2 list-inside">
+          <li>Using design system component (automatic token compliance)</li>
+          <li>No hard-coded colors, spacing, or sizing</li>
+          <li>Responsive and theme-aware out of the box</li>
+          <li>85% less code (18 lines → 19 lines, but much simpler)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Example 2: Accessibility Violation -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          2
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">Accessibility Violation</h2>
+      </div>
+
+      <div class="mb-6">
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <div class="font-bold text-gray-900">Scenario</div>
+          <p class="text-sm text-gray-700">
+            Developer creates an icon button for a "Delete" action but forgets to add an accessible label. This passes IDE checks but is caught by Git Hooks during pre-push validation.
+          </p>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="DeleteButton.tsx (Before - Missing Accessible Label)"
+        code={deleteButtonBeforeExample}
+        showLineNumbers={true}
+      />
+
+      <div class="my-6 bg-yellow-50 p-6 rounded-lg border border-yellow-300">
+        <div class="flex items-start gap-3">
+          <Icon name="mdi:git" class="text-blue-600 w-6 h-6 flex-shrink-0" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3">Stage 2: Git Hooks (Pre-Push) - axe-core Detects Issues</div>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">axe-core: button-name</div>
+                <div class="text-xs mb-2">Buttons must have discernible text (WCAG 2.1 Level A - 4.1.2)</div>
+                <div class="text-xs text-gray-600">
+                  <strong>Impact:</strong> Critical | <strong>Affected:</strong> Screen reader users, keyboard navigation
+                </div>
+              </div>
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">ESLint: jsx-a11y/accessible-name</div>
+                <div class="text-xs">Interactive elements must have an accessible name</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-6 blue-gradient rounded-lg p-6">
+        <div class="flex items-start gap-3">
+          <Icon name="carbon:accessibility" class="text-blue-600 w-6 h-6 flex-shrink-0" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3">MCP Server: Accessibility Guidance</div>
+            <div class="bg-white p-4 rounded text-sm space-y-3 text-gray-700">
+              <div>
+                <div class="font-semibold text-blue-900 mb-1">Why This Matters</div>
+                <p class="text-xs">Screen readers announce buttons by their accessible name. Without one, users will hear "button" with no context about what it does, making it unusable.</p>
+              </div>
+              <div>
+                <div class="font-semibold text-blue-900 mb-1">How to Fix</div>
+                <p class="text-xs mb-2">Add an accessible label using one of these methods:</p>
+                <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+                  <li>1. <code>aria-label="Delete"</code> (recommended for icon-only buttons)</li>
+                  <li>2. <code>&lt;span className="sr-only"&gt;Delete&lt;/span&gt;</code> (visually hidden text)</li>
+                  <li>3. <code>title="Delete"</code> (also shows tooltip, but aria-label is better)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="DeleteButton.tsx (After - With Accessible Label)"
+        code={deleteButtonAfterExample}
+        showLineNumbers={true}
+      />
+
+      <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-300">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+          <div class="font-bold text-gray-900">Result: Accessibility Checks Pass</div>
+        </div>
+        <ul class="text-sm text-gray-700 space-y-1 list-disc not-prose pl-2 list-inside">
+          <li>Button has accessible name: "Delete item"</li>
+          <li>Screen readers will announce the button purpose</li>
+          <li>WCAG 2.1 Level A compliant (4.1.2)</li>
+          <li>Pre-push validation passes, code can be pushed</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Example 3: TypeScript Type Safety -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          3
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">TypeScript Type Safety</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <div class="font-bold text-gray-900">Scenario</div>
+          <p class="text-sm text-gray-700">
+            Developer refactors an API response type but forgets to update consuming components. TypeScript catches the breaking changes during pre-push validation.
+          </p>
+        </div>
+      
+
+      <CodeBlock
+        lang="typescript"
+        title="api/types.ts (API Response Type Changed)"
+        code={typeScriptTypesExample}
+        showLineNumbers={true}
+      />
+
+      <CodeBlock
+        lang="tsx"
+        title="components/UserProfile.tsx (Not Updated)"
+        code={userProfileBeforeExample}
+        showLineNumbers={true}
+      />
+
+      </div>
+
+      <div class="my-6 bg-red-50 p-6 rounded-lg border border-red-300">
+        <div class="flex items-start gap-3">
+          <Icon name="mdi:git" class="text-blue-600 w-8 h-8 flex-shrink-0" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3">Stage 2: Git Hooks (Pre-Push) - TypeScript Compilation</div>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">TypeScript Error TS2339</div>
+                <div class="text-xs font-mono mb-2">
+                  components/UserProfile.tsx:11:18 - error TS2339: Property 'name' does not exist on type 'UserResponse'
+                </div>
+                <div class="text-xs text-gray-600">
+                  <strong>Did you mean:</strong> firstName | lastName
+                </div>
+              </div>
+              <div class="bg-white p-3 rounded border border-orange-200">
+                <div class="font-semibold text-orange-700 mb-1">Breaking Change Detected</div>
+                <div class="text-xs">Found 7 components using the removed 'name' property</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-6 bg-green-50 p-6 rounded-lg border border-green-300">
+        <div class="flex items-start gap-3">
+          <Icon name="logos:typescript-icon" class="w-8 h-8 flex-shrink-0 text-green-600" />
+          <div class="flex-1">
+            <div class="font-bold text-gray-900 mb-3">TypeScript: Breaking Changes Report</div>
+            <div class="bg-white p-4 rounded text-sm space-y-3 text-gray-700">
+              <div>
+                <div class="font-semibold text-red-700 mb-2">Affected Files (7)</div>
+                <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+                  <li>components/UserProfile.tsx:11</li>
+                  <li>components/UserCard.tsx:24</li>
+                  <li>components/UserList.tsx:18</li>
+                  <li>pages/Profile.tsx:32</li>
+                  <li>utils/formatUser.ts:8</li>
+                  <li>hooks/useUser.ts:15</li>
+                  <li>tests/user.test.tsx:42</li>
+                </ul>
+              </div>
+              <div>
+                <div class="font-semibold text-green-900 mb-1">Suggested Fix</div>
+                <p class="text-xs">Replace <code>user.name</code> with <code>`${"{user.firstName}"} ${"{user.lastName}"}`</code> in all affected files</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="components/UserProfile.tsx (Fixed)"
+        code={userProfileAfterExample}
+        showLineNumbers={true}
+      />
+
+      <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-300">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+          <div class="font-bold text-gray-900">Result: TypeScript Compilation Succeeds</div>
+        </div>
+        <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+          <li>All 7 affected files updated to use firstName and lastName</li>
+          <li>No TypeScript errors</li>
+          <li>Breaking change handled before merge</li>
+          <li>Tests updated and passing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Example 4: Performance Regression -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          4
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">Performance Regression</h2>
+      </div>
+
+      <div class="mb-6">
+        <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+          <div class="font-bold text-gray-900">Scenario</div>
+          <p class="text-sm text-gray-700">
+            Developer adds a new dependency that significantly increases bundle size. This passes IDE and Git Hooks but is caught by CI/CD pipeline before merge.
+          </p>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="typescript"
+        title="components/DatePicker.tsx (Added Heavy Dependency)"
+        code={datePickerBeforeExample}
+        showLineNumbers={true}
+      />
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="my-6 bg-red-50 p-6 rounded-lg border border-red-300">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="logos:github-actions" class="w-6 h-6 flex-shrink-0" />
+            <div class="font-bold text-gray-900 text-lg">Stage 3: CI/CD - Bundle Size Analysis</div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="bg-white p-3 rounded border border-red-200">
+              <div class="font-semibold text-red-700 mb-1">Bundle Size Exceeded</div>
+              <div class="text-xs mb-1">
+                Main bundle: <strong>412 KB → 644 KB</strong> (+232 KB, +56.3%)
+              </div>
+              <div class="text-xs text-gray-600">
+                Budget: 450 KB (max) | Current: 644 KB | <strong>Exceeded by 194 KB</strong>
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded border border-orange-200">
+              <div class="font-semibold text-orange-700 mb-1">Lighthouse Performance Score</div>
+              <div class="text-xs">
+                Score dropped: <strong>94 → 78</strong> (-16 points)
+              </div>
+            </div>
+            <div class="bg-white p-3 rounded border border-orange-200">
+              <div class="font-semibold text-orange-700 mb-1">Dependency Analysis</div>
+              <div class="text-xs font-mono">
+                moment: 232 KB (includes all locales)<br/>
+                date-fns (alternative): 11 KB (tree-shakable)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-6 bg-orange-50 p-6 rounded-lg border border-orange-300">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="carbon:chart-line" class="text-orange-600 w-6 h-6 flex-shrink-0" />
+            <div class="font-bold text-gray-900 text-lg">CI/CD: Performance Recommendations</div>
+          </div>
+          <div class="bg-white p-4 rounded text-sm space-y-4 text-gray-700">
+            <div>
+              <div class="font-semibold text-orange-900 mb-2">Recommended Alternative</div>
+              <p class="text-xs mb-2">Use <code>date-fns</code> instead of <code>moment</code>:</p>
+              <ul class="text-xs space-y-2 list-disc pl-6 mb-0">
+                <li>95% smaller (11 KB vs 232 KB)</li>
+                <li>Tree-shakable (only import what you use)</li>
+                <li>Immutable API (better for React)</li>
+                <li>Already in project dependencies</li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-orange-900 mb-1">Alternative: Use Native API</div>
+              <p class="text-xs">For simple formatting like this, consider using <code>Date.toISOString()</code> and <code>new Date()</code> (0 KB)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CodeBlock
+        lang="typescript"
+        title="components/DatePicker.tsx (Fixed - Using Native API)"
+        code={datePickerAfterExample}
+        showLineNumbers={true}
+      />
+
+      <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-300">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+          <div class="font-bold text-gray-900">Result: Performance Budget Met</div>
+        </div>
+        <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+          <li>Bundle size: 644 KB → 412 KB (back to baseline)</li>
+          <li>Lighthouse score: 78 → 94 (restored)</li>
+          <li>Zero dependency added</li>
+          <li>Simpler code, same functionality</li>
+        </ul>
+      </div>
+   
+
+    <!-- Example 5: Security Vulnerability -->
+    <div class="my-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          5
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900">Security Vulnerability</h2>
+      </div>
+
+      <div class="mb-6">
+        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+          <div class="font-bold text-gray-900">Scenario</div>
+          <p class="text-sm text-gray-700">
+            Developer creates a component that renders user-provided HTML without sanitization. This is caught by CI/CD security scanning before merge.
+          </p>
+        </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="components/RichTextDisplay.tsx (Before - XSS Vulnerable)"
+        code={richTextBeforeExample}
+        showLineNumbers={true}
+      />
+
+      <div class="grid grid-cols-2 gap-6">
+      <div class="my-6 bg-red-50 p-6 rounded-lg border border-red-300">
+        <div class="flex items-center gap-3 mb-3">
+          <Icon name="logos:github-actions" class="w-6 h-6 flex-shrink-0" />
+          <div class="font-bold text-gray-900 text-lg">Stage 3: CI/CD - Security Scanning (Snyk + SAST)</div>
+        </div>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">Critical: Cross-Site Scripting (XSS) Vulnerability</div>
+                <div class="text-xs mb-2">
+                  <strong>File:</strong> components/RichTextDisplay.tsx:11<br/>
+                  <strong>Issue:</strong> Unsanitized HTML rendering with dangerouslySetInnerHTML<br/>
+                  <strong>Severity:</strong> Critical (CVSS 9.3)
+                </div>
+                <div class="text-xs text-gray-600">
+                  <strong>Impact:</strong> Attackers can inject malicious scripts that execute in victim's browsers, stealing credentials, session tokens, or performing actions on behalf of users.
+                </div>
+              </div>
+              <div class="bg-white p-3 rounded border border-red-200">
+                <div class="font-semibold text-red-700 mb-1">ESLint: react/no-danger</div>
+                <div class="text-xs">dangerouslySetInnerHTML is dangerous and should be avoided</div>
+              </div>
+            </div>
+        </div>
+   
+
+      <div class="my-6 bg-red-50 p-6 rounded-lg border border-red-300">
+        <div class="flex items-center gap-3 mb-3">
+          <Icon name="carbon:security" class="text-red-600 w-6 h-6 flex-shrink-0" />
+          <div class="font-bold text-gray-900 text-lg">CI/CD: Security Recommendations</div>
+        </div>
+   
+        <div class="bg-white p-4 rounded text-sm space-y-3 text-gray-700">
+          <div>
+            <div class="font-semibold text-red-900 mb-2">Recommended Solution</div>
+            <p class="text-xs mb-2">Use <code>DOMPurify</code> to sanitize HTML before rendering:</p>
+            <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+              <li>Removes all potentially dangerous tags and attributes</li>
+              <li>Configurable allowlist for safe HTML elements</li>
+              <li>Battle-tested library used by GitHub, Google, etc.</li>
+              <li>Only 19 KB minified + gzipped</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <CodeBlock
+        lang="tsx"
+        title="components/RichTextDisplay.tsx (Fixed - Sanitized)"
+        code={richTextAfterExample}
+        showLineNumbers={true}
+      />
+
+      <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-300">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+          <div class="font-bold text-gray-900">Result: Security Checks Pass</div>
+        </div>
+        <ul class="text-xs space-y-1 list-disc pl-6 mb-0">
+          <li>HTML is sanitized before rendering</li>
+          <li>Only safe tags and attributes allowed</li>
+          <li>XSS vulnerability eliminated</li>
+          <li>Security scan passes, PR can be merged</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">What These Examples Show</h2>
+
+      <div class="silver-gradient rounded-lg p-8">
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-white p-4 rounded-lg border border-purple-200">
+            <div class="flex items-center gap-2 mb-2">
+              <Icon name="mdi:vs-code" class="text-purple-600 w-6 h-6" />
+              <h3 class="font-bold text-gray-900 text-lg mb-0">Stage 1: IDE</h3>
+            </div>
+            <p class="text-sm text-gray-600">
+              <strong>87% of issues</strong> caught instantly while coding with MCP Server providing contextual guidance.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg border border-blue-200">
+            <div class="flex items-center gap-2 mb-2">
+              <Icon name="mdi:git" class="text-blue-600 w-6 h-6" />
+              <h3 class="font-bold text-gray-900 text-lg mb-0">Stage 2: Git Hooks</h3>
+            </div>
+            <p class="text-sm text-gray-600">
+              <strong>96% of remaining issues</strong> caught before code reaches remote with advanced pre-commit/pre-push validation.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg border border-green-200">
+            <div class="flex items-center gap-2 mb-2">
+              <Icon name="logos:github-actions" class="text-green-600 w-6 h-6" />
+              <h3 class="font-bold text-gray-900 text-lg mb-0">Stage 3: CI/CD</h3>
+            </div>
+            <p class="text-sm text-gray-600">
+              <strong>Final 4% caught</strong> with comprehensive testing, security scanning, and performance validation.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 text-white p-6 rounded-lg">
+          <div class="font-bold">The Result</div>
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">99% of issues are prevented before code review</strong>, enabling developers to deliver high-quality code faster with less friction. Reviewers can focus on architecture, business logic, and user experience instead of catching basic errors.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- Example Prompts -->
+  <div class="mb-12 overflow-x-hidden">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+      <Icon name="line-md:chat-bubble" class="text-blue-600" />
+      Example Prompts & How They Work
+    </h2>
+
+    <div class="space-y-8 overflow-x-hidden">
+      <!-- Performance Check -->
+      <div class="card p-6 space-y-4">
+        <div class="flex items-center gap-4">
+          <Icon name="line-md:speedometer-loop" class="w-8 h-8 text-orange-600" />
+          <h3 class="text-xl font-bold text-gray-900 mb-0">Performance Analysis</h3>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
+          <p class="font-mono text-sm text-gray-800">"Check this component for performance issues"</p>
+        </div>
+        <p class="text-gray-700">
+          When you ask this, the MCP server doesn't guess. It executes real performance analysis tools:
+        </p>
+
+        <div class="orange-gradient rounded-lg p-6 mb-4">
+          <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <Icon name="line-md:cog" class="w-5 h-5 text-orange-600" />
+            Tools Executed
+          </h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>bundle_size_check</strong> - Analyzes current component size vs. configured thresholds</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>dependency_analysis</strong> - Scans imports for heavy/duplicate dependencies</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>render_performance</strong> - Checks React patterns for unnecessary re-renders</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>code_splitting_opportunities</strong> - Identifies lazy-load candidates</span>
+            </div>
+          </div>
+        </div>
+
+        <CodeBlock code={performanceToolExample} lang="javascript" title="Performance Tools API" />
+      </div>    
+
+      <!-- Accessibility Check -->
+      <div class="card p-6 space-y-4">
+        <div class="flex items-center gap-4">
+          <Icon name="line-md:person" class="w-8 h-8 text-purple-600" />
+          <h3 class="text-xl font-bold text-gray-900 mb-0">Accessibility Audit</h3>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500 mb-4">
+          <p class="font-mono text-sm text-gray-800">"Audit this form for accessibility compliance"</p>
+        </div>
+        <p class="text-gray-700 mb-4">
+          The MCP server runs actual a11y testing tools configured to your standards (WCAG 2.1 AA, ARIA best practices):
+        </p>
+   
+        <div class="purple-gradient rounded-lg p-6 mb-4">
+          <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <Icon name="line-md:cog" class="w-5 h-5 text-purple-600" />
+            Tools Executed
+          </h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>axe_audit</strong> - Runs axe-core against component with WCAG 2.1 AA ruleset</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>aria_validation</strong> - Verifies ARIA roles, states, and properties</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>keyboard_navigation</strong> - Tests focus order and keyboard operability</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>color_contrast</strong> - Validates color ratios against WCAG standards</span>
+            </div>
+          </div>
+        </div>
+
+        <CodeBlock code={a11yToolExample} lang="javascript" title="Accessibility Tools API" />
+      </div>
+
+      <!-- Design System Check -->
+      <div class="card p-6 space-y-4">
+        <div class="flex items-center gap-4">
+          <Icon name="line-md:paint-drop-half-twotone" class="w-8 h-8 text-blue-600" />
+          <h3 class="text-xl font-bold text-gray-900 mb-0">Design System Compliance</h3>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500 mb-4">
+          <p class="font-mono text-sm text-gray-800">"Validate this component against our design system"</p>
+        </div>
+        <p class="text-gray-700 mb-4">
+          The MCP server has direct access to your design tokens, component library API docs, and usage patterns:
+        </p>
+
+        <div class="blue-gradient p-6 mb-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <Icon name="line-md:cog" class="w-5 h-5 text-blue-600" />
+            Tools Executed
+          </h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>token_validation</strong> - Checks colors, spacing, typography against design tokens</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>component_api_check</strong> - Validates component props match design system API</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>pattern_compliance</strong> - Ensures component follows approved UX patterns</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-800"><strong>deprecated_usage</strong> - Detects usage of deprecated components or props</span>
+            </div>
+          </div>
+        </div>
+
+        <CodeBlock code={designSystemToolExample} lang="javascript" title="Design System Tools API" />
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Example Response -->
+  <div class="mb-12 overflow-x-hidden">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+      <Icon name="line-md:document-report" class="text-green-600" />
+      Example Response (Grounded, No Hallucinations)
+    </h2>
+
+    <div class="green-gradient rounded-lg p-6 overflow-x-hidden">
+      <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-green-100 rounded-lg">
+            <Icon name="line-md:check-all" class="w-6 h-6 text-green-600" />
+          </div>
+          <h3 class="font-bold text-gray-900">Real Analysis with Actual Data</h3>
+        </div>
+        <div class="prose prose-sm max-w-none">
+          <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm overflow-x-auto">{exampleResponse}</pre>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white p-4 rounded-lg border-l-4 border-green-500">
+          <h4 class="font-semibold text-gray-900 mb-2 flex items-center gap-3">
+            <Icon name="line-md:confirm" class="w-6 h-6 text-green-600" />
+            What Makes This Grounded
+          </h4>
+          <ul class="space-y-1 text-sm text-gray-700 m-0 pl-7">
+            <li>Actual file sizes from bundle analysis</li>
+            <li>Real line numbers from static analysis</li>
+            <li>Specific dependency names from package.json</li>
+            <li>Configured thresholds from your settings</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500">
+          <h4 class="font-semibold text-gray-900 mb-2 flex items-center gap-3">
+            <Icon name="line-md:alert" class="w-6 h-6 text-blue-600" />
+            No Hallucinations
+          </h4>
+          <ul class="space-y-1 text-sm text-gray-700 m-0 pl-7">
+            <li>All data comes from actual tool execution</li>
+            <li>Recommendations based on real standards</li>
+            <li>File paths verified to exist in codebase</li>
+            <li>Metrics calculated from actual code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Available Tools -->
+  <div class="mb-12 overflow-x-hidden">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+      <Icon name="line-md:list-3" class="text-blue-600" />
+      Complete Tool Arsenal
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-6 overflow-x-hidden">
+      <!-- Performance Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:speedometer-loop" class="w-6 h-6 text-orange-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Performance</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+            <span>Bundle size analysis</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+            <span>Dependency auditing</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+            <span>Render performance</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+            <span>Code splitting detection</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+            <span>Memory leak detection</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Accessibility Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:person" class="w-6 h-6 text-purple-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Accessibility</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+            <span>axe-core WCAG audits</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+            <span>ARIA validation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+            <span>Keyboard navigation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+            <span>Color contrast checks</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+            <span>Screen reader testing</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Design System Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:paint-drop-half-twotone" class="w-6 h-6 text-blue-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Design System</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <span>Design token validation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <span>Component API checks</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <span>Pattern compliance</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <span>Deprecation detection</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+            <span>Theme consistency</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Code Quality Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:check-all" class="w-6 h-6 text-green-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Code Quality</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <span>ESLint integration</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <span>TypeScript validation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <span>Cyclomatic complexity</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <span>Code duplication</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+            <span>Best practice checks</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Security Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:alert-circle" class="w-6 h-6 text-red-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Security</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <span>Dependency vulnerabilities</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <span>XSS detection</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <span>Insecure patterns</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <span>Secrets scanning</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <span>License compliance</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Testing Tools -->
+      <div class="card p-4">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="line-md:document-code" class="w-6 h-6 text-indigo-600" />
+          <h3 class="font-bold text-gray-900 text-lg mb-0">Testing</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 pl-0 m-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+            <span>Test coverage analysis</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+            <span>Missing test detection</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+            <span>Test quality metrics</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+            <span>Visual regression</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:confirm" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+            <span>Snapshot analysis</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuration -->
+  <div class="mb-12 overflow-x-hidden">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+      <Icon name="line-md:cog" class="text-purple-600" />
+      MCP Server Configuration
+    </h2>
+
+    <div class="card p-6 min-w-0">
+      <h3 class="text-xl font-semibold text-gray-900 mb-0 flex items-center gap-2">
+        <Icon name="line-md:document-code" class="w-5 h-5" />
+        Some Public Configuration Options
+      </h3>
+      <p class="text-gray-700 mb-4">In most cases, you will not need to configure anything. MCP Quality Gates is designed to work out of the box with your existing setup.</p>
+
+
+      <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+        <h4 class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+          <Icon name="line-md:lightbulb" class="w-4 h-4 text-blue-600" />
+          Configuration Options
+        </h4>
+        <ul class="space-y-2 text-sm text-gray-700 m-0">
+          <li><strong>DESIGN_SYSTEM_PATH:</strong> Path to your design system token files</li>
+          <li><strong>ESLINT_CONFIG:</strong> Path to your ESLint configuration</li>
+          <li><strong>A11Y_STANDARDS:</strong> Accessibility standard to enforce (WCAG2.1AA, WCAG2.2AAA, etc.)</li>
+          <li><strong>PERFORMANCE_BUDGET:</strong> Bundle size thresholds and performance budgets</li>
+          <li><strong>CUSTOM_RULES:</strong> Path to custom validation rules specific to your team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+

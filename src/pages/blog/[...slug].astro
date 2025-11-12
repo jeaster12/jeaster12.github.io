@@ -1,0 +1,110 @@
+---
+import Gallery from '@/components/UI/Gallery.astro';
+import SectionLayout from '@/layouts/SectionLayout.astro';
+import BlogPostCard from '@/components/UI/BlogPostCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+	const posts = await getCollection('blog')
+	return await Promise.all(
+		posts.map(async (post: CollectionEntry<'blog'>) => {
+			const { Content } = await post.render()
+			return {
+				params: { slug: post.slug },
+				props: {
+					post,
+					Content
+				}
+			}
+		})
+	)
+}
+
+// Get the post and Content component from props
+const { post, Content } = Astro.props as {
+	post: CollectionEntry<'blog'>
+	Content: any
+}
+
+const { title, description, pubDate, featuredImage, tags = [] } = post.data
+
+// Get the current slug
+const { slug } = Astro.params
+
+// Get other posts for related posts section
+const relatedPosts = (await getCollection('blog'))
+  .filter((p) => p.slug !== slug && !p.data.draft)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 3)
+  .map((post) => ({...post, slug: post.id.replace(/\.\w+$/, '')}));
+
+// Format the date
+const formatDate = (date: Date | string | number) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
+---
+
+<SectionLayout 
+  id="blog" 
+  title={title} 
+  showHeader={false} 
+  description={description}
+  usePortfolioLayout={true}>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Post Info box 2 -->
+    <div>
+      <h6 class="font-mono font-medium uppercase text-sm tracking-[0.5px] dark:text-white">Category:</h6>
+      <span class="text-gray-600 dark:text-white/70">{tags.join(', ')}</span>
+    </div>
+    <!-- Post Info box 3 -->
+    <div>
+      <h6 class="font-mono font-medium uppercase text-sm tracking-[0.5px] dark:text-white">Posted on:</h6>
+      <span class="text-gray-600 dark:text-white/70">{formatDate(pubDate)}</span>
+    </div>
+  </div>
+
+  <div class="mt-6 lg:mt-8">
+    <h2 class="text-3xl lg:text-4xl font-nunito font-semibold dark:text-white mb-3">{title}</h2>
+    <p class="leading-7 text-gray-600 dark:text-white/70">
+      {description}
+    </p>
+    <ul class="space-y-3 mt-2">
+      {tags.map((tag: string) => <li class="list-none inline-block px-4 py-2 border border-black/20 border-dashed rounded-full me-2 text-gray-600 hover:text-black transition ease-linear duration-100 dark:text-white/70 dark:border-white/20 dark:hover:text-white">#{tag}</li>)}
+    </ul>
+  </div>
+
+  <div class="overflow-hidden rounded-lg mt-6 lg:mt-12">
+    <Gallery 
+      src={featuredImage.url} 
+      title={featuredImage.name}
+    />
+  </div>
+
+  <!-- Blog Content -->
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <Content />
+  </div>
+
+  <!-- Related Posts -->
+  {
+    relatedPosts.length > 0 && (
+      <div class="mt-12">
+        <h3 class="text-2xl font-semibold mb-6 dark:text-white">You might also like</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {relatedPosts.slice(0, 2).map((post) => (
+            <BlogPostCard
+              post={post}
+              showDate={true}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
+</SectionLayout>

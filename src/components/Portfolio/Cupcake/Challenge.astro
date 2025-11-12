@@ -1,0 +1,45 @@
+---
+import ContentGrid from '@components/UI/ContentGrid.astro';
+---
+
+<ContentGrid
+  id="the-challenges"
+  title="The Challenges"
+  description="Ipreo had ambitious plans to streamline <strong>50+ diverse financial applications</strong> into a unified platform suite. Without a design system, each team was building in silos, creating massive inconsistency & technical debt across products serving <strong>hundreds of thousands of users</strong>."
+  columns={3}
+  items={[
+    {
+      icon: 'line-md:alert-circle-twotone',
+      iconColor: 'text-red-500',
+      title: 'Fragmented UI Landscape',
+      content: [
+        '<strong>No Single Source of Truth:</strong> Each team building their own components',
+        '<strong>Massive Inconsistency:</strong> Same patterns implemented 50+ different ways',
+        '<strong>Duplicated Effort:</strong> Teams solving the same problems repeatedly',
+        '<strong>Growing Tech Debt:</strong> Maintenance costs compounding across products'
+      ]
+    },
+    {
+      icon: 'line-md:alert-twotone-loop',
+      iconColor: 'text-amber-500',
+      title: 'Design Team Challenges',
+      content: [
+        '<strong>No Design Standards:</strong> Each designer creating their own patterns',
+        '<strong>Handoff Friction:</strong> Countless hours speccing every detail',
+        '<strong>Implementation Gaps:</strong> Designs not matching production',
+        '<strong>Siloed Knowledge:</strong> No shared understanding across domain teams'
+      ]
+    },
+    {
+      icon: 'line-md:monitor-arrow-down-twotone',
+      iconColor: 'text-orange-500',
+      title: 'Business Impact',
+      content: [
+        '<strong>Slow Time-to-Market:</strong> Every feature built from scratch',
+        '<strong>Poor User Experience:</strong> Inconsistent interactions across platform',
+        '<strong>Scalability Concerns:</strong> No way to support platform unification goals',
+        '<strong>Integration Risk:</strong> Upcoming acquisitions would amplify problems'
+      ]
+    }
+  ]}
+/>

@@ -1,0 +1,140 @@
+---
+import { Icon } from "astro-icon/components";
+
+const businessMetrics = {
+  annualValue: 2.2,
+  roi: 3.7,
+  investment: 600
+};
+
+const costSavings = [
+  { label: 'Reduced bug fixes in production', value: 840 },
+  { label: 'Faster code review process', value: 420 },
+  { label: 'Reduced onboarding time', value: 180 },
+  { label: 'Avoided security incidents', value: 320 }
+];
+
+const revenueEnablement = [
+  { label: '44% faster feature delivery', value: 380 },
+  { label: 'WCAG 2.1 AA compliance (market expansion)', value: 60 }
+];
+
+const initialInvestment = [
+  { label: 'Engineering team (4 engineers × 6 months):', value: 480 },
+  { label: 'Infrastructure & tooling:', value: 60 },
+  { label: 'Training & documentation:', value: 40 },
+  { label: 'Design system audit & token mapping:', value: 20 }
+];
+
+const annualOperatingCost = [
+  { label: 'Infrastructure (servers, CI/CD minutes):', value: 48 },
+  { label: 'Maintenance (1 engineer × 25%):', value: 60 },
+  { label: 'Third-party services (SonarQube, Sentry):', value: 24 },
+  { label: 'Training & support:', value: 8 }
+];
+
+const roiCalculation = {
+  annualValue: 2.2,
+  annualOperatingCost: 140,
+  netAnnualValue: 2.06,
+  paybackPeriod: 3.5,
+  threeYearROI: 10.3
+};
+---
+
+<!-- Business Impact -->
+<div class="mb-16">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6">Business Impact</h2>
+
+  <div class="green-gradient p-8 rounded-lg border border-green-300 mb-8">
+    <div class="text-center mb-8">
+      <div class="text-6xl font-bold text-green-600 mb-2">${businessMetrics.annualValue}M</div>
+      <div class="text-xl text-gray-700 font-bold mb-2">Annual Value Generated</div>
+      <div class="text-sm text-gray-600">{businessMetrics.roi}x return on ${businessMetrics.investment}k investment</div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg border border-green-200">
+        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <Icon name="carbon:currency" class="text-green-600 w-6 h-6" />
+          Cost Savings
+        </h3>
+        <div class="space-y-3 text-sm">
+          {costSavings.map((item) => (
+            <div class="flex justify-between items-center">
+              <span class="text-gray-600">{item.label}</span>
+              <span class="font-bold text-green-600">${item.value}k/yr</span>
+            </div>
+          ))}
+          <div class="border-t border-global pt-2 flex justify-between items-center">
+            <span class="font-bold text-gray-900">Total Cost Savings</span>
+            <span class="font-bold text-green-600 text-lg">${costSavings.reduce((sum, item) => sum + item.value, 0) / 1000}M/yr</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg border border-green-200">
+        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <Icon name="carbon:chart-line" class="text-blue-600 w-6 h-6" />
+          Revenue Enablement
+        </h3>
+        <div class="space-y-3 text-sm">
+          {revenueEnablement.map((item) => (
+            <div class="flex justify-between items-center">
+              <span class="text-gray-600">{item.label}</span>
+              <span class="font-bold text-blue-600">${item.value}k/yr</span>
+            </div>
+          ))}
+          <div class="border-t border-global pt-2 flex justify-between items-center">
+            <span class="font-bold text-gray-900">Total Revenue Enablement</span>
+            <span class="font-bold text-blue-600 text-lg">${revenueEnablement.reduce((sum, item) => sum + item.value, 0)}k/yr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Investment Breakdown -->
+  <div class="bg-white p-6 rounded-lg border border-global shadow-sm">
+    <h3 class="font-bold text-gray-900 mb-4">Investment Breakdown</h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h4 class="text-sm font-semibold text-gray-700 mb-3">Initial Investment (${ initialInvestment.reduce((sum, item) => sum + item.value, 0)}k)</h4>
+        <div class="space-y-2 text-sm text-gray-600">
+          {initialInvestment.map((item) => (
+            <ul class="space-y-2 text-sm text-gray-600 list-disc pl-6 not-prose">
+              <li>
+                <span>{item.label}</span>
+                <span class="font-bold">${item.value}k</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold text-gray-700 mb-3">Annual Operating Cost (${annualOperatingCost.reduce((sum, item) => sum + item.value, 0)}k)</h4>
+        <div class="space-y-2 text-sm text-gray-600">
+          {annualOperatingCost.map((item) => (
+            <ul class="space-y-2 text-sm text-gray-600 list-disc pl-6 not-prose">
+              <li>
+                <span>{item.label}</span>
+                <span class="font-bold">${item.value}k</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+      <div class="font-bold text-gray-900 mb-2">ROI Calculation</div>
+      <div class="text-sm text-gray-600 space-y-1">
+        <div>Annual value: <span class="font-bold">${roiCalculation.annualValue}M</span> (cost savings + revenue enablement)</div>
+        <div>Annual operating cost: <span class="font-bold">${roiCalculation.annualOperatingCost}k</span></div>
+        <div>Net annual value: <span class="font-bold text-green-600">${roiCalculation.netAnnualValue}M</span></div>
+        <div>Payback period: <span class="font-bold text-green-600">{roiCalculation.paybackPeriod} months</span></div>
+        <div>3-year ROI: <span class="font-bold text-green-600 text-lg">{roiCalculation.threeYearROI}x</span></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const title = "The Approach"
+const icon = "carbon:choices"
+
+const steps = [
+  {
+    title: "Orchestrate, Don't Replace",
+    description: "Keep existing tools (ESLint, axe-core, etc.) but add a coordination layer to provide unified, contextual feedback."
+  },
+  {
+    title: "Ground in Reality",
+    description: "Eliminate hallucinations by always grounding AI suggestions in actual tool validation results. AI interprets, tools execute."
+  },
+  {
+    title: "Optimize for Speed",
+    description: "Implement incremental validation and parallel execution to achieve sub-10 second feedback times at scale."
+  },
+  {
+    title: "Integrate with Design Source",
+    description: "Sync design tokens from Figma nightly, ensuring validation stays aligned with the design system source of truth."
+  },
+  {
+    title: "Measure Everything",
+    description: "Track adoption, feedback time, issue detection rate, and code quality correlation to prove ROI and guide improvements."
+  }
+]
+---
+
+<div class="card-gray md:p-6 p-4 shadow-sm">
+  <h3 class="font-semibold text-xl mb-4 flex items-center gap-2">
+    <Icon name={icon} class="w-6 h-6 text-indigo-500 dark:text-indigo-400" />
+    {title}
+  </h3>
+  <div class="space-y-4 text-sm">
+    {steps.map((step, index) => (
+      <div class="flex items-start gap-3 md:items-center">
+        <div class="bg-indigo-500 dark:bg-indigo-400 text-white dark:text-gray-900 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-1 md:mt-0">
+          {index + 1}
+        </div>
+        <div>
+          <strong>{step.title}:</strong> {step.description}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

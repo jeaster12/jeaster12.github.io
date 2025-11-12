@@ -1,0 +1,25 @@
+---
+export interface Props {
+  id?: string;
+  title: string;
+  class?: string;
+  description?: string;
+  align?: 'left' | 'center';
+  padding?: 'default' | 'none';
+  width?: 'default' | 'narrow' | 'wide';
+}
+
+const { id, title, description, class: className = '', align = 'center', padding = 'default', width = 'default' } = Astro.props;
+const containerClasses = align === 'center' ? `text-center${className ? ` ${className}` : ''}` : className;
+const paddingClasses = padding === 'default' ? 'md:mb-6 mb-4' : '';
+const descriptionClasses = align === 'center' ? `${paddingClasses} mx-auto ${width === 'narrow' ? 'max-w-2xl' : width === 'wide' ? 'max-w-4xl' : 'max-w-3xl'}` : paddingClasses;
+---
+
+<div class={containerClasses}>
+  <h2 id={id} class="text-2xl lg:text-3xl tracking-tight font-extrabold font-nunito text-gray-900 dark:text-white mb-2">
+    {title}
+  </h2>
+  {description && (
+    <p class={descriptionClasses} set:html={description} />
+  )}
+</div>

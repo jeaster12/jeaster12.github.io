@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="blue-gradient p-6 border border-blue-300 mb-6 rounded-lg">
+  <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+    <Icon name="carbon:user-multiple" class="w-6 h-6 text-blue-600" />
+    Challenge: Balancing Strictness vs. Adoption
+  </h3>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-blue-200 dark:border-blue-900/50">
+    <div class="flex items-start gap-3">
+      <Icon name="carbon:warning" class="w-6 h-6 text-orange-600 flex-shrink-0" />
+      <div>
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-1">The Leadership Challenge</h4>
+        <p class="text-sm text-gray-700 dark:text-gray-300">Too strict → low adoption. Too permissive → no impact. This was the hardest challenge requiring leadership over technical skills: navigating ambiguity, making tough calls, and bringing people along.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem vs Result -->
+  <div class="grid md:grid-cols-2 gap-4 mb-4">
+    <div class="bg-red-50 rounded-lg p-4 border border-red-200 dark:bg-red-800/30 dark:border-red-800/30">
+      <div class="flex items-center gap-2 mb-2">
+        <Icon name="carbon:warning-alt" class="w-5 h-5 text-red-600" />
+        <h4 class="font-bold text-sm text-red-900 dark:text-white mb-0">The Problem (Early Days)</h4>
+      </div>
+      <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 ml-1 my-0">
+        <li class="pl-0 m-0">Initial rollout: <strong>5% adoption</strong></li>
+        <li class="pl-0 m-0">Engineers complained: "Too many false positives"</li>
+        <li class="pl-0 m-0">Blockers: "This slows me down"</li>
+        <li class="pl-0 m-0">Risk: Initiative could fail entirely</li>
+      </ul>
+    </div>
+    <div class="bg-green-50 rounded-lg p-4 border border-green-200 dark:bg-green-800/30 dark:border-green-800/30">
+      <div class="flex items-center gap-2 mb-2">
+        <Icon name="carbon:checkmark-filled" class="w-5 h-5 text-green-600" />
+        <h4 class="font-bold text-sm text-green-900 dark:text-white mb-0">The Result (6 Months)</h4>
+      </div>
+      <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 ml-1 my-0">
+        <li class="pl-0 m-0">Final: <strong>60% weekly active adoption</strong></li>
+        <li class="pl-0 m-0">2-3x industry average for dev tools</li>
+        <li class="pl-0 m-0">NPS: +68 (vs. +30 industry average)</li>
+        <li class="pl-0 m-0">4 promotions on team from this work</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Leadership Approach -->
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-blue-200 dark:border-blue-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+      <Icon name="carbon:user-activity" class="w-5 h-5 text-blue-600" />
+      How I Led Through This
+    </h4>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="blue-gradient p-4 rounded-lg">
+        <div class="text-sm font-bold text-blue-900 dark:text-white mb-2">1. Listened & Pivoted (Month 2)</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li class="pl-0 m-0">Ran 15 1:1s with engineers to understand friction</li>
+          <li class="pl-0 m-0">Found: 80% of complaints about 3 specific rules</li>
+          <li class="pl-0 m-0"><strong>Decision:</strong> Made those rules "warnings" not "errors"</li>
+          <li class="pl-0 m-0">Result: Adoption jumped 5% → 28% in 2 weeks</li>
+        </ul>
+      </div>
+      <div class="orange-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-orange-900 dark:text-white mb-2">2. Rollout Strategy (Month 3-4)</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li class="pl-0 m-0">Team wanted "all or nothing" - I pushed back, designed phases</li>
+          <li class="pl-0 m-0"><strong>Phase 1:</strong> Opt-in warnings only (low risk, gather data)</li>
+          <li class="pl-0 m-0"><strong>Phase 2:</strong> Auto-enable for new projects (fresh start)</li>
+          <li class="pl-0 m-0"><strong>Phase 3:</strong> Gradually tighten rules based on adoption curve</li>
+        </ul>
+      </div>
+      <div class="purple-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-purple-900 dark:text-white mb-2">3. Leadership Network (Month 4-6)</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li class="pl-0 m-0">Identified 24 "early adopters" - one per product team</li>
+          <li class="pl-0 m-0">Personally trained each champion (2-hour sessions)</li>
+          <li class="pl-0 m-0">Empowered them to evangelize on their teams</li>
+          <li class="pl-0 m-0">Result: Organic adoption, not top-down mandate</li>
+        </ul>
+      </div>
+      <div class="green-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-green-900 dark:text-white mb-2">4. Data-Driven Iteration</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li class="pl-0 m-0">Built adoption dashboard (Splunk) - reviewed weekly</li>
+          <li class="pl-0 m-0">Tracked: WAU, queries/user, false positive rate, NPS</li>
+          <li class="pl-0 m-0"><strong>Tough call:</strong> Turned off 2 ! rules (40% false positives)</li>
+          <li class="pl-0 m-0">Focused on "rules that matter" vs. "rules we can enforce"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leadership Lessons -->
+  <div class="bg-white/80 mb-4 dark:bg-black/40 p-4 border border-blue-200 dark:border-blue-900/50 rounded-lg">
+    <div class="flex items-center gap-2 mb-2">
+      <Icon name="carbon:trophy" class="w-5 h-5 text-indigo-600" />
+      <h4 class="font-bold text-sm text-indigo-900 dark:text-white mb-0">Leadership Lessons</h4>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-sm text-gray-700 dark:text-gray-300">
+      <div class="flex flex-col gap-1">
+        <strong>Empathy over perfection:</strong> 
+        <span>Engineers need to feel heard, not mandated</span>
+      </div>  
+      <div class="flex flex-col gap-1">
+        <strong>Data beats opinions:</strong> 
+        <span>Adoption metrics guided every decision</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <strong>Stay patient, Stay persistent:</strong> 
+        <span>60% adoption took 6 months - I had to defend the timeline to leadership</span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <strong>Empower all champions:</strong> 
+        <span>Grassroots adoption > top-down</span>
+      </div>
+    </div>
+  </div>
+</div>

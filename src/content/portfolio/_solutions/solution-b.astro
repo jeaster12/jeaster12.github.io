@@ -1,0 +1,439 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+
+  <div class="mb-16">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+        1
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Stage 1: IDE Integration</h2>
+        <p class="text-gray-600 dark:text-gray-400">Real-time validation as you type</p>
+      </div>
+    </div>
+
+    <div class="purple-gradient rounded-lg p-6 shadow-sm mb-6">
+      <div class="flex items-start gap-6 mb-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="logos:openai-icon" class="fill-purple-600 w-8 h-8" />
+            <h3 class="text-2xl font-bold text-gray-900 mb-0 dark:text-gray-200">MCP Server: The Orchestrator</h3>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="text-xs font-semibold text-purple-900 mb-2 uppercase dark:text-purple-200">Design System Intelligence</h5>
+              <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+                <li>Validates design tokens in real-time (colors, spacing, typography)</li>
+                <li>Checks component usage patterns against Figma source</li>
+                <li>Suggests accessible alternatives when detecting non-compliant patterns</li>
+                <li>Enforces semantic HTML structure</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-xs font-semibold text-purple-900 mb-2 uppercase dark:text-purple-200">Tool Orchestration</h5>
+              <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+                <li>Coordinates ESLint, Prettier, TypeScript, axe-core in single workflow</li>
+                <li>Provides AI-powered explanations for violations</li>
+                <li>Grounded tool execution prevents hallucinations</li>
+                <li>Context-aware suggestions based on codebase patterns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 space-y-3">
+          <div class="bg-white p-3 rounded-lg border border-purple-200 w-32 text-center dark:bg-black/20 dark:border-purple-600/50">
+            <div class="text-2xl font-bold text-purple-600">91%</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Adoption Rate</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-purple-200 w-32 text-center dark:bg-black/20 dark:border-purple-600/50">
+            <div class="text-2xl font-bold text-purple-600">8.2s</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Avg Feedback</div>
+          </div>
+        </div>
+      </div>
+          <div class="bg-purple-900 text-white p-4 rounded-lg text-sm dark:bg-black/20 dark:border-purple-600/50">
+            <div class="font-bold mb-1">Key Innovation: Grounded Tool Execution</div>
+            <p class="text-purple-100">
+              Unlike traditional AI assistants, the MCP Server executes actual validation tools and reports real results, eliminating hallucinations and ensuring 100% accuracy.
+            </p>
+          </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="logos:eslint" class="w-6 h-6" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">ESLint</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">Code quality and patterns</p>
+        <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+          <li>150+ custom rules</li>
+          <li>Real-time violation detection</li>
+          <li>Auto-fix for 87% of issues</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="logos:prettier" class="w-6 h-6" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">Prettier</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">Code formatting</p>
+        <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+          <li>Consistent style enforcement</li>
+          <li>Format-on-save integration</li>
+          <li>Zero configuration conflicts</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="logos:typescript-icon" class="w-6 h-6" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">TypeScript</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">Type safety</p>
+        <ul class="text-xs text-gray-700 dark:text-gray-400 space-y-2 mb-0 pl-6 not-prose list-disc">
+          <li>Strict mode enabled</li>
+          <li>Real-time type checking</li>
+          <li>100% type coverage requirement</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:accessibility" class="w-6 h-6 text-blue-600" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">axe-core</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">Accessibility testing</p>
+        <ul class="text-xs text-gray-700 dark:text-gray-400 space-y-2 mb-0 pl-6 not-prose list-disc">
+          <li>WCAG 2.1 Level AA validation</li>
+          <li>Real-time a11y checks</li>
+          <li>Contextual remediation guidance</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:chart-line" class="w-6 h-6 text-orange-600" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">Bundle Analyzers</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">Performance monitoring</p>
+        <ul class="text-xs text-gray-700 dark:text-gray-400 space-y-2 mb-0 pl-6 not-prose list-disc">
+          <li>Real-time bundle size tracking</li>
+          <li>Dependency impact analysis</li>
+          <li>Performance budget enforcement</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg border border-global shadow-sm dark:bg-black/20">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:checkmark-outline" class="w-6 h-6 text-green-600" />
+          <h4 class="font-bold text-gray-900 mb-0 dark:text-gray-200">Stylelint</h4>
+        </div>
+        <p class="text-sm text-gray-900 mb-2 dark:text-gray-400">CSS/SCSS validation</p>
+        <ul class="text-xs text-gray-700 dark:text-gray-400 space-y-2 mb-0 pl-6 not-prose list-disc">
+          <li>Design token validation</li>
+          <li>BEM methodology enforcement</li>
+          <li>Custom property checking</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="/mcp-server" class="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium">
+        Deeper Look: MCP Server Architecture
+        <Icon name="line-md:arrow-right" class="w-4 h-4" />
+      </a>
+    </div>
+  </div>
+
+  <div class="mb-16">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+        2
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Stage 2: Git Hooks (Lefthook)</h2>
+        <p class="text-gray-600 dark:text-gray-400">Pre-commit and pre-push validation</p>
+      </div>
+    </div>
+
+    <div class="blue-gradient rounded-lg p-6 shadow-sm mb-6">
+      <div class="flex items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="mdi:git" class="text-blue-600 w-8 h-8" />
+            <h3 class="text-2xl font-bold text-gray-900 mb-0 dark:text-gray-200">Lefthook: Two-Stage Validation</h3>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-4 mb-4">
+            <div>
+              <h5 class="text-xs font-semibold text-blue-900 mb-2 uppercase dark:text-blue-200">Pre-Commit Hook (15-30s)</h5>
+              <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-6">
+                <li>Runs on staged files only (fast)</li>
+                <li>ESLint, Prettier, Stylelint</li>
+                <li>Basic TypeScript type checking</li>
+                <li>Design token validation</li>
+                <li>Auto-fixes applied automatically</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-xs font-semibold text-blue-900 mb-2 uppercase dark:text-blue-200">Pre-Push Hook (30-60s)</h5>
+              <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-6">
+                <li>Full TypeScript compilation</li>
+                <li>Unit tests for affected components</li>
+                <li>Accessibility testing (axe-core)</li>
+                <li>Bundle size validation</li>
+                <li>No auto-fixes (must be clean)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-xs font-semibold text-blue-900 mb-2 uppercase dark:text-blue-200">Performance Optimizations</h5>
+              <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-6">
+                <li>Parallel execution of independent checks</li>
+                <li>Incremental checking (changed files only)</li>
+                <li>Intelligent caching for unchanged dependencies</li>
+                <li>Skip option for emergencies (--no-verify)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 space-y-3">
+          <div class="bg-white p-3 rounded-lg border border-blue-200 w-32 text-center dark:bg-black/20 dark:border-blue-600/50">
+            <div class="text-2xl font-bold text-blue-600">45s</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Avg Execution</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-blue-200 w-32 text-center dark:bg-black/20 dark:border-blue-600/50">
+            <div class="text-2xl font-bold text-blue-600">53%</div>
+            <div class="text-xs text-gray-600">Fewer Reviews</div>
+          </div>
+        </div>
+      </div>
+
+        <div class="bg-blue-900 text-white p-4 rounded-lg text-sm dark:bg-black/20 dark:border-blue-600/50">
+            <div class="font-bold mb-1">Key Innovation: Two-Stage Progressive Validation</div>
+            <p class="text-blue-100 dark:text-blue-200">
+              Pre-commit catches formatting and basic errors quickly. Pre-push runs comprehensive validation before code reaches the remote. This prevents broken code from ever entering the shared repository.
+            </p>
+          </div>
+    </div>
+
+    <div class="blue-gradient rounded-lg p-6">
+      <div class="flex items-start gap-3 mb-4">
+        <Icon name="logos:openai-icon" class="fill-indigo-600 w-8 h-8 flex-shrink-0" />
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2 dark:text-gray-200">Agentic MCP Integration: Intelligent Automation</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-400">
+            The MCP Server acts as an <strong>autonomous agent</strong> that can orchestrate post-hook workflows, making intelligent decisions based on validation results.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:continuous-deployment" class="w-5 h-5 text-green-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Automated Deploys</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            On successful pre-push validation, MCP can trigger preview deployments to staging environments, notify stakeholders, and update project management tools.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:notification" class="w-5 h-5 text-blue-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Smart Notifications</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            Contextual alerts to relevant teams (designers for design token changes, security for auth updates) with AI-generated summaries of changes.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:data-enrichment" class="w-5 h-5 text-purple-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Metrics Collection</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            Automatically logs validation metrics, team velocity, and quality trends to Splunk, enabling data-driven platform improvements.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-indigo-900 text-white p-4 rounded-lg text-sm mt-4 dark:bg-black/20 dark:border-indigo-600/50">
+        <div class="font-bold mb-1 dark:text-gray-200">Why This Matters</div>
+        <p class="text-indigo-100 dark:text-indigo-200">
+          Traditional hooks are reactive. Agentic MCP is <strong class="text-white dark:text-white">proactive</strong>, making decisions, triggering workflows, and coordinating teams based on validation outcomes. This reduces manual coordination overhead by 40% and accelerates feedback loops.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-16">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+        3
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Stage 3: CI/CD Pipeline (GitHub Actions)</h2>
+        <p class="text-gray-600 dark:text-gray-400">Comprehensive validation and deployment</p>
+      </div>
+    </div>
+
+    <div class="green-gradient rounded-lg p-6 shadow-sm mb-6">
+      <div class="flex items-start gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="logos:github-actions" class="w-8 h-8" />
+            <h3 class="text-2xl font-bold text-gray-900 mb-0 dark:text-gray-200">GitHub Actions: Automated Workflows</h3>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-4 mb-4">
+            <div>
+              <h5 class="text-xs font-semibold text-green-900 mb-2 uppercase dark:text-green-600">Testing & Coverage</h5>
+              <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+                <li>Full test suite with coverage enforcement</li>
+                <li>Visual regression testing (Chromatic)</li>
+                <li>E2E tests (Playwright) across 3 browsers</li>
+                <li>Coverage reports posted to PR comments</li>
+                <li>Deltas: new code must be 90%+ tested</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-xs font-semibold text-green-900 mb-2 uppercase dark:text-green-600">Performance & Security</h5>
+              <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+                <li>Bundle size tracking w/ performance budgets</li>
+                <li>Lighthouse CI for performance/SEO/PWA scoring</li>
+                <li>Vulnerability scanning (Snyk, Dependabot)</li>
+                <li>SAST (Static Application Security Testing)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="text-xs font-semibold text-green-900 mb-2 uppercase dark:text-green-600">Reporting & Enforcement</h5>
+              <ul class="text-xs text-gray-700 my-0 not-prose list-disc pl-6 space-y-2 dark:text-gray-400">
+                <li>Comprehensive PR comments w/ all results</li>
+                <li>SonarQube integration for quality metrics</li>
+                <li>Coverage deltas: shows change per PR</li>
+                <li>Test validation: new code requires tests</li>
+                <li>Blocking checks: must pass to merge</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex-shrink-0 space-y-3">
+          <div class="bg-white p-3 rounded-lg border border-green-200 w-32 text-center dark:bg-black/20 dark:border-green-600/50">
+            <div class="text-2xl font-bold text-green-600">78.4%</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Bug Reduction</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-green-200 w-32 text-center dark:bg-black/20 dark:border-green-600/50">
+            <div class="text-2xl font-bold text-green-600">3.2min</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Avg Time</div>
+          </div>
+        </div>
+      </div>
+
+          <div class="bg-green-900 text-white p-4 rounded-lg text-sm dark:bg-black/20 dark:border-green-600/50">
+            <div class="font-bold mb-1 dark:text-gray-200">Defense in Depth</div>
+            <p class="text-green-100 dark:text-gray-400">
+              Even though code has been validated twice (IDE + Git Hooks), CI/CD runs the most comprehensive checks on every PR. This catches edge cases, ensures cross-browser compatibility, and validates against the full test suite.
+            </p>
+          </div>
+    </div>
+
+    <div class="blue-gradient rounded-lg p-6 relative">
+      <div class="absolute top-4 right-4">
+        <div class="px-3 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full">
+          COMING SOON
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3 mb-4">
+        <Icon name="logos:openai-icon" class="fill-indigo-600 w-8 h-8 flex-shrink-0" />
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2 dark:text-gray-200">Next Evolution: Self-Healing CI/CD Pipelines</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-400">
+            Building on the proven MCP Server foundation, we're extending intelligent orchestration to the <strong>entire CI/CD pipeline</strong>, automating triage, remediation, and deployment decisions.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:deployment-pattern" class="w-5 h-5 text-purple-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Intelligent Rollout</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            Progressive deployment strategy based on PR risk score (changes, affected areas, test coverage), with automatic canary analysis and health monitoring.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:warning-alt" class="w-5 h-5 text-orange-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">AI-Powered Failure Triage</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            Automatically categorize failures (flaky test, real bug, infrastructure issue), assign to right teams, and suggest fixes based on historical patterns.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:automatic" class="w-5 h-5 text-green-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Auto-Remediation</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            For common issues (formatting, import ordering, simple type errors), MCP will automatically create fix PRs, targeting <strong>60% reduction</strong> in manual intervention.
+          </p>
+        </div>
+
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:ai-results" class="w-5 h-5 text-blue-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Intelligent Test Selection</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            AI will analyze changed files and their dependencies to intelligently select which tests to run, targeting <strong>40% reduction</strong> in pipeline time while maintaining coverage.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:health-cross" class="w-5 h-5 text-red-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Production Health Monitoring</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            Post-deploy, MCP will monitor error rates, performance metrics, and user impact, automatically triggering rollbacks if degradation exceeds thresholds.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="carbon:report" class="w-5 h-5 text-teal-600" />
+            <h4 class="font-bold text-sm text-gray-900 mb-0 dark:text-gray-200">Automated PR Summaries</h4>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400">
+            AI-generated PR comments with change impact analysis, affected components, test coverage gaps, and deployment risk assessment, extending IDE intelligence to code review.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-indigo-900 text-white p-4 rounded-lg text-sm mt-4 not-prose">
+        <div class="font-bold mb-1">Projected Impact: Self-Healing Infrastructure</div>
+        <p class="text-indigo-100">
+          Building on our proven MCP foundation, this next phase will enable the system to <strong class="text-white">automatically diagnose, triage, and fix pipeline issues</strong>. Early prototypes show potential to reduce MTTR from 2.3 hours to ~20 minutes (<strong class="text-white">85%+ reduction</strong>), freeing engineering teams to focus on features instead of pipeline maintenance.
+        </p>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,144 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+
+export interface GridItem {
+  icon: string;
+  title: string;
+  iconColor?: string;
+  content: string | string[];
+  items?: Array<{ label: string; description: string }>;
+}
+
+export interface ContentSection {
+  icon?: string;
+  title: string;
+  iconColor?: string;
+  description?: string;
+  items?: GridItem[];
+  subgrid?: {
+    columns?: number;
+    items: Array<{
+      icon?: string;
+      iconColor?: string;
+      title: string;
+      description: string;
+    }>;
+  };
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  columns?: number;
+  items?: GridItem[];
+  description?: string;
+  sections?: ContentSection[];
+  width?: 'default' | 'narrow' | 'wide';
+}
+
+const {
+  id,
+  title,
+  items = [],
+  description,
+  columns = 3,
+  sections = [],
+  width = 'default',
+} = Astro.props;
+
+// Use items directly if provided, otherwise use sections for backward compatibility
+const gridItems = items.length > 0 ? items : [];
+const hasMultipleSections = sections.length > 0;
+---
+
+<SectionTitle id={id} title={title} description={description} width={width} />
+
+{/* Simple grid layout for items */}
+{gridItems.length > 0 && (
+  <div class={`grid gap-6 my-6 ${columns === 2 ? 'md:grid-cols-2' : columns === 3 ? 'md:grid-cols-3' : columns === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+    {gridItems.map((item) => (
+      <div class="card md:p-6 p-4 shadow-sm">
+        <h3 class="font-semibold tracking-tight text-lg mb-3 flex items-center gap-2">
+          <Icon name={item.icon} size={24} class={item.iconColor || 'text-blue-500'} />
+          {item.title}
+        </h3>
+        {typeof item.content === 'string' ? (
+          <p class="text-sm" set:html={item.content} />
+        ) : (
+          <ul class="space-y-2 text-sm mb-0 ml-1">
+            {item.content.map((listItem) => (
+              <li set:html={listItem} />
+            ))}
+          </ul>
+        )}
+        {item.items && (
+          <div class="space-y-2 mt-4">
+            {item.items.map((subItem) => (
+              <div>
+                <strong>{subItem.label}:</strong> {subItem.description}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+)}
+
+{/* Complex section layout with subsections */}
+{hasMultipleSections && sections.map((section) => (
+  <div class="card md:p-6 p-4 shadow-sm mt-6">
+    <h3 class="font-semibold text-xl mb-2 flex items-center gap-2">
+      {section.icon && (
+        <Icon name={section.icon} size={24} class={section.iconColor || ''} />
+      )}
+      {section.title}
+    </h3>
+    {section.description && (
+      <p class="mb-6 text-sm" set:html={section.description} />
+    )}
+
+    {/* Subgrid within section */}
+    {section.subgrid && (
+      <div class={`grid gap-4 ${(section.subgrid.columns || 3) === 2 ? 'md:grid-cols-2' : (section.subgrid.columns || 3) === 3 ? 'md:grid-cols-3' : (section.subgrid.columns || 3) === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+        {section.subgrid.items.map((subItem) => (
+          <div class="flex flex-col justify-center text-center p-4 bg-gray-50 rounded-lg dark:bg-black">
+            <h4 class="font-semibold text-sm mb-2 flex items-center justify-center gap-2">
+              {subItem.icon && (
+                <Icon name={subItem.icon} size={20} class={subItem.iconColor || ''} />
+              )}
+              {subItem.title}
+            </h4>
+            <p class="text-xs" set:html={subItem.description} />
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* Regular items within section */}
+    {section.items && (
+      <div class={`grid gap-4 ${section.items.length === 2 ? 'md:grid-cols-2' : section.items.length === 3 ? 'md:grid-cols-3' : section.items.length === 4 ? 'md:grid-cols-4' : section.items.length >= 5 ? 'md:grid-cols-5' : 'md:grid-cols-3'}`}>
+        {section.items.map((item) => (
+          <div class="flex flex-col justify-center text-center p-4 bg-gray-50 rounded-lg dark:bg-black">
+            <h4 class="font-semibold text-sm mb-2 flex items-center justify-center gap-2">
+              {item.icon && (
+                <Icon name={item.icon} size={20} class={item.iconColor || ''} />
+              )}
+              {item.title}
+            </h4>
+            {typeof item.content === 'string' ? (
+              <p class="text-xs" set:html={item.content} />
+            ) : (
+              <ul class="text-xs space-y-1">
+                {item.content.map((listItem) => (
+                  <li set:html={listItem} />
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+))}

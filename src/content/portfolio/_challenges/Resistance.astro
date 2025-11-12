@@ -1,0 +1,137 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- Challenge: Navigating Organizational Resistance -->
+<div class="purple-gradient rounded-lg p-6 mb-6">
+  <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+    <Icon name="carbon:collaborate" class="w-6 h-6 text-purple-600" />
+    Challenge: Navigating Organizational Resistance
+  </h3>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-purple-200 dark:border-purple-900/50">
+    <div class="flex items-start gap-3">
+      <Icon name="carbon:network-4" class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+      <div>
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-1">The Political Challenge</h4>
+        <p class="text-sm text-gray-700 dark:text-gray-300">Selling platform investment vs. shipping features. This required cross-functional influence without authority: convincing Product, Design, and Engineering leaders that quality infrastructure was worth 6 months of investment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Pushback --> 
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-red-200 dark:border-red-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+      <Icon name="carbon:warning-alt" class="w-5 h-5 text-red-600" />
+      The Pushback I Faced
+    </h4> 
+    <div class="grid md:grid-cols-2 gap-3">
+      <div class="bg-red-50 rounded-lg p-3 border border-red-200 dark:bg-red-800/30 dark:border-red-800/30">
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 m-0 not-prose list-disc pl-5">
+          <li><strong>Product:</strong> "Why invest 6 months in tooling when we could ship features?"</li>
+          <li><strong>Eng Leads:</strong> "My team is busy, we don't have time to adopt this"</li>
+        </ul>
+      </div>
+      <div class="bg-red-50 rounded-lg p-3 border border-red-200 dark:bg-red-800/30 dark:border-red-800/30">
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 m-0 not-prose list-disc pl-5">
+          <li><strong>Design:</strong> "Will this slow down designers' workflows?"</li>
+          <li><strong>VP Eng (initially):</strong> "Can't we just use ESLint plugins?"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- How I Built Buy-In -->
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-purple-200 dark:border-purple-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+      <Icon name="carbon:user-speaker" class="w-5 h-5 text-purple-600" />
+      How I Built Buy-In
+    </h4>
+    <div class="grid md:grid-cols-2 gap-3">
+      <!-- Quadrant 1 -->
+      <div class="blue-gradient p-4 rounded-lg">
+        <div class="text-sm font-bold text-blue-900 dark:text-white mb-2">1. Quantified the Problem</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li>Surveyed 50 engineers: $4.2M/year lost to rework</li>
+          <li>Analyzed 100 PRs: 60% had preventable issues</li>
+          <li>Built cost model: 3.7x ROI if we succeed</li>
+          <li><strong>Result:</strong> Got 6-month runway from VP Eng</li>
+        </ul>
+      </div>
+
+      <!-- Quadrant 2 -->
+      <div class="green-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-green-900 dark:text-white mb-2">2. Built Proof Points</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li>Ran pilot with 3 friendly teams (45 engineers)</li>
+          <li>Measured: 53% faster PR reviews, 67% fewer bugs</li>
+          <li>Collected testimonials: "This changed how I work"</li>
+          <li><strong>Result:</strong> Convinced skeptical eng leads</li>
+        </ul>
+      </div>
+
+      <!-- Quadrant 3 -->
+      <div class="orange-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-orange-900 dark:text-white mb-2">3. Aligned with Design</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li>Partnered with Design Lead: "This frees your team"</li>
+          <li>Measured: 60% → 15% time on support</li>
+          <li>Design became biggest advocates</li>
+          <li><strong>Result:</strong> Turned skeptics into champions</li>
+        </ul>
+      </div>
+
+      <!-- Quadrant 4 -->
+      <div class="purple-gradient rounded-lg p-4">
+        <div class="text-sm font-bold text-purple-900 dark:text-white mb-2">4. Executive Communication</div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 my-0 not-prose list-disc pl-5">
+          <li>Monthly updates to VP Eng: metrics + stories</li>
+          <li>Quarterly to CTO: strategic impact</li>
+          <li>Always: "Here's the problem we solved this month"</li>
+          <li><strong>Result:</strong> Built trust through transparency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leadership Lessons -->
+  <div class="bg-white/80 mb-4 dark:bg-black/40 p-4 border border-purple-200 dark:border-purple-900/50 rounded-lg">
+    <div class="flex items-center gap-2 mb-2">
+      <Icon name="carbon:trophy" class="w-5 h-5 text-indigo-600" />
+      <h4 class="font-bold text-sm text-indigo-900 dark:text-white mb-0">Influence Without Authority</h4>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3 text-xs text-gray-700 dark:text-gray-300">
+      <div>
+        <div class="font-bold text-indigo-900 mb-1 dark:text-white">Data Over Opinions</div>
+        <p>Quantified the problem ($4.2M lost), measured pilot results (53% faster PRs), let numbers do the talking</p>
+      </div>
+      <div>
+        <div class="font-bold text-indigo-900 mb-1 dark:text-white">Find Champions</div>
+        <p>Started with 3 friendly teams, turned Design from skeptics to advocates, built momentum organically</p>
+      </div>
+      <div>
+        <div class="font-bold text-indigo-900 mb-1 dark:text-white">Communicate Up</div>
+        <p>Monthly VP updates, quarterly CTO briefings, always led with "problem solved" not "work done"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outcome Metrics -->
+  <div class="mt-4 grid md:grid-cols-3 gap-3">
+    <div class="metric-box metric-box-green">
+      <div class="text-3xl font-bold text-green-600 mb-1">24</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">Teams Onboarded</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">100% of product engineering</p>
+    </div>
+    <div class="metric-box metric-box-blue">
+      <div class="text-3xl font-bold text-blue-600 mb-1">3.7x</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">ROI Delivered</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">Justified the investment</p>
+    </div>
+    <div class="metric-box metric-box-orange">
+      <div class="text-3xl font-bold text-orange-600 mb-1">All-Hands</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">VP Eng Presentation</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">"Platform done right"</p>
+    </div>
+  </div>
+</div>

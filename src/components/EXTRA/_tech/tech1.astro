@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+import CodeBlock from "../../../components/UI/CodeBlock.astro";
+import { analyzeBundleExample } from "./code-examples";
+---
+
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+  <div class="card p-6">
+    <h4 class="font-semibold mb-2 flex items-center gap-2">
+      <Icon name="line-md:speedometer-loop" class="text-green-500" />
+      Example Import Issue
+    </h4>
+    <p class="text-sm text-gray-700 mb-2 dark:text-gray-400">Developers were unknowingly importing heavy components (e.g., a date picker pulling in <strong>85KB</strong> of momentjs). No visibility into bundle impact until build time. Performance budgets failed <strong>after</strong> code was written, causing frustration and rework.</p>
+    <p class="text-sm font-semibold text-gray-900 my-2 dark:text-white">The solution we built:</p>
+    <CodeBlock lang="typescript" code={analyzeBundleExample} />
+  </div>
+
+  <div class="green-gradient rounded-lg p-6">
+    <h4 class="font-semibold mb-2">Real-time Bundle Impact Analysis in IDE</h4>
+    <div class="text-sm space-y-4">
+      <div>
+        <strong>Import Analysis:</strong> Custom webpack plugin + VS Code extension. Shows bundle size on hover for each component import. Tree-shaken size vs full bundle. 
+        <div class="mt-2"><strong>Updates in &lt;100ms</strong>.</div>
+      </div>
+      <div>
+        <strong>AI-Powered Suggestions via MCP Server:</strong> Built Model Context Protocol server that analyzes bundle graphs and component usage patterns. Provides context-aware suggestions with trade-off explanations. 
+        <div class="mt-2">Example: <code class="text-xs bg-white/70 px-1 rounded dark:bg-black/20">DatePicker (85KB) → DateInput (12KB)</code>.</div>
+      </div>
+      <div>
+        <strong>Advanced Audits:</strong> Enabled advanced audits of high-impact components and bundle budgets. These audits can run in the MCP server locally or in CI/CD pipelines and provide detailed feedback on bundle impact and component usage patterns.
+      </div>
+    </div>
+  </div>
+</div>

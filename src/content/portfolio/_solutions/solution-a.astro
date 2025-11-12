@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="mb-16">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-200">The Architecture: Multi-Touch Quality Gates</h2>
+
+  <div class="blue-gradient rounded-lg p-8 mb-8">
+    <div class="flex items-start gap-4 mb-6">
+      <Icon name="line-md:lightbulb-twotone" class="text-indigo-600 w-8 h-8 flex-shrink-0" />
+      <div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 dark:text-gray-200">Three-Stage Validation System</h3>
+        <p class="text-gray-700 mb-4 dark:text-gray-400">
+          Each stage uses the <strong>exact same tools and configurations</strong>, creating a consistent validation experience. The key difference is <strong>when and how thoroughly</strong> checks run.
+        </p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+            <div class="font-bold text-purple-600 mb-2">Stage 1: IDE</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Instant feedback while coding (1-3s)</div>
+          </div>
+          <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+            <div class="font-bold text-blue-600 mb-2">Stage 2: Git Hooks</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Pre-commit validation (15-60s)</div>
+          </div>
+          <div class="bg-white p-4 rounded-lg border border-indigo-200 dark:bg-black/20 dark:border-indigo-600/50">
+            <div class="font-bold text-green-600 mb-2">Stage 3: CI/CD</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Comprehensive checks (3-5min)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-indigo-900 text-white p-4 rounded-lg dark:bg-black/20 dark:border-indigo-600/50">
+      <div class="font-bold mb-2">The Result</div>
+      <p class="text-sm dark:text-gray-200">
+        Developers get instant guidance in their IDE, catch issues before they commit, and have a final safety net in CI/CD. By the time code reaches CI/CD, it's already been validated twice, leading to our pipeline success rate.
+      </p>
+    </div>
+  </div>
+</div>

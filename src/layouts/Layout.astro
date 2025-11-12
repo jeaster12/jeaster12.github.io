@@ -1,0 +1,26 @@
+---
+import Nav from '@components/Nav.astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = {
+	title?: string
+	ogImage?: string
+	noindex?: boolean
+	description?: string
+	navType?: 'default' | 'collapsed'
+}
+
+const { title, description, ogImage, noindex, navType = 'default' } = Astro.props
+
+const isCollapsed = navType === 'collapsed'
+const contentWidth = isCollapsed ? 'flex-1' : 'lg:w-3/4'
+---
+
+<BaseLayout {title} {description} {ogImage} {noindex}>
+	<div class="space-y-4 sm:space-y-6 md:space-y-12 lg:flex lg:space-x-8 lg:space-y-0 xl:space-x-12">
+		<Nav collapsed={isCollapsed} />
+		<div class={`${contentWidth} space-y-4 sm:space-y-6 md:space-y-12 pb-4 sm:pb-6 md:pb-12`}>
+			<slot />
+		</div>
+	</div>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+const outputTouchpoints = [
+  {
+    icon: 'logos:visual-studio-code',
+    title: 'IDE Integration',
+    description: 'Real-time guidance while coding'
+  },
+  {
+    icon: 'logos:github-actions',
+    title: 'Automated Reviews',
+    description: 'PR validation & compliance'
+  },
+  {
+    icon: 'line-md:gauge-loop',
+    iconColor: 'text-blue-500',
+    title: 'Team Insights',
+    description: 'Usage & adoption metrics'
+  }
+];
+const title = 'Layer 3: Developer Experience';
+const description = 'Feedback delivered where developers work';
+const description2 = 'The true power comes from meeting developers where they work. Through a <strong>VS Code extension</strong>, <strong>GitHub Actions</strong>, & an <strong>analytics dashboard</strong>, the system delivers contextually accurate, actionable guidance directly in existing workflows.';
+---
+
+<div class="mb-6">
+  <div class="text-center mb-4">
+    <h3 class="text-2xl font-semibold inline-flex items-center gap-2 font-nunito mb-2">
+      <Icon name="line-md:external-link" size={24} class="text-indigo-500" />
+      {title}
+    </h3>
+    <p class="text-sm text-center mb-6 max-w-4xl mx-auto text-gray-600 dark:text-gray-400" set:html={description2}>
+  </div>
+  <div class="grid md:grid-cols-3 gap-4">
+    {outputTouchpoints.map((touchpoint) => (
+      <div class="card-white md:p-6 p-4 shadow-sm text-center">
+        <Icon
+          size={48}
+          name={touchpoint.icon}
+          class={`mx-auto mb-3 ${touchpoint.iconColor || ''} ${touchpoint.icon.includes('copilot') ? 'dark:invert' : ''}`}
+        />
+        <h4 class="font-semibold text-base mb-2">{touchpoint.title}</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{touchpoint.description}</p>
+      </div>
+    ))}
+  </div>
+</div>

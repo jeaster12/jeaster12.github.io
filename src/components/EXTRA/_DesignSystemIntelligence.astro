@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Item {
+  label: string;
+  description: string;
+}
+
+interface Section {
+  title: string;
+  icon: string;
+  items: Item[];
+}
+
+interface Props {
+  heading?: string;
+  sections?: Section[];
+}
+
+const {
+  heading = "The MCP Server has deep knowledge of the design system. Here are some examples:",
+  sections = [
+    {
+      title: "Design Tokens",
+      icon: "carbon:paint-brush",
+      items: [
+        { label: "Color tokens:", description: "Validates design system colors (color.primary.500)" },
+        { label: "Spacing tokens:", description: "Ensures consistent spacing (space.2, space.4)" },
+        { label: "Typography tokens:", description: "Enforces font sizes, weights, line heights" },
+        { label: "Token mappings:", description: "Understands Figma → code token relationships" }
+      ]
+    },
+    {
+      title: "Component Patterns",
+      icon: "carbon:cube",
+      items: [
+        { label: "Valid compositions:", description: "Knows which components can be nested etc" },
+        { label: "Required props:", description: "Flags missing a11y props" },
+        { label: "Usage patterns:", description: "Suggests correct variants (Button vs. IconButton)" },
+        { label: "Anti-patterns:", description: "Catches mistakes (using div instead of Button)" }
+      ]
+    },
+    {
+      title: "Accessibility Rules",
+      icon: "carbon:accessibility",
+      items: [
+        { label: "WCAG compliance:", description: "Validates contrast, keyboard nav, ARIA attributes" },
+        { label: "Semantic HTML:", description: "Enforces proper dom hierarchy, landmark regions" },
+        { label: "Screen reader support:", description: "Ensures alt text, labels, etc. are present" },
+        { label: "Contextual guidance:", description: "Explains why a rule exists and how to fix" }
+      ]
+    },
+    {
+      title: "Codebase Conventions",
+      icon: "carbon:rule",
+      items: [
+        { label: "Naming conventions:", description: "Enforces naming (PascalCase, kebab-case)" },
+        { label: "Import patterns:", description: "Validates import paths use correct" },
+        { label: "File structure:", description: "Ensures components are in correct directories" },
+        { label: "Test co-location:", description: "Flags missing tests, can auto-generate tests" }
+      ]
+    }
+  ]
+}: Props = Astro.props;
+---
+
+<div class="blue-gradient p-6 mb-6 rounded-lg">
+  <h3 class="text-lg font-bold text-gray-900 mb-4 dark:text-white">{heading}</h3>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    {sections.map((section) => (
+      <div>
+        <h4 class="font-bold text-blue-600 mb-3 flex items-center gap-2">
+          <Icon name={section.icon} class="w-5 h-5" />
+          {section.title}
+        </h4>
+        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-400 mb-0 ml-1">
+          {section.items.map((item) => (
+            <li><strong>{item.label}</strong> {item.description}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</div>

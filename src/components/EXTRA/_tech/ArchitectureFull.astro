@@ -1,0 +1,44 @@
+---
+import Layer1 from './_layer1.astro';
+import Layer2 from './_layer2.astro';
+import Layer3 from './_layer3.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+import DesignSystemIntelligence from '../_DesignSystemIntelligence.astro';
+
+
+const titleOG = "How It Works: The MCP Server"
+const title = "The Solution: AI-Powered Model Context Protocol"
+const descriptionOG = "The MCP server connects your <strong>design system knowledge</strong> to <strong>AI-powered tools</strong> through a simple <strong>three-layer architecture</strong>. Content flows from sources through intelligent processing to real-time developer guidance."
+const description = "We implemented an <strong>AI-powered Model Context Protocol server</strong> integrated with design system knowledge to <strong>assist developers</strong> in real time, with complementary <strong>design governance and QA automation</strong>"
+---
+
+
+<SectionTitle
+  width="wide"
+  title={title}
+  description={description}
+  />
+
+
+  <div class="max-w-5xl mx-auto my-8">
+
+<Layer1/> 
+
+<div class="flex justify-center my-8">
+  <div class="text-4xl text-gray-400">↓</div>
+</div>
+
+<Layer2/>
+
+
+<div class="flex justify-center my-8">
+  <div class="text-4xl text-gray-400">↓</div>
+</div>
+
+
+<Layer3/>
+
+<DesignSystemIntelligence />
+
+  </div>
+

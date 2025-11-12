@@ -1,0 +1,41 @@
+---
+import ContentGrid from '@/components/UI/ContentGrid.astro';
+---
+
+<ContentGrid
+  width="wide"
+  id="the-solution"
+  title="The Solution: Frontend Quality Gating Platform"
+  description="We built <strong>automated quality guardrails</strong> that shifted frontend quality left—catching issues in the IDE and CI/CD, not in code review or production. The result: <strong>any engineer could ship high-quality frontend code</strong> without frontend expertise, through real-time validation, progressive quality gates, and intelligent tooling."
+  sections={[
+    {
+      icon: 'line-md:lightbulb-twotone',
+      iconColor: 'text-purple-500',
+      title: 'Shift-Left Quality Infrastructure',
+      description: 'Frontend quality platform that validates code at development time (VS Code IDE), pre-merge (GitHub Actions), and provides contextual guidance—making best practices the default path for any engineer shipping UI. <br/> <em class="text-purple-900 dark:text-purple-400">(Automated quality enforcement that enables non-experts while freeing frontend experts for strategic work.)</em>',
+      subgrid: {
+        columns: 3,
+        items: [
+          {
+            icon: 'logos:visual-studio-code',
+            iconColor: 'text-blue-500',
+            title: 'Real-Time IDE Validation',
+            description: '<strong>Sub-50ms validation</strong> in VS Code: accessibility checks, design token enforcement, component prop validation—with fix suggestions'
+          },
+          {
+            icon: 'logos:github-actions',
+            iconColor: 'text-green-500',
+            title: 'Progressive Quality Gates',
+            description: '<strong>Tiered enforcement in CI/CD:</strong> Block critical violations (accessibility, breaking changes, bundle size), warn on medium issues, suggest improvements. <strong>28% bundle reduction</strong> from automated tree-shaking checks.'
+          },
+          {
+            icon: 'line-md:cog-loop',
+            title: 'Contextual Code Generation',
+            iconColor: 'text-purple-500',
+            description: '<strong>Smart scaffolding:</strong> Generate accessible components with proper ARIA, semantic HTML, performance optimization—teaching as you code'
+          }
+        ]
+      }
+    }
+  ]}
+/>

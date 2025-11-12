@@ -1,0 +1,92 @@
+---
+import Gallery from '@/components/UI/Gallery.astro';
+import SectionLayout from '@/layouts/SectionLayout.astro';
+import { getCollection, type CollectionEntry} from 'astro:content';
+import ProjectMeta from '@/components/Portfolio/ProjectMeta.astro';
+import ProjectOverview from '@/components/Portfolio/ProjectOverview.astro';
+import TwoColumnSection from '@/components/Portfolio/TwoColumnSection.astro';
+
+// Use CollectionEntry type from astro:content
+type PortfolioItem = CollectionEntry<'portfolio'> & {
+	slug: string;
+}
+
+// Generate static paths for all portfolio items
+export async function getStaticPaths() {
+  const portfolioItems = await getCollection('portfolio', ({ data }) => !data.draft);
+
+  // Sort by date (newest first)
+  const sortedItems = portfolioItems.sort((a, b) => {
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  });
+
+  return sortedItems.map((item: CollectionEntry<'portfolio'>) => {
+    const slug = item.slug;
+    
+    return {
+      params: { slug },
+      props: {
+        item: { ...item, slug },
+      }
+    };
+  });
+}
+
+const { item: portfolioItem } = Astro.props as {
+  item: PortfolioItem;
+};
+
+
+// Get the MDX content
+const { Content } = await portfolioItem.render()
+
+// Create a wrapper component for MDX content with components available
+const MDXContent = Content;
+
+// Make components available to MDX
+const components = {
+  TwoColumnSection,
+  ProjectMeta,
+  ProjectOverview
+};
+
+
+const portImages = portfolioItem.data.images?.map((image: any) => {
+  // Handle both string URLs and ImageMetadata objects
+  const imageUrl = typeof image.url === 'string' ? image.url : image.url.src;
+  return {
+    href: imageUrl,
+    label: image.name || `${portfolioItem.data.title}`,
+    size: {
+      width: typeof image.url === 'string' ? 1200 : image.url.width,
+      height: typeof image.url === 'string' ? 800 : image.url.height
+    }
+  };
+}) || [];
+---
+
+<SectionLayout
+  id="portfolio"
+  showHeader={false}
+  usePortfolioLayout={true}
+  title={portfolioItem.data.title}
+  description={portfolioItem.data.description}>
+  
+  <h2 class="text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 font-nunito dark:text-white">
+    {portfolioItem.data.title}
+  </h2>
+  <div class="prose dark:prose-invert max-w-none">
+    <p class="leading-7 text-gray-600 dark:text-white/70" set:html={portfolioItem.data.description}>
+    </p>
+  </div>
+  
+  <div>
+    <div class="prose dark:prose-invert max-w-none mt-8 text-gray-700 dark:text-white/70">
+      <MDXContent components={components} />
+    </div>
+
+    {portImages.length > 0 && (
+      <Gallery mode="carousel" autoplay={true} gap="6" images={portImages} />
+    )}
+  </div>
+</SectionLayout>

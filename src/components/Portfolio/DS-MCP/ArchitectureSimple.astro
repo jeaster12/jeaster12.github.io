@@ -1,0 +1,125 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  width="wide"
+  title="How It Works: System Architecture"
+  description="The MCP server connects your <strong>design system knowledge</strong> to <strong>AI-powered tools</strong> through a simple <strong>three-layer architecture</strong>. Content flows from sources through intelligent processing to real-time developer guidance."/>
+
+{/* Flow Diagram */}
+<div class="max-w-5xl mx-auto my-8">
+
+  {/* Layer 1: Input */}
+  <div class="mb-8">
+    <div class="text-center mb-4">
+      <h3 class="text-lg font-semibold inline-flex items-center gap-2">
+        <Icon name="line-md:upload-loop" size={24} class="text-blue-500" />
+        Design System Knowledge
+      </h3>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:markdown" size={32} class="dark:invert"/>
+        <div class="text-xs font-semibold mt-2">Documentation</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Components & API's</div>
+      </div>
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:storybook-icon" size={32}/>
+        <div class="text-xs font-semibold mt-2">Storybook</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Examples & Variants</div>
+      </div>
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:figma" size={32}/>
+        <div class="text-xs font-semibold mt-2">Figma</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Design Specs</div>
+      </div>
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:github-icon" size={32} class="dark:invert"/>
+        <div class="text-xs font-semibold mt-2">Github</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Code Patterns</div>
+      </div>
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:jira" size={32}/>
+        <div class="text-xs font-semibold mt-2">Support</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Tickets & Q&A</div>
+      </div>
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name="logos:slack-icon" size={32}/>
+        <div class="text-xs font-semibold mt-2">Chat</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">Conversations</div>
+      </div>
+    </div>
+    <div class="flex justify-center mt-6">
+      <div class="text-4xl text-gray-400">↓</div>
+    </div>
+  </div>
+
+  {/* Layer 2: Processing */}
+  <div class="mb-8">
+    <div class="text-center mb-4">
+      <h3 class="text-lg font-semibold inline-flex items-center gap-2">
+        <Icon name="line-md:circle-to-confirm-circle-transition" size={24} class="text-green-500" />
+        AI-Powered MCP Server
+      </h3>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <div class="theme-gradient rounded-lg border md:p-6 p-4 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-6 mb-4">
+          <div class="text-center">
+            <div class="font-semibold text-sm mb-1">Vector Search</div>
+            <Icon name="logos:pinecone" class="mx-auto mb-2 h-8 w-auto dark:invert" />
+            <div class="text-xs text-gray-600 dark:text-gray-400">Semantic understanding of queries</div>
+          </div>
+          <div class="text-center">
+            <div class="font-semibold text-sm mb-1">AI Generation</div>
+            <Icon name="logos:openai" class="mx-auto mb-2 h-8 w-auto dark:invert" />
+            <div class="text-xs text-gray-600 dark:text-gray-400">Contextual code & guidance</div>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-primary/20">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-center text-gray-600 dark:text-gray-400">
+            <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">Search</div>
+            <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">Validate</div>
+            <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">Generate</div>
+            <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">Check A11y</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center mt-6">
+      <div class="text-4xl text-gray-400">↓</div>
+    </div>
+  </div>
+
+  {/* Layer 3: Output */}
+  <div>
+    <div class="text-center mb-4">
+      <h3 class="text-lg font-semibold inline-flex items-center gap-2">
+        <Icon name="line-md:external-link" size={24} class="text-indigo-500" />
+        Developer Experience
+      </h3>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card-white md:p-6 p-4 shadow-sm text-center">
+        <Icon name="logos:visual-studio-code" size={48} class="mx-auto mb-3"/>
+        <h4 class="font-semibold text-base mb-2">IDE Integration</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Real-time guidance while coding</p>
+      </div>
+
+      <div class="card-white md:p-6 p-4 shadow-sm text-center">
+        <Icon name="logos:github-copilot" size={48} class="mx-auto mb-3 dark:invert"/>
+        <h4 class="font-semibold text-base mb-2">Automated Reviews</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">PR validation & compliance</p>
+      </div>
+
+      <div class="card-white md:p-6 p-4 shadow-sm text-center">
+        <Icon name="line-md:gauge-loop" size={48} class="mx-auto mb-3 text-blue-500" />
+        <h4 class="font-semibold text-base mb-2">Team Insights</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Usage & adoption metrics</p>
+      </div>
+    </div>
+  </div>
+
+</div>

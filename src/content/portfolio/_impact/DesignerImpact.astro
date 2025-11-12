@@ -1,0 +1,55 @@
+---
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+import { DSMCPDesignMetrics } from '@/data/full';
+---
+
+<SectionTitle
+  title="Designer Impact & ROI"
+  description="The MCP server <strong>fundamentally transformed</strong> how designers spend their time - shifting from <strong>repetitive support work</strong> to <strong>strategic design</strong> that drives product innovation."/>
+
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6 mt-4">
+  <div class="pink-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-pink-600 mb-2">60% → 15%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Time on Support</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">freed for strategic work</div>
+  </div>
+  <div class="blue-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-blue-600 mb-2">3x</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Strategic Work Time</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">increase in capacity</div>
+  </div>
+  <div class="green-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-green-600 mb-2">91%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Component Adoption</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">up from 73%</div>
+  </div>
+  <div class="purple-gradient rounded-lg p-6 text-center">
+    <div class="text-4xl font-bold text-purple-600 mb-2">89%</div>
+    <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">Design Consistency</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400">improvement</div>
+  </div>
+</div>
+
+<div class="purple-gradient rounded-lg p-6 mb-8">
+  <h3 class="text-lg font-semibold mb-4">Designer Success Story</h3>
+  <blockquote class="italic mb-4">
+    "I was spending most of my day answering the same questions about component usage. I felt like a human documentation search engine instead of a designer... Now I get to do actual design work! The AI handles all the routine questions, and I can focus on research, user testing, and designing new patterns."
+  </blockquote>
+  <cite class="text-sm font-medium block mb-4">— Sarah, Senior Product Designer</cite>
+
+  <div class="grid grid-cols-3 gap-4 text-sm">
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">{DSMCPDesignMetrics.designerSuccessStory.dailyTimeFreed} hours</div>
+      <div>Daily time freed up</div>
+    </div>
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">{DSMCPDesignMetrics.designerSuccessStory.increaseInResearch}%</div>
+      <div>Increase in research</div>
+    </div>
+    <div>
+      <div class="font-semibold text-purple-600 text-lg">Zero</div>
+      <div>Documentation complaints</div>
+    </div>
+  </div>
+</div>

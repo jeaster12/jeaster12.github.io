@@ -1,0 +1,84 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * UnderlineLink Component
+ * 
+ * A reusable link component with an optional right arrow icon and animated underline effect.
+ * 
+ * @example
+ * ```astro
+ * <UnderlineLink 
+ *   href="/about"
+ *   text="Learn more"
+ *   icon="line-md:arrow-right"
+ *   target="_blank"
+ *   rel="noopener noreferrer"
+ *   className="text-blue-600"
+ * />
+ * ```
+ */
+interface Props {
+  /**
+   * The URL the link points to
+   */
+  href: string;
+  
+  /**
+   * The link text to display
+   */
+  text: string;
+  
+  /**
+   * Relationship between the current document and the linked document
+   * @default undefined
+   */
+  rel?: string;
+  
+  /**
+   * Icon name from the icon set (using astro-icon)
+   * @default 'line-md:arrow-right'
+   */
+  icon?: string;
+  
+  /**
+   * Where to display the linked URL
+   * @default undefined
+   */
+  target?: string;
+  
+  /**
+   * Size of the icon in pixels
+   * @default '16'
+   */
+  iconSize?: string;
+  
+  /**
+   * Additional CSS classes to apply to the link
+   * @default ''
+   */
+  className?: string;
+}
+
+const {
+  rel,
+  href,
+  text,
+  target,
+  icon = 'line-md:arrow-right',
+  className = '',
+  iconSize = '16',
+} = Astro.props;
+---
+
+<a
+  rel={rel}
+  href={href}
+  target={target}
+  class={`font-nunito max-w-sm text-sm font-bold leading-tight no-underline ${className}`}>
+
+  <span class="link link-underline link-underline-black dark:text-white/70 flex gap-1 items-center">
+    {text}
+    {icon && <Icon name={icon} size={iconSize} />}
+  </span>
+</a>

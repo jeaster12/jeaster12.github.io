@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="space-y-4">
+  <div class="bg-white dark:bg-black/40 p-6 rounded-lg border border-global shadow-sm">
+    <div class="flex items-start gap-4">
+      <div class="w-12 h-12 bg-red-100 dark:bg-red-800/80 rounded-lg flex items-center justify-center flex-shrink-0">
+        <Icon name="line-md:alert" class="text-red-600 dark:text-red-400 w-6 h-6" />
+      </div>
+      <div class="flex-1">
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Challenge: Preventing AI Hallucinations</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Problem:</strong> Early versions would sometimes report issues that didn't exist or suggest fixes that violated design system rules.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Solution:</strong> Implemented grounded tool execution. The MCP Server only reports actual tool results, never generates synthetic violations. AI adds value through interpretation and contextual guidance, not data generation.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          <strong>Result:</strong> 100% accuracy on reported issues. Zero false positives in production.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-black/40 p-6 rounded-lg border border-global shadow-sm">
+    <div class="flex items-start gap-4">
+      <div class="w-12 h-12 bg-orange-100 dark:bg-orange-800/80 rounded-lg flex items-center justify-center flex-shrink-0">
+        <Icon name="carbon:timer" class="text-orange-600 dark:text-orange-400 w-6 h-6" />
+      </div>
+      <div class="flex-1">
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Challenge: Performance at Scale</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Problem:</strong> Running all tools on every file change was too slow (30-45s), disrupting developer flow.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Solution:</strong> Implemented incremental validation (only changed files), parallel tool execution, and intelligent caching. Added file watchers to trigger validation automatically.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          <strong>Result:</strong> Reduced to 8.2s average feedback time, with 91% developer adoption.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-black/40 p-6 rounded-lg border border-global shadow-sm">
+    <div class="flex items-start gap-4">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-800/80 rounded-lg flex items-center justify-center flex-shrink-0">
+        <Icon name="carbon:data-base" class="text-blue-600 dark:text-blue-400 w-6 h-6" />
+      </div>
+      <div class="flex-1">
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Challenge: Keeping Design Tokens in Sync</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Problem:</strong> Design tokens in Figma would change, but the MCP Server's knowledge would become stale.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <strong>Solution:</strong> Built automated Figma API integration that syncs tokens nightly and triggers MCP Server knowledge base updates. Added version tracking to detect drift.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          <strong>Result:</strong> Design system stays in sync automatically. Developers always get accurate token suggestions.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

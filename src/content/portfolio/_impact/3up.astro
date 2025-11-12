@@ -1,0 +1,88 @@
+---
+import MetricsPanel from '@/components/UI/MetricsPanel.astro';
+---
+
+<MetricsPanel
+  id=""
+  title=""
+  description=""
+  detailedMetrics={[
+    {
+      icon: 'line-md:check-all',
+      iconColor: 'text-green-500',
+      title: 'Frontend Code Quality',
+      rows: [
+        {
+          label: 'Accessibility compliance',
+          sublabel: 'WCAG 2.1 AA',
+          value: '<span class="text-base text-gray-400">33% →</span> <span>94%</span>' },
+        {
+          label: 'Design token adherence',
+          sublabel: 'no hardcoded values',
+          value: '<span class="text-base text-gray-400">58% →</span> <span>96%</span>' },
+        {
+          label: 'Component API misuse',
+          sublabel: 'prop validation',
+          value: '<span class="text-base text-gray-400">40% →</span> <span>8%</span>' }
+      ]
+    },
+    {
+      icon: 'line-md:speedometer-loop',
+      iconColor: 'text-blue-500',
+      title: 'Developer Productivity',
+      rows: [
+        { label: 'Code review cycles', sublabel: 'per frontend PR', value: '<span class="text-base text-gray-400">3.2 →</span> <span>1.5</span>' },
+        { label: 'Time to implement', sublabel: 'accessible modal', value: '<span class="text-base text-gray-400">45m →</span> <span>8m</span>' },
+        { label: 'Time to productivity', sublabel: 'new engineers', value: '<span class="text-base text-gray-400">3w →</span> <span>3d</span>' }
+      ]
+    },
+    {
+      icon: 'line-md:gauge-loop',
+      title: 'Performance & Platform',
+      iconColor: 'text-orange-500',
+      rows: [
+        { label: 'Bundle size reduction', sublabel: 'tree-shaking in CI/CD', value: '28%' },
+        { label: 'Weekly active users', sublabel: '2-3x industry benchmark', value: '60%' },
+        { label: 'Developer NPS', sublabel: '+40% satisfaction', value: '<span class="text-base text-gray-400">6.2 →</span> <span>8.7</span>' }
+      ]
+    }
+  ]}
+/>
+
+
+<MetricsPanel
+  title=" "
+  description=""
+  detailedMetrics={[
+    {
+      icon: 'line-md:edit-twotone',
+      iconColor: 'text-blue-500',
+      title: 'Design Team Impact',
+      rows: [
+        { label: 'Support time reduction', sublabel: 'faster delivery', value: '44%' },
+        { label: 'Strategic work time', sublabel: 'increase', value: '53%' },
+        { label: 'Documentation burden', sublabel: 'reduction', value: '67%' }
+      ]
+    },
+    {
+      icon: 'line-md:arrow-up-circle',
+      iconColor: 'text-blue-500',
+      title: 'Design System Adoption',
+      rows: [
+        { label: 'Component adoption', sublabel: 'increase', value: '43%' },
+        { label: 'Team efficiency', sublabel: 'improvement', value: '35%' },
+        { label: 'Knowledge dependency', sublabel: 'eliminated', value: { icon: 'line-md:confirm-circle', iconColor: 'text-green-600 dark:text-green-400' } },
+      ]
+    },
+    {
+      icon: 'line-md:arrow-up-circle',
+      iconColor: 'text-green-500',
+      title: 'Business Value',
+      rows: [
+        { label: 'Annual ROI', sublabel: 'total value', value: '43%' },
+        { label: 'Design debt prevented', sublabel: 'annual savings', value: '61%' },
+        { label: 'Time to market', sublabel: 'improvement', value: '35%' }
+      ]
+    }
+  ]}
+/>

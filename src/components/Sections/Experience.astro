@@ -1,0 +1,21 @@
+---
+import { mainContent } from '@data/content';
+import Section from '@components/UI/Section.astro';
+import ExperienceCard from '@components/UI/ExperienceCard.astro';
+---
+
+<Section
+  id="experience"
+  title={mainContent.Experience.title}
+  subtitle={mainContent.Experience.subtitle}
+  description={mainContent.Experience.description}>
+
+  {mainContent.Experience.items.map((experience, index) => (
+    <ExperienceCard
+      index={index}
+      showExpandable={true}
+      experience={experience}
+      showDivider={index < mainContent.Experience.items.length - 1}
+    />
+  ))}
+</Section>

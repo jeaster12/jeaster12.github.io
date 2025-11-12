@@ -1,0 +1,84 @@
+---
+// @ts-ignore - shiki types
+import { codeToHtml } from 'shiki';
+
+interface Props {
+  code: string;
+  lang?: string;
+  title?: string;
+  className?: string;
+  showLineNumbers?: boolean;
+  theme?: 'github-dark' | 'github-light' | 'one-dark-pro' | 'dracula' | 'nord' | 'monokai';
+}
+
+const {
+  code,
+  title,
+  className = '',
+  lang = 'plaintext',
+  theme = 'github-dark',
+  showLineNumbers = false,
+} = Astro.props;
+
+// Generate highlighted HTML
+const html = await codeToHtml(code.trim(), {
+  lang,
+  theme,
+  transformers: showLineNumbers ? [
+    {
+      line(node: any, line: number) {
+        node.properties['data-line'] = line;
+      }
+    }
+  ] : []
+});
+---
+
+<div class={`code-block-wrapper rounded-lg overflow-hidden border border-white/10 dark:border-white/5 ${className}`}>
+  {title && (
+    <div class="code-block-title bg-black px-4 py-2 text-sm font-medium border-b border-white/10 dark:border-white/5 text-gray-400">
+      {title}
+    </div>
+  )}
+  <div class="code-block-content relative">
+    <div class="code-block-html" set:html={html} />
+  </div>
+</div>
+
+<style is:global>
+  .code-block-content {
+    overflow-x: auto;
+  }
+
+  .code-block-html pre {
+    margin: 0 !important;
+    padding: 1rem !important;
+    background: transparent !important;
+  }
+
+  .code-block-html code {
+    display: block;
+    font-family: 'Roboto Mono Variable', 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .code-block-html code .line[data-line]::before {
+    content: attr(data-line);
+    display: inline-block;
+    margin-right: 1rem;
+    text-align: right;
+    user-select: none;
+    color: #6b7280;
+  }
+
+
+  .dark .code-block-html {
+    @apply bg-black/40 text-gray-100;
+  }
+
+  html:not(.dark) .code-block-html {
+    @apply bg-black text-inherit !important;
+  }
+
+</style>

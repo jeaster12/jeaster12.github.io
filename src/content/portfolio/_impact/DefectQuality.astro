@@ -1,0 +1,142 @@
+---
+import { Icon } from "astro-icon/components";
+
+const defectReduction = [
+  {
+    label: 'Production Bugs',
+    reduction: 78.4,
+    before: 126,
+    after: 2,
+    unit: 'quarter',
+    color: 'green'
+  },
+  {
+    label: 'Critical Security Issues',
+    reduction: 100,
+    before: 8,
+    after: 0,
+    unit: 'quarter',
+    color: 'green'
+  },
+  {
+    label: 'Accessibility Violations',
+    reduction: 89,
+    before: 342,
+    after: 21,
+    note: 'WCAG 2.1 AA',
+    color: 'green'
+  },
+  {
+    label: 'Design System Violations',
+    reduction: 89,
+    before: 284,
+    after: 31,
+    unit: 'instances',
+    color: 'green'
+  }
+];
+
+const codeQualityScores = [
+  {
+    label: 'SonarQube Quality Gate',
+    value: 'A',
+    before: 'C',
+    note: 'Improved from C rating',
+    type: 'rating',
+    color: 'green'
+  },
+  {
+    label: 'Test Coverage',
+    value: 87.3,
+    before: 62,
+    target: 85,
+    note: 'Up from 62% (target: 85%)',
+    type: 'percentage',
+    color: 'blue'
+  },
+  {
+    label: 'Technical Debt Ratio',
+    value: 2.3,
+    before: 18.7,
+    fixTime: '14 days',
+    note: 'Down from 18.7% (14 days to fix)',
+    type: 'percentage',
+    color: 'green'
+  },
+  {
+    label: 'Lighthouse Performance',
+    value: 89,
+    before: 71,
+    max: 100,
+    note: 'Improved from 71/100',
+    type: 'score',
+    color: 'green'
+  }
+];
+---
+
+<div class="grid md:grid-cols-2 gap-6">
+  <!-- Defect Reduction -->
+  <div class="card-white p-6 shadow-sm">
+    <div class="flex items-center gap-3 mb-4">
+      <Icon name="carbon:warning-hex" class="text-red-600 w-8 h-8" />
+      <h3 class="font-semibold text-xl mb-0 flex items-center">Defect Reduction</h3>
+    </div>
+
+    <div class="space-y-4">
+      {defectReduction.map((metric) => (
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">{metric.label}</span>
+            <span class={`text-2xl font-bold text-${metric.color}-600`}>-{metric.reduction}%</span>
+          </div>
+          <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            From {metric.before}{metric.unit ? `/${metric.unit}` : ''} → {metric.after}{metric.unit ? `/${metric.unit}` : ''}{metric.note ? ` (${metric.note})` : ''}
+          </div>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+            <div class={`bg-${metric.color}-600 h-4 rounded-full`} style={`width: ${metric.reduction}%`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Code Quality Scores -->
+  <div class="card-white p-6 shadow-sm">
+    <div class="flex items-center gap-3 mb-4">
+      <Icon name="carbon:chart-line" class="text-blue-600 w-8 h-8" />
+      <h3 class="font-semibold text-xl mb-0 flex items-center">Code Quality Scores</h3>
+    </div>
+
+    <div class="space-y-4">
+      {codeQualityScores.map((metric) => (
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">{metric.label}</span>
+            <span class={`text-2xl font-bold text-${metric.color}-600`}>
+              {metric.type === 'score' || metric.type === 'percentage'
+                ? `${metric.value}${metric.type === 'percentage' ? '%' : metric.max ? `/${metric.max}` : ''}`
+                : metric.value}
+            </span>
+          </div>
+          <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">{metric.note}</div>
+          {metric.type === 'rating' ? (
+            <div class="grid grid-cols-5 gap-1">
+              {Array.from({ length: 5 }).map(() => (
+                <div class={`bg-${metric.color}-600 h-4 rounded-full`}></div>
+              ))}
+            </div>
+          ) : (
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+              <div
+                class={`bg-${metric.color}-600 h-4 rounded-full`}
+                style={`width: ${metric.type === 'score' ? ((metric.value as number) / (metric.max || 100) * 100) : metric.value}%`}
+              ></div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,45 @@
+---
+import ContentGrid from '@components/UI/ContentGrid.astro';
+---
+
+<ContentGrid
+  id="the-challenges"
+  title="The Challenges"
+  description="Our design system served <strong>thousands of professionals</strong> building experiences for <strong>hundreds of thousands of customers</strong>. Despite comprehensive documentation, developers faced significant friction:"
+  columns={3}
+  items={[
+    {
+      icon: 'line-md:alert-circle-twotone',
+      iconColor: 'text-red-500',
+      title: 'Developer Pain Points',
+      content: [
+        '<strong>Fragmented Information:</strong> Resources scattered across multiple tools',
+        '<strong>Context Switching:</strong> 30-40% of time spent searching',
+        '<strong>Inconsistent Implementation:</strong> Lack of real-time guidance',
+        '<strong>Onboarding Friction:</strong> Weeks to become productive'
+      ]
+    },
+    {
+      icon: 'line-md:alert-twotone-loop',
+      iconColor: 'text-yellow-500',
+      title: 'Design Team Challenges',
+      content: [
+        '<strong>Support Overload:</strong> 60% of time answering repetitive questions',
+        '<strong>Reactive Mode:</strong> Constant interruptions preventing strategic work',
+        '<strong>Documentation Burden:</strong> Keeping resources current and discoverable',
+        '<strong>Quality Inconsistency:</strong> No way to enforce patterns at scale'
+      ]
+    },
+    {
+      icon: 'line-md:monitor-arrow-down-twotone',
+      iconColor: 'text-orange-500',
+      title: 'Business Impact',
+      content: [
+        '<strong>Slower Time-to-Market:</strong> Delays in shipping new features',
+        '<strong>Design & Tech Debt:</strong> Growing inconsistencies across products',
+        '<strong>Support Burden:</strong> Team capacity consumed by reactive work',
+        '<strong>Developer Satisfaction:</strong> Reduced productivity and morale'
+      ]
+    }
+  ]}
+/>

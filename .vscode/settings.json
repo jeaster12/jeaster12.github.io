@@ -1,0 +1,31 @@
+{
+	"editor.wordWrap": "off",
+	"editor.wordWrapColumn": 0,
+	"editor.wrappingIndent": "none",
+	"editor.folding": true,
+	"editor.codeLens": false,
+	"editor.minimap.enabled": true,
+	"editor.renderWhitespace": "none",
+	"files.trimTrailingWhitespace": false,
+	"editor.formatOnSave": false,
+	"editor.formatOnPaste": false,
+	"editor.formatOnType": false,
+	"editor.detectIndentation": false,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"editor.rulers": [],
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode",
+		"editor.formatOnSave": false,
+		"editor.formatOnPaste": false,
+		"editor.formatOnType": false,
+		"editor.wordWrap": "off"
+	},
+	"files.associations": {
+		"*.astro": "astro"
+	},
+	"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never",
+    "source.organizeImports": "never"
+  }
+}

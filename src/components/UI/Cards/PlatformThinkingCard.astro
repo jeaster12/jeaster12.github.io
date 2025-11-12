@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="card-blue my-6">
+  <h3 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2 dark:text-white">
+    <Icon name="line-md:lightbulb-twotone" class="text-purple-600 text-2xl dark:text-purple-400" />
+    Platform Thinking: Building the Foundation, Not Just the Feature
+  </h3>
+  <p class="text-gray-700 leading-relaxed mb-4 dark:text-gray-400">
+    The initial project goal was frontend quality gating. But by architecting the MCP server as <strong>extensible infrastructure</strong>—not a point solution—we unlocked a <strong>multiplier effect</strong>:
+  </p>
+  <ul class="space-y-2 text-sm text-gray-700 m-0 dark:text-gray-400">
+    <li><strong>Design Systems team:</strong> Component validation and code generation (original use case)</li>
+    <li><strong>Platform team:</strong> AWS deployment automation and infrastructure provisioning</li>
+    <li><strong>DevOps team:</strong> CI/CD orchestration and automated smoke testing</li>
+    <li><strong>SRE team:</strong> Incident response and monitoring workflows</li>
+    <li><strong>Documentation team:</strong> Automated API documentation generation</li>
+  </ul>
+  <p class="text-gray-700 leading-relaxed mt-4 text-sm dark:text-gray-400">
+    <strong>One platform, five teams, zero additional headcount required.</strong> Each team extended the MCP server for their needs using the same protocol interface—demonstrating the ROI of platform investments that enable self-service across the organization.
+  </p>
+</div>

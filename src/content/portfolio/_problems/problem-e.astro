@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="mb-16">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">The Problem It Solves</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-red-50 p-6 rounded-lg border border-red-300 dark:border-red-600/10 dark:bg-red-600/10">
+      <div class="flex items-center gap-2 mb-3">
+        <Icon name="line-md:alert" class="text-red-600 w-6 h-6" />
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-0">Before: Traditional Tooling</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 m-0 not-prose list-disc pl-6 ml-0.5">
+        <li><strong>Fragmented feedback:</strong> Multiple tools with separate UIs (ESLint, Prettier, TypeScript, axe-core)</li>
+        <li><strong>No context awareness:</strong> Tools don't understand design system patterns or component relationships</li>
+        <li><strong>Generic error messages:</strong> "Color must be from design tokens" without suggesting which token to use</li>
+        <li><strong>Manual validation:</strong> Developers had to remember to run each tool and interpret results</li>
+        <li><strong>No learning curve:</strong> Same mistakes repeated across teams</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-6 rounded-lg border border-green-300 dark:border-green-600/10 dark:bg-green-600/10">
+      <div class="flex items-center gap-2 mb-3">
+        <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-0">After: MCP Server</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 m-0 not-prose list-disc pl-6 ml-0.5">
+        <li><strong>Unified orchestration:</strong> Single AI assistant coordinates all tools in one interface</li>
+        <li><strong>Design system intelligence:</strong> Understands Figma source, token mappings, and component patterns</li>
+        <li><strong>Contextual suggestions:</strong> "Use `color.primary.500` instead of `#3b82f6`" with visual preview</li>
+        <li><strong>Proactive validation:</strong> Runs automatically as you type with real-time feedback</li>
+        <li><strong>Continuous learning:</strong> Adapts to codebase patterns and team conventions</li>
+      </ul>
+    </div>
+  </div>
+</div>

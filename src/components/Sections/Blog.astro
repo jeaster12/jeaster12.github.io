@@ -1,0 +1,50 @@
+---
+import { mainContent } from '@data/content';
+import { getCollection } from 'astro:content';
+import Section from '@components/UI/Section.astro';
+import BlogPostCard from '@components/UI/BlogPostCard.astro';
+import ExpandButton from '@components/UI/ExpandButton.astro';
+
+const blogContent = mainContent.Blog;
+
+// Get all posts and sort by date
+const posts = await getCollection('blog');
+
+const allPosts = posts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+  .map(post => ({ ...post, slug: post.id.replace(/\.\w+$/, '')}));
+---
+
+
+
+<Section 
+  id="blog"
+  title={blogContent.title}
+  subtitle={blogContent.subtitle}
+  description={blogContent.description}>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {allPosts.map((post, index) => {
+    const isExpandable = index >= 2;
+    return (
+      <div class={`transition-all duration-300 ease-in-out ${isExpandable ? 'expandable-blog-item hidden' : ''}`}>
+        <BlogPostCard
+          post={post}
+          showDate={true}
+        />
+      </div>
+    );
+  })}
+</div>
+
+{allPosts.length > 2 && (
+  <ExpandButton
+    uniqueId="blog"
+    maxHeight="2000px"
+    collapseText="Collapse"
+    targetSelector='.expandable-blog-item'
+    expandText={`Show ${allPosts.length - 2} more posts`}
+  />
+)}
+</Section>

@@ -1,0 +1,41 @@
+---
+import ContentGrid from '@components/UI/ContentGrid.astro';
+---
+
+<ContentGrid
+  width="wide"
+  id="the-solution"
+  title="The Solution"
+  description="We implemented an <strong>AI-powered Model Context Protocol server</strong> integrated with design system knowledge to <strong>assist developers</strong> in real time, with complementary <strong>design governance and QA automation</strong>."
+  sections={[
+    {
+      icon: 'line-md:lightbulb-twotone',
+      iconColor: 'text-purple-500',
+      title: 'AI-Powered Model Context Protocol (MCP) Server',
+      description: 'An enterprise-grade AI assistant that understands design system context, provides real-time guidance, and automates compliance checking — all integrated seamlessly into existing development tools & workflows.',
+      subgrid: {
+        columns: 3,
+        items: [
+          {
+            icon: 'line-md:search-twotone',
+            iconColor: 'text-orange-500',
+            title: 'Intelligent Discovery',
+            description: 'AI-powered component search and recommendations'
+          },
+          {
+            icon: 'line-md:confirm',
+            iconColor: 'text-green-500',
+            title: 'Real-time Validation',
+            description: 'Instant feedback on design system compliance, accessibility, and quality'
+          },
+          {
+            icon: 'line-md:cog-loop',
+            iconColor: 'text-blue-500',
+            title: 'Code Generation',
+            description: 'Production-ready components with accessibility, design system compliance, and quality'
+          }
+        ]
+      }
+    }
+  ]}
+/>

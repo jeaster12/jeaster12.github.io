@@ -1,0 +1,74 @@
+---
+import ContentGrid from '@/components/UI/ContentGrid.astro';
+import { MCPMetrics } from '@/data/full';
+---
+
+<ContentGrid
+  width="wide"
+  id="the-solution"
+  title="AI-Powered Quality Orchestration"
+  description={`The MCP Server is an <strong>orchestration layer</strong> that unifies existing tools (${MCPMetrics.validation.tools.join(', ')}) with <strong>design system intelligence</strong>. It provides <strong>contextual, actionable feedback</strong> in <strong>${MCPMetrics.hero.feedbackTime}s average</strong> while achieving <strong>${MCPMetrics.hero.developerAdoption}% adoption</strong> in 3 months.`}
+  sections={[
+    {
+      icon: 'line-md:lightbulb-twotone',
+      iconColor: 'text-purple-500',
+      title: 'Design System Intelligence',
+      description: 'The server validates against design system standards, not just syntax. It understands component patterns, design tokens, accessibility requirements, and codebase conventions.',
+      subgrid: {
+        columns: 4,
+        items: [
+          {
+            icon: 'line-md:circle',
+            iconColor: 'text-blue-500',
+            title: 'Tokens & Patterns',
+            description: 'Validates color, spacing, typography tokens with design system mappings'
+          },
+          {
+            icon: 'line-md:star-filled',
+            iconColor: 'text-green-500',
+            title: 'Components',
+            description: 'Checks component compositions and required accessibility props'
+          },
+          {
+            icon: 'line-md:confirm-circle',
+            iconColor: 'text-orange-500',
+            title: 'Accessibility',
+            description: 'Enforces WCAG 2.1 AA compliance and semantic HTML'
+          },
+          {
+            icon: 'line-md:document-code',
+            iconColor: 'text-purple-500',
+            title: 'Conventions',
+            description: 'Validates naming, imports, and file structure standards'
+          }
+        ]
+      }
+    },
+    {
+      icon: 'line-md:cog-loop',
+      iconColor: 'text-blue-500',
+      title: 'Less Hallucinations',
+      description: 'The server only reports issues found by actual tools (ESLint, TypeScript, axe-core, etc.). AI provides interpretation and guidance, but validation is grounded in real tool output.',
+      subgrid: {
+        columns: 3,
+        items: [
+          {
+            icon: 'line-md:check-all',
+            title: 'Real Tool Validation',
+            description: 'Only reports actual ESLint, TypeScript, axe-core findings'
+          },
+          {
+            icon: 'line-md:lightbulb-twotone',
+            title: 'AI Interpretation',
+            description: 'Adds design system context and actionable suggestions'
+          },
+          {
+            icon: 'line-md:star-filled',
+            title: 'Continuous Learning',
+            description: 'Improves from team patterns and feedback'
+          }
+        ]
+      }
+    }
+  ]}
+/>

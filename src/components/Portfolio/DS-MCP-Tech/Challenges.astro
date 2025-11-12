@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+
+const challenges = [
+  {
+    title: 'Embedding Quality',
+    description: 'Initial embeddings struggled with design system terminology and domain knowledge.',
+    solutions: [
+      'Fine-tuned embedding model on design system',
+      'Added domain-specific preprocessing',
+      'Implemented semantic chunking strategy',
+      'Result: 34% improvement in retrieval accuracy'
+    ]
+  },
+  {
+    title: 'Hallucination Control',
+    description: 'AI occasionally generated component APIs that didn\'t exist in the design system.',
+    solutions: [
+      'Strict retrieval augmentation (RAG) pipeline',
+      'Schema validation for generated code',
+      'Confidence scoring and thresholds',
+      'Result: 97% accuracy for suggestions'
+    ]
+  },
+  {
+    title: 'Scale & Cost',
+    description: 'OpenAI API costs would have exceeded $15K/month at full adoption.',
+    solutions: [
+      'Implemented aggressive caching strategy',
+      'Fine-tuned smaller models for specific tasks',
+      'Added request rate limiting and quotas',
+      'Result: Cost reduced to $4K/month (73%)'
+    ]
+  }
+];
+---
+
+<SectionTitle
+  width="narrow"
+  title="Technical Challenges & Solutions"
+  description="These challenges and solutions reflect the <strong>technical journey</strong> from <strong>proof-of-concept</strong> to <strong>production deployment</strong>." />
+
+<div class="grid gap-6 md:grid-cols-3 my-8">
+  {challenges.map((challenge) => (
+    <div class="card p-4 shadow-sm">
+      <h4 class="font-semibold text-base text-red-600 dark:text-red-400 flex items-center gap-2">
+        <Icon name="line-md:alert" class="w-5 h-5 text-red-600 dark:text-red-400" />
+        {challenge.title}
+      </h4>
+      <p class="text-sm mb-3">{challenge.description}</p>
+      <div>
+        <h5 class="font-semibold text-sm text-green-600 dark:text-green-400 flex items-center gap-2">
+          <Icon name="line-md:confirm" class="w-4 h-4 text-green-600 dark:text-green-400" />
+          Solution
+        </h5>
+        <ul class="text-xs space-y-1 mb-0">
+          {challenge.solutions.map((solution) => (
+            <li>{solution}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>

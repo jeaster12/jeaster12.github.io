@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  align="left"
+  padding="none"
+  title="Key Learnings for Design Leaders"
+  description="The most important outcome isn't visible in metrics. We <strong>fundamentally changed</strong> what's possible for our design systems at <strong>enterprise scale</strong>. By automating routine guidance and validation, we freed <strong>human creativity</strong> for higher-value work while improving consistency and quality."/>
+
+<div class="grid gap-6 md:grid-cols-3 my-6">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="text-green-600 dark:text-green-400 font-semibold text-base flex items-center gap-2">
+      <Icon name="line-md:confirm-circle" size={20} class="text-green-500 dark:text-green-400" />
+      What Worked Well
+    </h4>
+    <div class="space-y-3 text-sm">
+      <div><strong>Designer-Developer Partnership:</strong> Joint problem definition built buy-in</div>
+      <div><strong>Support-First Strategy:</strong> Automating repetitive work freed strategic capacity</div>
+      <div><strong>Metrics-Driven Approach:</strong> Tracking adoption and time savings proved value</div>
+      <div><strong>Design System as Product:</strong> Treating dev as customers improved outcomes</div>
+    </div>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="text-yellow-600 dark:text-yellow-400 font-semibold text-base flex items-center gap-2">
+      <Icon name="line-md:alert" size={20} class="text-yellow-500 dark:text-yellow-400" />
+      Challenges Overcome
+    </h4>
+    <div class="space-y-3 text-sm">
+      <div><strong>Initial Skepticism:</strong> Designers worried AI would replace their role</div>
+      <div><strong>Quality Control:</strong> Establishing governance for AI-generated guidance</div>
+      <div><strong>Cultural Shift:</strong> Moving from reactive support to proactive systems</div>
+      <div><strong>Knowledge Capture:</strong> Documenting tribal knowledge consistently</div>
+    </div>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="text-blue-600 dark:text-blue-400 font-semibold text-base flex items-center gap-2">
+      <Icon name="line-md:navigation-right-up" size={20} class="text-blue-500 dark:text-blue-400" />
+      Future Evolution
+    </h4>
+    <div class="space-y-3 text-sm">
+      <div><strong>Design Critiques:</strong> AI-assisted feedback on component usage patterns</div>
+      <div><strong>Accessibility Advocacy:</strong> Automated inclusive design recommendations</div>
+      <div><strong>Design Token Intelligence:</strong> Smart suggestions for consistent theming</div>
+      <div><strong>Cross-Team Insights:</strong> Surfacing design patterns across products</div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-100 dark:bg-black/40 rounded-lg md:p-6 p-4 mb-6">
+  <h3 class="text-xl font-semibold mb-2">Leadership Takeaways</h3>
+  <div class="space-y-3 text-sm">
+    <p class="mt-3"><strong>AI Augments, Doesn't Replace:</strong> The MCP server elevated designers' work by handling routine questions, letting them focus on strategic design challenges, innovation, and system evolution.</p>
+    <p><strong>Measure What Matters:</strong> Tracking support time reduction, implementation consistency, and team satisfaction demonstrated clear ROI and justified continued investment in design system automation.</p>
+    <p><strong>Cross-Functional Wins:</strong> Success required partnership between design, engineering, and product. Shared ownership of the MCP server created alignment and sustained momentum.</p>
+    <p><strong>Start With Pain Points:</strong> We focused on the most painful support bottlenecks first. Quick wins built confidence and momentum for broader transformation.</p>
+  </div>
+</div>

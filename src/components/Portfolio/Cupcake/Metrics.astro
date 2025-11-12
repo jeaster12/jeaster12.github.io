@@ -1,0 +1,109 @@
+---
+import { Icon } from 'astro-icon/components';
+import MetricsPanel from '@components/UI/MetricsPanel.astro';
+---
+
+<MetricsPanel
+  id="measurable-results"
+  title="Business Impact & Success Metrics"
+  description="Cupcake transformed how our organization builds software, delivering measurable impact across <strong>development velocity</strong>, <strong>design efficiency</strong>, and <strong>business outcomes</strong>. The system scaled through multiple acquisitions and continues to serve thousands of users."
+  heroMetrics={[
+    {
+      value: '50+',
+      label: 'Apps Unified',
+      gradient: 'bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 border border-green-200 dark:border-green-900/50',
+      textColor: 'text-green-600 dark:text-green-400'
+    },
+    {
+      value: '1000s',
+      label: 'Developers Served',
+      gradient: 'bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border border-blue-200 dark:border-blue-900/50',
+      textColor: 'text-blue-600 dark:text-blue-400'
+    },
+    {
+      value: '100Ks',
+      label: 'End Users',
+      gradient: 'bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/30 dark:to-violet-950/30 border border-purple-200 dark:border-purple-900/50',
+      textColor: 'text-purple-600 dark:text-purple-400'
+    },
+    {
+      value: '3',
+      label: 'Acquisitions',
+      gradient: 'bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/30 border border-orange-200 dark:border-orange-900/50',
+      textColor: 'text-orange-600 dark:text-orange-400'
+    }
+  ]}
+  detailedMetrics={[
+    {
+      icon: 'line-md:speedometer-loop',
+      iconColor: 'text-green-500',
+      title: 'Development Velocity',
+      rows: [
+        { label: 'Feature development time', sublabel: 'faster delivery', value: '60%' },
+        { label: 'UI bug reduction', sublabel: 'fewer inconsistencies', value: '75%' },
+        { label: 'Code reusability', sublabel: 'shared components', value: '85%' }
+      ]
+    },
+    {
+      icon: 'line-md:edit-twotone',
+      iconColor: 'text-blue-500',
+      title: 'Design Efficiency',
+      rows: [
+        { label: 'Design-to-dev handoff', sublabel: 'time reduction', value: '70%' },
+        { label: 'Spec documentation', sublabel: 'eliminated', value: { icon: 'line-md:confirm-circle', iconColor: 'text-blue-600 dark:text-blue-400' } },
+        { label: 'Team alignment', sublabel: 'cross-functional', value: { icon: 'line-md:star-filled', iconColor: 'text-blue-600 dark:text-blue-400' } }
+      ]
+    },
+    {
+      icon: 'line-md:star-filled',
+      iconColor: 'text-purple-500',
+      title: 'Business Value',
+      rows: [
+        { label: 'Consistent UX', sublabel: 'across all products', value: { icon: 'line-md:confirm-circle', iconColor: 'text-purple-600 dark:text-purple-400' } },
+        { label: 'Acquisition integration', sublabel: 'streamlined', value: { icon: 'line-md:star-filled', iconColor: 'text-purple-600 dark:text-purple-400' } },
+        { label: 'Technical debt', sublabel: 'massive reduction', value: '80%' }
+      ]
+    }
+  ]}
+>
+  {/* Cultural Impact */}
+<div class="card card-blue dark:from-blue-950/20 dark:to-purple-950/20 shadow-sm">
+  <h3 class="font-semibold text-xl mb-2 flex items-center gap-2">
+    <Icon name="line-md:heart-filled" size={24} class="text-red-500" />
+    Cultural Transformation
+  </h3>
+  <p class="mb-1 text-sm">
+    Beyond metrics, Cupcake fundamentally changed how our organization thinks about product development:
+  </p>
+  <div class="grid md:grid-cols-2 gap-4 text-sm">
+    <ul class="space-y-2 my-0 pl-0">
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Design Thinking:</strong> No one approaches UX/UI without considering Cupcake</span>
+      </li>
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Collaboration:</strong> Cross-functional teams working from shared foundation</span>
+      </li>
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Quality Focus:</strong> Developers and designers aligned on excellence</span>
+      </li>
+    </ul>
+    <ul class="space-y-2 my-0 pl-0">
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Efficient Meetings:</strong> Less time debating, more time building</span>
+      </li>
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Onboarding Success:</strong> New team members productive immediately</span>
+      </li>
+      <li class="flex items-start gap-2 pl-0">
+        <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+        <span><strong>Innovation:</strong> Teams focus on features, not infrastructure</span>
+      </li>
+    </ul>
+  </div>
+</div>
+</MetricsPanel>

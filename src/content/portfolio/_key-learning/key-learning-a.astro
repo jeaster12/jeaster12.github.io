@@ -1,0 +1,50 @@
+---
+import InsightCard from '@components/UI/InsightCard.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+import ProgramManagementHighlightsCard from '@/components/UI/Cards/ProgramManagementHighlightsCard.astro';
+---
+
+<SectionTitle
+  width="wide"
+  title="Key Learnings & Evolution"
+  description="As we continue to refine our MCP server, we're already seeing positive outcomes. The AI-powered design system is not just a tool; it's a <strong>partner</strong> that helps us deliver <strong>faster</strong>, <strong>more consistent</strong>, & <strong>higher-quality</strong> work."/>
+
+<div class="grid gap-6 md:grid-cols-3 my-6">
+  <InsightCard
+    icon="line-md:confirm-circle"
+    description=""
+    variant="compact"
+    iconColor="text-green-600"
+    title="What Worked Well">
+    <div><strong>Co-creation Approach:</strong> Involving developers from day one</div>
+    <div><strong>Web Standards First:</strong> WCAG 2.1 AA and standards baked into every recommendation</div>
+    <div><strong>Incremental Rollout:</strong> Beta program enabled rapid iteration</div>
+    <div><strong>Multi-modal Integration:</strong> Supporting code and design workflows</div>
+  </InsightCard>
+
+  <InsightCard
+    icon="line-md:alert"
+    description=""
+    variant="compact"
+    iconColor="text-yellow-600"
+    title="Challenges Overcome">
+    <div><strong>Change Management:</strong> Required comprehensive training</div>
+    <div><strong>Trust Building:</strong> Developers needed to trust AI recommendations</div>
+    <div><strong>Maintenance Overhead:</strong> Keeping knowledge base current</div>
+    <div><strong>Performance at Scale:</strong> Sub-second responses for 1000+ users</div>
+  </InsightCard>
+
+  <InsightCard
+    icon="line-md:navigation-right-up"
+    description=""
+    variant="compact"
+    title="Future Roadmap"
+    iconColor="text-blue-600">
+    <div><strong>Multi-language Support:</strong> React Native, Flutter</div>
+    <div><strong>Visual Code Generation:</strong> Figma to production code</div>
+    <div><strong>Advanced Analytics:</strong> Predictive design system insights</div>
+    <div><strong>Cross-Platform:</strong> Web, mobile, desktop consistency</div>
+  </InsightCard>
+</div>
+
+<ProgramManagementHighlightsCard />

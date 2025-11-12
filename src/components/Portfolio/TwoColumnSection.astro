@@ -1,0 +1,122 @@
+---
+import UnderlineLink from '@/components/UI/UnderlineLink.astro';
+import AdaptiveImage from '@/components/UI/AdaptiveImage.astro';
+
+interface Props {
+  gap?: string;
+  loop?: boolean;
+  imageUrl?: string;
+  imageAlt?: string;
+  className?: string;
+  autoplay?: boolean;
+  imageClass?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  leftColumn?: boolean;
+  rightColumn?: boolean;
+  cols?: '1' | '2' | '3';
+  slidesPerView?: number;
+  mode?: 'grid' | 'carousel';
+  imagePosition?: 'left' | 'right';
+  images?: { url: string; name: string; }[];
+  links?: { href: string; text: string; icon?: string; }[];
+}
+
+const {
+  imageUrl,
+  gap = '6',
+  imageWidth,
+  cols = '2',
+  links = [],
+  loop = true,
+  imageHeight,
+  images = [],
+  mode = 'grid',
+  className = '',
+  imageClass = '',
+  autoplay = false,
+  leftColumn = false,
+  rightColumn = false,
+  imagePosition = 'left',
+  imageAlt = 'Portfolio image',
+} = Astro.props;
+
+// If both named slots are used, it's a two-text-column layout
+const hasBothTextColumns = leftColumn || rightColumn;
+
+// Determine if we're using gallery or single image
+const useGallery = images.length > 0;
+---
+
+<div class={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 my-12 ${className}`}>
+  {hasBothTextColumns ? (
+    <>
+      <div class="order-1">
+        <slot name="left" />
+      </div>
+      <div class="order-2">
+        <slot name="right" />
+      </div>
+    </>
+  ) : imagePosition === 'left' ? (
+    <>
+      {(imageUrl || useGallery) && (
+        <div class="order-1">
+          <AdaptiveImage
+            gap={gap}
+            cols={cols}
+            loop={loop}
+            mode={mode}
+            images={images}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
+            autoplay={autoplay}
+            imageClass={imageClass}
+            imageWidth={imageWidth}
+            imageHeight={imageHeight}
+          />
+        </div>
+      )}
+      <div class={(imageUrl || useGallery) ? 'order-2' : 'lg:col-span-2'}>
+        <slot />
+        {links.length > 0 && (
+          <div class="flex gap-4 mt-4">
+            {links.map((link) => (
+              <UnderlineLink href={link.href} text={link.text} icon={link.icon} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  ) : (
+    <>
+      <div class={(imageUrl || useGallery) ? 'order-2 lg:order-1' : 'lg:col-span-2'}>
+        <slot />
+        {links.length > 0 && (
+          <div class="flex gap-4 mt-4">
+            {links.map((link) => (
+              <UnderlineLink href={link.href} text={link.text} icon={link.icon} />
+            ))}
+          </div>
+        )}
+      </div>
+      {(imageUrl || useGallery) && (
+        <div class="order-1 lg:order-2">
+          <AdaptiveImage
+            gap={gap}
+            cols={cols}
+            loop={loop}
+            mode={mode}
+            images={images}
+            imageUrl={imageUrl}
+            imageAlt={imageAlt}
+            autoplay={autoplay}
+            imageClass={imageClass}
+            imageWidth={imageWidth}
+            imageHeight={imageHeight}
+          />
+        </div>
+      )}
+    </>
+  )}
+</div>

@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+---
+
+
+<SectionTitle
+  width="wide"
+  title="Data Pipeline & Model Training"
+  description="A critical component of production readiness was establishing a <strong>robust data pipeline</strong> and <strong>training infrastructure</strong>."/>
+
+<div class="grid gap-6 md:grid-cols-2 mb-8">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="font-semibold">Data Sources</h4>
+    <ul class="text-sm space-y-2 mb-0">
+      <li><strong>Documentation</strong> - Static site, Storybook, MDX files</li>
+      <li><strong>Code examples</strong> - GitHub repos, CodeSandbox demos</li>
+      <li><strong>Support data</strong> - Slack Q&A, support tickets, office hours</li>
+      <li><strong>Design specs</strong> - Figma files, design tokens, guidelines</li>
+      <li><strong>Usage patterns</strong> - Real component implementations in products</li>
+    </ul>
+  </div>
+  <div class="card md:p-6 p-4 shadow-sm">
+    <h4 class="font-semibold">Data Processing</h4>
+    <ul class="text-sm space-y-2 mb-0">
+      <li><strong>Cleaning</strong> - Remove outdated content, fix broken links</li>
+      <li><strong>Chunking</strong> - Split long documents (800 chars, 120 overlap)</li>
+      <li><strong>Augmentation</strong> - Generate Q&A pairs, add metadata</li>
+      <li><strong>Validation</strong> - Ensure accuracy, remove hallucinations</li>
+      <li><strong>Indexing</strong> - Embed and store in Pinecone</li>
+    </ul>
+  </div>
+</div>
+
+<h4 id="continuous-training" class="font-semibold mb-0">Continuous Training Pipeline</h4>
+<p>This continuous learning approach ensured the system stayed current as the design system evolved.</p>
+
+<div class="card p-4 md:p-6 mt-4 mb-8 bg-blue-50 dark:bg-blue-950/30">
+  <h4 class="font-semibold">Automated Retraining</h4>
+  <div class="grid gap-4 md:grid-cols-4 text-sm">
+    <div>
+      <div class="font-semibold mb-1">Daily</div>
+      <div class="text-xs">New documentation indexed</div>
+    </div>
+    <div>
+      <div class="font-semibold mb-1">Weekly</div>
+      <div class="text-xs">Model performance evaluation</div>
+    </div>
+    <div>
+      <div class="font-semibold mb-1">Monthly</div>
+      <div class="text-xs">Embedding model updates</div>
+    </div>
+    <div>
+      <div class="font-semibold mb-1">Quarterly</div>
+      <div class="text-xs">Major version upgrades</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="grid md:grid-cols-2 gap-6 my-8">
+  <div class="card-white p-6">
+    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+      <Icon name="carbon:cloud-app" class="text-purple-600 w-6 h-6" />
+      Server Architecture
+    </h3> 
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+      <li><strong>Node.js server</strong> running Model Context Protocol</li>
+      <li><strong>GPT-4</strong> for natural language understanding</li>
+      <li><strong>Express API</strong> for tool orchestration</li>
+      <li><strong>WebSocket connection</strong> for real-time updates</li>
+      <li><strong>File system watchers</strong> for change detection</li>
+    </ul>
+  </div>
+
+  <div class="card-white p-6">
+    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+      <Icon name="carbon:tools" class="text-blue-600 w-6 h-6" />
+      Tool Integration
+    </h3>
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+      <li><strong>ESLint CLI</strong> via Node API</li>
+      <li><strong>Prettier</strong> programmatic API</li>
+      <li><strong>TypeScript Compiler API</strong> for type checking</li>
+      <li><strong>axe-core</strong> with jsdom for a11y testing</li>
+      <li><strong>Custom validators</strong> for design tokens</li>
+    </ul>
+  </div>
+
+  <div class="card-white p-6">
+    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+      <Icon name="carbon:data-base" class="text-green-600 w-6 h-6" />
+      Design System Context
+    </h3>
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+      <li><strong>Figma API</strong> for design token extraction</li>
+      <li><strong>JSON schema</strong> for token validation</li>
+      <li><strong>Component registry</strong> with usage patterns</li>
+      <li><strong>Codebase index</strong> for pattern detection</li>
+      <li><strong>Learning system</strong> for convention discovery</li>
+    </ul>
+  </div>
+
+  <div class="card-white p-6">
+    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+      <Icon name="carbon:integration" class="text-orange-600 w-6 h-6" />
+      IDE Integration
+    </h3>
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+      <li><strong>VS Code extension</strong> with Language Server Protocol</li>
+      <li><strong>ChatGPT integration</strong> via MCP protocol</li>
+      <li><strong>Inline diagnostics</strong> with quick fixes</li>
+      <li><strong>Command palette</strong> for manual validation</li>
+      <li><strong>Status bar indicators</strong> for real-time feedback</li>
+    </ul>
+  </div>
+</div>

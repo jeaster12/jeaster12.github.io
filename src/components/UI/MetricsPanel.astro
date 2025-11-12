@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+
+export interface HeroMetric {
+  value: string;
+  label: string;
+  gradient: string;
+  textColor: string;
+}
+
+export interface MetricRow {
+  label: string;
+  sublabel: string;
+  value: string | { icon: string; iconColor: string };
+}
+
+export interface DetailedMetric {
+  icon: string;
+  title: string;
+  iconColor: string;
+  rows: MetricRow[];
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  description?: string;
+  heroMetrics?: HeroMetric[];
+  detailedMetrics?: DetailedMetric[];
+}
+
+const {
+  id,
+  title,
+  description,
+  heroMetrics = [],
+  detailedMetrics = []
+} = Astro.props;
+---
+
+<SectionTitle id={id} title={title} description={description} />
+
+{/* Hero Metrics */}
+{heroMetrics.length > 0 && (
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    {heroMetrics.map((metric) => (
+      <div class={`text-center p-4 rounded-lg ${metric.gradient}`}>
+        <div class={`text-4xl md:text-5xl font-bold ${metric.textColor} mb-2`}>{metric.value}</div>
+        <div class="text-sm font-medium text-gray-700 dark:text-gray-300">{metric.label}</div>
+      </div>
+    ))}
+  </div>
+)}
+
+{/* Detailed Metrics Grid */}
+{detailedMetrics.length > 0 && (
+  <div class={`grid md:grid-cols-${detailedMetrics.length} gap-6 mb-6`}>
+    {detailedMetrics.map((metric) => (
+      <div class="card-white md:p-6 p-4 shadow-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <Icon name={metric.icon} size={24} class={metric.iconColor} />
+          <h3 class="font-semibold text-lg m-0">{metric.title}</h3>
+        </div>
+        <div class="space-y-4">
+          {metric.rows.map((row) => (
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">{row.label}</div>
+                <div class="text-xs text-gray-500">{row.sublabel}</div>
+              </div>
+              {typeof row.value === 'string' ? (
+                <span class={`text-xl font-bold flex items-center gap-2 ${metric.iconColor.replace('text-', 'text-')}`} set:html={row.value} />
+              ) : (
+                <Icon name={row.value.icon} size={32} class={row.value.iconColor} />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
+{/* Additional content slot */}
+<slot />

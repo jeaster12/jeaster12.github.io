@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+import { globalConfig } from '@data/content';
+---
+
+<div id="home" class="section flex lg:justify-between md:py-6 py-2 justify-center items-center gap-2">
+	<a href="/" class="inline-block">
+		<h1 class="text-5xl xl:text-7xl font-nunito font-semibold dark:text-white transition-opacity hover:opacity-70">
+			{globalConfig.name.split(' ')[0]}
+			<span class="stroke-text">{globalConfig.name.split(' ').slice(1).join(' ')}</span>
+		</h1>
+	</a>
+	<button id="theme-toggle" type="button" class="inline-flex justify-center items-center bg-white/5 w-10 h-10 rounded-full text-black transition ease-out duration-[120ms] hover:bg-white/10" aria-label="Toggle dark mode">
+		<Icon id="theme-toggle-dark-icon" class="hidden dark:block text-white" name="line-md:moon-rising-filled-loop" size="24" />
+		<Icon id="theme-toggle-light-icon" class="dark:hidden" name="line-md:sunny-outline-loop" size="24" />
+	</button>
+</div>

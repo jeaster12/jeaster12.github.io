@@ -1,0 +1,247 @@
+---
+import Terminal from "@/components/UI/Terminal.astro";
+import CodeBlock from "@/components/UI/CodeBlock.astro";
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+
+const groundedCode = `<Button intent="primary" aria-busy={loading || undefined} disabled={loading}>
+  {loading ? 'Saving…' : 'Save'}
+</Button>`;
+
+const pocServerCode = `import { createServer, tool } from 'mcp-framework';
+import fs from 'node:fs';
+import path from 'node:path';
+import { cosineSimilarity, embed } from './pocembed';
+
+// Load precomputed vectors created by the training script
+const vectors = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'vectors.json'), 'utf8')
+) as Array<{
+  id: string;
+  text: string;
+  vector: number[];
+  source: string;
+}>;
+
+const searchDesignDocs = tool({
+  name: 'search_design_docs',
+  description: 'Semantic search over design system docs and guidelines',
+  inputSchema: {
+    type: 'object',
+    required: ['query'],
+    properties: {
+      query: { type: 'string' },
+      k: { type: 'number', default: 5 }
+    },
+  },
+  handler: async ({ query, k = 5 }) => {
+    const q = await embed(query);
+    const scored = vectors
+      .map((d) => ({ ...d, score: cosineSimilarity(q, d.vector) }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, k);
+
+    return {
+      results: scored.map((s) => ({
+        source: s.source,
+        score: Number(s.score.toFixed(3)),
+        text: s.text
+      })),
+    };
+  },
+});
+
+const server = createServer({
+  name: 'company-design-system-mcp-poc',
+  version: '0.0.1',
+  tools: [searchDesignDocs],
+});
+
+server.start(8080);`;
+
+const trainingScriptCode = `// scripts/poc-train.ts
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+import { embed } from './pocembed';
+
+const docsDir = path.join(process.cwd(), 'docs/design-system');
+
+function chunk(text: string, size = 800, overlap = 120) {
+  const chunks: string[] = [];
+  for (let i = 0; i < text.length; i += size - overlap) {
+    chunks.push(text.slice(i, i + size));
+  }
+  return chunks;
+}
+
+async function main() {
+  const files = fs.readdirSync(docsDir)
+    .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+  const out: any[] = [];
+
+  for (const file of files) {
+    const full = path.join(docsDir, file);
+    const raw = fs.readFileSync(full, 'utf8');
+    const { content } = matter(raw);
+
+    for (const text of chunk(content)) {
+      const vector = await embed(text);
+      out.push({
+        id: \`\${file}-\${out.length}\`,
+        source: file,
+        text,
+        vector
+      });
+    }
+  }
+
+  fs.writeFileSync(
+    path.join(process.cwd(), 'vectors.json'),
+    JSON.stringify(out)
+  );
+}
+
+main();`;
+---
+
+<SectionTitle
+  title="Phase 2: Proof of Concept"
+  description="The goal was to validate whether an MCP server could effectively <strong>ground AI responses</strong> in <strong>real design system knowledge</strong>. The first proof of concept focused on a <strong>minimal viable implementation</strong>."/>
+
+<Terminal
+  showCommandBar={false}
+  title="MCP Workflow Overview">
+
+  <div class="grid gap-3 md:grid-cols-4">
+    <div class="card p-3">
+      <h4 class="text-base font-semibold mb-2">1) User Query</h4>
+      <div class="text-xs mb-4">"Find button with loading state"</div>
+      <p class="rounded-md border border-global bg-black/5 px-2 py-1 text-xs my-0">VS Code • Figma Dev Mode • CLI</p>
+    </div>
+    <div class="card p-3">
+      <h4 class="text-base font-semibold mb-2">2) MCP Server</h4>
+      <div class="text-xs">Routes query → tools</div>
+      <ul class="list-disc pl-4 text-xs space-y-0.5 mb-0">
+        <li>search_components</li>
+        <li>validate</li>
+      </ul>
+    </div>
+    <div class="card p-3">
+      <h4 class="text-base font-semibold mb-2">3) Retrieval & Grounding</h4>
+      <div class="text-xs">Vector DB + docs</div>
+      <ul class="list-disc pl-4 text-xs space-y-0.5 mb-0">
+        <li>Pinecone results (k=3)</li>
+        <li>Design tokens & a11y</li>
+      </ul>
+    </div>
+    <div class="card p-3">
+      <h4 class="text-base font-semibold mb-2">4) Guidance & Output</h4>
+      <div class="text-xs">Assist, validate, generate</div>
+      <ul class="list-disc pl-4 text-xs space-y-0.5 mb-0">
+        <li>Recommend component, React</li>
+        <li>A11y checklist</li>
+      </ul>
+    </div>
+  </div>
+</Terminal>
+
+<h3 id="poc-implementation" class="text-xl mt-6 mb-2">POC Implementation</h3>
+<p>The initial implementation validated the flow: query → retrieve → answer with code samples grounded in real tokens and components.</p>
+
+<div class="grid gap-6 md:grid-cols-2 mt-4 mb-6">
+  <div class="card md:p-6 p-4 shadow-sm min-w-0">
+    <h4 class="font-semibold text-base mb-2">Quick MCP Server</h4>
+    <p class="text-xs mb-4">Single tool: search_design_docs</p>
+    <div class="overflow-x-auto">
+      <CodeBlock code={pocServerCode} lang="typescript" className="h-64 !overflow-y-scroll"/>
+    </div>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm min-w-0">
+    <h4 class="font-semibold text-base mb-2">POC Training Script</h4>
+    <p class="text-xs mb-4">Index design system docs into vectors.json</p>
+    <div class="overflow-x-auto">
+      <CodeBlock code={trainingScriptCode} lang="typescript" className="h-64 !overflow-y-scroll" />
+    </div>
+  </div>
+</div>
+
+<div class="mb-2 mt-8">
+  <h4 id="poc-implementation" class="text-base mb-2">Usage Example: Calling the Tool</h4>
+  <p class="my-0">Invoke search_ds and inspect request/response</p>
+</div>
+
+<Terminal
+  showCommandBar={true}
+  title="MCP Search Tool"
+  command="Find components for 'button loading state'">
+
+  <div class="grid gap-0 md:grid-cols-2 flex-1 overflow-auto">
+    <div class="lg:border-r border-global pr-4">
+      <h4 class="mb-2 text-base font-semibold">Request</h4>
+      <div class="grid gap-2 text-xs">
+        <label>Tool</label>
+        <input readonly="" class="w-full rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="search_ds" />
+        <label>Query</label>
+        <input readonly="" class="w-full rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="How do I add a loading state to Button?" />
+        <label>k</label>
+        <input readonly="" class="w-20 rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="3" />
+      </div>
+    </div>
+    <div class="lg:pl-4">
+      <h4 class="mb-2 mt-2 lg:mt-0 text-base font-semibold">Response</h4>
+      <div class="card p-3 text-sm">
+        <h4 class="text-xs font-medium">Results</h4>
+        <ul class="list-disc pl-5 text-xs space-y-4 mb-0">
+          <li>
+            <span class="font-semibold">components/button.md</span>
+            <span class="ml-1 italic">score: 0.912</span>
+            <div class="mt-1">Use the Button component with the loading variant. Prefer aria-busy and disable pointer events.</div>
+          </li>
+          <li>
+            <span class="font-semibold">a11y/interaction.md</span>
+            <span class="ml-1 italic">score: 0.887</span>
+            <div class="mt-1">Buttons in loading state must preserve focus, announce status, and prevent duplicate submits.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Terminal>
+
+<div class="mb-2 mt-8">
+  <h4 id="poc-implementation" class="text-base mb-2">Usage Example: Grounding</h4>
+  <p class="my-0">Grounding search_ds response with component knowledge</p>
+</div>
+
+<Terminal
+  showCommandBar={true}
+  title="Grounded Answer Composer"
+  command="Compose grounded answer for 'Button loading state'">
+
+  <div class="grid gap-0 md:grid-cols-2 flex-1 overflow-auto">
+    <div class="lg:border-r border-global pr-4">
+      <h4 class="mb-4 text-base font-semibold">Sources</h4>
+      <div class="grid gap-6 text-xs">
+        <div>
+          <label>Tool</label>
+          <input readonly="" class="w-full mt-2 rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="Use the Button component with the loading variant. Prefer aria-busy and disable pointer events." />
+        </div>
+        <div>
+          <label>Query</label>
+          <input readonly="" class="w-full mt-2 rounded-md border border-global dark:bg-black/40 px-3 py-2 outline-none" value="Buttons in loading state must preserve focus, announce status, and prevent duplicate submits." />
+        </div>
+      </div>
+    </div>
+    <div class="lg:pl-4">
+      <h4 class="mb-2 mt-2 lg:mt-0 text-base font-semibold">Answer</h4>
+      <div class="card p-3 text-xs">
+        <h4 class="font-medium">Grounded guidance</h4>
+        <p>Use the Button component in primary intent with an isLoading state.</p>
+        <p>Announce progress with aria-busy and disable user interaction to prevent duplicate submissions.</p>
+        <h4 class="font-medium mt-2">Code (preview)</h4>
+        <CodeBlock code={groundedCode} lang="jsx" />
+      </div>
+    </div>
+  </div>
+</Terminal>

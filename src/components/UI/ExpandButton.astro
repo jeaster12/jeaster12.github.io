@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon?: string;
+  uniqueId?: string;
+  expandText: string;
+  maxHeight?: string;
+  collapseText?: string;
+  targetSelector: string;
+}
+
+const {
+  expandText,
+  icon = 'line-md:chevron-small-down',
+  targetSelector,
+  maxHeight = '2000px',
+  collapseText = 'Collapse',
+  uniqueId = `expand-${Math.random().toString(36).substring(2, 11)}`,
+} = Astro.props;
+
+const buttonId = `expand-btn-${uniqueId}`;
+---
+
+<div class="flex justify-center mt-6">
+  <button
+    id={buttonId}
+    class="inline-flex items-center gap-1 font-nunito text-sm font-bold leading-tight no-underline group"
+    aria-label={expandText}
+  >
+    <span class="link link-underline link-underline-black pb-0.5 border-b-2 border-neutral-100 dark:border-neutral-700 dark:text-white/70 flex gap-1 items-center">
+      <span class="expand-text">{expandText}</span>
+      {icon && <Icon name={icon} size="16" class="expand-icon transition-transform duration-200" />}
+    </span>
+  </button>
+</div>
+
+<script is:inline define:vars={{ buttonId, targetSelector, expandText, collapseText, maxHeight }}>
+  (function() {
+    function initExpandButton() {
+      const button = document.getElementById(buttonId);
+      if (!button) return;
+
+      const textEl = button.querySelector('.expand-text');
+      const icon = button.querySelector('.expand-icon');
+      let isExpanded = false;
+
+      // Remove any existing listeners
+      const newButton = button.cloneNode(true);
+      button.parentNode.replaceChild(newButton, button);
+
+      newButton.addEventListener('click', () => {
+        const items = document.querySelectorAll(targetSelector);
+        isExpanded = !isExpanded;
+
+        items.forEach(item => {
+          if (isExpanded) {
+            item.style.display = 'block';
+            item.style.maxHeight = maxHeight;
+            item.classList.remove('opacity-0');
+            item.classList.add('opacity-100');
+          } else {
+            item.style.maxHeight = '0';
+            item.classList.remove('opacity-100');
+            item.classList.add('opacity-0');
+            setTimeout(() => {
+              if (!isExpanded) {
+                item.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+
+        const newTextEl = newButton.querySelector('.expand-text');
+        const newIcon = newButton.querySelector('.expand-icon');
+
+        if (newTextEl) {
+          newTextEl.textContent = isExpanded ? collapseText : expandText;
+        }
+        if (newIcon) {
+          newIcon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0)';
+        }
+      });
+    }
+
+    // Initialize on page load and after transitions
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initExpandButton);
+    } else {
+      initExpandButton();
+    }
+    document.addEventListener('astro:page-load', initExpandButton);
+  })();
+</script>

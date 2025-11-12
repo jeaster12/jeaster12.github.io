@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="card-blue mt-6">
+	<h4 class="font-semibold mb-2 flex items-center gap-2">
+		<Icon name="line-md:star-filled" class="text-purple-600" />
+		Other Teams Started Building on Our Infrastructure
+	</h4>
+
+	<p class="text-sm text-gray-700 mb-4 dark:text-gray-400">One outcome I didn't plan for: Once we had the MCP protocol layer, teams saw opportunities beyond frontend quality.</p>
+
+	<div class="grid md:grid-cols-2 gap-4 mb-4 text-black dark:text-gray-400">
+		<div class="bg-white/80 rounded-lg p-4 dark:bg-black/20">
+			<h5 class="font-semibold text-sm mb-2 dark:text-gray-200">Platform Team: AWS Deployment Automation</h5>
+			<p class="text-xs text-gray-700 mb-2 dark:text-gray-400">Natural language → infrastructure: <em>"Deploy this to staging with autoscaling"</em> → Generates Terraform, provisions ECS/ALB/CloudWatch, runs pre-deployment quality gates (accessibility, bundle size, security).</p>
+		</div>
+
+		<div class="bg-white/80 rounded-lg p-4 dark:bg-black/20">
+			<h5 class="font-semibold text-sm mb-2 dark:text-gray-200">DevOps Team: CI/CD Orchestration</h5>
+			<p class="text-xs text-gray-700 mb-2 dark:text-gray-400"><em>"Run smoke tests in staging, deploy to prod if passing"</em> → Orchestrates Jenkins pipelines, monitors health checks, auto-rollback on failures.</p>
+		</div>
+	</div>
+
+	<div class="bg-white/60 rounded-lg p-4 dark:bg-black/20">
+		<p class="text-sm font-semibold text-gray-900 mb-2 dark:text-gray-200">The Platform Multiplier Effect:</p>
+		<div class="grid md:grid-cols-3 gap-4 text-xs text-gray-700 dark:text-gray-400">
+			<div>
+				<strong>My team:</strong> 7 engineers built the foundation
+			</div>
+			<div>
+				<strong>Extended by:</strong> 5 teams for their use cases
+			</div>
+			<div>
+				<strong>Additional headcount:</strong> Zero required from us
+			</div>
+		</div>
+		<p class="text-xs text-gray-700 italic mt-3 dark:text-gray-400">
+			This validated the architecture: We built extensible infrastructure, not a point solution. Similar pattern to <a href="https://www.digitalocean.com/community/tutorials/control-apps-using-mcp-server" target="_blank" class="text-purple-600 hover:underline">DigitalOcean's MCP server</a> for cloud automation.
+		</p>
+	</div>
+</div>

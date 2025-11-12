@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="blue-gradient p-6 mb-6 rounded-lg">
+  <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+    <Icon name="carbon:warning-alt" class="w-6 h-6 text-purple-600" />
+    Challenge: Preventing AI Hallucinations in Validation
+  </h3>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-blue-200 dark:border-blue-900/50">
+    <div class="flex items-start gap-3">
+      <Icon name="carbon:warning-hex" class="w-6 h-6 text-red-600 flex-shrink-0" />
+      <div>
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-1">The Hallucination Problem</h4>
+        <p class="text-sm text-gray-700 dark:text-gray-300">Early AI integrations suggested non-existent components, deprecated patterns, and invalid APIs that looked correct but would break in production. Traditional LLM assistants hallucinate validation results without actually running tools, causing developers to lose trust.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-blue-200 dark:border-blue-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white">The Solution: Grounded Tool Execution</h4>
+    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+      Every MCP Server suggestion is validated against <strong>real design system data, component APIs, and static analysis tools</strong> before being presented to developers. The AI orchestrates tools and interprets results; it doesn't fabricate validation outcomes.
+    </p>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="green-gradient p-4 rounded-lg">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:checkmark-outline" class="w-5 h-5 text-green-600" />
+          <h5 class="font-bold text-sm text-gray-900 dark:text-white">How Grounding Works</h5>
+        </div>
+        <ul class="text-xs text-gray-700 my-0 space-y-1 ml-1 dark:text-gray-300">
+          <li class="pl-0 m-0"><strong>Execute real tools:</strong> ESLint, TypeScript, axe-core, design token validators</li>
+          <li class="pl-0 m-0"><strong>Query actual data:</strong> Figma tokens, component registry, API schemas</li>
+          <li class="pl-0 m-0"><strong>Validate results:</strong> Cross-check AI suggestions against tool output</li>
+          <li class="pl-0 m-0"><strong>Report only facts:</strong> AI adds context, never invents issues</li>
+        </ul>
+      </div>
+      <div class="blue-gradient p-4 rounded-lg">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:security" class="w-5 h-5 text-blue-600" />
+          <h5 class="font-bold text-sm text-gray-900 dark:text-white">Trust Through Transparency</h5>
+        </div>
+        <ul class="text-xs text-gray-700 my-0 space-y-1 ml-1 dark:text-gray-300">
+          <li class="pl-0 m-0"><strong>Citations:</strong> Every suggestion links to docs or tool output</li>
+          <li class="pl-0 m-0"><strong>Explainability:</strong> Shows which tool found the issue</li>
+          <li class="pl-0 m-0"><strong>Reproducibility:</strong> Developers can re-run validation locally</li>
+          <li class="pl-0 m-0"><strong>No black box:</strong> Clear reasoning, not AI magic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/80 rounded-lg p-5 dark:bg-black/40 border border-blue-200 dark:border-blue-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white">Why This Matters for AI-Powered Tools</h4>
+    <div class="grid md:grid-cols-3 gap-3 my-0">
+      <div class="flex items-start gap-2">
+        <Icon name="carbon:checkmark-filled" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <div class="text-xs font-bold text-gray-900 dark:text-white mb-1">Developer Trust</div>
+          <p class="text-xs text-gray-600 dark:text-gray-300">Grounded execution eliminated skepticism. Engineers trusted verifiable suggestions</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <Icon name="carbon:checkmark-filled" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <div class="text-xs font-bold text-gray-900 dark:text-white mb-1">Less False Positives</div>
+          <p class="text-xs text-gray-600 dark:text-gray-300">Every reported issue was backed by tool execution. No noise, no hallucinations, no wasted time</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <Icon name="carbon:checkmark-filled" class="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+        <div>
+          <div class="text-xs font-bold text-gray-900 dark:text-white mb-1">Production-Grade Reliability</div>
+          <p class="text-xs text-gray-600 dark:text-gray-300">System was safe to use in critical workflows because AI acted as orchestrator, not oracle</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

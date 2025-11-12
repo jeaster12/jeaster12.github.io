@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="bg-white border border-blue-300 rounded-lg p-6 mb-6 dark:bg-black/20 dark:border-blue-600/50">
+  <div class="text-center mb-6">
+    <h3 class="text-xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-2 dark:text-gray-200">
+      <Icon name="carbon:network-overlay" class="w-6 h-6 text-indigo-600" />
+      The Scale Challenge
+    </h3>
+    <p class="text-sm text-gray-600 dark:text-gray-400">Why this was harder than it sounds</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-6">
+    <div class="bg-white p-6 rounded-lg border border-blue-200 text-center hover:shadow-lg transition-shadow dark:bg-black/20 dark:border-blue-600/50">
+      <div class="flex justify-center mb-3">
+        <Icon name="carbon:user-multiple" class="w-12 h-12 text-blue-600" />
+      </div>
+      <div class="text-5xl font-bold text-blue-600 mb-2">6,000+</div>
+      <p class="text-sm font-semibold text-gray-900 mb-1 dark:text-gray-200">Engineers</p>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Shipping frontend code</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg border border-orange-200 text-center hover:shadow-lg transition-shadow dark:bg-black/20 dark:border-orange-600/50">
+      <div class="flex justify-center mb-3">
+        <Icon name="carbon:code" class="w-12 h-12 text-orange-600" />
+      </div>
+      <div class="text-5xl font-bold text-orange-600 mb-2">12%</div>
+      <p class="text-sm font-semibold text-gray-900 mb-1 dark:text-gray-200">Frontend Specialists</p>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Self-classified</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg border border-purple-200 text-center hover:shadow-lg transition-shadow dark:bg-black/20 dark:border-purple-600/50">
+      <div class="flex justify-center mb-3">
+        <Icon name="carbon:partnership" class="w-12 h-12 text-purple-600" />
+      </div>
+      <div class="text-5xl font-bold text-purple-600 mb-2">24+</div>
+      <p class="text-sm font-semibold text-gray-900 mb-1 dark:text-gray-200">Product Teams</p>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Across the organization</p>
+    </div>
+  </div>
+
+  <div class="bg-indigo-900 text-gray-200 p-5 rounded-lg text-center dark:bg-black/20 dark:border-indigo-600/50">
+    <p class="text-base leading-relaxed"><strong class="text-white">The Challenge:</strong> Every engineer (backend, mobile, full-stack) expected to ship <strong class="text-white">accessible, performant, design-system-compliant UIs</strong>.</p>
+  </div>
+</div>

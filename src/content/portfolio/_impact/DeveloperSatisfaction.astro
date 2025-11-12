@@ -1,0 +1,49 @@
+---
+const feedbackThemes = {
+  positive: {
+    title: 'What Developers Love',
+    color: 'green',
+    items: [
+      '"Instant feedback saves me hours of debugging"',
+      '"I learned design system tokens in days, not weeks"',
+      '"PRs get approved faster with fewer comments"',
+      '"No more anxiety about breaking things"',
+      '"Accessibility is finally easy to get right"'
+    ]
+  },
+  improvements: {
+    title: 'Areas for Improvement',
+    color: 'orange',
+    items: [
+      '"Sometimes feedback is too verbose"',
+      '"Would like more custom rule configuration"',
+      '"Pre-push hooks can feel slow (60s)"',
+      '"Need better docs for MCP Server capabilities"',
+      '"Want integration with more tools (Storybook, etc.)"'
+    ]
+  }
+};
+---
+
+<div class="purple-gradient rounded-lg p-6 mb-6">
+  <h3 class="font-semibold text-xl mb-4 flex items-center">Survey Feedback Themes</h3>
+  <div class="grid md:grid-cols-2 gap-6 text-sm">
+    <div class="card-white p-4 rounded-lg border border-purple-200">
+      <div class={`font-semibold text-${feedbackThemes.positive.color}-600 mb-2`}>{feedbackThemes.positive.title}</div>
+      <ul class="space-y-2 list-disc not-prose pl-6 italic">
+        {feedbackThemes.positive.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="card-white p-4 rounded-lg border border-purple-200">
+      <div class={`font-semibold text-${feedbackThemes.improvements.color}-600 mb-2`}>{feedbackThemes.improvements.title}</div>
+      <ul class="space-y-2 list-disc not-prose pl-6 italic">
+        {feedbackThemes.improvements.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+

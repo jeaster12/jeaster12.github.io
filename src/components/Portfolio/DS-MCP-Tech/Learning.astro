@@ -1,0 +1,79 @@
+---
+import CardHeader from '@/components/UI/CardHeader.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  title="Key Learnings"
+  description="Lessons learned from building and scaling a <strong>production AI system</strong>—<strong>technical insights</strong> and <strong>engineering practices</strong> that shaped our approach"/>
+
+<div class="grid gap-6 md:grid-cols-3 mb-6">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <CardHeader
+      icon="line-md:confirm-circle"
+      iconSize={20}
+      title="What Worked Well"
+      textColor="text-green-600"
+    />
+    <ul class="text-sm space-y-2 mb-0">
+      <li><strong>Start with POC:</strong> Validated approach with minimal investment</li>
+      <li><strong>Quick wins first:</strong> llms.txt provided immediate value</li>
+      <li><strong>Iterative scaling:</strong> Gradually increased complexity and features</li>
+      <li><strong>User feedback loops:</strong> Continuous improvement based on usage</li>
+    </ul>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <CardHeader
+      icon="line-md:alert"
+      iconSize={20}
+      title="Challenges"
+      textColor="text-yellow-600"
+    />
+    <ul class="text-sm space-y-2 mb-0">
+      <li><strong>Data quality:</strong> Required significant cleanup and curation</li>
+      <li><strong>Model selection:</strong> Balancing accuracy vs. cost vs. latency</li>
+      <li><strong>Hallucination prevention:</strong> Strict validation and grounding needed</li>
+      <li><strong>Change management:</strong> Training teams to trust AI assistance</li>
+    </ul>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <CardHeader
+      icon="line-md:navigation-right-up"
+      iconSize={20}
+      title="Future Roadmap"
+      textColor="text-blue-600"
+    />
+    <ul class="text-sm space-y-2 mb-0">
+      <li><strong>Multimodal support:</strong> Image understanding for Figma designs</li>
+      <li><strong>Code migration:</strong> Automated upgrades between versions</li>
+      <li><strong>Performance optimization:</strong> Self-tuning based on usage</li>
+      <li><strong>Cross-platform:</strong> Mobile and native app support</li>
+    </ul>
+  </div>
+</div>
+
+<div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 rounded-lg p-4 md:p-6">
+  <h4 class="font-semibold mb-3">Engineering Principles That Worked</h4>
+  <div class="grid gap-4 md:grid-cols-2 text-sm">
+    <div>
+      <strong>1. Measure Everything:</strong> Without comprehensive metrics, you're flying blind. Instrument early and often.
+    </div>
+    <div>
+      <strong>2. Embrace Feedback Loops:</strong> Real user feedback is more valuable than any benchmark. Ship early, iterate fast.
+    </div>
+    <div>
+      <strong>3. Optimize for Developer Experience:</strong> If it's hard to use, developers won't use it. Prioritize UX.
+    </div>
+    <div>
+      <strong>4. Don't Over-Engineer:</strong> Build what you need today, not what you might need tomorrow. Stay flexible.
+    </div>
+    <div>
+      <strong>5. Cost Matters:</strong> Unlimited AI API spend isn't sustainable. Optimize aggressively.
+    </div>
+    <div>
+      <strong>6. Trust but Verify:</strong> AI is powerful but fallible. Validate outputs, provide citations, enable human override.
+    </div>
+  </div>
+</div>

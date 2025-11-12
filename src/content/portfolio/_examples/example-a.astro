@@ -1,0 +1,122 @@
+---
+import { Icon } from 'astro-icon/components';
+import CodeBlock from '@/components/UI/CodeBlock.astro';
+
+const beforeCode = `export function SubmitButton() {
+  return (
+    <button
+      style={{
+        backgroundColor: '#3b82f6',
+        padding: '12px 24px',
+        fontSize: '16px'
+      }}
+    > 
+      Submit
+    </button>
+  );
+}`;
+
+const afterCode = `import { Button } from '@/components/ui/Button';
+
+interface SubmitButtonProps {
+  onSubmit: () => void;
+}
+
+export function SubmitButton({ onSubmit }: SubmitButtonProps) {
+  return (
+    <Button
+      variant="primary"
+      size="md"
+      onClick={onSubmit}
+    >
+      Submit
+    </Button>
+  );
+}`;
+---
+
+<!-- Real Example -->
+<div class="mb-16">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Real Example: Validation in Action</h2>
+  <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3">Scenario: Developer writes a button with hard-coded styles</h3>
+  
+  <CodeBlock
+    lang="tsx"
+    code={beforeCode}
+    showLineNumbers={false}
+    title="Button.tsx (Before)"/>
+
+  <div class="my-6 p-6 rounded-lg purple-gradient">
+    <div class="flex items-start gap-3">
+      <Icon name="logos:openai-icon" class="fill-purple-600 w-6 h-6 flex-shrink-0 mt-1" />
+      <div class="flex-1">
+        <div class="font-bold text-gray-900 dark:text-white mb-2 text-lg">MCP Server Analysis (8.2s)</div>
+        <div class="text-sm text-gray-700 dark:text-gray-300 grid grid-cols-2 gap-4">
+          <div>
+            <p class="mb-2"><strong>Issues Found:</strong></p>
+            <div class="bg-white dark:bg-black/40 p-3 rounded text-xs space-y-2">
+              <p><strong>ESLint:</strong> Hard-coded color value detected (#3b82f6), should use design tokens</p>
+              <p><strong>axe-core:</strong> Button missing accessible name (no text or aria-label)</p>
+              <p><strong>TypeScript:</strong> Missing onClick handler type</p>
+              <p><strong>Design System:</strong> Should use Button component instead of native button</p>
+            </div>
+          </div>
+          <div>
+            <p class="mb-2"><strong>Contextual Recommendations:</strong></p>
+            <div class="bg-white dark:bg-black/40 p-3 rounded text-xs space-y-2">
+              <p>1. <strong>Use Button component</strong> from design system (<code>@/components/ui/Button</code>)</p>
+              <p>2. <strong>Replace #3b82f6</strong> with design token: <code>color.primary.500</code></p>
+              <p>3. <strong>Add label:</strong> Button has visible text "Submit", which serves as the accessible name</p>
+              <p>4. <strong>Type the onClick:</strong> Use <code>React.MouseEventHandler&lt;HTMLButtonElement&gt;</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <CodeBlock
+    lang="tsx"
+    code={afterCode}
+    showLineNumbers={false}
+    title="Button.tsx (After - MCP Server Applied Suggestions)"/>
+
+  <div class="mt-6 p-4 rounded-lg green-gradient">
+    <div class="flex items-center gap-2 mb-2">
+      <Icon name="line-md:confirm" class="text-green-600 w-6 h-6" />
+      <div class="font-bold text-gray-900 dark:text-white">Result: All Checks Pass</div>
+    </div>
+    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1 pl-0 m-0 list-none">
+      <li class="flex items-center gap-2">
+        <span class="text-green-600">✓</span> 
+        Using design system Button component
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-green-600">✓</span> 
+        Variant "primary" uses color.primary.500 internally
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-green-600">✓</span> 
+        Size "md" uses correct spacing tokens (space.3, space.6)
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-green-600">✓</span> 
+        Accessible name from button text content
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-green-600">✓</span> 
+        Properly typed props and handlers
+      </li>
+    </ul>
+  </div>
+
+  <a href="/technical-examples" class="block p-4 not-prose bg-white dark:bg-black/40 rounded-lg border border-global hover:border-purple-400 dark:hover:border-purple-600 hover:shadow-md transition-all mt-6">
+    <div class="flex items-center gap-2 mb-2">
+      <Icon name="logos:openai-icon" class="w-5 h-5 fill-purple-600" />
+      <div class="font-bold text-gray-900 dark:text-white">Technical Examples</div>
+    </div>
+    <p class="text-sm text-gray-600 dark:text-gray-400">View More Real-world Examples of Validation in Action</p>
+  </a>
+
+</div>
+

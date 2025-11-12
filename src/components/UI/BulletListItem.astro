@@ -1,0 +1,21 @@
+---
+interface Props {
+  color?: string;
+  class?: string;
+  align?: 'top' | 'center';
+}
+
+const {
+  color = 'bg-primary dark:bg-primary',
+  class: className = '',
+  align = 'center'
+} = Astro.props;
+
+const alignmentClass = align === 'top' ? 'items-start' : 'items-center';
+const bulletSpacingClass = align === 'top' ? 'mt-2' : '';
+---
+
+<li class={`flex ${alignmentClass} ${className}`}>
+  <span class={`inline-block w-1.5 h-1.5 rounded-full ${color} mr-2 flex-shrink-0 ${bulletSpacingClass}`}></span>
+  <span><slot /></span>
+</li>

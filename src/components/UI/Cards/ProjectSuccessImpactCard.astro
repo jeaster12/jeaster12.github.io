@@ -1,0 +1,67 @@
+---
+import MetricsPanel from '../MetricsPanel.astro';
+---
+
+<MetricsPanel
+  id="measurable-results"
+  title="Project Success & Impact"
+  description="Six months post-launch, the AI-powered MCP server delivered <strong>transformative results</strong> across <strong>developer productivity</strong>, <strong>team efficiency</strong>, & <strong>business value</strong>."
+  heroMetrics={[
+    {
+      value: '52%',
+      label: 'Search Time Reduced',
+      gradient: 'green-gradient',
+      textColor: 'text-green-600 dark:text-green-400'
+    },
+    {
+      value: '$2.3M',
+      label: 'Annual Savings',
+      gradient: 'blue-gradient',
+      textColor: 'text-blue-600 dark:text-blue-400'
+    },
+    {
+      value: '78%',
+      label: 'Faster Onboarding',
+      gradient: 'purple-gradient',
+      textColor: 'text-purple-600 dark:text-purple-400'
+    },
+    {
+      value: '94%',
+      label: 'WCAG Compliance',
+      gradient: 'orange-gradient',
+      textColor: 'text-orange-600 dark:text-orange-400'
+    }
+  ]}
+  detailedMetrics={[
+    {
+      icon: 'line-md:speedometer-loop',
+      iconColor: 'text-green-500',
+      title: 'Developer Productivity',
+      rows: [
+        { label: 'Feature implementation', sublabel: 'faster delivery', value: '44%' },
+        { label: 'Code review cycles', sublabel: 'fewer iterations', value: '53%' },
+        { label: 'UI bugs per sprint', sublabel: 'reduction', value: '67%' }
+      ]
+    },
+    {
+      icon: 'line-md:arrow-up-circle',
+      iconColor: 'text-blue-500',
+      title: 'Design System Adoption',
+      rows: [
+        { label: 'Component adoption', sublabel: 'increase', value: '43%' },
+        { label: 'Consistency issues', sublabel: 'decrease', value: '61%' },
+        { label: 'Team efficiency', sublabel: 'improvement', value: '35%' }
+      ]
+    },
+    {
+      icon: 'line-md:star-filled',
+      iconColor: 'text-purple-500',
+      title: 'Team Experience',
+      rows: [
+        { label: 'Developer NPS', sublabel: '+40% satisfaction', value: '<span class="text-base text-gray-400">6.2 →</span> <span>8.7</span>' },
+        { label: 'Time to productivity', sublabel: '7x faster', value: '<span class="text-base text-gray-400">3w →</span> <span>3d</span>' },
+        { label: 'Knowledge dependency', sublabel: 'eliminated', value: { icon: 'line-md:confirm-circle', iconColor: 'text-purple-600 dark:text-purple-400' } }
+      ]
+    }
+  ]}
+/>

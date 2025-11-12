@@ -1,0 +1,193 @@
+---
+import Icon from 'node_modules/astro-icon/components/Icon.astro';
+
+interface Props {
+  tabs: { 
+    id: string; 
+    label: string;
+    icon?: string;
+  }[];
+  className?: string;
+  defaultTab?: string;
+}
+
+const { tabs, defaultTab, className = '' } = Astro.props;
+const uniqueId = `tabs-${Math.random().toString(36).substring(2, 11)}`;
+const defaultTabId = defaultTab || tabs[0]?.id;
+---
+
+<div class={`tabs-wrapper ${className}`} data-tabs-id={uniqueId} data-default-tab={defaultTabId}>
+  <div role="tablist" class="tabs-list flex gap-1 sm:gap-2 border-b border-global my-4 overflow-x-auto scrollbar-hide" aria-label="Content tabs">
+    {tabs.map((tab) => (
+      <button
+        role="tab"
+        type="button"
+        data-tab-id={tab.id}
+        id={`tab-${uniqueId}-${tab.id}`}
+        tabindex={tab.id === defaultTabId ? 0 : -1}
+        aria-controls={`panel-${uniqueId}-${tab.id}`}
+        aria-selected={tab.id === defaultTabId ? 'true' : 'false'}
+        class="tab-button flex flex-col items-center justify-center min-w-[70px] sm:min-w-0 sm:flex-1 px-2 sm:px-4 py-2 font-medium text-xs sm:text-sm border-b-2 border-transparent cursor-pointer whitespace-nowrap transition-all duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <Icon name={tab.icon || "line-md:cog"} size={18} class="sm:hidden flex-shrink-0"/>
+        <Icon name={tab.icon || "line-md:cog"} size={26} class="hidden sm:block mx-auto mb-2"/>
+        <span class="hidden sm:inline">{tab.label}</span>
+        <span class="sm:hidden text-[9px] leading-tight text-center mt-1 max-w-[70px] truncate">{tab.label.split(' ')[0]}</span>
+      </button>
+    ))}
+  </div>
+
+  <slot />
+</div>
+
+<style>
+  .tab-button:hover,
+  .tab-button[aria-selected="true"] {
+    color: black;
+    border-color: var(--primary, #a855f7);
+  }
+
+  :global(.dark) .tab-button:hover,
+  :global(.dark) .tab-button[aria-selected="true"] {
+    color: white;
+    border-color: var(--primary, #a855f7);
+  }
+
+  :global(.tabs-wrapper .tab-content) {
+    display: none;
+  }
+
+  :global(.tabs-wrapper .tab-content[data-active="true"]) {
+    display: block;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Smooth scrolling for tab list on mobile */
+  .tabs-list {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Add padding for scroll snap on mobile */
+  @media (max-width: 640px) {
+    .tabs-list {
+      padding: 0 0.25rem;
+      scroll-snap-type: x mandatory;
+      justify-content: space-between;
+    }
+
+    .tab-button {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+  }
+</style>
+
+<script>
+  interface TabsElement extends HTMLElement {
+    _initialized?: boolean;
+  }
+
+  function initializeTabs() {
+    document.querySelectorAll<TabsElement>('.tabs-wrapper').forEach((wrapper) => {
+      // Prevent double initialization
+      if (wrapper._initialized) return;
+      wrapper._initialized = true;
+
+      const tabsId = wrapper.getAttribute('data-tabs-id');
+      const defaultTabId = wrapper.getAttribute('data-default-tab');
+      if (!tabsId) return;
+
+      const tabButtons = wrapper.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+      const tabPanels = wrapper.querySelectorAll<HTMLElement>('.tab-content');
+
+      // Initialize panels with proper IDs and attributes
+      tabPanels.forEach((panel) => {
+        const panelId = panel.getAttribute('data-tab');
+        if (panelId) {
+          panel.id = `panel-${tabsId}-${panelId}`;
+          panel.setAttribute('role', 'tabpanel');
+          panel.setAttribute('aria-labelledby', `tab-${tabsId}-${panelId}`);
+          panel.setAttribute('tabindex', '0');
+
+          // Set initial active state
+          if (panelId === defaultTabId) {
+            panel.setAttribute('data-active', 'true');
+          }
+        }
+      });
+
+      // Handle tab clicks
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-tab-id');
+          if (!tabId) return;
+
+          // Update all tab buttons
+          tabButtons.forEach((btn) => {
+            const isSelected = btn === button;
+            btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+            btn.setAttribute('tabindex', isSelected ? '0' : '-1');
+          });
+
+          // Update all panels
+          tabPanels.forEach((panel) => {
+            const panelTabId = panel.getAttribute('data-tab');
+            const isActive = panelTabId === tabId;
+            panel.setAttribute('data-active', isActive ? 'true' : 'false');
+          });
+        });
+
+        // Handle keyboard navigation
+        button.addEventListener('keydown', (e) => {
+          const currentIndex = Array.from(tabButtons).indexOf(button);
+          let targetButton: HTMLButtonElement | null = null;
+
+          switch (e.key) {
+            case 'ArrowRight':
+            case 'ArrowDown':
+              e.preventDefault();
+              targetButton = tabButtons[(currentIndex + 1) % tabButtons.length] as HTMLButtonElement;
+              break;
+            case 'ArrowLeft':
+            case 'ArrowUp':
+              e.preventDefault();
+              targetButton = tabButtons[(currentIndex - 1 + tabButtons.length) % tabButtons.length] as HTMLButtonElement;
+              break;
+            case 'Home':
+              e.preventDefault();
+              targetButton = tabButtons[0] as HTMLButtonElement;
+              break;
+            case 'End':
+              e.preventDefault();
+              targetButton = tabButtons[tabButtons.length - 1] as HTMLButtonElement;
+              break;
+          }
+
+          if (targetButton) {
+            targetButton.click();
+            targetButton.focus();
+          }
+        });
+      });
+    });
+  }
+
+  // Initialize on page load and after transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTabs);
+  } else {
+    initializeTabs();
+  }
+  document.addEventListener('astro:page-load', initializeTabs);
+</script>

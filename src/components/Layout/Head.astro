@@ -1,0 +1,73 @@
+---
+import Seo from './Seo.astro'
+import { globalConfig } from '@data/content'
+import { ClientRouter } from 'astro:transitions'
+
+// Props
+type Props = {
+	title?: string
+	ogImage?: string
+	noindex?: boolean
+	canonical?: boolean
+	description?: string
+}
+// Page Metadata
+const {
+	noindex = globalConfig.noindex,
+	title = globalConfig.siteTitle,
+	ogImage = globalConfig.ogImage,
+	canonical = globalConfig.canonical,
+	description = globalConfig.siteDescription,
+} = Astro.props
+---
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+	<meta name="theme-color" content="#f2f5f8" media="(prefers-color-scheme: light)" />
+
+	<!-- Resource hints for faster loading -->
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+	<Seo
+		title={title}
+		ogImage={ogImage}
+		noindex={noindex}
+		canonical={canonical}
+		description={description}
+	/>
+	<!-- Preload LCP image for faster rendering -->
+	<link rel="preload" href="/assets/images/new.webp" as="image" fetchpriority="high" />
+
+	<link rel="icon" href={globalConfig.logo.src} type="image/svg+xml" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Josh Easter" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:image" content="/assets/images/og.jpg" />
+
+	<!-- Dark mode script - must run immediately to prevent FOUC -->
+	<script is:inline>
+		// Function to apply theme
+		function applyTheme() {
+			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		}
+
+		// Apply immediately on load
+		applyTheme();
+
+		// Reapply on Astro view transitions
+		document.addEventListener('astro:after-swap', applyTheme);
+	</script>
+
+	<ClientRouter fallback="swap" />
+</head>

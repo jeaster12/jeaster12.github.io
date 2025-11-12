@@ -1,0 +1,42 @@
+---
+import ContentGrid from '@/components/UI/ContentGrid.astro'
+---
+
+<ContentGrid
+	id="the-problem"
+	title="The Problem"
+	description="With <strong>6000+ engineers</strong> shipping frontend code but <strong>very limited frontend specialists</strong>, we faced a critical platform problem: <strong>How do you maintain frontend quality when most engineers aren't frontend experts?</strong> Documentation alone wasn't enough; we needed automated quality guardrails that shifted left from code review to development time."
+	columns={3}
+	items={[
+		{
+			icon: 'line-md:alert-circle-twotone',
+			iconColor: 'text-red-500',
+			title: 'Fragmented Tools',
+			content: [
+        '<strong>No Design System Context:</strong> Tools validate syntax, not design patterns', 
+        '<strong>Generic Error Messages:</strong> "Use semantic color" without guidance', 
+        '<strong>Manual Validation:</strong> Developers must remember all standards', 
+        '<strong>Delayed Feedback:</strong> Issues caught in code review, not development']
+		},
+		{
+			icon: 'line-md:alert-twotone-loop',
+			iconColor: 'text-amber-500',
+			title: 'Quality Crisis',
+			content: [
+        '<strong>67% of UI bugs</strong> traced to component misuse', 
+        '<strong>45% WCAG compliance</strong> - Legal and regulatory risk <strong>LAWSUITS!</strong>', 
+        '<strong>3-5 review cycles per PR</strong> for frontend changes from non-experts', 
+        '<strong>10-15 min CI/CD feedback</strong> - Issues caught too late']
+		},
+		{
+			icon: 'line-md:alert-twotone-loop',
+			iconColor: 'text-amber-500',
+			title: 'Productivity Crisis',
+			content: [
+        '<strong>Backend/full-stack engineers</strong> shipping UI without frontend expertise', 
+        '<strong>30-40% of engineer time</strong> searching docs, Stack Overflow, asking for help', 
+        '<strong>200+ PRs/week</strong> reviewed by frontend experts catching preventable issues', 
+        '<strong>60% of frontend team capacity</strong> on reactive code review, not strategic work']
+		},
+	]}
+/>

@@ -1,0 +1,26 @@
+---
+import TwoColumnSection from "../TwoColumnSection.astro";
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  title="Real-World Impact"
+  description="Since launch, <strong>dozens of applications</strong>, <strong>features</strong>, and <strong>product experiences</strong> have been built with Cupcake. Here are a few examples of the design system in action across our enterprise platform suite" />
+
+<TwoColumnSection
+  mode="carousel"
+  autoplay={true}
+  imagePosition="left"
+  images={[
+    { url: '/assets/images/portfolio/example-a.webp', name: 'Example Application A' },
+    { url: '/assets/images/portfolio/example-b.webp', name: 'Example Application B' },
+    { url: '/assets/images/portfolio/example-c.webp', name: 'Example Application C' },
+    { url: '/assets/images/portfolio/example-d.webp', name: 'Example Application D' },
+    { url: '/assets/images/portfolio/example-e.webp', name: 'Example Application E' },
+    { url: '/assets/images/portfolio/example-g.webp', name: 'Example Application G' }
+  ]}>
+
+  <h3 class="mb-0">Production Applications</h3>
+  <p class="mb-2">Cupcake transformed how teams build software across the organization. Every new feature, page, and application starts with Cupcake components, ensuring consistency and dramatically reducing development time.</p>
+  <p class="mb-2">These examples showcase real applications built on the Cupcake foundation - from data dashboards to complex financial workflows. While intentionally redacted to protect intellectual property, they demonstrate the system's flexibility and production readiness at scale.</p>
+</TwoColumnSection>

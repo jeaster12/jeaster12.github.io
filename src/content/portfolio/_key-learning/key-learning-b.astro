@@ -1,0 +1,66 @@
+---
+import { MCPMetrics } from '@/data/full';
+import InsightCard from '@components/UI/InsightCard.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  width="wide"
+  title="Key Learnings & Insights"
+  description={`Building an AI-powered quality orchestration system that achieved <strong>${MCPMetrics.hero.developerAdoption}% developer adoption</strong> in 3 months taught us critical lessons about building developer tools, balancing AI with real validation, and driving organizational change through developer experience.`}/>
+
+<div class="grid gap-6 md:grid-cols-3 mt-6">
+  <InsightCard
+    icon="line-md:confirm-circle"
+    iconColor="text-green-600"
+    title="What Worked Well"
+    description=""
+    variant="compact">
+    <div><strong>Less Hallucinations:</strong> AI interprets, tools validate—developers trust the system</div>
+    <div><strong>Developer Experience First:</strong> {MCPMetrics.hero.feedbackTime}s feedback time drove organic adoption</div>
+    <div><strong>Design System Intelligence:</strong> Context-aware validation, not just syntax checking</div>
+    <div><strong>Real-Time Feedback:</strong> {MCPMetrics.impact.issuesCaughtBeforeCommit}% of issues caught before commit</div>
+    <div><strong>Incremental Validation:</strong> Only validate changed code for speed</div>
+  </InsightCard>
+
+  <InsightCard
+    icon="line-md:alert"
+    iconColor="text-yellow-600"
+    title="Challenges Overcome"
+    description=""
+    variant="compact">
+    <div><strong>Adoption Resistance:</strong> Frictionless UX and visible value overcame skepticism</div>
+    <div><strong>Performance at Scale:</strong> {MCPMetrics.hero.dailyValidations.toLocaleString()} daily validations without slowdown</div>
+    <div><strong>Hallucination Prevention:</strong> Grounding AI in real tool output maintained trust</div>
+    <div><strong>Balance Enforcement:</strong> Context-aware suggestions vs. blocking errors</div>
+    <div><strong>Onboarding Acceleration:</strong> {MCPMetrics.impact.fasterOnboarding}% faster productivity for new devs</div>
+  </InsightCard>
+
+  <InsightCard
+    icon="line-md:navigation-right-up"
+    iconColor="text-blue-600"
+    title="What's Next"
+    description=""
+    variant="compact">
+    <div>
+      <strong>AI Code Generation:</strong> 
+        Move beyond validation to intelligent code creation
+    </div>
+    <div>
+      <strong>Multi-Framework:</strong> 
+        Expand from React to Vue, Svelte, Angular
+    </div>
+    <div>
+      <strong>Predictive Analytics:</strong> 
+        Anticipate issues before they occur
+    </div>
+    <div>
+      <strong>Visual Scaffolding:</strong> 
+        {MCPMetrics.technical.figmaSync} Figma sync enables design-to-code
+    </div>
+    <div>
+      <strong>Community Extensions:</strong> 
+        Plugin ecosystem for team-specific rules
+    </div>
+  </InsightCard>
+</div>

@@ -1,0 +1,91 @@
+---
+title: 'Design System MCP: Project Overview'
+client: 'Enterprise Design System'
+description: 'AI-powered Model Context Protocol server that slashed search time by <strong>52%</strong>, accelerated onboarding by <strong>78%</strong>, and delivered <strong>$2.3M in annual savings</strong> while transforming how thousands of developers interact with our design system.'
+skills: ['Design Systems', 'AI Integration', 'Program Management', 'Team Leadership']
+date: 2024-04-15
+featuredImage:
+  url: '/assets/images/portfolio/emiliano-vittoriosi-unsplash.webp'
+  name: 'Design System MCP'
+featured: true
+draft: false
+---
+import ExampleTabs from './_examples/ExampleTabs.astro';
+
+import { Icon } from 'astro-icon/components';
+import Solution from '@/components/Portfolio/DS-MCP/Solution.astro';
+import KeyLearningA from './_key-learning/key-learning-a.astro';
+import Challenge from '@/components/Portfolio/DS-MCP/Challenge-1-final.astro';
+import RelatedCaseStudies from '@/components/EXTRA/_RelatedCaseStudies.astro';
+import ProjectSuccessImpact from '@/components/UI/Cards/ProjectSuccessImpactCard.astro';
+import ArchitectureSimple from '@/components/Portfolio/DS-MCP/ArchitectureSimple.astro';
+import ArchitectureFull from '@/components/EXTRA/_tech/ArchitectureFull.astro';
+import MainGoal from "./_vision/goal.astro";
+import AllPillars from "./_vision/pillars.astro";
+import AllApproach from "./_vision/approach.astro";
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+import ProjectOverview from '@/components/Portfolio/ProjectOverview.astro';
+import DesignSystemIntelligence from '@/components/EXTRA/_DesignSystemIntelligence.astro';
+import ExampleA from './_examples/example-a.astro';
+
+<ProjectOverview frontmatter={frontmatter}>
+An enterprise design system serving thousands of developers needed a better way to deliver guidance at the point of use. This is the story of how we identified the problem, built an AI-powered solution, and achieved measurable business impact across engineering, design, and product teams.
+
+**Please note:** Details are generalized to protect intellectual property while demonstrating problem-solving approach and strategic outcomes.
+</ProjectOverview>
+
+<hr className="md:my-16 my-8"/>
+
+<Challenge/>
+
+<hr className="md:my-16 my-8"/>
+<SectionTitle
+  width="wide"
+  title="Establishing The Vision"
+  description="Transform fragmented developer tools into an <strong>intelligent orchestration system</strong> that provides <strong>real-time, context-aware guidance</strong> grounded in design system knowledge. The goal: catch issues before commit, accelerate onboarding, and shift quality left in the development cycle."/>
+
+
+<AllPillars/>
+<AllApproach/>
+
+<hr className="md:my-16 my-8"/>
+
+<ArchitectureFull/>
+
+<hr className="md:my-16 my-8"/>
+  
+<ExampleTabs/>
+
+<hr className="md:my-16 my-8"/>
+
+<ProjectSuccessImpact />
+
+<hr className="md:my-16 my-8"/>
+
+<KeyLearningA/>
+
+<hr className="md:my-16 my-8"/>
+
+<SectionTitle 
+  title="What's Next?"
+  description="This MCP server transformed our design system from a <strong>static documentation repository</strong> into an <strong>active development partner</strong>. By reducing friction, improving consistency, and accelerating delivery, we <strong>fundamentally changed</strong> how the design system serves the organization."/>
+
+
+<RelatedCaseStudies
+  studies={[
+    {
+      title: "For Designers & Leaders",
+      url: "/portfolio/design-impacts-mcp",
+      description: "See how this freed design teams from support burden and enabled strategic focus.",
+      icon: "line-md:edit-twotone",
+      color: "blue"
+    },
+    {
+      title: "For Developers & Engineers",
+      url: "/portfolio/tech-overview-mcp",
+      description: "Explore the architecture, AI pipeline, and technical implementation.",
+      icon: "line-md:cog-loop",
+      color: "purple"
+    }
+  ]}
+/>

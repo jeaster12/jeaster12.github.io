@@ -1,0 +1,229 @@
+---
+import { MCPMetrics } from '@/data/full';
+import { Icon } from 'astro-icon/components';
+import MetricsPanel from '@components/UI/MetricsPanel.astro';
+import FrontEndImpactCard from '@/components/UI/Cards/FrontEndImpactCard.astro';
+import DeveloperQuotesCard from '@/components/UI/Cards/DeveloperQuotesCard.astro';
+import DeveloperFeedbackCard from '@/components/UI/Cards/DeveloperFeedbackCard.astro';
+import ProjectSuccessImpactCard from '@/components/UI/Cards/ProjectSuccessImpactCard.astro';
+
+const impactResults = [
+  {
+    value: '91%',
+    label: 'Developer Adoption',
+    sublabel: 'within 3 months',
+    color: 'purple'
+  },
+  {
+    value: '87%',
+    label: 'Issues Caught in IDE',
+    sublabel: 'before commit',
+    color: 'blue'
+  },
+  {
+    value: '4.8/5',
+    label: 'Overall Satisfaction',
+    sublabel: 'n=68 developers',
+    color: 'green'
+  },
+  {
+    value: '62%',
+    label: 'Faster Onboarding',
+    sublabel: 'new developers',
+    color: 'orange'
+  }
+];
+
+const keyMetrics = [
+  {
+    value: '89%',
+    label: 'WCAG 2.1 AA',
+    sublabel: 'Up from 67% (+27 pts)',
+    colorFrom: 'green',
+    colorTo: 'emerald'
+  },
+  {
+    value: '60%',
+    label: 'Adoption',
+    sublabel: '720 daily users, 2-3x benchmark',
+    colorFrom: 'blue',
+    colorTo: 'cyan'
+  },
+  {
+    value: '$2.2M',
+    label: 'Annual Value',
+    sublabel: '3.7x ROI on $600K',
+    colorFrom: 'purple',
+    colorTo: 'pink'
+  },
+  {
+    value: '44%',
+    label: 'Faster Delivery',
+    sublabel: 'Reduced review cycles',
+    colorFrom: 'orange',
+    colorTo: 'amber'
+  }
+];
+
+const stakeholderBenefits = [
+  {
+    icon: 'carbon:paint-brush',
+    iconColor: 'text-pink-600',
+    title: 'Designers',
+    bgColor: 'bg-pink-50 dark:bg-pink-900/20',
+    borderColor: 'border-pink-200 dark:border-pink-800/50',
+    benefits: [
+      { metric: '60% → 15%', description: 'time on support' },
+      { metric: '45% capacity', description: 'freed for strategic work' },
+      { metric: '91% DS usage', description: '(up from 73%)' }
+    ]
+  },
+  {
+    icon: 'carbon:code',
+    iconColor: 'text-blue-600',
+    title: 'Engineers',
+    bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+    borderColor: 'border-blue-200 dark:border-blue-800/50',
+    benefits: [
+      { metric: '8.2s feedback', description: 'vs 5-15min CI/CD' },
+      { metric: '53% fewer', description: 'review cycles' },
+      { metric: '91% adoption', description: 'within 6 months' }
+    ]
+  },
+  {
+    icon: 'carbon:analytics',
+    iconColor: 'text-green-600',
+    title: 'Product Owners',
+    bgColor: 'bg-green-50 dark:bg-green-900/20',
+    borderColor: 'border-green-200 dark:border-green-800/50',
+    benefits: [
+      { metric: '44% faster', description: 'feature delivery' },
+      { metric: '78% first-pass', description: 'approval rate' },
+      { metric: 'Predictable', description: 'delivery timelines' }
+    ]
+  }
+];
+---
+
+<div class="my-8">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6 dark:text-white">Impact & Results</h2>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    {impactResults.map((result) => (
+      <div class={`${result.color}-gradient rounded-lg p-6 text-center`}>
+        <div class={`text-4xl font-bold text-${result.color}-600 mb-2 dark:text-white`}>{result.value}</div>
+        <div class="text-sm text-gray-700 mb-1 dark:text-white">{result.label}</div>
+        <div class="text-xs text-gray-500 dark:text-gray-400">{result.sublabel}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    {keyMetrics.map((metric) => (
+      <div class={`card ${metric.colorFrom}-gradient rounded-lg p-6 text-center`}>
+        <div class={`text-4xl font-bold text-${metric.colorFrom}-600 mb-2 dark:text-white`}>{metric.value}</div>
+        <p class="text-sm font-semibold text-gray-900 dark:text-white">{metric.label}</p>
+        <p class="text-xs text-gray-600 mt-1 dark:text-gray-400">{metric.sublabel}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-4 mb-6">
+    {stakeholderBenefits.map((stakeholder) => (
+      <div class={`card p-6 rounded-lg ${stakeholder.bgColor} border ${stakeholder.borderColor}`}>
+        <div class="flex items-center gap-2 mb-3">
+          <Icon name={stakeholder.icon} class={`w-6 h-6 ${stakeholder.iconColor}`} />
+          <h3 class="text-base font-bold text-gray-900 mb-0 dark:text-white">{stakeholder.title}</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700 mb-0 dark:text-gray-400">
+          {stakeholder.benefits.map((benefit) => (
+            <li><strong>{benefit.metric}</strong> {benefit.description}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <DeveloperQuotesCard/>
+
+</div>
+
+<div class="my-6 text-center">
+  <a href="/impact-metrics" class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+    See complete ROI breakdown and metrics methodology
+    <Icon name="line-md:arrow-right" class="w-4 h-4" />
+  </a>
+</div>
+
+<hr class="my-16"/>
+
+<MetricsPanel
+  id="measurable-results"
+  title="Impact & Results"
+  description={`The MCP Server achieved <strong>${MCPMetrics.hero.developerAdoption}% developer adoption</strong> within 3 months.`}
+  heroMetrics={[
+    {
+      value: `${MCPMetrics.hero.developerAdoption}%`,
+      label: 'Developer Adoption',
+      gradient: 'green-gradient',
+      textColor: 'text-green-600 dark:text-green-400'
+    },
+    {
+      value: `${MCPMetrics.hero.feedbackTime}s`,
+      label: 'Avg Feedback Time',
+      gradient: 'blue-gradient',
+      textColor: 'text-blue-600 dark:text-blue-400'
+    },
+    {
+      value: `${MCPMetrics.impact.issuesCaughtBeforeCommit}%`,
+      label: 'Issues Caught Pre-Commit',
+      gradient: 'purple-gradient',
+      textColor: 'text-purple-600 dark:text-purple-400'
+    },
+    {
+      value: `${MCPMetrics.impact.fasterOnboarding}%`,
+      label: 'Faster Onboarding',
+      gradient: 'orange-gradient',
+      textColor: 'text-orange-600 dark:text-orange-400'
+    }
+  ]}
+  detailedMetrics={[
+    {
+      icon: 'line-md:speedometer-loop',
+      iconColor: 'text-green-500',
+      title: 'Performance',
+      rows: [
+        { label: 'Feedback time', sublabel: '30-45s → 8.2s', value: `<span class="text-base text-gray-400">${MCPMetrics.impact.feedbackTimeReduction.before}s →</span> <span>${MCPMetrics.impact.feedbackTimeReduction.after}s</span>` },
+      ]
+    },
+    {
+      icon: 'line-md:check-all',
+      iconColor: 'text-blue-500',
+      title: 'Quality Impact',
+      rows: [
+        { label: 'Issues caught pre-commit', sublabel: 'shift left success', value: `${MCPMetrics.impact.issuesCaughtBeforeCommit}%` },
+        { label: 'Developer adoption', sublabel: 'within 3 months', value: `${MCPMetrics.hero.developerAdoption}%` },
+        { label: 'Onboarding speed', sublabel: 'faster productivity', value: `${MCPMetrics.impact.fasterOnboarding}%` }
+      ]
+    },
+    {
+      icon: 'line-md:cog-loop',
+      iconColor: 'text-purple-500',
+      title: 'Technical Excellence',
+      rows: [
+        { label: 'Less hallucinations', sublabel: 'grounded in real tools', value: { icon: 'line-md:confirm-circle', iconColor: 'text-purple-600 dark:text-purple-400' } },
+        { label: 'Figma sync', sublabel: 'automated nightly', value: { icon: 'line-md:uploading-loop', iconColor: 'text-purple-600 dark:text-purple-400' } },
+        { label: 'Parallel execution', sublabel: 'optimized performance', value: { icon: 'line-md:star-filled', iconColor: 'text-purple-600 dark:text-purple-400' } }
+      ]
+    }
+  ]}>
+  <DeveloperFeedbackCard />
+</MetricsPanel>
+
+<hr class="my-16"/>
+
+<FrontEndImpactCard />
+
+<hr class="my-16"/>
+
+<ProjectSuccessImpactCard />

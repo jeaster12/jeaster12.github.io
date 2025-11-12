@@ -1,0 +1,109 @@
+---
+import ExpandButton from '@components/UI/ExpandButton.astro';
+
+interface Role {
+  title: string;
+  period: string;
+}
+
+interface ExperienceItem {
+  role?: string;
+  logo?: string;
+  roles?: Role[];
+  company: string;
+  period?: string;
+  shortName?: string;
+  description: string;
+  highlights?: string[];
+  achievements?: string[];
+}
+
+interface Props {
+  index?: number;
+  showDivider?: boolean;
+  showExpandable?: boolean;
+  experience: ExperienceItem;
+}
+
+const { experience, showExpandable = false, showDivider = false, index = 0 } = Astro.props;
+const contentId = `experience-content-${index}`;
+const displayName = experience.shortName || experience.company;
+---
+
+<div class="relative">
+  <div class="relative flex items-start justify-between gap-3 sm:gap-4 flex-col sm:flex-row">
+    <div class="flex-1 order-2 sm:order-1">
+      <h3 class="text-base sm:text-lg font-bold dark:text-white">{experience.company}</h3>
+      {experience.roles ? (
+        <div class="space-y-1">
+          {experience.roles.map((role) => (
+            <p class="font-semibold text-sm sm:text-base text-gray-700 dark:text-white/70 break-words">{role.title} | {role.period}</p>
+          ))}
+        </div>
+      ) : (
+        <p class="font-semibold text-sm sm:text-base text-gray-700 dark:text-white/70 break-words">{experience.role} | {experience.period}</p>
+      )}
+    </div>
+    {experience.logo && (
+      <div class="flex-shrink-0 order-1 sm:order-2">
+        <img
+          width={120}
+          height={40}
+          loading="lazy"
+          decoding="async"
+          src={experience.logo}
+          alt={`${experience.company} logo`}
+          class="h-8 sm:h-10 w-auto object-contain dark:brightness-0 dark:invert"
+        />
+      </div>
+    )}
+  </div>
+
+  <p class="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+    {experience.description}
+  </p>
+
+  {showExpandable && (experience.highlights || experience.achievements) && (
+    <div class="expandable-content opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out" id={contentId} aria-label={`Highlights and achievements for ${displayName}`}>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-3 sm:mt-4">
+        {experience.highlights && experience.highlights.length > 0 && (
+          <div>
+            <h4 id={`highlights-${contentId}`} class="text-sm sm:text-base font-medium dark:text-white mb-2 sm:mb-3">Work Highlights</h4>
+            <ul class="space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300" aria-labelledby={`highlights-${contentId}`}>
+              {experience.highlights.map((highlight) => (
+                <li class={`flex items-start`}>
+                  <span class={`inline-block w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-2 sm:mr-3 flex-shrink-0`}></span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {experience.achievements && experience.achievements.length > 0 && (
+          <div>
+            <h4 id={`achievements-${contentId}`} class="text-sm sm:text-base font-medium dark:text-white mb-2 sm:mb-3">Key Achievements</h4>
+            <ul class="space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300" aria-labelledby={`achievements-${contentId}`}>
+              {experience.achievements.map((achievement) => (
+                <li class={`flex items-start`}>
+                  <span class={`inline-block w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-2 sm:mr-3 flex-shrink-0`}></span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <ExpandButton
+      targetSelector={`#${contentId}`}
+      expandText={`Expand to see highlights from ${displayName}`}
+      uniqueId={contentId}
+    />
+  )}
+</div>
+
+{showDivider && (
+  <hr class="border-t border-dashed border-global my-6 sm:my-8" />
+)}

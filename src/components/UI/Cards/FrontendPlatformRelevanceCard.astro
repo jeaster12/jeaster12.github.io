@@ -1,0 +1,131 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="card-blue">
+  <div class="flex items-start gap-4 mb-6">
+    <div class="flex-shrink-0 hidden lg:flex">
+      <div class="w-12 h-12 rounded-full bg-purple-600/10 flex items-center justify-center">
+        <Icon name="line-md:cog-loop" class="text-purple-600 text-2xl" />
+      </div>
+    </div>
+    <div>
+      <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Frontend Platform Impact</h3>
+      <p class="text-lg text-gray-700 dark:text-gray-400">
+        While the MCP server was built with Node.js, its primary mission was improving <strong>frontend developer productivity</strong>—directly aligned with your Frontend Platform team goals.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6 mb-8">
+    <!-- Developer Tooling -->
+    <div class="bg-white/80 rounded-lg p-4 md:p-6 border border-blue-100 dark:bg-black/20 dark:border-gray-700">
+      <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2 dark:text-white">
+        <Icon name="line-md:laptop-twotone" class="text-blue-600 text-xl md:flex hidden dark:text-blue-400" />
+        Developer Tooling
+      </h4>
+      <ul class="text-sm text-gray-700 dark:text-gray-400 pl-0 mb-0 space-y-2">
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-blue-600 flex-shrink-0 mt-0.5 dark:text-blue-400" />
+          <span><strong>VS Code Extension:</strong> Inline validation, autocomplete, & documentation</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-blue-600 flex-shrink-0 mt-0.5" />
+          <span><strong>GitHub Integration:</strong>  Automated PR flagging violations before merge</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0 mb-0">
+          <Icon name="line-md:confirm" class="text-blue-600 flex-shrink-0 mt-0.5" />
+          <span><strong>CLI Tools:</strong> Scaffolding generators, migration scripts, component analysis</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Build & Performance -->
+    <div class="bg-white/80 rounded-lg p-4 md:p-6 border border-blue-100 dark:bg-black/20 dark:border-gray-700">
+      <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2 dark:text-white">
+        <Icon name="line-md:speedometer-loop" class="text-cyan-600 text-xl mb-0 md:flex hidden dark:text-cyan-400" />
+        Build & Performance
+      </h4>
+      <ul class="text-sm text-gray-700 dark:text-gray-400 pl-0 mb-0 space-y-2">
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-cyan-600 flex-shrink-0 mt-0.5 dark:text-cyan-400" />
+          <span><strong>Build-Time Optimization:</strong> Eliminated 40% of unused CSS by validating usage</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-cyan-600 flex-shrink-0 mt-0.5" />
+          <span><strong>Bundle Size Impact:</strong> Reduced average bundle size by 28%</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0 mb-0">
+          <Icon name="line-md:confirm" class="text-cyan-600 flex-shrink-0 mt-0.5" />
+          <span><strong>Type Safety:</strong> Generated TS definitions for all design tokens and components</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Developer Experience -->
+    <div class="bg-white/80 rounded-lg p-4 md:p-6 border border-blue-100 dark:bg-black/20 dark:border-gray-700">
+      <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2 dark:text-white">
+        <Icon name="line-md:heart-twotone" class="text-green-600 text-xl md:flex hidden dark:text-green-400" />
+        Developer Experience
+      </h4>
+      <ul class="text-sm text-gray-700 dark:text-gray-400 pl-0 mb-0 space-y-2">
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-green-600 flex-shrink-0 mt-0.5 dark:text-green-400" />
+          <span><strong>Zero Context Switch:</strong> Answers delivered in IDE/GitHub</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm" class="text-green-600 flex-shrink-0 mt-0.5" />
+          <span><strong>Fast Feedback Loops:</strong> Sub-200ms response time for validation queries</span>
+        </li>
+        <li class="flex items-start gap-2 pl-0 mb-0">
+          <Icon name="line-md:confirm" class="text-green-600 flex-shrink-0 mt-0.5" />
+          <span><strong>Self-Service:</strong> 73% reduction in Slack questions to design team</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Frontend Standards & Quality -->
+  <div class="bg-white/80 rounded-lg p-4 md:p-6 border border-blue-100 dark:bg-black/20 dark:border-gray-700">
+    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2 dark:text-white">
+      <Icon name="line-md:check-list-3-twotone" class="text-blue-600 text-xl md:flex hidden dark:text-blue-400" />
+      Enforcing Modern Web Standards
+    </h4>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h5 class="font-semibold text-gray-800 mb-2 dark:text-white">Accessibility (WCAG 2.1 AA)</h5>
+        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-400 pl-0 mb-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs dark:text-blue-400" />
+            <span>Automated color contrast validation for all token combinations</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs" />
+            <span>Component prop checks for required ARIA attributes</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs" />
+            <span>Keyboard navigation pattern enforcement</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold text-gray-800 mb-2 dark:text-white">Performance Budgets</h5>
+        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-400 pl-0 mb-0">
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs dark:text-blue-400" />
+            <span>Component size limits enforced at build time</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs dark:text-blue-400" />
+            <span>Warned against heavy dependencies in design system components</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="line-md:circle-to-confirm-circle-transition" class="text-blue-600 flex-shrink-0 mt-0.5 text-xs dark:text-blue-400" />
+            <span>Core Web Vitals monitoring for design system usage patterns</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

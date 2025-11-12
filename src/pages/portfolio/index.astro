@@ -1,0 +1,58 @@
+---
+import { mainContent } from '@data/content';
+import { getCollection } from 'astro:content'
+import SectionLayout from '@/layouts/SectionLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+// Get all portfolio items, sorted by date
+const allPortfolioItems = (await getCollection('portfolio'))
+  .filter(({ data }) => !data.draft && data.title && data.featuredImage?.url)
+  .map(({ data, ...rest }) => ({
+    ...rest,
+    data: {
+      ...data,
+      featuredImage: {
+        url: data.featuredImage!.url,
+        name: data.featuredImage!.name || rest.slug
+      },
+      images: data.images?.map(({ url, name = '' }) => ({ url, name })) || []
+    }
+  }));
+---
+
+<SectionLayout 
+  id="portfolio"
+  title={mainContent.Portfolio.title}
+  subtitle={mainContent.Portfolio.subtitle}
+  description={mainContent.Portfolio.description}
+>
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {allPortfolioItems.map((item) => (
+      <a
+        class={[
+          'group relative p-4 md:p-6 h-full gap-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+          'transition-all duration-300 rounded-lg hover:shadow-md bg-gray-50 dark:bg-black/40 border border-global'].join(' ')}
+        href={`/portfolio/${item.slug}`}
+        aria-label={`View ${item.data.title} project`}>
+        <img
+          loading="lazy"
+          decoding="async"
+          src={item.data.featuredImage?.url}
+          alt={item.data.featuredImage?.name || item.data.title}
+          class="w-full h-auto rounded-sm aspect-video"/>
+
+        <div class="flex flex-col mt-2">
+          <h3 class="font-semibold text-lg leading-tight text-neutral dark:text-white">{item.data.title}</h3>
+          <p class="mt-2 text-neutral-400 dark:text-white/70 text-sm" set:html={item.data.description}></p>
+          <p class="mt-2">
+            <span class="link link-underline link-underline-black pb-0.5 border-b-2 border-global dark:text-white/90 inline-flex gap-1 items-center text-sm font-bold">
+              Read the case study <Icon name="line-md:arrow-right" size="14" />
+            </span>
+          </p>
+        </div>
+      </a>
+    ))}
+	</div>
+</SectionLayout>
+
+

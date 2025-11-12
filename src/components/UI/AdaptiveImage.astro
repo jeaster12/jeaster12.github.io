@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import Gallery from '@/components/UI/Gallery.astro';
+
+interface Props {
+  gap?: string;
+  loop?: boolean;
+  imageUrl?: string;
+  imageAlt?: string;
+  autoplay?: boolean;
+  imageClass?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  cols?: '1' | '2' | '3';
+  mode?: 'grid' | 'carousel';
+  images?: { url: string; name: string; }[];
+}
+
+const {
+  gap = '6',
+  loop = true,
+  imageUrl,
+  imageAlt = 'Portfolio image',
+  imageClass = '',
+  imageWidth,
+  imageHeight,
+  autoplay = false,
+  mode = 'grid',
+  cols = '2',
+  images = [],
+} = Astro.props;
+
+// Determine if we're using gallery or single image
+const useGallery = images.length > 0;
+
+// Transform images for Gallery component
+const galleryImages = images.map(img => ({
+  href: img.url,
+  label: img.name,
+  size: { width: 1200, height: 800 }
+}));
+---
+
+{useGallery ? (
+  <Gallery
+    gap={gap}
+    cols={cols}
+    mode={mode}
+    loop={loop}
+    autoplay={autoplay}
+    images={galleryImages}
+  />
+) : imageUrl!.startsWith('/') ? (
+  <img
+    loading="lazy"
+    alt={imageAlt}
+    src={imageUrl!}
+    decoding="async"
+    width={imageWidth || 1200}
+    height={imageHeight || 800}
+    class={`rounded-lg my-0 mx-auto ${imageClass}`}
+  />
+) : imageWidth && imageHeight ? (
+  <Image
+    loading="lazy"
+    alt={imageAlt}
+    src={imageUrl!}
+    decoding="async"
+    width={imageWidth}
+    height={imageHeight}
+    class={`rounded-lg my-0 mx-auto ${imageClass}`}
+  />
+) : (
+  <Image
+    inferSize
+    loading="lazy"
+    alt={imageAlt}
+    src={imageUrl!}
+    decoding="async"
+    class={`rounded-lg my-0 mx-auto ${imageClass}`}
+  />
+)}

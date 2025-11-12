@@ -1,0 +1,57 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+
+// Define the component's props interface
+interface Props {
+  /** Whether to open the link in a new window (ignored for mailto links) */
+  url?: string;
+  /** The icon to display (e.g., 'line-md:lightbulb-twotone') */
+  icon: string;
+  /** The text to display in the badge */
+  label: string;
+  /** Optional URL to make the badge a link */
+  newWindow?: boolean;
+  /** The size of the icon (in pixels) */
+  size?: string | number;
+}
+
+// Get props from Astro
+const props = Astro.props as Props;
+const { 
+  url,
+  icon, 
+  label, 
+  size = '24', 
+  newWindow = false 
+} = props;
+
+// Process the icon path
+const [collection, iconName] = icon.includes(':') ? icon.split(':') : ['', icon];
+const iconPath = collection ? `${collection}:${iconName}` : iconName;
+
+// Prepare link props if URL is provided
+const linkProps: HTMLAttributes<'a'> | null = url 
+  ? {
+      href: url,
+      target: newWindow && !url.startsWith('mailto:') ? '_blank' : undefined,
+      rel: newWindow && !url.startsWith('mailto:') ? 'noopener noreferrer' : undefined,
+      class: 'inline-flex items-center text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors'
+    }
+  : null;
+---
+
+<!-- Component Template -->
+<li class="list-none badge-styles">
+  {url ? (
+    <a {...linkProps}>
+      <Icon name={iconPath} size={size} class="pe-1" />
+      <span>{label}</span>
+    </a>
+  ) : (
+    <span class="inline-flex items-center">
+      <Icon name={iconPath} size={size} class="pe-1" />
+      <span>{label}</span>
+    </span>
+  )}
+</li>

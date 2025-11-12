@@ -1,0 +1,108 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+  <div class="mb-16">
+    <div class="flex items-center gap-4 mb-6"> 
+      <Icon name="line-md:uploading-loop" class="w-8 h-8 font-bold text-orange-600 mb-6 flex items-center gap-3" />
+      <div> 
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Unified Reporting & Monitoring Dashboard</h2> 
+        <p class="text-gray-600 dark:text-gray-400">Every quality gate feeds metrics into a <strong>centralized Splunk dashboard</strong>, providing end-to-end visibility and enabling data-driven decisions.</p> 
+      </div> 
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="card p-6 bg-white border border-purple-200 dark:bg-black/20 dark:border-purple-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="line-md:laptop" class="w-6 h-6 text-purple-600" />
+            <h3 class="font-bold text-gray-900 mb-0 dark:text-gray-200">IDE Metrics</h3>
+          </div>
+          <ul class="text-sm text-gray-700 my-0 pl-6 dark:text-gray-400">
+            <li>MCP validation frequency</li>
+            <li>ESLint auto-fix success rates</li>
+            <li>Accessibility violations/component</li>
+            <li>Bundle size warnings</li>
+            <li class="mb-0">Design system compliance</li>
+          </ul>
+        </div>
+
+ 
+        <div class="card p-6 bg-white border border-blue-200 dark:bg-black/20 dark:border-blue-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="line-md:uploading-loop" class="w-6 h-6 text-blue-600" />
+            <h3 class="font-bold text-gray-900 mb-0 dark:text-gray-200">Git Hook Metrics</h3>
+          </div>
+          <ul class="text-sm text-gray-700 my-0 pl-6 dark:text-gray-400">
+            <li>Pre-commit pass/fail rates</li>
+            <li>Test failures caught pre-push</li>
+            <li>Performance budget violations</li>
+            <li>TypeScript errors per commit</li>
+            <li class="mb-0">Hook execution times</li>
+          </ul>
+        </div>
+
+        <div class="card p-6 bg-white border border-green-200 dark:bg-black/20 dark:border-green-600/50">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon name="logos:github-actions" class="w-6 h-6" />
+            <h3 class="font-bold text-gray-900 mb-0 dark:text-gray-200">CI/CD Metrics</h3>
+          </div>
+          <ul class="text-sm text-gray-700 my-0 pl-6 dark:text-gray-400">
+            <li>Pipeline success rates</li>
+            <li>Coverage % and delta trends</li>
+            <li>Visual regression detections</li>
+            <li>Accessibility violations/PR</li>
+            <li class="mb-0">Build duration trends</li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div class="card p-6 bg-white border border-blue-300 dark:bg-black/20 dark:border-blue-600/50">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="simple-icons:sonarqube" class="w-6 h-6 text-blue-600" />
+          <h3 class="text-base font-bold text-gray-900 mb-0 dark:text-gray-200">SonarQube Integration</h3>
+        </div>
+        <p class="text-sm text-gray-700 mb-2 dark:text-gray-400">Code quality, security, & technical debt tracking synced hourly to Splunk</p>
+        <ul class="text-sm text-gray-700 my-0 pl-6 dark:text-gray-400">
+          <li>Code smells and maintainability</li>
+          <li>Security vulnerabilities (OWASP)</li>
+          <li class="mb-0">Coverage trends per team/project</li>
+        </ul>
+      </div>
+
+      <div class="card p-6 bg-white border border-purple-300 dark:bg-black/20 dark:border-purple-600/50">
+        <div class="flex items-center gap-3 mb-2">
+          <Icon name="simple-icons:sentry" class="w-6 h-6 text-purple-600" />
+          <h3 class="text-base font-bold text-gray-900 mb-0 dark:text-gray-200">Sentry Integration</h3>
+        </div>
+        <p class="text-sm text-gray-700 mb-2 dark:text-gray-400">Production error monitoring streamed to Splunk for correlation</p>
+        <ul class="text-sm text-gray-700 my-0 pl-6 dark:text-gray-400">
+          <li>Error rates by release/team/feature</li>
+          <li>Performance metrics (web vitals)</li>
+          <li class="mb-0">Link errors to quality gate failures</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-gray-900 p-8 rounded-lg">
+      <h4 class="text-white text-lg font-bold mb-4">Unified Dashboard Impact</h4>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="font-bold text-base mb-2 text-orange-400">Leadership Visibility</div>
+          <p class="text-gray-300">Real-time insights into quality trends, team adoption rates, and system health enable data-driven decisions and early intervention.</p>
+        </div>
+        <div>
+          <div class="font-bold text-base mb-2 text-blue-400">Team Accountability</div>
+          <p class="text-gray-300">Transparent metrics foster a culture of quality ownership and continuous improvement across all teams.</p>
+        </div>
+        <div>
+          <div class="font-bold text-base mb-2 text-purple-400">Predictive Analytics</div>
+          <p class="text-gray-300">Historical data enables trend analysis and predictive modeling to prevent issues before they occur.</p>
+        </div>
+        <div>
+          <div class="font-bold text-base mb-2 text-green-400">Compliance Reporting</div>
+          <p class="text-gray-300">Automated evidence collection for WCAG 2.1 AA and other compliance requirements.</p>
+        </div>
+      </div>
+    </div>
+  </div>

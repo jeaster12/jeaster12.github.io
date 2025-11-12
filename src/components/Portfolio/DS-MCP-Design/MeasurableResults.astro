@@ -1,0 +1,142 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  width="wide"
+  title="Transformative Business Outcomes"
+  description="Six months post-launch, the MCP server delivered <strong>transformative results</strong> across developer productivity, team efficiency, & business value. <strong>Clear metrics</strong> demonstrated the <strong>ROI & impact</strong> of our AI investments."/>
+  
+{/* Hero Metrics */}
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:mb-8 mb-4">
+  <div class="text-center p-4 card-blue">
+    <div class="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">$2.3M</div>
+    <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Annual Savings</div>
+  </div>
+  <div class="text-center p-4 card-green">
+    <div class="text-4xl md:text-5xl font-bold text-green-600 dark:text-green-400 mb-2">44%</div>
+    <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Faster Delivery</div>
+  </div>
+  <div class="text-center p-4 card-purple">
+    <div class="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2">91%</div>
+    <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Component Adoption</div>
+  </div>
+  <div class="text-center p-4 card-orange">
+    <div class="text-4xl md:text-5xl font-bold text-orange-600 dark:text-orange-400 mb-2">94%</div>
+    <div class="text-sm font-medium text-gray-700 dark:text-gray-300">WCAG Compliance</div>
+  </div>
+</div>
+
+{/* Detailed Metrics */}
+<div class="grid md:grid-cols-3 gap-6 md:mb-8 mb-4">
+  {/* Design Team Impact */}
+  <div class="card-white md:p-6 p-4 shadow-sm">
+    <div class="flex items-center gap-2 mb-4">
+      <Icon name="line-md:edit-twotone" size={24} class="text-blue-500" />
+      <h4 class="font-semibold text-base m-0">Design Team Impact</h4>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Support time reduction</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">freed capacity</div>
+        </div>
+        <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">60%</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Strategic work time</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">increase</div>
+        </div>
+        <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">3x</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Documentation burden</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">reduction</div>
+        </div>
+        <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">75%</span>
+      </div>
+    </div>
+  </div>
+
+  {/* Business Value */}
+  <div class="card-white md:p-6 p-4 shadow-sm">
+    <div class="flex items-center gap-2 mb-4">
+      <Icon name="line-md:arrow-up-circle" size={24} class="text-green-500" />
+      <h4 class="font-semibold text-base m-0">Business Value</h4>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Annual ROI</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">total value</div>
+        </div>
+        <span class="text-2xl font-bold text-green-600 dark:text-green-400">$2.3M</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Design debt prevented</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">annual savings</div>
+        </div>
+        <span class="text-2xl font-bold text-green-600 dark:text-green-400">$450K</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Time to market</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">improvement</div>
+        </div>
+        <span class="text-2xl font-bold text-green-600 dark:text-green-400">44%</span>
+      </div>
+    </div>
+  </div>
+
+  {/* Quality & Consistency */}
+  <div class="card-white md:p-6 p-4 shadow-sm">
+    <div class="flex items-center gap-2 mb-4">
+      <Icon name="line-md:star-filled" size={24} class="text-purple-500" />
+      <h4 class="font-semibold text-base m-0">Quality & Consistency</h4>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Design consistency</div>
+          <div class="text-xs text-gray-500">improvement</div>
+        </div>
+        <span class="text-2xl font-bold text-purple-600 dark:text-purple-400"> 61%</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">WCAG compliance</div>
+          <div class="text-xs text-gray-500 dark:text-gray-500">achievement</div>
+        </div>
+        <span class="text-2xl font-bold text-purple-600 dark:text-purple-400"> 94%</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Component adoption</div>
+          <div class="text-xs text-gray-500">increase</div>
+        </div>
+        <span class="text-2xl font-bold text-purple-600 dark:text-purple-400"> 91%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-green card md:p-6 p-4">
+  <h4 class="font-semibold text-base mb-3 flex items-center gap-2">
+    <Icon name="line-md:star-filled" class="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+    Key Success Factors
+  </h4>
+  <div class="grid md:gap-4 md:grid-cols-2 text-sm">
+    <div class="space-y-2">
+      <p><strong>Executive Sponsorship:</strong> Clear mandate and resource allocation</p>
+      <p><strong>Gradual Rollout:</strong> Phased approach reduced resistance</p>
+    </div>
+    <div class="space-y-2">
+      <p><strong>AI Integration:</strong> Automation removed friction and support burden</p>
+      <p><strong>Continuous Learning:</strong> Feedback loops enabled rapid iteration</p>
+    </div>
+  </div>
+</div>

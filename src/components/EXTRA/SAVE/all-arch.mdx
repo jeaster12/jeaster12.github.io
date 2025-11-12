@@ -1,0 +1,54 @@
+---
+title: 'all-arch'
+client: 'Enterprise Design System'
+description: 'The technical architecture, AI implementation, and infrastructure decisions behind a production MCP server. How we achieved sub-200ms latency, 97% accuracy, and seamless developer workflow integration.'
+skills: ['AI Engineering', 'System Architecture', 'Full-stack Development', 'DevOps']
+date: 2024-06-15
+featuredImage:
+  url: '/assets/images/portfolio/pankaj-patel-unsplash.webp'
+  name: 'Tech Overview MCP'
+featured: true
+draft: false
+---
+import BottomNavigation from '@/components/EXTRA/_BottomNavigation.astro';
+import ProjectOverview from '@/components/Portfolio/ProjectOverview.astro';
+
+
+import ImpactMetrics from './_impact/ImpactMetrics.astro';
+import ChallengesList from './_challenges/ChallengesList.astro';
+import ArchitectureOverview from '@/components/EXTRA/_tech/ArchitectureOverview.astro';
+import DesignSystemIntelligence from '@/components/EXTRA/_DesignSystemIntelligence.astro';
+import ArchitectureFull from '@/components/EXTRA/_tech/ArchitectureFull.astro';
+import ArchitectureProd from '@/components/EXTRA/_tech/ArchitectureProd.astro';
+import Architecture from '@/components/Portfolio/DS-MCP-Tech/Architecture.astro';
+
+
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Production Architecture</h2 >
+<ArchitectureProd />
+<hr class="my-16"/>
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Architecture Overview</h2>
+<ArchitectureOverview />
+<hr class="my-16"/>
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Architecture Full</h2>
+<ArchitectureFull />
+<hr class="my-16"/>
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Design System Intelligence</h2>
+<DesignSystemIntelligence />
+<hr class="my-16"/> 
+
+
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Impact Metrics</h2>
+<ImpactMetrics />
+<hr class="my-16"/>
+
+<h2 class="text-2xl font-light text-gray-900 dark:text-gray-200 mb-6">Challenges</h2>
+<ChallengesList />
+
+<BottomNavigation />
+
+

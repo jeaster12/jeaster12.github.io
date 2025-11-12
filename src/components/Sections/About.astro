@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import { mainContent } from '@data/content';
+import TextType from '@components/UI/TextType.astro';
+import Section from '@components/UI/Section.astro';
+import BadgeTag from '@components/UI/BadgeTag.astro';
+
+const aboutContent = mainContent.About;
+const contactContent = mainContent.Contact;
+---
+
+<Section id="about" showHeader={false}>
+	<div class="flex flex-col lg:flex-row lg:space-x-10 space-y-6 lg:space-y-0">
+		<div class="relative h-fit flex flex-col items-center lg:items-start">
+			<Image
+        width={176}
+        height={176}
+        loading="eager"
+        fetchpriority="high"
+        alt="Josh Easter profile"
+        src={aboutContent.avatar}
+        class="min-w-32 min-h-32 sm:min-w-40 sm:min-h-40 lg:min-w-44 lg:min-h-44 rounded-md"
+      />
+			<div class="mt-4 mb-0 text-neutral-900 dark:text-white font-mono font-normal uppercase text-xs sm:text-sm tracking-wider inline-flex">
+				<div class="inline-flex">
+          <TextType
+            text={aboutContent.textType}
+            typingSpeed={75}
+            showCursor={true}
+            deletingSpeed={50}
+            cursorCharacter="|"
+            pauseDuration={1500}
+          />
+				</div>
+			</div>
+		</div>
+
+		<div class="flex-1">
+			<p class="font-mono font-medium uppercase text-xs sm:text-sm tracking-wider relative pt-2 lg:pt-4 mb-4 lg:mb-5 dark:text-white before:content-['//'] before:text-primary after:content-[attr(data-backdrop-text)] after:absolute after:top-0 after:left-0 after:font-nunito after:font-bold after:uppercase after:text-2xl sm:after:text-3xl lg:after:text-4xl after:opacity-15" data-backdrop-text={aboutContent.subtitle}>
+        {aboutContent.subtitle}
+      </p>
+			<h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 font-nunito mb-3 lg:mb-2 dark:text-white" set:html={aboutContent.header} />
+      <p class="text-gray-700 dark:text-white/70 mb-4 lg:mb-2 text-sm sm:text-base">{aboutContent.description}</p>
+      <ul class="space-y-3 lg:space-y-4">
+        {contactContent.contactItems.map((item) => (
+          <BadgeTag icon={item.icon} label={item.label} url={item.url} newWindow={item.newWindow}  />
+        ))}
+      </ul>
+		</div>
+	</div>
+</Section>

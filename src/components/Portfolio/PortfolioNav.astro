@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  prev?: CollectionEntry<'portfolio'>;
+  next?: CollectionEntry<'portfolio'>;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<nav class="mt-16 pt-8 border-t border-global">
+  <div class="grid gap-4 md:grid-cols-2">
+    {prev ? (
+      <a
+        href={`/portfolio/${prev.slug}`}
+        class="group card p-6 hover:border-purple-500 dark:hover:border-purple-500 transition-colors no-underline !bg-none !border-b"
+      >
+        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
+          <Icon name="line-md:arrow-left" class="w-4 h-4" />
+          <span>Previous</span>
+        </div>
+        <div class="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          {prev.data.title}
+        </div>
+        <div class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+          {prev.data.description}
+        </div>
+      </a>
+    ) : (
+      <div></div>
+    )}
+
+    {next ? (
+      <a
+        href={`/portfolio/${next.slug}`}
+        class="group card p-6 hover:border-purple-500 dark:hover:border-purple-500 transition-colors no-underline !bg-none !border-b text-right md:ml-auto w-full"
+      >
+        <div class="flex items-center justify-end gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
+          <span>Next</span>
+          <Icon name="line-md:arrow-right" class="w-4 h-4" />
+        </div>
+        <div class="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          {next.data.title}
+        </div>
+        <div class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+          {next.data.description}
+        </div>
+      </a>
+    ) : (
+      <div></div>
+    )}
+  </div>
+</nav>

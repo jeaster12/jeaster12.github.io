@@ -1,0 +1,126 @@
+---
+import { Icon } from "astro-icon/components";
+
+const productivityMetrics = [
+  {
+    title: 'Faster Delivery',
+    percentage: 44,
+    color: 'blue',
+    details: [
+      { label: 'Avg PR cycle time:', value: '2.8 days → 1.6 days' },
+      { label: 'Review iterations:', value: '3.2 → 1.1' },
+      { label: 'Time to merge:', value: '18hrs → 6hrs' }
+    ]
+  },
+  {
+    title: 'Reduced Review Burden',
+    percentage: 53,
+    color: 'purple',
+    details: [
+      { label: 'Code review comments:', value: '12.4 → 5.8' },
+      { label: 'Style/lint comments:', value: '7.2 → 0.3' },
+      { label: 'Reviewer time per PR:', value: '42min → 20min' }
+    ]
+  },
+  {
+    title: 'Faster Onboarding',
+    percentage: 62,
+    color: 'green',
+    details: [
+      { label: 'Time to first PR:', value: '13 days → 5 days' },
+      { label: 'Design system fluency:', value: '8 weeks → 3 weeks' },
+      { label: 'Mentor hours needed:', value: '24hrs → 9hrs' }
+    ]
+  }
+];
+
+const workflowTransformation = {
+  before: {
+    title: 'Before: Manual & Reactive',
+    icon: 'line-md:close',
+    iconBg: 'bg-red-100',
+    iconColor: 'text-red-600',
+    items: [
+      'Developers discover issues during code review (2-3 days later)',
+      'Design system violations caught by design team (1 week delay)',
+      'Accessibility issues found in QA or production',
+      'Multiple review cycles to fix basic issues',
+      'Context switching to address feedback',
+      'Junior developers struggle with conventions'
+    ]
+  },
+  after: {
+    title: 'After: Automated & Proactive',
+    icon: 'line-md:confirm',
+    iconBg: 'bg-green-100',
+    iconColor: 'text-green-600',
+    items: [
+      'Issues caught instantly while coding (8.2s feedback)',
+      'Design system compliance validated in real-time',
+      'Accessibility built-in from first line of code',
+      'PRs arrive pre-validated and review-ready',
+      'Fix issues immediately with context fresh',
+      'AI assistant guides junior developers automatically'
+    ]
+  }
+};
+---
+
+<!-- Developer Productivity -->
+<div class="mb-16">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6">Developer Productivity</h2>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-8">
+    {productivityMetrics.map((metric) => (
+      <div class={`${metric.color}-gradient rounded-lg p-6`}>
+        <div class="text-center mb-4">
+          <div class={`text-4xl font-bold text-${metric.color}-600 mb-2`}>{metric.percentage}%</div>
+          <div class="text-sm text-gray-700 font-bold">{metric.title}</div>
+        </div>
+        <div class="space-y-2 text-xs text-gray-600">
+          {metric.details.map((detail) => (
+            <div class="flex justify-between">
+              <span>{detail.label}</span>
+              <span class="font-bold">{detail.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Workflow Transformation -->
+  <div class="bg-white p-6 rounded-lg border border-global shadow-sm">
+    <h3 class="font-bold text-gray-900 mb-4">Workflow Transformation</h3>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class={`w-8 h-8 ${workflowTransformation.before.iconBg} rounded flex items-center justify-center`}>
+            <Icon name={workflowTransformation.before.icon} class={`${workflowTransformation.before.iconColor} w-5 h-5`} />
+          </div>
+          <h4 class="font-bold text-gray-900">{workflowTransformation.before.title}</h4>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-600 mb-0 ml-2">
+          {workflowTransformation.before.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class={`w-8 h-8 ${workflowTransformation.after.iconBg} rounded flex items-center justify-center`}>
+            <Icon name={workflowTransformation.after.icon} class={`${workflowTransformation.after.iconColor} w-5 h-5`} />
+          </div>
+          <h4 class="font-bold text-gray-900">{workflowTransformation.after.title}</h4>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-600 mb-0 ml-2">
+          {workflowTransformation.after.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

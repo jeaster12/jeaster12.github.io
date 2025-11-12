@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+import { navItems } from '@data/navItems';
+
+interface Props {
+	collapsed?: boolean
+}
+
+const { collapsed = false } = Astro.props
+
+// Check if we're on a blog or portfolio post page
+const isSubPage = ['/blog/', '/portfolio/', '/portfolio', '/blog'].some(path => Astro.url.pathname.startsWith(path))
+
+// Always point to the root index.html for navigation from blog/portfolio posts
+const baseHref = isSubPage ? '/index.html' : ''
+
+// Get home nav item
+const homeItem = navItems.find(item => item.label === 'Home')
+---
+
+{collapsed ? (
+	<div class="z-10 sticky top-2 lg:top-12 lg:h-fit bg-black/90 dark:bg-boxDark rounded-lg px-4 py-3 lg:bg-black lg:px-4 lg:py-5">
+		<a
+			href="/"
+      aria-label={homeItem?.label}
+			class="group inline-flex justify-center items-center relative w-9 h-9 border border-white/20 border-dashed rounded-full text-white transition ease-linear duration-100 hover:text-white hover:border-white/70">
+			<Icon name={homeItem?.icon || 'line-md:home-twotone'} size="20" />
+			<span class="absolute left-full ml-3 px-2 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none">
+				{homeItem?.label}
+			</span>
+		</a>
+	</div>
+) : (
+	<div class="z-10 sticky top-2 lg:top-12 lg:h-fit lg:w-1/4 bg-black/90 dark:bg-boxDark backdrop-blur-[5px] rounded-lg px-4 py-3 lg:bg-black lg:px-8 lg:py-5 xl:px-10 xl:py-7 lg:backdrop-blur-none">
+		<ul class="font-mono font-normal uppercase text-sm tracking-wider text-center lg:text-left space-x-4 lg:space-x-0">
+			{
+				navItems.map((item) => (
+					<li class="list-none inline-block lg:block">
+						<a
+							href={`${baseHref}#${item.label.toLowerCase()}`}
+							aria-label={item.label}
+							class="section-link group inline-flex justify-center items-center lg:block lg:justify-normal relative w-9 h-9 border border-transparent border-dashed rounded-full lg:w-auto lg:h-auto lg:border-none lg:rounded-none text-white/70 py-3 transition ease-linear duration-100 hover:text-white"
+						>
+							<span class="hidden lg:inline-block">{item.label}</span>
+							<span class="lg:hidden flex items-center justify-center w-full h-full"><Icon name={item.icon} class="text-lg" size="24" /></span>
+							<span class="nav-circle hidden lg:inline-block absolute top-1/2 right-0 -translate-y-1/2 w-[5px] h-[5px] before:content-[''] before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:bg-white before:w-[5px] before:h-[5px] before:rounded-full before:opacity-70 before:transition-all before:ease-out before:duration-200 group-hover:before:opacity-100" />
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+)}

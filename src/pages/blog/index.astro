@@ -1,0 +1,35 @@
+---
+import { mainContent } from '@data/content';
+import SectionLayout from '@layouts/SectionLayout.astro';
+import BlogPostCard from '@/components/UI/BlogPostCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Type for our processed posts
+type ProcessedPost = CollectionEntry<'blog'> & { slug: string };
+
+// Get all blog posts that are not drafts
+const posts: ProcessedPost[] = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+  .map((post) => ({...post, slug: post.id.replace(/\.\w+$/, '')}));
+---
+
+<SectionLayout id="blog" 
+  showHeader={false}
+  title={mainContent.Blog.title} 
+  subtitle={mainContent.Blog.subtitle} 
+  description={mainContent.Blog.description}>
+
+  <div class="space-y-8 md:space-y-6">
+    {posts.length === 0 ? (
+      <p class="text-gray-600 dark:text-white/70">No blog posts found.</p>
+    ) : (
+      posts.map((post) => (
+        <BlogPostCard
+          post={post}
+          showDate={true}
+        />
+      ))
+    )}
+	</div>
+</SectionLayout>

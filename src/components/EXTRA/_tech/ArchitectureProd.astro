@@ -1,0 +1,114 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+import Layer1 from './_layer1.astro';
+import Layer3 from './_layer3.astro';
+---
+
+
+<SectionTitle
+  title="Phase 3: Production Architecture"
+  description="The system is built on a <strong>modern, scalable architecture</strong> centered around the <strong>Model Context Protocol (MCP)</strong>. At its core, a Node.js/TypeScript server exposes intelligent design system tools through the MCP, enabling <strong>seamless integration</strong> with IDEs, CLI tools, & CI/CD pipelines."/>
+
+{/* Data Sources Layer */}
+<Layer1/>
+
+{/* Processing Layer */}
+<div class="mb-6">
+  <h3 class="text-lg font-semibold text-center flex items-center justify-center gap-2">
+    <Icon name="line-md:cog-loop" size={24} class="text-purple-500" />
+    AI Processing Pipeline
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    Raw documentation is transformed into AI-ready knowledge through a dual-track processing pipeline. OpenAI's text-embedding model converts all content into vectors stored in Pinecone for lightning-fast semantic search, LangChain orchestrates the RAG (Retrieval-Augmented Generation) pipeline to intelligently retrieve and synthesize the most relevant context for each query.
+  </p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="card purple-gradient rounded-lg p-4 md:p-6">
+      <h4 class="font-semibold mb-2 flex items-center gap-2">
+        <Icon name="line-md:hash-small" size={20} class="text-purple-600 dark:text-purple-400" />
+        <span>Embedding & Vectorization</span>
+      </h4>
+      <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+        <li><strong>Model:</strong> OpenAI text-embedding-3-large</li>
+        <li><strong>Dimensions:</strong> 1536-dimensional vectors</li>
+        <li><strong>Storage:</strong> Pinecone vector database</li>
+        <li><strong>Purpose:</strong> Semantic search & similarity matching</li>
+      </ul>
+    </div>
+
+    <div class="card green-gradient rounded-lg p-4 md:p-6">
+      <h4 class="font-semibold mb-2 flex items-center gap-2">
+        <Icon name="line-md:document-list" size={20} class="text-green-600 dark:text-green-400" />
+        <span>RAG Pipeline</span>
+      </h4>
+      <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+        <li><strong>Orchestration:</strong> LangChain framework</li>
+        <li><strong>Retrieval:</strong> Hybrid search (vector + keyword)</li>
+        <li><strong>Context:</strong> Top-k relevant chunks</li>
+        <li><strong>Grounding:</strong> Real docs, code, patterns, office hours, slack, jira</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex justify-center mt-6">
+    <div class="text-4xl text-gray-400">↓</div>
+  </div>
+</div>
+
+{/* Core Layer */}
+<div class="mb-6">
+  <h3 class="text-lg font-semibold text-center flex items-center justify-center gap-2">
+    <Icon name="line-md:circle-to-confirm-circle-transition" size={24} class="text-green-500" />
+    Core MCP Server
+  </h3>
+  <p class="text-sm text-center mb-6 max-w-4xl mx-auto">
+    The heart of the system is a high-performance Node.js server that implements the Model Context Protocol specifications. It exposes four primary tools <code>search_components</code>, <code>validate</code>, <code>generate_code</code>, & <code>check_accessibility</code> using GPT-4 & fine-tuned models for code generation & compliance validation.
+  </p>
+  <div class="max-w-4xl mx-auto">
+    <div class="theme-gradient rounded-lg p-4 md:p-8 shadow-sm">
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h4 class="font-semibold mb-2 text-purple-600 flex items-center gap-2">
+            <Icon name="line-md:computer" size={20} />
+            Infrastructure
+          </h4>
+          <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+            <li><strong>Runtime:</strong> Node.js 20+ with TypeScript 5.x</li>
+            <li><strong>Framework:</strong> Fastify (high-performance HTTP)</li>
+            <li><strong>Protocol:</strong> Model Context Protocol (MCP)</li>
+            <li><strong>Database:</strong> PostgreSQL (structured metadata)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2 text-purple-600 flex items-center gap-2">
+            <Icon name="line-md:lightbulb-twotone" size={20} />
+            AI Models
+          </h4>
+          <ul class="text-sm space-y-2 mb-0 list-disc not-prose list-inside pl-2">
+            <li><strong>Primary LLM:</strong> GPT-4 Turbo</li>
+            <li><strong>Fine-tuned:</strong> Code generation model</li>
+            <li><strong>Validation:</strong> Compliance checking model</li>
+            <li><strong>Performance:</strong> Sub-second responses</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-4 border-t border-primary/20">
+        <h4 class="font-semibold mb-2 text-center flex items-center justify-center gap-2">
+          <Icon name="line-md:cog" size={20} />
+          Exposed MCP Tools
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-center">
+          <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">search_components</div>
+          <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">validate</div>
+          <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">generate_code</div>
+          <div class="p-2 rounded bg-gray-200 dark:bg-black/20 dark:text-white font-medium">check_accessibility</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-6">
+    <div class="text-4xl text-gray-400">↓</div>
+  </div>
+</div>
+
+{/* Integration Layer */}
+<Layer3 />

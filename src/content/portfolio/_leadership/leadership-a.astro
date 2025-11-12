@@ -1,0 +1,31 @@
+---
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+import TeamGrowthCard from '@/components/UI/Cards/TeamGrowthCard.astro';
+import TeamStructureCard from '@/components/UI/Cards/TeamStructureCard.astro';
+import TeamLeadershipCard from '@/components/UI/Cards/TeamLeadershipCard.astro';
+import ManagementPhilosophyCard from '@/components/UI/Cards/ManagementPhilosophyCard.astro';
+import ManagingSeniorEngineersCard from '@/components/UI/Cards/ManagingSeniorEngineersCard.astro';
+---
+
+
+<section class="mb-16">
+  <TeamLeadershipCard />
+</section>
+
+
+<SectionTitle
+  width="wide"
+  title="Engineering Leadership & Team Development"
+  description="Building and leading a cross-functional team to deliver platform infrastructure that scaled across the organization."/>
+
+<div class="grid lg:grid-cols-2 gap-6 mb-8">
+  <TeamStructureCard />
+  <TeamGrowthCard />
+</div>
+
+<!-- Leadership Approach -->
+<ManagementPhilosophyCard />
+
+<!-- Managing Senior/Staff Engineers -->
+<ManagingSeniorEngineersCard />
+  

@@ -1,0 +1,38 @@
+---
+import Layout from './Layout.astro';
+import Section from '@/components/UI/Section.astro';
+
+interface Props {
+  id: string;
+  class?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  showHeader?: boolean;
+  usePortfolioLayout?: boolean;
+}
+
+const {
+  id,
+  title,
+  subtitle = '',
+  description = '',
+  showHeader = true,
+  class: className = '',
+  usePortfolioLayout = false
+} = Astro.props;
+
+const navType = usePortfolioLayout ? 'collapsed' : 'default';
+---
+
+<Layout {title} {description} {navType}>
+  <Section
+    {id}
+    class={className}
+    showHeader={showHeader}
+    title={showHeader && title ? title : ''}
+    subtitle={showHeader && subtitle ? subtitle : ''}
+    description={showHeader && description ? description : ''}>
+    <slot />
+  </Section>
+</Layout>

@@ -1,0 +1,114 @@
+---
+title: 'Design Impacts: MCP Server Success Story'
+client: 'Enterprise Design System'
+description: 'How an AI-powered MCP server freed our design team from <strong>60% of support work</strong>, enabled <strong>strategic focus</strong>, and delivered <strong>measurable ROI</strong>. A leadership perspective on design system transformation.'
+skills: ['Leadership', 'Team Transformation', 'Change Management', 'Business Strategy']
+date: 2024-05-15
+featuredImage:
+  url: '/assets/images/portfolio/ux-indonesia-unsplash.webp'
+  name: 'Design Impacts MCP'
+featured: false
+draft: false
+---
+
+import {Icon} from 'astro-icon/components';
+import Ally from '@/components/Portfolio/DS-MCP-Design/Ally.astro';
+import DesignerImpact from './_impact/DesignerImpact.astro';
+import Charter from '@/components/Portfolio/DS-MCP-Design/Charter.astro';
+import Workflow from '@/components/Portfolio/DS-MCP-Design/Workflow.astro';
+import Transform from '@/components/Portfolio/DS-MCP-Design/Transform.astro';
+import Leadership from '@/components/Portfolio/DS-MCP-Design/Leadership.astro';
+import RelatedCaseStudies from '@/components/EXTRA/_RelatedCaseStudies.astro';
+import ConclusionDesign from '@/components/Portfolio/DS-MCP-Design/ConclusionDesign.astro';
+import MeasurableResults from '@/components/Portfolio/DS-MCP-Design/MeasurableResults.astro';
+import KeyLearningF from './_key-learning/key-learning-f.astro';
+import { DSMCPDesignMetrics } from '@/data/full';
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 my-8"> 
+  <div class="lg:col-span-1"> 
+    <h2 class="text-2xl font-bold dark:text-white mb-2">Project Overview:</h2> 
+    <div class="text-gray-600 dark:text-white/70 space-y-4"> 
+      <p>What happens when you eliminate 60% of design team support work? This case study examines the organizational transformation, team empowerment, and business value delivered by our MCP server deployment—told from a design leadership perspective.</p>
+      <p><strong>Please note:</strong> Metrics and outcomes are based on real project data, generalized to protect confidentiality.</p> 
+    </div> 
+  </div> 
+
+  <div class="grid grid-cols-2 gap-4 text-center">
+    <div class="card p-4">
+      <div class="text-2xl font-bold text-pink-600">60% → 15%</div>
+      <div class="text-sm">Time on Support</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">freed for strategic work</div>
+    </div>
+    <div class="card p-4">
+      <div class="text-2xl font-bold text-blue-600">3x</div>
+      <div class="text-sm">Strategic Work Time</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">increase in capacity</div>
+    </div>
+    <div class="card p-4">
+      <div class="text-2xl font-bold text-green-600">91%</div>
+      <div class="text-sm">Component Adoption</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">up from 73%</div>
+    </div>
+    <div class="card p-4">
+      <div class="text-2xl font-bold text-purple-600">89%</div>
+      <div class="text-sm">Design consistency</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">improvement</div>
+    </div>
+  </div>
+</div>
+
+<hr className="md:my-16 my-8"/>
+
+<Charter/>
+
+<hr className="md:my-16 my-8"/>
+
+<Transform/>
+
+<hr className="md:my-16 my-8"/>
+
+<Workflow/>
+
+<hr className="md:my-16 my-8"/>
+
+{/* <DesignerImpact/>
+
+<hr className="md:my-16 my-8"/> */}
+
+<Ally/>
+
+<hr className="md:my-16 my-8"/>
+
+<Leadership/>
+
+<hr className="md:my-16 my-8"/>
+
+<MeasurableResults/>
+
+<hr className="md:my-16 my-8"/>
+
+<KeyLearningF/>
+
+<hr className="md:my-16 my-8"/>
+
+<ConclusionDesign/>
+
+<RelatedCaseStudies
+  heading="Explore more perspectives:"
+  studies={[
+    {
+      title: "Project Overview",
+      url: "/portfolio/design-system-mcp",
+      description: "See the complete project story, from problem identification to measurable impact.",
+      icon: "line-md:clipboard-list",
+      color: "green"
+    },
+    {
+      title: "For Developers & Engineers",
+      url: "/portfolio/tech-overview-mcp",
+      description: "Explore the architecture, AI pipeline, and technical implementation.",
+      icon: "line-md:cog-loop",
+      color: "purple"
+    }
+  ]}
+/>

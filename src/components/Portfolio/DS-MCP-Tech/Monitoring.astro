@@ -1,0 +1,111 @@
+---
+import { DSMCPTechMetrics } from '@/data/full';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+
+<SectionTitle
+  align="left"
+  title="Monitoring & Observability"
+  description="Production operations required <strong>comprehensive monitoring</strong>. We built a <strong>multi-layered observability strategy</strong> tracking everything from infrastructure health to business metrics:"/>
+
+<div class="grid gap-4 md:grid-cols-4 my-8">
+  <div class="card-blue shadow-sm">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-6 h-6 rounded-md bg-blue-500 flex items-center justify-center text-white font-bold">P</div>
+      <h4 class="font-semibold text-base mb-0 text-black dark:text-white">Performance Metrics</h4>
+    </div>
+    <div class="space-y-3 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">P50, P95, P99 latency</span>
+        <span class="font-semibold text-blue-600 dark:text-blue-400">Real-time</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Request throughput</span>
+        <span class="font-semibold text-blue-600 dark:text-blue-400">{DSMCPTechMetrics.monitoring.performance.requestThroughput}</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Error rates</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">&lt;{DSMCPTechMetrics.monitoring.performance.errorRates}%</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Cache hit rates</span>
+        <span class="font-semibold text-blue-600 dark:text-blue-400">{DSMCPTechMetrics.monitoring.performance.cacheHitRates}%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-purple shadow-sm">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-6 h-6 rounded-md bg-purple-500 flex items-center justify-center text-white font-bold">Q</div>
+      <h4 class="font-semibold text-base mb-0 text-black dark:text-white">Quality Metrics</h4>
+    </div>
+    <div class="space-y-3 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Relevance scores</span>
+        <span class="font-semibold text-purple-600 dark:text-purple-400">{DSMCPTechMetrics.monitoring.quality.relevanceScoresAvg} avg</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Accuracy metrics</span>
+        <span class="font-semibold text-purple-600 dark:text-purple-400">{DSMCPTechMetrics.monitoring.quality.accuracyMetrics}%</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">User feedback</span>
+        <span class="font-semibold text-purple-600 dark:text-purple-400">{DSMCPTechMetrics.monitoring.quality.userFeedback}/10</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Hallucination rate</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">&lt;{DSMCPTechMetrics.monitoring.quality.hallucinationRate}%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-green shadow-sm">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-6 h-6 rounded-md bg-green-500 flex items-center justify-center text-white font-bold">U</div>
+      <h4 class="font-semibold text-base mb-0 text-black dark:text-white">Usage Analytics</h4>
+    </div>
+    <div class="space-y-3 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Daily active users</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">{DSMCPTechMetrics.monitoring.usage.dailyActiveUsers}+</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Queries per user</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">{DSMCPTechMetrics.monitoring.usage.queriesPerUserAvg} avg</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Popular queries</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">Tracked</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Tool usage patterns</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">Analyzed</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-orange shadow-sm">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-6 h-6 rounded-md bg-orange-500 flex items-center justify-center text-white font-bold">B</div>
+      <h4 class="font-semibold text-base mb-0 text-black dark:text-white">Business Impact</h4>
+    </div>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">ROI tracking</span>
+        <span class="font-semibold text-green-600 dark:text-green-400">+{DSMCPTechMetrics.monitoring.business.roiTracking}%</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Adoption metrics</span>
+        <span class="font-semibold text-orange-600 dark:text-orange-400">{DSMCPTechMetrics.monitoring.business.adoptionMetrics}%</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-700 dark:text-gray-300">Satisfaction scores</span>
+        <span class="font-semibold text-orange-600 dark:text-orange-400">{DSMCPTechMetrics.monitoring.business.satisfactionScores}/10</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

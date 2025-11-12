@@ -1,0 +1,42 @@
+---
+title: 'Number 3'
+client: 'Enterprise Design System'
+description: 'The technical architecture, AI implementation, and infrastructure decisions behind a production MCP server. How we achieved sub-200ms latency, 97% accuracy, and seamless developer workflow integration.'
+skills: ['AI Engineering', 'System Architecture', 'Full-stack Development', 'DevOps']
+date: 2024-06-15
+featuredImage:
+  url: '/assets/images/portfolio/pankaj-patel-unsplash.webp'
+  name: 'Tech Overview MCP'
+featured: true
+draft: false
+---
+
+import { teamMetrics } from '@/data/full';
+import { Icon } from 'astro-icon/components';
+import ProjectOverview from "@/components/Portfolio/ProjectOverview.astro";
+import LeadershipA from "./_leadership/leadership-a.astro";
+import KeyLearningB from "./_key-learning/key-learning-b.astro";
+
+import MainGoal from "./_vision/goal.astro";
+import AllPillars from "./_vision/pillars.astro";
+import AllApproach from "./_vision/approach.astro";
+import ArchitectureFull from "@/components/EXTRA/_tech/ArchitectureFull.astro";
+
+<ProjectOverview frontmatter={frontmatter}>
+Building a production MCP server means solving real engineering challenges: AI pipeline optimization, sub-200ms latency requirements, vector search at scale, and seamless IDE integration. This deep dive explores the architecture, implementation, and developer workflow improvements.
+
+**Please note:** Technical details are generalized to protect intellectual property while demonstrating engineering approach and architectural decisions.
+</ProjectOverview>
+
+
+<MainGoal/>
+<AllPillars/>
+<AllApproach/>
+
+<hr class="my-16"/>
+
+<ArchitectureFull/>
+
+<hr class="my-16"/>
+
+<KeyLearningB/>

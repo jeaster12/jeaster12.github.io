@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components';
+import InsightCard from '@components/UI/InsightCard.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  title="Key Learnings & Strategic Insights"
+  description="Building Cupcake from the ground up taught invaluable lessons about <strong>organizational change</strong>, <strong>technical architecture</strong>, & <strong>scaling design systems</strong>. Here are the most critical insights."/>
+
+<div class="grid md:grid-cols-2 gap-6">
+  <InsightCard
+    icon="line-md:lightbulb-twotone"
+    iconColor="text-yellow-500"
+    title="Start with the Interface Inventory"
+    description="Before building anything, understand what exists. The interface inventory process revealed patterns, inconsistencies, and opportunities that became the foundation for prioritization. It also created early buy-in by showing designers their work in aggregate."
+  />
+
+  <InsightCard
+    icon="line-md:star-filled"
+    iconColor="text-purple-500"
+    title="Build a Coalition, Not Consensus"
+    description="You don't need everyone's agreement to start. Identify passionate advocates early & empower them. Our internal roadshows focused on demonstrating value to product & technology owners, which created momentum that naturally brought skeptics along."
+  />
+
+  <InsightCard
+    icon="line-md:cog-loop"
+    iconColor="text-blue-500"
+    title="Technology-Agnostic = Future-Proof"
+    description="Building Cupcake Core in HTML/SCSS was crucial. When teams needed React, Vue, or other frameworks, they could build on the same foundation. This decision enabled adoption across diverse technology stacks and survived multiple technology migrations."
+  />
+
+  <InsightCard
+    icon="line-md:confirm-circle"
+    iconColor="text-green-500"
+    title="Documentation is a Product"
+    description="&quot;If it isn't documented, it didn't happen.&quot; The Jekyll documentation site became as important as the code itself. By integrating Storybook to connect design & code examples, we created a single source of truth that teams actually used."
+  />
+
+  <InsightCard
+    icon="line-md:speedometer-loop"
+    iconColor="text-orange-500"
+    title="Hackathons Create Momentum"
+    description="The Sprinkles Angular library started as a hackathon project. By recruiting the best UI developers & showcasing value through a working prototype, we won executive support & proper resourcing. Sometimes you need to build first, ask permission second."
+  />
+
+  <InsightCard
+    icon="line-md:alert-circle-twotone"
+    iconColor="text-red-500"
+    title="Quality Gates Prevent Tech Debt"
+    description="Implementing True testing, Stylelint, Percy visual regression, and CI/CD from day one was non-negotiable. These guardrails prevented inconsistencies from creeping in and gave teams confidence that Cupcake was production-ready and trustworthy."
+  />
+</div>
+
+{/* Long-term Impact */}
+<div class="card card-blue mt-8 dark:from-blue-950/20 dark:to-purple-950/20 shadow-sm">
+  <h3 class="font-semibold text-xl mb-3 flex items-center gap-2">
+    <Icon name="line-md:arrow-up-circle" size={24} class="text-blue-500 shrink-0" />
+    The Long Game: Scaling Through Acquisitions
+  </h3>
+  <p class="mb-4">
+    Cupcake's true test came during the IHS Markit acquisition and subsequent S&P Global merger. Because the system was built on solid principles, documented comprehensively, and technology-agnostic, it became the foundation for platform integration rather than a barrier.
+  </p>
+  <div class="grid md:grid-cols-3 gap-4 text-sm">
+    <div class="bg-white dark:bg-black/40 rounded-lg p-4 border border-blue-200 dark:border-blue-900/50">
+      <Icon name="line-md:star-filled" size={24} class="text-yellow-500 mb-2" />
+      <strong class="block mb-1">Acquisition Integration</strong>
+      <p class="text-gray-600 dark:text-gray-400">Cupcake tokens adapted for IHS branding without rewriting application code</p>
+    </div>
+    <div class="bg-white dark:bg-black/40 rounded-lg p-4 border border-purple-200 dark:border-purple-900/50">
+      <Icon name="line-md:heart-filled" size={24} class="text-red-500 mb-2" />
+      <strong class="block mb-1">Cultural Standard</strong>
+      <p class="text-gray-600 dark:text-gray-400">Design system thinking became embedded in organizational DNA</p>
+    </div>
+    <div class="bg-white dark:bg-black/40 rounded-lg p-4 border border-green-200 dark:border-green-900/50">
+      <Icon name="line-md:confirm-circle" size={24} class="text-green-500 mb-2" />
+      <strong class="block mb-1">Proven Value</strong>
+      <p class="text-gray-600 dark:text-gray-400">Cupcake principles influenced merged product portfolio strategies</p>
+    </div>
+  </div>
+</div>

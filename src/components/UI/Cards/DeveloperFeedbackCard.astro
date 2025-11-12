@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const qualitativeWins = [
+  { text: '<strong>"Like Having a Mentor":</strong> Guidance without judgment' },
+  { text: '<strong>Context-Aware:</strong> Understands design system patterns' },
+  { text: '<strong>Real-Time Learning:</strong> Catch issues as you code' },
+  { text: '<strong>Eliminates Repetition:</strong> 20min/review saved for leads' },
+  { text: '<strong>Faster Onboarding:</strong> New devs productive immediately' },
+  { text: '<strong>Continuous Improvement:</strong> Learns from team patterns' }
+];
+---
+
+<div class="card card-blue dark:from-blue-950/20 dark:to-purple-950/20 shadow-sm">
+  <h3 class="font-semibold text-xl mb-2 flex items-center gap-2">
+    <Icon name="line-md:star-filled" size={24} class="text-purple-500" />
+    Developer Feedback
+  </h3>
+  <p class="mb-1 text-sm">
+    Beyond metrics, developers describe the MCP Server as transformative to their workflow:
+  </p>
+  <div class="grid md:grid-cols-2 gap-4 text-sm">
+    <ul class="space-y-2 my-0 pl-0">
+      {qualitativeWins.slice(0, 3).map((win) => (
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+          <span set:html={win.text} />
+        </li>
+      ))}
+    </ul>
+    <ul class="space-y-2 my-0 pl-0">
+      {qualitativeWins.slice(3).map((win) => (
+        <li class="flex items-start gap-2 pl-0">
+          <Icon name="line-md:confirm-circle" size={20} class="text-green-500 flex-shrink-0" />
+          <span set:html={win.text} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

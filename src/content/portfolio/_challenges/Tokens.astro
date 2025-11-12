@@ -1,0 +1,94 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- Challenge: Keeping Design Tokens in Sync -->
+<div class="green-gradient rounded-lg p-6 mb-6">
+  <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+    <Icon name="carbon:data-base" class="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+    Challenge: Keeping Design Tokens in Sync
+  </h3>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-green-200 dark:border-green-900/50">
+    <div class="flex items-start gap-3">
+      <Icon name="carbon:warning-hex" class="w-6 h-6 text-red-600 flex-shrink-0" />
+      <div>
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-1">The Stale Data Problem</h4>
+        <p class="text-sm text-gray-700 dark:text-gray-300">Designers update design tokens in Figma (colors, spacing, typography), but the MCP knowledge base becomes stale. Developers receive outdated suggestions like <code>color.primary.500</code> when designers renamed it to <code>color.brand.500</code>, creating confusion and broken trust in the system.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-green-200 dark:border-green-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white">The Solution: Automated Figma API Integration</h4>
+    <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+      Built bidirectional sync between Figma and the MCP Server that <strong>automatically updates the knowledge base when design tokens change</strong>, with version tracking to detect drift and alert teams to breaking changes.
+    </p>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="blue-gradient p-4 rounded-lg">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:cloud-download" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <h5 class="font-bold text-sm text-gray-900 dark:text-white">Nightly Token Sync</h5>
+        </div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 ml-0 my-0 pl-6">
+          <li><strong>Figma API integration:</strong> Fetches tokens from design files via REST API</li>
+          <li><strong>Automated nightly sync:</strong> Scheduled job updates MCP knowledge base</li>
+          <li><strong>Version tracking:</strong> Detects changes, deprecations, renames</li>
+          <li><strong>Alerts on drift:</strong> Notifies teams when breaking changes occur</li>
+        </ul>
+      </div>
+      <div class="green-gradient p-4 rounded-lg">
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name="carbon:data-check" class="w-5 h-5 text-green-600 dark:text-green-400" />
+          <h5 class="font-bold text-sm text-gray-900 dark:text-white">Always Accurate Suggestions</h5>
+        </div>
+        <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 ml-0 my-0 pl-6">
+          <li><strong>Real-time validation:</strong> Suggestions always match current Figma state</li>
+          <li><strong>Migration guidance:</strong> Alerts when tokens are deprecated</li>
+          <li><strong>Automatic updates:</strong> No manual intervention required</li>
+          <li><strong>Developer confidence:</strong> Trust that MCP Server knows the truth</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white/80 rounded-lg p-5 mb-4 dark:bg-black/40 border border-green-200 dark:border-green-900/50">
+    <h4 class="font-bold text-sm mb-3 text-gray-900 dark:text-white">How the Sync Process Works</h4>
+    <div class="space-y-2 text-xs text-gray-700 dark:text-gray-300">
+      <div class="flex items-center gap-2">
+        <div class="bg-cyan-100 text-cyan-900 font-bold rounded px-2 py-1 flex-shrink-0 dark:bg-cyan-800/30 dark:text-cyan-400">1</div>
+        <p><strong>Figma API Extraction:</strong> Nightly job fetches all design tokens (colors, spacing, typography, effects) from Figma files using REST API</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="bg-cyan-100 text-cyan-900 font-bold rounded px-2 py-1 flex-shrink-0 dark:bg-cyan-800/30 dark:text-cyan-400">2</div>
+        <p><strong>Version Comparison:</strong> Compares new tokens against previous snapshot to detect changes, renames, deprecations</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="bg-cyan-100 text-cyan-900 font-bold rounded px-2 py-1 flex-shrink-0 dark:bg-cyan-800/30 dark:text-cyan-400">3</div>
+        <p><strong>Knowledge Base Update:</strong> Updates MCP Server's token registry with new data and triggers re-indexing</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="bg-cyan-100 text-cyan-900 font-bold rounded px-2 py-1 flex-shrink-0 dark:bg-cyan-800/30 dark:text-cyan-400">4</div>
+        <p><strong>Alert on Breaking Changes:</strong> Notifies design and engineering teams if tokens are deprecated or renamed</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-3">
+    <div class="metric-box metric-box-green">
+      <div class="text-3xl font-bold text-green-600 mb-1">24hr</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">Max Token Staleness</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">Nightly sync keeps data fresh</p>
+    </div>
+    <div class="metric-box metric-box-blue">
+      <div class="text-3xl font-bold text-blue-600 mb-1">100%</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">Token Accuracy</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">Always matches Figma source</p>
+    </div>
+    <div class="metric-box metric-box-purple">
+      <div class="text-3xl font-bold text-purple-600 mb-1">Zero</div>
+      <p class="text-xs text-gray-700 dark:text-gray-300 font-semibold">Manual Sync Required</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">Fully automated process</p>
+    </div>
+  </div>
+</div>

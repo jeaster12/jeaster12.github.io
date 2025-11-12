@@ -1,0 +1,142 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  title="System Architecture & Implementation"
+  description="Built on a foundation of <strong>design tokens</strong> and <strong>technology-agnostic principles</strong>, Cupcake's layered architecture enabled rapid adoption across diverse technology stacks while maintaining consistency." />
+
+<div class="card-white md:p-8 p-6 shadow-sm mb-8">
+  <h3 class="font-semibold text-xl mb-6 text-center">Three-Layer Architecture</h3>
+
+  <div class="space-y-6">
+    {/* Layer 1: Design Foundations */}
+    <div class="rounded-lg border border-blue-200 dark:border-blue-900/50 md:p-6 p-4 bg-blue-50 dark:bg-blue-950/20">
+      <div class="flex items-start gap-4">
+        <div class="bg-blue-500 text-white rounded-full w-10 h-10 md:flex hidden items-center justify-center font-bold flex-shrink-0">1</div>
+        <div class="flex-1">
+          <h4 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <Icon name="line-md:edit-twotone" size={20} class="text-blue-500 shrink-0" />
+            Design Foundations
+          </h4>
+          <p class="text-sm mb-3">Shared design language and visual standards that ensure consistency before code.</p>
+          <div class="grid md:grid-cols-3 gap-3 text-xs">
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-blue-200 dark:border-blue-900/50">
+              <strong>Sketch Library</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Shared symbols, overrides, & design patterns</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-blue-200 dark:border-blue-900/50">
+              <strong>Design Tokens</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Colors, typography, spacing, & visual properties</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-blue-200 dark:border-blue-900/50">
+              <strong>Persona Guidance</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Context-specific patterns for each user type</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Arrow */}
+    <div class="flex justify-center">
+      <Icon name="line-md:arrow-down" size={32} class="text-gray-400" />
+    </div>
+
+    {/* Layer 2: Cupcake Core */}
+    <div class="rounded-lg border border-green-200 dark:border-green-900/50 md:p-6 p-4 bg-green-50 dark:bg-green-950/20">
+      <div class="flex items-start gap-4">
+        <div class="bg-green-500 text-white rounded-full w-10 h-10 md:flex hidden items-center justify-center font-bold flex-shrink-0">2</div>
+        <div class="flex-1">
+          <h4 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <Icon name="line-md:cog-loop" size={20} class="text-green-500 shrink-0" />
+            Cupcake Core (HTML/SCSS)
+          </h4>
+          <p class="text-sm mb-3">Technology-agnostic foundation that can be used with any framework or vanilla JS.</p>
+          <div class="grid md:grid-cols-4 gap-3 text-xs">
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-green-200 dark:border-green-900/50">
+              <strong>Design Tokens (SCSS)</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Variables for all visual properties</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-green-200 dark:border-green-900/50">
+              <strong>Utility Classes</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Spacing, layout, & type helpers</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-green-200 dark:border-green-900/50">
+              <strong>Base Components</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Buttons, forms, cards, & more</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-green-200 dark:border-green-900/50">
+              <strong>Testing Suite</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">True, Stylelint, Percy CI/CD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Arrow */}
+    <div class="flex justify-center">
+      <Icon name="line-md:arrow-down" size={32} class="text-gray-400" />
+    </div>
+
+    {/* Layer 3: Framework Libraries */}
+    <div class="rounded-lg border border-purple-200 dark:border-purple-900/50 md:p-6 p-4 bg-purple-50 dark:bg-purple-950/20">
+      <div class="flex items-start gap-4">
+        <div class="bg-purple-500 text-white rounded-full w-10 h-10 items-center justify-center font-bold flex-shrink-0 md:flex hidden">3</div>
+        <div class="flex-1">
+          <h4 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <Icon name="line-md:star-filled" size={20} class="text-purple-500 shrink-0" />
+            Framework-Specific Libraries
+          </h4>
+          <p class="text-sm mb-3">Production-ready component libraries built on top of Cupcake Core.</p>
+          <div class="grid md:grid-cols-3 gap-3 text-xs">
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-purple-200 dark:border-purple-900/50">
+              <strong>Cupcake Sprinkles (Angular)</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Full Angular component library with TypeScript</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-purple-200 dark:border-purple-900/50">
+              <strong>React Implementation</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Teams built React wrappers as needed</p>
+            </div>
+            <div class="bg-white dark:bg-black/40 rounded p-3 border border-purple-200 dark:border-purple-900/50">
+              <strong>Future Frameworks</strong>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Extensible architecture for new tech stacks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Documentation Layer */}
+<div class="orange-gradient rounded-lg md:p-6 p-4 shadow-sm">
+  <h3 class="font-semibold text-xl mb-3 flex items-center gap-2">
+    <Icon name="line-md:document-list" size={24} class="text-orange-500" />
+    Documentation & Tooling
+  </h3>
+  <div class="grid md:grid-cols-4 gap-4 text-sm">
+    <div class="flex flex-col items-center text-center p-4 bg-white dark:bg-black/40 rounded-lg w-auto">
+      <Icon name="logos:jekyll" height={32} class="text-orange-500 mb-2 w-full" />
+      <strong class="mb-1">Jekyll Docs Site</strong>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Markdown-based documentation</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-4 bg-white dark:bg-black/40 rounded-lg">
+      <Icon name="logos:storybook-icon" size={32} class="text-blue-500 mb-2" />
+      <strong class="mb-1">Storybook</strong>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Interactive component examples</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-4 bg-white dark:bg-black/40 rounded-lg">
+      <Icon name="logos:npm" width={48} class="text-purple-500 mb-2 h-full" />
+      <strong class="mb-1">NPM Distribution</strong>
+      <p class="text-xs text-gray-600 dark:text-gray-400">@cupcake-ds packages</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-4 bg-white dark:bg-black/40 rounded-lg">
+      <Icon name="logos:travis-ci" size={32} class="text-green-500 mb-2" />
+      <strong class="mb-1">CI/CD Pipeline</strong>
+      <p class="text-xs text-gray-600 dark:text-gray-400">Automated testing and deployment</p>
+    </div>
+  </div>
+</div>

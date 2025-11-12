@@ -1,0 +1,54 @@
+---
+import { mainContent } from '@data/content'
+import { Icon } from 'astro-icon/components'
+import Section from '@components/UI/Section.astro'
+import BulletListItem from '@/components/UI/BulletListItem.astro'
+
+// Map columns number to Tailwind grid class
+const getGridClass = (columns: number) => {
+	const colMap: Record<number, string> = {
+		1: 'lg:grid-cols-1',
+		2: 'lg:grid-cols-2',
+		3: 'lg:grid-cols-3',
+		4: 'lg:grid-cols-4',
+		5: 'lg:grid-cols-5',
+		6: 'lg:grid-cols-6'
+	}
+	return colMap[columns] || 'lg:grid-cols-3'
+}
+---
+
+<Section id="skills" title={mainContent.Skills.title} subtitle={mainContent.Skills.subtitle} description={mainContent.Skills.description}>
+	{
+		mainContent.Skills.categories.map(category => (
+			<div class="mt-6 sm:mt-8">
+				<h3 class="text-lg sm:text-xl font-semibold dark:text-white mb-1 flex items-center gap-2">
+					<Icon name={category.icon} size="24" class="sm:w-7 sm:h-7" />
+					{category.name}
+				</h3>
+				{category.description && (
+					<p class="text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
+						{category.description}
+					</p>
+				)}
+				<div class={`grid grid-cols-1 sm:grid-cols-2 ${getGridClass(category.columns)} gap-4 sm:gap-6`}>
+					{category.skills.map(skill => (
+						<div class="p-3 sm:p-4 border border-dashed border-gray-300 dark:border-white/10 rounded-lg hover:border-black/40 dark:hover:border-white/40 transition-colors">
+							<h4 class="font-semibold text-black dark:text-white mb-2 flex items-center gap-2 text-sm sm:text-base">{skill.title}</h4>
+							<ul class="text-left text-gray-600 dark:text-gray-400 flex flex-wrap gap-2 text-xs sm:text-sm ml-1">
+								{skill.items.split('•').map(
+									item =>
+										item.trim() && (
+											<BulletListItem color="bg-primary" class="space-x-2 w-full" align={category.name === 'Program Management' ? 'top' : 'center'}>
+												{item.trim()}
+											</BulletListItem>
+										)
+								)}
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+		))
+	}
+</Section>

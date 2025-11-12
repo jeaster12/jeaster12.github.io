@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const visionPillars = [
+  {
+    icon: 'line-md:cog-loop',
+    color: 'text-purple-500 dark:text-purple-400',
+    title: 'Unified Orchestration',
+    description: 'Single layer coordinating all tools',
+    details: 'Instead of teams juggling multiple disconnected tools, create one intelligent orchestration layer that coordinates ESLint, TypeScript, axe-core, & more <strong>providing a unified feedback experience.</strong>'
+  },
+  {
+    icon: 'line-md:star-pulsating-twotone-loop',
+    color: 'text-blue-500 dark:text-blue-400',
+    title: 'Design System Intelligence',
+    description: 'Context-aware validation',
+    details: 'Go beyond generic syntax checking. Validate against actual design system standards, component patterns, & organizational conventions <strong>providing guidance that understands your codebase.</strong>'
+  },
+  {
+    icon: 'line-md:speedometer-loop',
+    color: 'text-green-500 dark:text-green-400',
+    title: 'Real-Time Feedback',
+    description: 'Issues caught in IDE, not review',
+    details: 'Shift quality left by catching issues during development, not in code review. Provide instant, actionable feedback while developers code <strong>before they even commit.</strong>'
+  },
+  {
+    icon: 'line-md:uploading-loop',
+    color: 'text-orange-500 dark:text-orange-400',
+    title: 'Continuous Learning',
+    description: 'System improves from team patterns',
+    details: 'Learn from team interactions, common questions, & emerging patterns. The system gets smarter over time, <strong>adapting to your organization\'s evolving needs & standards.</strong>'
+  }
+];
+---
+
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+  {visionPillars.map((pillar) => (
+    <div class={`rounded-lg p-4 shadow-sm card-white`}>
+      <div class="flex items-start gap-3">
+        <Icon name={pillar.icon} class={`w-6 h-6 ${pillar.color} flex-shrink-0 mt-0.5`} />
+        <div class="flex-1">
+          <h4 class="font-semibold text-base mb-1">{pillar.title}</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-2">{pillar.description}</p>
+          <p class="text-sm" set:html={pillar.details}></p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

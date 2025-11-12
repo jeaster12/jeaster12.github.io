@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+const inputSources = [
+  { icon: 'logos:markdown', name: 'Documentation', detail: 'Components & APIs' },
+  { icon: 'logos:storybook-icon', name: 'Storybook', detail: 'Examples & Variants' },
+  { icon: 'logos:figma', name: 'Figma', detail: 'Design Specs' },
+  { icon: 'logos:github-icon', name: 'GitHub', detail: 'Code Patterns' },
+  { icon: 'logos:jira', name: 'Support', detail: 'Tickets & Q&A' },
+  { icon: 'logos:slack-icon', name: 'Chat', detail: 'Conversations' }
+];
+const title = 'Layer 1: Design System Knowledge';
+const description = 'The system ingests from multiple sources to build comprehensive understanding of the design system';
+const title2 = 'Data Collection & Ingestion';
+const description2 = 'The foundation of accurate AI responses starts with comprehensive data collection. We aggregate design system knowledge from multiple sources to build a complete picture of how the design system is documented, implemented, & used in practice.';
+---
+
+<div class="mb-6">
+  <div class="text-center mb-4">
+    <h3 class="text-2xl font-semibold inline-flex items-center gap-2 font-nunito mb-2">
+      <Icon name="line-md:upload-loop" size={24} class="text-blue-500" />
+      {title2}
+    </h3>
+    <p class="text-sm text-center mb-6 max-w-4xl mx-auto text-gray-600 dark:text-gray-400" set:html={description2}></p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+    {inputSources.map((source) => (
+      <div class="flex flex-col items-center p-4 card-gray">
+        <Icon name={source.icon} size={32} class={source.icon.includes('markdown') || source.icon.includes('github') ? 'dark:invert' : ''} />
+        <div class="text-xs font-semibold mt-2">{source.name}</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">{source.detail}</div>
+      </div>
+    ))}
+  </div>
+</div>

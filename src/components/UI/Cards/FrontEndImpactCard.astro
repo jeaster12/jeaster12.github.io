@@ -1,0 +1,67 @@
+---
+import MetricsPanel from '../MetricsPanel.astro';
+---
+
+<MetricsPanel
+  id="measurable-results"
+  title="Frontend Platform Impact"
+  description="Six months post-launch, the frontend quality platform delivered <strong>measurable improvements</strong> in <strong>code quality</strong>, <strong>developer productivity</strong>, and <strong>team efficiency</strong>—proving that automated quality gating and developer experience can coexist. <span class='text-purple-900 font-semibold'>Concrete ROI data secured continued platform investment.</span>"
+  heroMetrics={[
+    {
+      value: '67%',
+      gradient: 'green-gradient',
+      textColor: 'text-green-600',
+      label: 'UI Bugs Reduced',
+    },
+    {
+      value: '94%',
+      gradient: 'orange-gradient',
+      textColor: 'text-orange-600',
+      label: 'A11y Compliance',
+    },
+    {
+      value: '53%',
+      gradient: 'purple-gradient',
+      textColor: 'text-purple-600',
+      label: 'Fewer Review Cycles',
+    },
+    {
+      value: '60%',
+      gradient: 'blue-gradient',
+      textColor: 'text-blue-600',
+      label: 'Developer Adoption',
+    }
+  ]}
+  detailedMetrics={[
+    {
+      icon: 'line-md:check-all',
+      iconColor: 'text-green-500',
+      title: 'Frontend Code Quality',
+      rows: [
+        { label: 'Accessibility compliance', sublabel: 'WCAG 2.1 AA', value: '<span class="text-base text-gray-400">33% →</span> <span>94%</span>' },
+        { label: 'Design token adherence', sublabel: 'no hardcoded values', value: '<span class="text-base text-gray-400">58% →</span> <span>96%</span>' },
+        { label: 'Component API misuse', sublabel: 'prop validation', value: '<span class="text-base text-gray-400">40% →</span> <span>8%</span>' }
+      ]
+    },
+    {
+      icon: 'line-md:speedometer-loop',
+      iconColor: 'text-blue-500',
+      title: 'Developer Productivity',
+      rows: [
+        { label: 'Code review cycles', sublabel: 'per frontend PR', value: '<span class="text-base text-gray-400">3.2 →</span> <span>1.5</span>' },
+        { label: 'Time to implement', sublabel: 'accessible modal', value: '<span class="text-base text-gray-400">45m →</span> <span>8m</span>' },
+        { label: 'Time to productivity', sublabel: 'new engineers', value: '<span class="text-base text-gray-400">3w →</span> <span>3d</span>' }
+      ]
+    },
+    {
+      icon: 'line-md:gauge-loop',
+      title: 'Performance & Platform',
+      iconColor: 'text-orange-500',
+      rows: [
+        { label: 'Bundle size reduction', sublabel: 'tree-shaking in CI/CD', value: '28%' },
+        { label: 'Weekly active users', sublabel: '2-3x industry benchmark', value: '60%' },
+        { label: 'Developer NPS', sublabel: '+40% satisfaction', value: '<span class="text-base text-gray-400">6.2 →</span> <span>8.7</span>' }
+      ]
+    }
+  ]}
+/>

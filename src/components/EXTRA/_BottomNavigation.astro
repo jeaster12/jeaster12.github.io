@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const navigationLinks = [
+  {
+    href: '/challenges',
+    icon: 'line-md:alert-circle',
+    iconColor: 'text-orange-600',
+    hoverColor: 'hover:border-orange-400 dark:hover:border-orange-600',
+    title: 'Technical Challenges',
+    description: 'Key challenges we overcame'
+  },
+  {
+    href: '/impact-metrics',
+    icon: 'line-md:speedometer',
+    iconColor: 'text-blue-600',
+    hoverColor: 'hover:border-blue-400 dark:hover:border-blue-600',
+    title: 'Impact & Metrics',
+    description: 'Measurable business outcomes'
+  },
+  {
+    href: '/adoption',
+    icon: 'line-md:account-add',
+    iconColor: 'text-green-600',
+    hoverColor: 'hover:border-green-400 dark:hover:border-green-600',
+    title: 'Adoption Strategy',
+    description: 'How teams adopted the platform'
+  },
+  {
+    href: '/leadership',
+    icon: 'line-md:star-filled',
+    iconColor: 'text-yellow-600',
+    hoverColor: 'hover:border-yellow-400 dark:hover:border-yellow-600',
+    title: 'Leadership & Execution',
+    description: 'How I led the initiative'
+  },
+  {
+    href: '/mcp-server',
+    icon: 'logos:openai-icon',
+    iconColor: 'fill-purple-600',
+    hoverColor: 'hover:border-purple-400 dark:hover:border-purple-600',
+    title: 'MCP Server Deep Dive',
+    description: 'AI orchestration layer'
+  },
+  {
+    href: '/technical-examples',
+    icon: 'line-md:document-code',
+    iconColor: 'text-red-600',
+    hoverColor: 'hover:border-red-400 dark:hover:border-red-600',
+    title: 'Technical Examples & Code',
+    description: 'Real validation scenarios'
+  }
+];
+---
+
+<!-- Navigation -->
+<div class="border-t border-global pt-8 mt-16">
+  <h3 class="font-bold text-gray-900 dark:text-white mb-4">Explore More</h3>
+  <div class="grid md:grid-cols-3 gap-4">
+    {navigationLinks.map((link) => (
+      <a href={link.href} class={`not-prose block p-4 bg-white dark:bg-black/40 rounded-lg border border-global ${link.hoverColor} hover:shadow-md transition-all`}>
+        <div class="flex items-center gap-2 mb-2">
+          <Icon name={link.icon} class={`w-5 h-5 ${link.iconColor}`} />
+          <div class="font-bold text-gray-900 dark:text-white">{link.title}</div>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{link.description}</p>
+      </a>
+    ))}
+  </div>
+</div>

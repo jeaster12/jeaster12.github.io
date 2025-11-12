@@ -1,0 +1,112 @@
+---
+import { Icon } from 'astro-icon/components';
+import CardHeader from '@/components/UI/CardHeader.astro';
+import SectionTitle from '@/components/UI/SectionTitle.astro';
+---
+
+<SectionTitle
+  title="Executive & Leadership Engagement"
+  description="Regular reporting & executive reviews kept leadership informed of progress & impact, while <strong>quarterly business reviews</strong> solidified alignment & investment. In fact, after our POC demo, we had <strong>more executive stakeholder requests than we could handle</strong>."/>
+
+  <div class="space-y-6">
+<div class="grid gap-6 md:grid-cols-2">
+  <div class="card md:p-6 p-4 shadow-sm">
+    <CardHeader
+      icon="line-md:arrow-up-circle"
+      title="Executive Reporting"
+      iconSize={24}
+      className="mb-2"
+    />
+    <div class="space-y-3 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Monthly Dashboards:</strong> Adoption metrics, productivity gains
+        <p class="italic text-xs mt-1">Visual reports for leadership team</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Quarterly Business Reviews:</strong> ROI analysis, strategic alignment
+        <p class="italic text-xs mt-1">$2.3M annual savings demonstration</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Success Stories:</strong> Team testimonials and case studies
+        <p class="italic text-xs mt-1">Real impact on product delivery</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card md:p-6 p-4 shadow-sm">
+    <CardHeader
+      icon="line-md:navigation-right-up"
+      title="Strategic Initiatives"
+      iconSize={24}
+      iconColor="text-purple-600 dark:text-purple-400"
+      className="mb-2"
+    />
+    <div class="space-y-3 text-sm">
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Digital Transformation:</strong> Design system as enabler
+        <p class="italic text-xs mt-1">Accelerating product modernization</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Accessibility Compliance:</strong> Risk mitigation strategy
+        <p class="italic text-xs mt-1">94% WCAG compliance achievement</p>
+      </div>
+      <div class="bg-gray-100 dark:bg-black/40 p-3 rounded-lg">
+        <strong>Developer Experience:</strong> Talent retention tool
+        <p class="italic text-xs mt-1">Improved satisfaction and productivity</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card p-6">
+  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Engineering Leadership Impact</h3>
+  <div class="grid md:grid-cols-2 gap-6 text-sm">
+    <div>
+      <h4 class="font-semibold mb-2">Team Growth</h4>
+      <ul class="text-gray-700 dark:text-gray-400 mb-0">
+        <li><strong>4 promotions</strong> in 18 months (Junior→Mid, 2 Mid→Senior, Senior→Staff)</li>
+        <li><strong>100% retention</strong> over project lifecycle</li>
+        <li><strong>7 direct reports</strong> + 12+ cross-functional contributors</li>
+        <li class="mb-0"><strong>Clear growth plans</strong>, data-backed promotion cases</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Cross-Functional Leadership</h4>
+      <ul class="text-gray-700 dark:text-gray-400 mb-0">
+        <li>Secured executive buy-in (VP Eng, CTO, CFO) with ROI data</li>
+        <li>Coordinated across 4 orgs (Engineering, Design, Platform, Security)</li>
+        <li>Drove grassroots adoption: 60% vs 20-30% industry benchmark</li>
+        <li class="mb-0">Platform enabled 5 teams to self-serve (multiplier effect)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="blue-gradient rounded-lg md:p-6 p-4">
+  <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
+    <Icon name="line-md:star-filled" class="w-6 h-6 text-purple-600 dark:text-purple-400" />
+    Cultural Transformation
+  </h3>
+  <p class="text-sm mb-3">Beyond metrics, the MCP Server fundamentally shifted how the organization thinks about quality:</p>
+  <div class="grid md:grid-cols-2 gap-3 text-sm">
+    <div>
+      <strong>Quality as Default:</strong> 
+      No longer an afterthought in code review, but validated in real-time during development
+    </div>
+    <div>
+      <strong>Democratized Excellence:</strong> 
+      Junior and senior developers alike receive expert-level guidance
+    </div>
+    <div>
+      <strong>Design Team Focus:</strong> 
+      Freed from repetitive support questions
+    </div>
+    <div>
+      <strong>Continuous Learning:</strong> 
+      System improves from team patterns and feedback
+    </div>
+  </div>
+</div>
+
+</div>

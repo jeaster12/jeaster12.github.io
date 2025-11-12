@@ -1,0 +1,100 @@
+---
+title: 'Cupcake Design System: Complete Ecosystem'
+client: 'Ipreo, IHS Markit, S&P Global'
+description: 'Building an enterprise design system <strong>from the ground up</strong> that unified <strong>50+ financial applications</strong>, serving <strong>thousands of developers</strong> and <strong>hundreds of thousands of end users</strong> across multiple acquisitions and platform migrations.'
+skills: ['Design Systems', 'UX Design', 'Program Management', 'Front-end Development']
+tools: ['html-5', 'Sass', 'TypeScript-icon', 'Angular-icon', 'Storybook-icon', 'Sketch', 'Jekyll', 'Jest', 'Stylelint', 'Percy-icon', 'GitHub-icon', 'Netlify-icon']
+date: 2018-03-15
+featuredImage:
+  url: '/assets/images/portfolio/amper-unsplash.webp'
+  name: 'Cupcake Design System'
+links:
+  - label: 'View Cupcake Documentation'
+    url: 'https://cupcake-design-system.github.io'
+  - label: 'View Cupcake HTML Example (legacy)'
+    url: 'https://cupcake.netlify.app'
+  - label: 'View Cupcake Sprinkles Angular Example (legacy)'
+    url: 'http://cupcake-sprinkles.surge.sh'
+featured: true
+draft: false
+---
+
+import { Icon } from 'astro-icon/components';
+import Design from '@/components/Portfolio/Cupcake/Design.astro';
+import Metrics from '@/components/Portfolio/Cupcake/Metrics.astro';
+import Solution from '@/components/Portfolio/Cupcake/Solution.astro';
+import Examples from '@/components/Portfolio/Cupcake/Examples.astro';
+import Challenge from '@/components/Portfolio/Cupcake/Challenge.astro';
+import CodeQuality from '@/components/Portfolio/Cupcake/CodeQuality.astro';
+import KeyLearning from '@/components/Portfolio/Cupcake/KeyLearning.astro';
+import Architecture from '@/components/Portfolio/Cupcake/Architecture.astro';
+import TwoColumnSection from '@/components/Portfolio/TwoColumnSection.astro';
+import Transformation from '@/components/Portfolio/Cupcake/Transformation.astro';
+import RelatedCaseStudies from '@/components/EXTRA/_RelatedCaseStudies.astro';
+
+<ProjectOverview frontmatter={frontmatter}>
+When Ipreo set out to unify 50+ disparate financial applications into a cohesive platform suite, we needed more than just a component library. We needed a complete design system ecosystem that could scale across teams, technologies, and business transformations. 
+
+This is the case study of identifying the need, building the team, and delivering Cupcake - a design system that fundamentally changed how our organization built software.
+
+**Impact:** From initial concept to enterprise standard, Cupcake has enabled countless product launches, survived multiple corporate acquisitions (IHS Markit, S&P Global), and continues to serve thousands of developers and hundreds of thousands of end users.
+</ProjectOverview>
+
+<hr className="md:my-16 my-8"/>
+
+<Challenge/>
+
+<hr className="md:my-16 my-8"/>
+
+<Solution/>
+
+<hr className="md:my-16 my-8"/>
+
+<Design/>
+
+<hr className="md:my-16 my-8"/>
+
+<Architecture/>
+
+<hr className="md:my-16 my-8"/>
+
+<CodeQuality/>
+
+<hr className="md:my-16 my-8"/>
+
+<Metrics/>
+
+<hr className="md:my-16 my-8"/>
+
+<Examples/>
+
+<hr className="md:my-16 my-8"/>
+
+<KeyLearning/>
+
+<hr className="md:my-16 my-8"/>
+
+<Transformation/>
+
+<hr className="md:my-16 my-8"/>
+
+<RelatedCaseStudies
+  heading="Explore additional case studies:"
+  description=""
+  studies={[
+    {
+      title: "Design System MCP",
+      url: "/portfolio/design-system-mcp",
+      description: "See how AI transformed design system adoption by delivering guidance at the point of use.",
+      icon: "line-md:lightbulb-twotone",
+      color: "purple"
+    },    
+    {
+      title: "For Designers & Leaders",
+      url: "/portfolio/design-impacts-mcp",
+      description: "Read about freeing design teams from support burden and enabling strategic focus.",
+      icon: "line-md:edit-twotone",
+      color: "blue"
+    }
+  ]}
+/>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: string;
+  className?: string;
+}
+
+const { id, className = '' } = Astro.props;
+---
+
+<div class={`tab-content overflow-hidden ${className}`} data-tab={id}>
+  <div class="overflow-x-auto">
+    <slot />
+  </div>
+</div>

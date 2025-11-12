@@ -1,0 +1,257 @@
+---
+import 'glightbox/dist/css/glightbox.min.css';
+import { Image } from 'astro:assets';
+
+interface ImageItem {
+  href: string;
+  label: string;
+  category?: string;
+  size: {
+    width: number;
+    height: number;
+  };
+}
+
+interface Props {
+  src?: string;
+  gap?: string;
+  cols?: string;
+  class?: string;
+  title?: string;
+  loop?: boolean;
+  galleryId?: string;
+  autoplay?: boolean;
+  images?: ImageItem[];
+  mode?: 'grid' | 'carousel';
+  lazyLoad?: boolean; // Control lazy loading behavior
+}
+
+const {
+  src,
+  title,
+  gap = '6',
+  cols = '3',
+  images = [],
+  loop = true,
+  mode = 'grid',
+  autoplay = false,
+  lazyLoad = true, // Default to lazy loading for offscreen galleries
+  class: className = '',
+  galleryId = `gallery-${Math.random().toString(36).substring(2, 11)}`,
+} = Astro.props as Props;
+
+// Process images based on props
+let displayImages: ImageItem[] = [];
+
+if (src) {
+  // Single image mode
+  displayImages = [{
+    href: src,
+    label: title || 'Image',
+    size: { width: 1200, height: 800 }
+  }];
+} else {
+  // Multiple images mode
+  displayImages = Array.isArray(images) ? images : [];
+}
+
+// Determine grid classes based on number of images
+const isSingleImage = displayImages.length <= 1;
+const effectiveCols = cols ? Math.min(Number(cols), displayImages.length) : 2;
+const colsClass = effectiveCols === 2 ? 'sm:grid-cols-2' : effectiveCols === 3 ? 'sm:grid-cols-3' : effectiveCols === 4 ? 'sm:grid-cols-4' : 'sm:grid-cols-2';
+const gapClass = gap === '4' ? 'gap-4' : gap === '6' ? 'gap-6' : gap === '8' ? 'gap-8' : 'gap-6';
+const gridClasses = isSingleImage
+  ? ''
+  : `portfolio-grid grid grid-cols-1 ${colsClass} ${gapClass}`;
+
+---
+
+{mode === 'carousel' ? (
+  <div
+    class={`simple-carousel relative ${className}`}
+    data-carousel-id={galleryId}
+    data-autoplay={autoplay}
+    data-loop={loop}>
+    <div class="carousel-wrapper relative overflow-hidden h-[300px] rounded-lg">
+      {displayImages.map((image, index) => (
+        <div
+          class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+          data-slide-index={index}>
+          <a
+            href={image.href}
+            data-pswp-width={image.size.width}
+            data-pswp-height={image.size.height}
+            class="block w-full h-full relative overflow-hidden group rounded-lg after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-black/30 after:to-transparent after:opacity-0 after:transition after:ease-out after:duration-[160ms] hover:after:opacity-100"
+          >
+            <Image
+              inferSize={true}
+              src={image.href}
+              width={image.size.width}
+              height={image.size.height}
+              loading={lazyLoad ? 'lazy' : (index < 2 ? 'eager' : 'lazy')}
+              alt={image.label || title || 'Gallery image'}
+              class="transition ease-custom duration-500 group-hover:scale-105 border border-black/5 dark:border-white/10 rounded-lg shadow-sm w-full h-full object-cover"
+            />
+            <div class="z-[1] absolute bottom-0 left-0 w-full px-7 pb-6 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition ease-out duration-[160ms]">
+              <span class="font-nunito font-semibold text-xl lg:text-2xl tracking-[0.5px] text-white">
+                {image.label}
+              </span>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+    <div class="carousel-dots flex justify-center gap-2 mt-4">
+      {displayImages.map((_, index) => (
+        <button
+          class={`carousel-dot w-2 h-2 rounded-full transition-all duration-200 hover:bg-gray-400 dark:hover:bg-gray-600 ${index === 0 ? 'bg-gray-600 dark:bg-gray-300 w-8' : 'bg-gray-300 dark:bg-gray-700'}`}
+          data-slide-index={index}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+) : (
+  <div
+    id={galleryId}
+    data-gallery-id={galleryId}
+    class={[gridClasses, className].filter(Boolean).join(' ')}>
+
+    {displayImages.map((image) => (
+      <a
+        href={image.href}
+        data-pswp-width={image.size.width}
+        data-pswp-height={image.size.height}
+        class="portfolio-item relative overflow-hidden group rounded-lg after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-black/30 after:to-transparent after:opacity-0 after:transition after:ease-out after:duration-[160ms] hover:after:opacity-100"
+      >
+        <Image
+          inferSize={true}
+          src={image.href}
+          width={image.size.width}
+          height={image.size.height}
+          loading="lazy"
+          alt={image.label || title || 'Gallery image'}
+          class="transition ease-custom duration-500 group-hover:scale-105 w-full h-64 object-cover"
+        />
+        <div class="z-[1] absolute bottom-0 left-0 w-full px-7 pb-6 invisible opacity-0 translate-y-2 group-hover:translate-y-0 group-hover:visible group-hover:opacity-100 group-hover:mb-0 transition ease-out duration-[160ms] min-w-[300px]">
+          <span class="font-nunito font-semibold text-xl lg:text-2xl tracking-[0.5px] text-white">
+            {image.label}
+          </span>
+        </div>
+      </a>
+    ))}
+  </div>
+)}
+
+<script>
+  import GLightbox from 'glightbox';
+
+  // Initialize GLightbox for all gallery images
+  let lightbox: any = null;
+
+  function initializeLightbox() {
+    if (lightbox) {
+      lightbox.destroy();
+    }
+    lightbox = GLightbox({
+      selector: '[data-pswp-width]',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true
+    });
+  }
+
+  function initializeCarousels() {
+    document.querySelectorAll('[data-carousel-id]').forEach(carouselEl => {
+      const autoplay = carouselEl.getAttribute('data-autoplay') === 'true';
+      const loop = carouselEl.getAttribute('data-loop') === 'true';
+
+      const slides = Array.from(carouselEl.querySelectorAll('.carousel-slide'));
+      const dots = Array.from(carouselEl.querySelectorAll('.carousel-dot'));
+
+      let currentIndex = 0;
+      let autoplayInterval: NodeJS.Timeout | null = null;
+
+      function showSlide(index: number) {
+        // Hide all slides
+        slides.forEach(slide => {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0');
+        });
+
+        // Show current slide
+        slides[index].classList.remove('opacity-0', 'z-0');
+        slides[index].classList.add('opacity-100', 'z-10');
+
+        // Update dots
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.add('bg-gray-600', 'dark:bg-gray-300', 'w-8');
+            dot.classList.remove('bg-gray-300', 'dark:bg-gray-700', 'w-2');
+          } else {
+            dot.classList.add('bg-gray-300', 'dark:bg-gray-700', 'w-2');
+            dot.classList.remove('bg-gray-600', 'dark:bg-gray-300', 'w-8');
+          }
+        });
+
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        let next = currentIndex + 1;
+        if (next >= slides.length) {
+          next = loop ? 0 : currentIndex;
+        }
+        showSlide(next);
+      }
+
+      // Dot click handlers
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+          // Restart autoplay
+          if (autoplay && autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 4000);
+          }
+        });
+      });
+
+      // Start autoplay
+      if (autoplay) {
+        autoplayInterval = setInterval(nextSlide, 4000);
+      }
+
+      // Cleanup on page navigation
+      (carouselEl as any)._cleanup = () => {
+        if (autoplayInterval) clearInterval(autoplayInterval);
+      };
+    });
+  }
+
+  // Initialize on page load and after transitions
+  const init = () => {
+    initializeLightbox();
+    initializeCarousels();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  document.addEventListener('astro:page-load', init);
+
+  // Cleanup before page swap
+  document.addEventListener('astro:before-swap', () => {
+    if (lightbox) {
+      lightbox.destroy();
+      lightbox = null;
+    }
+    document.querySelectorAll('[data-carousel-id]').forEach(carousel => {
+      if ((carousel as any)._cleanup) {
+        (carousel as any)._cleanup();
+      }
+    });
+  });
+</script>

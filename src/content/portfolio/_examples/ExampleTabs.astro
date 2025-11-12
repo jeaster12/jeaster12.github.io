@@ -1,0 +1,311 @@
+---
+import { Icon } from 'astro-icon/components'  
+import Tabs from '@/components/UI/Tabs.astro'
+import {tabCodeExamples} from './tabCodeExamples'
+import TabPanel from '@/components/UI/TabPanel.astro'
+import Terminal from '@/components/UI/Terminal.astro'
+import CodeBlock from '@/components/UI/CodeBlock.astro'
+import SectionTitle from '@/components/UI/SectionTitle.astro'
+
+// Tab configurations
+const tabData = {
+  developers: {
+    title: "Developer Flow: Ask → get the right component → validate",
+    description: "The MCP server integrates directly into VS Code, Github Actions, and a CLI, providing real-time design system guidance and validation where it's most useful. Developers get instant answers, component recommendations, and automated validation—eliminating context switching and documentation hunting.",
+    features: [
+      'Use <strong><code>search_ds</code></strong> to find the best match.',
+      'Run <strong><code>validate</code></strong> for quick fixes.',
+      'Insert <strong>token-aligned snippet with a11y baked in.</strong>',
+      '<strong>Real-time Assistance:</strong> Inline suggestions as developers type',
+      '<strong>Command Palette:</strong> Quick access to design system search and validation',
+      '<strong>Problems Panel:</strong> Design violations appear alongside TypeScript errors',
+      '<strong>Auto-fix:</strong> One-click corrections for common issues',
+      '<strong>PR Validation:</strong> Automated design system compliance checks',
+      '<strong>Status Checks:</strong> Required checks before merge',
+      '<strong>Comment Bot:</strong> Inline suggestions on code changes',
+      '<strong>Reports:</strong> Compliance reports attached to PRs'
+    ],
+    terminalTitle: "VS Code Extension",
+    codeExamples: [tabCodeExamples.dev, tabCodeExamples.vsCode, tabCodeExamples.github],
+    before: {
+      title: "Before: Traditional Struggle",
+      subtitle: "Typical developer workflow without AI assistance",
+      steps: [
+        '"I need a button component with loading state"',
+        'Opens browser → Navigate to Storybook → Search',
+        'Another tab → Check Figma for design specs',
+        'Another tab → Docs for guidelines',
+        '8 more steps with context switching'
+      ],
+      metrics: [
+        { value: '45-90min', label: 'Total Time', color: 'red' },
+        { value: '8-12', label: 'Context Switches', color: 'red' },
+        { value: 'High', label: 'Frustration', color: 'red' }
+      ]
+    },
+    after: {
+      title: "After: AI-Powered Workflow",
+      subtitle: "Streamlined developer workflow with AI assistance",
+      steps: [
+        'In VS Code: "I need a button with loading state"',
+        'AI suggests: "PrimaryButton with isLoading prop"',
+        'Accepts suggestion → Auto-imports component or tokens',
+        'AI validates accessibility → Suggests ARIA',
+        'Deploy with confidence'
+      ],
+      metrics: [
+        { value: '5-10min', label: 'Total Time', color: 'green' },
+        { value: '0', label: 'Context Switches', color: 'green' },
+        { value: 'Minimal', label: 'Frustration', color: 'green' }
+      ]
+    }
+  },
+  designers: {
+    title: "Designers: Maintain consistency → Reduce support burden",
+    description: "By automating routine support and validation, the MCP server freed designers from repetitive questions and PR reviews. Design teams reclaimed 60% of their time, shifting from reactive support to strategic design work, innovation, and user research.",
+    features: [
+      '<strong>Automated Support:</strong> AI handles routine component questions automatically',
+      '<strong>Real-time Compliance:</strong> Design token validation across all implementations',
+      '<strong>Usage Analytics:</strong> Dashboard shows adoption metrics and consistency scores',
+      '<strong>Quality Gates:</strong> Automated validation ensures brand consistency',
+      '<strong>Instant Updates:</strong> Changes propagate to AI knowledge automatically',
+      '<strong>Component Sync:</strong> Mirror Figma components to code',
+      '<strong>Token Export:</strong> Design tokens automatically synced',
+      '<strong>Spec Generation:</strong> Auto-generate component specs',
+      '<strong>Implementation Status:</strong> See which designs are implemented'
+    ],
+    terminalTitle: "Designer Dashboard",
+    codeExamples: [tabCodeExamples.designer, tabCodeExamples.figma, tabCodeExamples.github],
+    before: {
+      title: "Before: Constant Interruptions",
+      subtitle: "Designers acting as human documentation",
+      steps: [
+        'Slack: "What spacing should I use for cards?"',
+        'Meeting: Explain component props for 30 minutes',
+        'Email: "Where can I find icon guidelines?"',
+        'PR Review: Fix incorrect design token usage',
+        'Repeat 15+ times per day'
+      ],
+      metrics: [
+        { value: '4-5hrs/day', label: 'Support Time', color: 'red' },
+        { value: '20%', label: 'Strategic Work', color: 'red' },
+        { value: 'High', label: 'Burnout Risk', color: 'red' }
+      ]
+    },
+    after: {
+      title: "After: Focus on Design",
+      subtitle: "AI handles routine questions automatically",
+      steps: [
+        'Dev asks AI: Gets instant, accurate answer',
+        'Designer focuses on user research',
+        'AI validates implementations automatically',
+        'Designer creates new patterns and components',
+        'Dashboard shows adoption metrics automatically'
+      ],
+      metrics: [
+        { value: '30min/day', label: 'Support Time', color: 'green' },
+        { value: '79%', label: 'Strategic Work', color: 'green' },
+        { value: 'Minimal', label: 'Burnout Risk', color: 'green' }
+      ]
+    }
+  },
+  qa: {
+    title: "QA: Automated validation → Faster cycles",
+    description: "Automated validation catches design system violations and accessibility issues before QA testing begins. Testing cycles dropped from 2-3 days to 4-6 hours, with WCAG compliance jumping from 67% to 94%.",
+    features: [
+      '<strong>CI/CD Integration:</strong> Automated compliance checks in pipeline',
+      '<strong>A11y Validation:</strong> WCAG 2.1 AA checks before testing',
+      '<strong>Token Verification:</strong> Instant feedback on usage',
+      '<strong>Component Audit:</strong> Validate correct implementation',
+      '<strong>Visual Regression:</strong> Catch unintended changes',
+      '<strong>Batch Reporting:</strong> Compliance reports'
+    ],
+    terminalTitle: "Automated QA Validation",
+    codeExamples: [tabCodeExamples.qa, tabCodeExamples.github],
+    before: {
+      title: "Before: Manual Everything",
+      subtitle: "Time-consuming manual verification",
+      steps: [
+        'Manually check each component against design',
+        'Run accessibility tests on every variation',
+        'Verify spacing, colors match tokens',
+        'File bugs for design system violations',
+        'Wait for fixes, re-test everything'
+      ],
+      metrics: [
+        { value: '2-3 days', label: 'Testing Cycle', color: 'red' },
+        { value: '67%', label: 'WCAG Pass Rate', color: 'red' },
+        { value: 'Many', label: 'Design Bugs', color: 'red' }
+      ]
+    },
+    after: {
+      title: "After: Automated Validation",
+      subtitle: "AI catches issues before QA testing",
+      steps: [
+        'PR created: AI validates design system compliance',
+        'Automated a11y checks catch WCAG issues',
+        'Token violations flagged automatically',
+        'QA focuses on user flows and edge cases',
+        'Drastically fewer design-related bugs'
+      ],
+      metrics: [
+        { value: '4-6 hours', label: 'Testing Cycle', color: 'green' },
+        { value: '94%', label: 'WCAG Pass Rate', color: 'green' },
+        { value: '67% fewer', label: 'Design Bugs', color: 'green' }
+      ]
+    }
+  },
+  po: {
+    title: "Product Owners: Predictable delivery → Better planning",
+    description: "Real-time dashboards provide product owners with visibility into design system adoption, quality metrics, and delivery velocity. Predictable timelines replaced guesswork—features deliver 44% faster with 94% compliance. Data-driven insights enable better planning and resource allocation.",
+    features: [
+      '<strong>Real-time Visibility:</strong> Live dashboard showing design system adoption rates',
+      '<strong>Debt Tracking:</strong> Monitor and prevent technical and design debt',
+      '<strong>Velocity Metrics:</strong> Track how AI improves delivery speed',
+      '<strong>Quality Indicators:</strong> Compliance scores and consistency metrics',
+      '<strong>Predictive Analytics:</strong> AI estimates impact on cycle time',
+      '<strong>ROI Dashboard:</strong> Business value and cost savings metrics'
+    ],
+    terminalTitle: "Product Metrics Dashboard",
+    codeExamples: [tabCodeExamples.po, tabCodeExamples.cli],
+    before: {
+      title: "Before: Unpredictable Timelines",
+      subtitle: "Hidden complexity and rework",
+      steps: [
+        'Estimate feature: 2 weeks',
+        'Development: 1 week + 3 days searching docs',
+        'Design review: Wrong components used',
+        'Rework: Another week to fix inconsistencies',
+        'Actual delivery: 3+ weeks (50% over estimate)'
+      ],
+      metrics: [
+        { value: '+50%', label: 'Timeline Variance', color: 'red' },
+        { value: 'Low', label: 'Predictability', color: 'red' },
+        { value: 'High', label: 'Technical Debt', color: 'red' }
+      ]
+    },
+    after: {
+      title: "After: Predictable Delivery",
+      subtitle: "Consistent timelines with quality built-in",
+      steps: [
+        'Estimate feature: 2 weeks',
+        'AI assists: Right components immediately',
+        'Automated validation: No design review surprises',
+        'Dashboard shows: 94% compliance throughout',
+        'Actual delivery: 1.5 weeks (under estimate!)'
+      ],
+      metrics: [
+        { value: '±10%', label: 'Timeline Variance', color: 'green' },
+        { value: 'High', label: 'Predictability', color: 'green' },
+        { value: 'Minimal', label: 'Technical Debt', color: 'green' }
+      ]
+    }
+  }
+}
+---
+
+<SectionTitle
+  width="narrow"
+	title="And then the result:"
+	description="Developers get <strong>instant, accurate answers</strong> about components, patterns, and best practices <strong>without leaving their workflow</strong> or waiting for design team support."/>
+
+<Tabs
+	className="my-8"
+	tabs={[
+		{ id: 'developers', label: 'Developers', icon: 'line-md:cog' },
+		{ id: 'designers', label: 'Designers', icon: 'line-md:paint-drop-twotone' },
+		{ id: 'qa', label: 'Quality Assurance', icon: 'line-md:check-list-3-twotone' },
+		{ id: 'po', label: 'Product Owners', icon: 'line-md:laptop-twotone' }
+	]}>
+	{Object.entries(tabData).map(([key, data]) => (
+		<TabPanel id={key}>
+			<div class="grid gap-6 md:grid-cols-2 mt-0 md:mt-6 my-6 min-w-0">
+				<div class="min-w-0 overflow-hidden">
+					<h3 class="text-xl font-semibold break-words">{data.title}</h3>
+					<p class="text-sm mb-4">{data.description}</p>
+					<h4 class="mb-2 text-base font-semibold">Features:</h4>
+					<ul class="list-disc pl-0 text-sm space-y-3 list-inside mb-0">
+						{data.features.map(feature => (
+							<li set:html={feature} />
+						))}
+					</ul>
+				</div>
+				<div class="min-w-0">
+					<Terminal showCommandBar={false} title={data.terminalTitle}>
+						{data.codeExamples.map((code, i) => (
+							<CodeBlock code={code} lang="javascript" className={i > 0 ? 'mt-4' : ''} />
+						))}
+					</Terminal>
+				</div>
+			</div>
+			<div class="grid gap-6 md:grid-cols-2 min-w-0">
+				<div class="card md:p-6 p-4 shadow-sm min-w-0 overflow-hidden">
+					<h4 class="text-red-600 font-semibold mb-2 flex items-center gap-2">
+						<Icon name="line-md:close-circle" size={20} class="text-red-600" />
+						{data.before.title}
+					</h4>
+					<p class="text-sm mb-2 pl-1">{data.before.subtitle}</p>
+					<div class="space-y-2 text-sm mb-4 pl-2">
+						{data.before.steps.map((step, i) => (
+							<div class="flex items-center gap-2">
+								<span>{i < data.before.steps.length - 1 ? `${i + 1}.` : '...'}</span>
+								<span>{step}</span>
+							</div>
+						))}
+					</div>
+					<div class="border-t border-global pt-3">
+						<div class="grid grid-cols-3 gap-4 text-center">
+							{data.before.metrics.map(metric => (
+								<div>
+									<div class={`text-lg font-semibold text-${metric.color}-600 dark:text-white`}>{metric.value}</div>
+									<div class="text-xs dark:text-gray-400">{metric.label}</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+				<div class="card md:p-6 p-4 shadow-sm">
+					<h4 class="text-green-600 font-semibold mb-2 flex items-center gap-2">
+						<Icon name="line-md:confirm-circle" size={20} class="text-green-600" />
+						{data.after.title}
+					</h4>
+					<p class="text-sm mb-2 pl-1">{data.after.subtitle}</p>
+					<div class="space-y-2 text-sm mb-4 pl-2">
+						{data.after.steps.map((step, i) => (
+							<div class="flex items-center gap-2">
+								<span>{i + 1}.</span>
+								<span>{step}</span>
+							</div>
+						))}
+					</div>
+					<div class="border-t border-global pt-3">
+						<div class="grid grid-cols-3 gap-4 text-center">
+							{data.after.metrics.map(metric => (
+								<div>
+									<div class={`text-lg font-semibold text-${metric.color}-600 dark:text-white`}>{metric.value}</div>
+									<div class="text-xs dark:text-gray-400">{metric.label}</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</TabPanel>
+	))}
+</Tabs>
+
+
+  <!-- <a href="/technical-examples" class="group block p-6 not-prose bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-xl hover:shadow-purple-200/50 dark:hover:shadow-purple-900/30 transition-all duration-300 transform hover:-translate-y-1 mt-6">
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-3">
+        <div class="p-2 bg-white dark:bg-purple-900/40 rounded-lg group-hover:scale-110 transition-transform duration-300">
+          <Icon name="logos:openai-icon" class="w-6 h-6" />
+        </div>
+        <div class="font-bold text-lg text-gray-900 dark:text-white">Technical Examples</div>
+      </div>
+      <svg class="w-5 h-5 text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </div>
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Explore more real-world examples with detailed code implementations and best practices</p>
+  </a> -->

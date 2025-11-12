@@ -1,0 +1,83 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const techStack = [
+  {
+    name: 'TypeScript',
+    icon: 'devicon:typescript',
+    url: 'https://www.typescriptlang.org/',
+    description: 'Type-safe runtime',
+    hoverColor: 'hover:border-blue-400 dark:hover:border-blue-500'
+  },
+  {
+    name: 'Node.js',
+    icon: 'devicon:nodejs',
+    url: 'https://nodejs.org/',
+    description: 'Server runtime',
+    hoverColor: 'hover:border-green-400 dark:hover:border-green-500'
+  },
+  {
+    name: 'Pinecone',
+    icon: 'logos:pinecone-icon',
+    url: 'https://www.pinecone.io/',
+    description: 'Vector database',
+    specialClass: 'dark:invert',
+    hoverColor: 'hover:border-purple-400 dark:hover:border-purple-500'
+  },
+  {
+    name: 'OpenAI',
+    icon: 'simple-icons:openai',
+    url: 'https://openai.com/',
+    description: 'Embeddings & LLM',
+    hoverColor: 'hover:border-gray-400 dark:hover:border-gray-500'
+  },
+  {
+    name: 'PostgreSQL',
+    icon: 'devicon:postgresql',
+    url: 'https://www.postgresql.org/',
+    description: 'Metadata storage',
+    hoverColor: 'hover:border-blue-400 dark:hover:border-blue-500'
+  },
+  {
+    name: 'Redis',
+    icon: 'devicon:redis',
+    url: 'https://redis.io/',
+    description: 'Caching layer',
+    hoverColor: 'hover:border-red-400 dark:hover:border-red-500'
+  },
+  {
+    name: 'Kubernetes',
+    icon: 'devicon:kubernetes',
+    url: 'https://kubernetes.io/',
+    description: 'Orchestration',
+    hoverColor: 'hover:border-blue-400 dark:hover:border-blue-500'
+  },
+  {
+    name: 'DataDog',
+    icon: 'simple-icons:datadog',
+    url: 'https://www.datadoghq.com/',
+    description: 'APM & monitoring',
+    hoverColor: 'hover:border-purple-400 dark:hover:border-purple-500'
+  }
+];
+---
+
+<h4 id="tech-stack" class="mt-6">Non-complete Tech Stack Overview</h4>
+
+<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 my-4 not-prose">
+  {techStack.map(tech => (
+    <a
+      href={tech.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`flex items-center gap-3 p-4 card-white ${tech.hoverColor} transition-colors hover:shadow-md no-underline not-prose`}>
+      <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center">
+        <Icon name={tech.icon} size={40} class={tech.specialClass || ''} />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-semibold text-sm">{tech.name}</div>
+        <div class="text-xs text-gray-600 dark:text-gray-400">{tech.description}</div>
+      </div>
+    </a>
+  ))}
+</div>

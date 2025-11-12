@@ -1,0 +1,22 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  labelSize?: string;
+  className?: string;
+  valueColor?: string;
+}
+
+const {
+  value,
+  label,
+  className = '',
+  labelSize = 'text-xs',
+  valueColor = 'text-purple-700 dark:text-purple-300',
+} = Astro.props;
+---
+
+<div class={className}>
+  <div class={`text-3xl font-bold ${valueColor} mb-1`}>{value}</div>
+  <div class={`italic ${labelSize} mt-1`}>{label}</div>
+</div>

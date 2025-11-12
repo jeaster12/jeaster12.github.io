@@ -1,0 +1,177 @@
+---
+interface Props {
+  loop?: boolean;
+  className?: string;
+  showCursor?: boolean;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
+  text: string | string[];
+  cursorCharacter?: string;
+  cursorBlinkDuration?: number;
+}
+
+const {
+  text,
+  loop = true,
+  className = '',
+  typingSpeed = 50,
+  showCursor = true,
+  deletingSpeed = 30,
+  pauseDuration = 2000,
+  cursorCharacter = '|',
+  cursorBlinkDuration = 0.5,
+} = Astro.props;
+
+// Generate unique ID for this instance
+const uniqueId = `text-type-${Math.random().toString(36).substring(2, 11)}`;
+---
+
+<div
+  id={uniqueId}
+  class={`inline-block tracking-tight ${className}`}
+  data-text={JSON.stringify(Array.isArray(text) ? text : [text])}
+  data-loop={loop}
+  data-show-cursor={showCursor}
+  data-typing-speed={typingSpeed}
+  data-pause-duration={pauseDuration}
+  data-deleting-speed={deletingSpeed}
+  data-cursor-character={cursorCharacter}
+  data-cursor-blink-duration={cursorBlinkDuration}
+>
+  <span class="text-content inline"></span>
+  {showCursor && (
+    <span class="cursor-char inline-block text-primary"
+      style={`animation: cursorBlink ${cursorBlinkDuration * 2}s ease-in-out infinite;`}>
+      {cursorCharacter}
+    </span>
+  )}
+</div>
+
+<script>
+  function initTextType() {
+    document.querySelectorAll('[id^="text-type-"]').forEach((container) => {
+      if (container.hasAttribute('data-initialized')) return;
+      container.setAttribute('data-initialized', 'true');
+
+      const loop = container.getAttribute('data-loop') === 'true';
+      const textArray = JSON.parse(container.getAttribute('data-text') || '[]');
+      const typingSpeed = parseInt(container.getAttribute('data-typing-speed') || '50');
+      const deletingSpeed = parseInt(container.getAttribute('data-deleting-speed') || '30');
+      const pauseDuration = parseInt(container.getAttribute('data-pause-duration') || '2000');
+
+      const textContent = container.querySelector('.text-content');
+
+      let isDeleting = false;
+      let currentTextIndex = 0;
+      let currentCharIndex = 0;
+      let lastUpdateTime = 0;
+      let rafId: number | null = null;
+      let isWaiting = false;
+      let waitUntil = 0;
+
+      function type(timestamp: number) {
+        // Initialize timestamp on first run
+        if (lastUpdateTime === 0) {
+          lastUpdateTime = timestamp;
+        }
+
+        // Handle waiting periods (pause between typing/deleting)
+        if (isWaiting) {
+          if (timestamp < waitUntil) {
+            rafId = requestAnimationFrame(type);
+            return;
+          }
+          isWaiting = false;
+        }
+
+        const currentText = textArray[currentTextIndex];
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        const elapsed = timestamp - lastUpdateTime;
+
+        // Only update if enough time has passed
+        if (elapsed < speed) {
+          rafId = requestAnimationFrame(type);
+          return;
+        }
+
+        lastUpdateTime = timestamp;
+
+        if (isDeleting) {
+          // Deleting characters
+          currentCharIndex--;
+          if (textContent) {
+            textContent.textContent = currentText.substring(0, currentCharIndex);
+          }
+
+          if (currentCharIndex === 0) {
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % textArray.length;
+
+            // Stop if we've completed all texts and loop is false
+            if (!loop && currentTextIndex === 0) {
+              return;
+            }
+
+            // Pause before typing next text
+            isWaiting = true;
+            waitUntil = timestamp + pauseDuration;
+          }
+        } else {
+          // Typing characters
+          currentCharIndex++;
+          if (textContent) {
+            textContent.textContent = currentText.substring(0, currentCharIndex);
+          }
+
+          if (currentCharIndex === currentText.length) {
+            // Finished typing current text
+            if (textArray.length > 1) {
+              isDeleting = true;
+              isWaiting = true;
+              waitUntil = timestamp + pauseDuration;
+            } else {
+              // Single text, no loop - stop here
+              return;
+            }
+          }
+        }
+
+        rafId = requestAnimationFrame(type);
+      }
+
+      // Start typing after a small delay
+      setTimeout(() => {
+        rafId = requestAnimationFrame(type);
+      }, 100);
+
+      // Clean up on page unload
+      const cleanup = () => {
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      };
+
+      // Store cleanup function
+      (container as any)._cleanup = cleanup;
+    });
+  }
+
+  // Initialize on page load and after transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTextType);
+  } else {
+    initTextType();
+  }
+  document.addEventListener('astro:page-load', initTextType);
+
+  // Cleanup before page swap
+  document.addEventListener('astro:before-swap', () => {
+    document.querySelectorAll('[id^="text-type-"]').forEach((container) => {
+      if ((container as any)._cleanup) {
+        (container as any)._cleanup();
+      }
+    });
+  });
+</script>

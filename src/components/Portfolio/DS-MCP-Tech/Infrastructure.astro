@@ -1,0 +1,65 @@
+---
+import SectionTitle from "@/components/UI/SectionTitle.astro";
+---
+
+<SectionTitle
+  title="Infrastructure & Operations"
+  description="A small overview of the <strong>infrastructure</strong> and <strong>operations setup</strong>."/>
+
+<div class="card md:p-6 p-4 shadow-sm mb-4">
+  <h3 class="font-semibold text-lg mb-4">Production Infrastructure</h3>
+
+  <div class="grid gap-6 md:grid-cols-3 mb-6">
+    <div class="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg">
+      <h4 class="font-semibold text-sm mb-2">Compute</h4>
+      <ul class="text-xs space-y-1 pl-1 list-disc list-inside not-prose">
+        <li>Kubernetes cluster (AWS EKS)</li>
+        <li>12 pods (autoscaling)</li>
+        <li>Node.js 20 LTS</li>
+        <li>Load balanced</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 dark:bg-green-950/30 p-4 rounded-lg">
+      <h4 class="font-semibold text-sm mb-2">Storage</h4>
+      <ul class="text-xs space-y-1 pl-1 list-disc list-inside not-prose">
+        <li>Pinecone (vector DB)</li>
+        <li>PostgreSQL (metadata)</li>
+        <li>Redis (cache)</li>
+        <li>S3 (artifacts)</li>
+      </ul>
+    </div>
+
+    <div class="bg-purple-50 dark:bg-purple-950/30 p-4 rounded-lg">
+      <h4 class="font-semibold text-sm mb-2">Monitoring</h4>
+      <ul class="text-xs space-y-1 pl-1 list-disc list-inside not-prose">
+        <li>DataDog APM</li>
+        <li>Custom metrics</li>
+        <li>Error tracking (Sentry)</li>
+        <li>Usage analytics</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 dark:bg-black/40 rounded-lg p-4">
+    <h4 class="font-semibold text-sm mb-3">Key Metrics</h4>
+    <div class="grid gap-4 md:grid-cols-4 text-sm">
+      <div>
+        <div class="text-2xl font-bold mb-1">99.9%</div>
+        <div class="text-xs">Uptime SLA</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold mb-1">&lt;200ms</div>
+        <div class="text-xs">P95 latency</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold mb-1">2.1M</div>
+        <div class="text-xs">Queries/month</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold mb-1">$4K</div>
+        <div class="text-xs">Monthly cost</div>
+      </div>
+    </div>
+  </div>
+</div>

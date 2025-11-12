@@ -1,4 +1,4 @@
-# AstroPort - Modern Portfolio
+# Modern Portfolio
 
 A sleek, responsive portfolio website built with Astro and Tailwind CSS, deployed at [josheaster.com](https://josheaster.com).
 

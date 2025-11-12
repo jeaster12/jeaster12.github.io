@@ -43,7 +43,7 @@ jobs:
         run: pnpm run build
         env:
           # Set base path for the preview subdirectory
-          BASE_PATH: /pr-${{ github.event.pull_request.number }}
+          BASE_PATH: /previews/pr-${{ github.event.pull_request.number }}
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
@@ -51,7 +51,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          destination_dir: pr-${{ github.event.pull_request.number }}
+          destination_dir: previews/pr-${{ github.event.pull_request.number }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Deploy preview for PR #${{ github.event.pull_request.number }}'
@@ -62,7 +62,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/previews/pr-${prNumber}/`;
 
             // Check if comment already exists
             const comments = await github.rest.issues.listComments({

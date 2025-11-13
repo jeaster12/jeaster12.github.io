@@ -42,7 +42,6 @@ export default {
       },
       fontFamily: {
         opensans: ['Open Sans Variable', 'sans-serif'],
-        nunito: ['Nunito Sans Variable', 'sans-serif'],
         mono: ['Roboto Mono Variable', 'monospace']
       },
       boxShadow: {

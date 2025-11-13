@@ -195,4 +195,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built with [Astro](https://astro.build/)
 - Icons by [Iconify](https://iconify.design/)
-- Fonts: Nunito Sans, Open Sans, Roboto Mono from [Fontsource](https://fontsource.org/)
+- Fonts: Open Sans, Roboto Mono from [Fontsource](https://fontsource.org/)

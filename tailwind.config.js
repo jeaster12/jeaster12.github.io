@@ -67,8 +67,11 @@ export default {
         boxDark: '#1c1e20',
         borderMain: colors.gray[200],
         borderMainDark: 'rgba(255, 255, 255, 0.06)',
-        primary: colors.blue[600],
-        primaryHover: colors.blue[800],
+        // Map primary to the full blue color scale (change 'blue' to any color like 'lime', 'purple', etc.)
+        primary: {
+          ...colors.blue,
+          DEFAULT: colors.blue[600], // bg-primary, text-primary, border-primary will use this
+        }
       },
       transitionTimingFunction: {
         custom: 'cubic-bezier(0.165, 0.84, 0.44, 1)'

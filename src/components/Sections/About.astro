@@ -36,10 +36,10 @@ const contactContent = mainContent.Contact;
 		</div>
 
 		<div class="flex-1">
-			<p class="font-mono font-medium uppercase text-xs sm:text-sm tracking-wider relative pt-2 lg:pt-4 mb-4 lg:mb-5 dark:text-white before:content-['//'] before:text-primary after:content-[attr(data-backdrop-text)] after:absolute after:top-0 after:left-0 after:font-nunito after:font-bold after:uppercase after:text-2xl sm:after:text-3xl lg:after:text-4xl after:opacity-15" data-backdrop-text={aboutContent.subtitle}>
+			<p class="font-mono font-medium uppercase text-xs sm:text-sm tracking-wider relative pt-2 lg:pt-4 mb-4 lg:mb-5 dark:text-white before:content-['//'] before:text-primary after:content-[attr(data-backdrop-text)] after:absolute after:top-0 after:left-0 after: after:font-bold after:uppercase after:text-2xl sm:after:text-3xl lg:after:text-4xl after:opacity-15" data-backdrop-text={aboutContent.subtitle}>
         {aboutContent.subtitle}
       </p>
-			<h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 font-nunito mb-3 lg:mb-2 dark:text-white" set:html={aboutContent.header} />
+			<h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900  mb-3 lg:mb-2 dark:text-white" set:html={aboutContent.header} />
       <p class="text-gray-700 dark:text-white/70 mb-4 lg:mb-2 text-sm sm:text-base">{aboutContent.description}</p>
       <ul class="space-y-3 lg:space-y-4">
         {contactContent.contactItems.map((item) => (

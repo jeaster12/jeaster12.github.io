@@ -11,39 +11,29 @@ export default {
       typography: {
         DEFAULT: {
           css: {
-            h1: {
-              marginBottom: '0', // Adjust heading bottom margin
-              marginTop: '0', // Adjust heading top margin
-            },
-            h2: {
-              marginBottom: '0', // Adjust heading top margin
-              marginTop: '0', // Adjust heading bottom margin
-            },
-            h3: {
-              marginBottom: '0.5em', // Adjust heading top margin
-              marginTop: '0', // Adjust heading bottom margin
-            },
-            h4: {
-              marginBottom: '0.5em',
+            // Remove top margins globally
+            '--tw-prose-body': 'inherit',
+            '* + *': {
               marginTop: '0',
             },
-            p: {
-              marginTop: '0', // Adjust paragraph top margin
-              marginBottom: '0', // Adjust paragraph bottom margin
-            },
-            ul: {
-              marginTop: '0.5em', // Adjust list item top margin
-              marginBottom: '0.5em', // Adjust list item bottom margin
-            },
-            li: {
-              marginTop: '0.5em', // Adjust list item top margin
-              marginBottom: '0.5em', // Adjust list item bottom margin
-            },
-            img: {
+            // Set specific spacing where needed
+            'h1, h2': {
               marginTop: '0',
               marginBottom: '0',
             },
-            pre: {
+            'h3, h4': {
+              marginTop: '0',
+              marginBottom: '0.5em',
+            },
+            'ul, ol': {
+              marginTop: '0.5em',
+              marginBottom: '0.5em',
+            },
+            'li': {
+              marginTop: '0.5em',
+              marginBottom: '0.5em',
+            },
+            'p, img, pre': {
               marginTop: '0',
               marginBottom: '0',
             },
@@ -69,8 +59,8 @@ export default {
         borderMainDark: 'rgba(255, 255, 255, 0.06)',
         // Map primary to the full blue color scale (change 'blue' to any color like 'lime', 'purple', etc.)
         primary: {
-          ...colors.blue,
-          DEFAULT: colors.blue[600], // bg-primary, text-primary, border-primary will use this
+          ...colors.purple,
+          DEFAULT: colors.purple[600], // bg-primary, text-primary, border-primary will use this
         }
       },
       transitionTimingFunction: {

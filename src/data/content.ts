@@ -9,7 +9,8 @@ export const mainContent = {
   Experience: {
     title: 'Professional Journey',
     subtitle: 'Experience',
-    description: 'Demonstrated ability to deliver excellent results while leading a multidiscipline team with engineers, developers, designers, analysts, and marketing personnel. Ability to work independently, with good organizational skills and the adaptability to work on multiple projects with exceptional attention to detail.',
+    description:
+      'Demonstrated ability to deliver <strong>excellent results</strong> while leading a <strong>multidiscipline team</strong> with engineers, developers, designers, analysts, and marketing personnel. Ability to work independently, with <strong>good organizational skills</strong> and the adaptability to work on <strong>multiple projects</strong> with <strong>exceptional attention to detail</strong>.',
     items: [
       {
         company: 'ADP, Automatic Data Processing, Inc.',
@@ -239,7 +240,7 @@ export const mainContent = {
   Contact: {
     title: "Let's Connect",
     subtitle: 'Contact',
-    description: "I'm always excited to collaborate on innovative projects, discuss engineering/design challenges, or explore new opportunities. Whether you're looking to build something amazing or just want to connect, feel free to reach out.",
+    description: "I'm always excited to collaborate on innovative projects, discuss engineering/design challenges, or explore new opportunities. Whether you're looking to build something new or just want to connect, feel free to reach out.",
     contactItems: [
       { icon: 'line-md:linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/josh-easter/', newWindow: true },
       { icon: 'line-md:email-alt-twotone', label: 'Email Me', url: 'mailto:josh.a.easter@gmail.com' }

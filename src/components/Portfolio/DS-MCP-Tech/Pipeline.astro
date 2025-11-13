@@ -12,7 +12,7 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
 <div class="grid gap-6 md:grid-cols-2 mb-8">
   <div class="card md:p-6 p-4 shadow-sm">
     <h4 class="font-semibold">Data Sources</h4>
-    <ul class="text-sm space-y-2 mb-0">
+    <ul class="text-sm space-y-2 mb-0 ml-0 md:pl-4">
       <li><strong>Documentation</strong> - Static site, Storybook, MDX files</li>
       <li><strong>Code examples</strong> - GitHub repos, CodeSandbox demos</li>
       <li><strong>Support data</strong> - Slack Q&A, support tickets, office hours</li>
@@ -22,7 +22,7 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
   </div>
   <div class="card md:p-6 p-4 shadow-sm">
     <h4 class="font-semibold">Data Processing</h4>
-    <ul class="text-sm space-y-2 mb-0">
+    <ul class="text-sm space-y-2 mb-0 ml-0 md:pl-4">
       <li><strong>Cleaning</strong> - Remove outdated content, fix broken links</li>
       <li><strong>Chunking</strong> - Split long documents (800 chars, 120 overlap)</li>
       <li><strong>Augmentation</strong> - Generate Q&A pairs, add metadata</li>
@@ -59,12 +59,12 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
 
 
 <div class="grid md:grid-cols-2 gap-6 my-8">
-  <div class="card-white p-6">
+  <div class="card-white p-4 md:p-6">
     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-      <Icon name="carbon:cloud-app" class="text-purple-600 w-6 h-6" />
+      <Icon name="carbon:cloud-app" class="text-primary-600 w-6 h-6" />
       Server Architecture
     </h3> 
-    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 ml-0 md:ml-1 md:pl-5 m-0">
       <li><strong>Node.js server</strong> running Model Context Protocol</li>
       <li><strong>GPT-4</strong> for natural language understanding</li>
       <li><strong>Express API</strong> for tool orchestration</li>
@@ -73,12 +73,12 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
     </ul>
   </div>
 
-  <div class="card-white p-6">
+  <div class="card-white p-4 md:p-6">
     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
       <Icon name="carbon:tools" class="text-blue-600 w-6 h-6" />
       Tool Integration
     </h3>
-    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 ml-0 md:ml-1 md:pl-5 m-0">
       <li><strong>ESLint CLI</strong> via Node API</li>
       <li><strong>Prettier</strong> programmatic API</li>
       <li><strong>TypeScript Compiler API</strong> for type checking</li>
@@ -87,12 +87,12 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
     </ul>
   </div>
 
-  <div class="card-white p-6">
+  <div class="card-white p-4 md:p-6">
     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
       <Icon name="carbon:data-base" class="text-green-600 w-6 h-6" />
       Design System Context
     </h3>
-    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 ml-0 md:ml-1 md:pl-5 m-0">
       <li><strong>Figma API</strong> for design token extraction</li>
       <li><strong>JSON schema</strong> for token validation</li>
       <li><strong>Component registry</strong> with usage patterns</li>
@@ -101,12 +101,12 @@ import SectionTitle from "@/components/UI/SectionTitle.astro";
     </ul>
   </div>
 
-  <div class="card-white p-6">
+  <div class="card-white p-4 md:p-6">
     <h3 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
       <Icon name="carbon:integration" class="text-orange-600 w-6 h-6" />
       IDE Integration
     </h3>
-    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 pl-7 m-0">
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 ml-0 md:ml-1 md:pl-5 m-0">
       <li><strong>VS Code extension</strong> with Language Server Protocol</li>
       <li><strong>ChatGPT integration</strong> via MCP protocol</li>
       <li><strong>Inline diagnostics</strong> with quick fixes</li>

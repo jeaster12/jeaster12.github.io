@@ -18,10 +18,10 @@ export const deepDiveCards = [
   {
     href: '/mcp-server',
     icon: 'logos:openai-icon',
-    iconBg: 'bg-purple-100 dark:bg-purple-800',
-    iconColor: 'text-purple-600 dark:text-purple-400',
-    hoverBorder: 'hover:border-purple-300 dark:hover:border-purple-800',
-    hoverText: 'group-hover:text-purple-600 dark:group-hover:text-purple-400',
+    iconBg: 'bg-primary-100 dark:bg-primary-800',
+    iconColor: 'text-primary-600 dark:text-primary-400',
+    hoverBorder: 'hover:border-primary-300 dark:hover:border-primary-800',
+    hoverText: 'group-hover:text-primary-600 dark:group-hover:text-primary-400',
     title: 'MCP Server Deep Dive',
     description: 'Technical architecture of the AI orchestration layer: grounded tool execution, design system intelligence, and real-time validation',
     badges: [
@@ -99,8 +99,8 @@ export const deepDiveCards = [
   </div>
 
   <div class="card p-6 text-center hover:shadow-lg transition-shadow">
-    <Icon name="line-md:star-filled" class="w-12 h-12 mx-auto mb-3 text-purple-600 dark:text-purple-400" />
-    <div class="text-3xl font-bold mb-1 text-purple-600 dark:text-purple-400">
+    <Icon name="line-md:star-filled" class="w-12 h-12 mx-auto mb-3 text-primary-600 dark:text-primary-400" />
+    <div class="text-3xl font-bold mb-1 text-primary-600 dark:text-primary-400">
       {roiMetrics.annualValue}
     </div>
     <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">Annual Value</div>
@@ -119,7 +119,7 @@ export const deepDiveCards = [
 
 
 {/* The Problem */}
-<div class="orange-gradient p-6 rounded-lg mb-6">
+<div class="orange-gradient p-4 md:p-6 rounded-lg mb-6">
   <div class="flex items-start gap-4">
     <Icon name="line-md:alert-circle" class="w-8 h-8 text-red-600 dark:text-red-400 flex-shrink-0 mt-1" />
     <div>
@@ -172,11 +172,11 @@ export const deepDiveCards = [
     tools and configurations</strong>, creating a consistent validation experience.</p>
 
   <div class="grid md:grid-cols-3 gap-4 mb-6 not-prose">
-    <div class="bg-white p-6 rounded-lg border border-purple-300 dark:bg-black/20 dark:border-purple-700">
+    <div class="bg-white p-6 rounded-lg border border-primary-300 dark:bg-black/20 dark:border-primary-700">
       <div class="flex items-center gap-3 mb-3">
-        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
+        <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
         <div>
-          <div class="font-bold text-purple-700 dark:text-purple-300">IDE Integration</div>
+          <div class="font-bold text-primary-700 dark:text-primary-300">IDE Integration</div>
           <div class="text-xs text-gray-600 dark:text-gray-400">1-3 seconds</div>
         </div>
       </div>
@@ -206,9 +206,9 @@ export const deepDiveCards = [
     </div>
   </div>
 
-  <div class="bg-purple-900 text-white p-5 rounded-lg dark:bg-black/40 dark:border-purple-700">
+  <div class="bg-primary-900 text-white p-5 rounded-lg dark:bg-black/40 dark:border-primary-700">
     <div class="font-bold mb-2 text-lg">The Result</div>
-    <p class="text-purple-200 dark:text-purple-200 mb-0"><strong class="text-white">99% of issues caught before code review</strong>, reducing reviewer burden by 53% and enabling
+    <p class="text-primary-200 dark:text-primary-200 mb-0"><strong class="text-white">99% of issues caught before code review</strong>, reducing reviewer burden by 53% and enabling
       44% faster delivery with 78% fewer production bugs. Engineers get instant guidance, catch issues before
       committing, and have a final safety net in CI/CD.</p>
   </div>
@@ -217,7 +217,7 @@ export const deepDiveCards = [
 
 {/* Stage 1: IDE with MCP */}
 <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-3">
-  <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+  <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
   Stage 1: IDE Integration with MCP Server
 </h2>
 
@@ -231,7 +231,7 @@ export const deepDiveCards = [
 
       <div class="grid md:grid-cols-2 gap-4">
         <div>
-          <h4 class="text-sm font-bold text-purple-900 mb-2 dark:text-purple-300">Design System Intelligence</h4>
+          <h4 class="text-sm font-bold text-primary-900 mb-2 dark:text-primary-300">Design System Intelligence</h4>
           <ul class="text-sm text-gray-700 dark:text-gray-400 space-y-2 list-disc pl-5 mb-0">
             <li>Validates design tokens in real-time</li>
             <li>Checks component usage against Figma</li>
@@ -240,7 +240,7 @@ export const deepDiveCards = [
           </ul>
         </div>
         <div>
-          <h4 class="text-sm font-bold text-purple-900 mb-2 dark:text-purple-300">Tool Orchestration</h4>
+          <h4 class="text-sm font-bold text-primary-900 mb-2 dark:text-primary-300">Tool Orchestration</h4>
           <ul class="text-sm text-gray-700 dark:text-gray-400 space-y-2 list-disc pl-5 mb-0">
             <li>Coordinates ESLint, Prettier, TypeScript</li>
             <li>AI-powered explanations for violations</li>
@@ -252,19 +252,19 @@ export const deepDiveCards = [
     </div>
 
     <div class="flex-shrink-0 space-y-3 mb-4">
-      <div class="bg-white p-4 rounded-lg border border-purple-300 w-32 text-center dark:bg-black/20 dark:border-purple-700">
-        <div class="text-3xl font-bold text-purple-600">91%</div>
+      <div class="bg-white p-4 rounded-lg border border-primary-300 w-32 text-center dark:bg-black/20 dark:border-primary-700">
+        <div class="text-3xl font-bold text-primary-600">91%</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">Adoption Rate</div>
       </div>
-      <div class="bg-white p-4 rounded-lg border border-purple-300 w-32 text-center dark:bg-black/20 dark:border-purple-700">
-        <div class="text-3xl font-bold text-purple-600">8.2s</div>
+      <div class="bg-white p-4 rounded-lg border border-primary-300 w-32 text-center dark:bg-black/20 dark:border-primary-700">
+        <div class="text-3xl font-bold text-primary-600">8.2s</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">Avg Feedback</div>
       </div>
     </div>
   </div>
-  <div class="bg-purple-900 text-white p-4 rounded-lg text-sm dark:bg-black/40 dark:border-purple-700">
+  <div class="bg-primary-900 text-white p-4 rounded-lg text-sm dark:bg-black/40 dark:border-primary-700">
     <div class="font-bold mb-1">Key Innovation: Grounded Tool Execution</div>
-    <p class="text-purple-100 dark:text-purple-200 mb-0">
+    <p class="text-primary-100 dark:text-primary-200 mb-0">
       Unlike traditional AI assistants, the MCP Server executes actual validation tools and reports real results,
       eliminating hallucinations and ensuring 100% accuracy.
     </p>
@@ -272,7 +272,7 @@ export const deepDiveCards = [
 </div>
 
 <div class="text-center">
-  <a href="/mcp-server" class="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold dark:text-purple-400">
+  <a href="/mcp-server" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold dark:text-primary-400">
     Deep Dive: MCP Server Architecture
     <Icon name="line-md:arrow-right" class="w-4 h-4" />
   </a>
@@ -465,7 +465,7 @@ export const deepDiveCards = [
 
 {/* Deep Dives */}
 <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
-  <Icon name="line-md:document-list" class="text-purple-600" />
+  <Icon name="line-md:document-list" class="text-primary-600" />
   Deep Dives & Technical Details
 </h2>
 <p class="text-gray-800 mb-6 dark:text-gray-400">Explore specific aspects of the platform architecture, technical challenges, impact metrics, and leadership approach</p>

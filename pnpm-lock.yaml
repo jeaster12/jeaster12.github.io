@@ -8,9 +8,6 @@ dependencies:
   '@astrojs/check':
     specifier: ^0.9.4
     version: 0.9.4(typescript@5.9.2)
-  '@fontsource-variable/nunito-sans':
-    specifier: ^5.2.6
-    version: 5.2.6
   '@fontsource-variable/open-sans':
     specifier: ^5.2.6
     version: 5.2.6
@@ -169,7 +166,7 @@ packages:
       remark-rehype: 11.1.2
       remark-smartypants: 3.0.2
       shiki: 3.13.0
-      smol-toml: 1.4.2
+      smol-toml: 1.5.0
       unified: 11.0.5
       unist-util-remove-position: 5.0.0
       unist-util-visit: 5.0.0
@@ -518,10 +515,6 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
-
-  /@fontsource-variable/nunito-sans@5.2.6:
-    resolution: {integrity: sha512-lDToEZdfmhp+W62yZxDY64+tOzIBF7phjyTcIG+nh8utXMJo8IgS9iqVoOI18LyS/FMJO9Dx3kCsJEDQaf3s9g==}
-    dev: false
 
   /@fontsource-variable/open-sans@5.2.6:
     resolution: {integrity: sha512-O596UvQZ7KkR8yDJWIP8UZZoqs0DHpYsrL0Szml0/EkrJ35HcMIM3bJ3sSAIAjWsBSqKgzV2HJEIuhvxBd1iog==}
@@ -1613,7 +1606,7 @@ packages:
       rehype: 13.0.2
       semver: 7.7.3
       shiki: 3.13.0
-      smol-toml: 1.4.2
+      smol-toml: 1.5.0
       tinyexec: 0.3.2
       tinyglobby: 0.2.15
       tsconfck: 3.1.6(typescript@5.9.2)
@@ -1720,8 +1713,8 @@ packages:
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  /baseline-browser-mapping@2.8.27:
-    resolution: {integrity: sha512-2CXFpkjVnY2FT+B6GrSYxzYf65BJWEqz5tIRHCvNsZZ2F3CmsCB37h8SpYgKG7y9C4YAeTipIPWG7EmFmhAeXA==}
+  /baseline-browser-mapping@2.8.28:
+    resolution: {integrity: sha512-gYjt7OIqdM0PcttNYP2aVrr2G0bMALkBaoehD4BuRGjAOtipg0b6wHg1yNL+s5zSnLZZrGHOw4IrND8CD+3oIQ==}
     hasBin: true
     dev: true
 
@@ -1772,7 +1765,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      baseline-browser-mapping: 2.8.27
+      baseline-browser-mapping: 2.8.28
       caniuse-lite: 1.0.30001754
       electron-to-chromium: 1.5.250
       node-releases: 2.0.27
@@ -4360,8 +4353,8 @@ packages:
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  /smol-toml@1.4.2:
-    resolution: {integrity: sha512-rInDH6lCNiEyn3+hH8KVGFdbjc099j47+OSgbMrfDYX1CmXLfdKd7qi6IfcWj2wFxvSVkuI46M+wPGYfEOEj6g==}
+  /smol-toml@1.5.0:
+    resolution: {integrity: sha512-Jjsa8LZ+DyLbZ7gVi9d18bS8oxq0PQrTlVDfvYXgh7gxLwbW9QWgvakHD+hBLUtr5NahfStd8LQLGSPchaEJ8Q==}
     engines: {node: '>= 18'}
 
   /source-map-js@1.2.1:
